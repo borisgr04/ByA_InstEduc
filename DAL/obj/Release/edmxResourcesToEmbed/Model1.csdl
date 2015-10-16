@@ -1,0 +1,1022 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdieModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ieEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="carterap" EntityType="bdieModel.carterap" />
+    <EntitySet Name="conceptos" EntityType="bdieModel.conceptos" />
+    <EntitySet Name="config_grupos_pagos" EntityType="bdieModel.config_grupos_pagos" />
+    <EntitySet Name="cursos" EntityType="bdieModel.cursos" />
+    <EntitySet Name="detalles_pago" EntityType="bdieModel.detalles_pago" />
+    <EntitySet Name="detalles_tipos_tercero" EntityType="bdieModel.detalles_tipos_tercero" />
+    <EntitySet Name="documentos" EntityType="bdieModel.documentos" />
+    <EntitySet Name="entidad" EntityType="bdieModel.entidad" />
+    <EntitySet Name="estudiantes" EntityType="bdieModel.estudiantes" />
+    <EntitySet Name="fc_menu" EntityType="bdieModel.fc_menu" />
+    <EntitySet Name="fechas_calculo_intereses" EntityType="bdieModel.fechas_calculo_intereses" />
+    <EntitySet Name="formas_pago" EntityType="bdieModel.formas_pago" />
+    <EntitySet Name="grados" EntityType="bdieModel.grados" />
+    <EntitySet Name="grupos_pagos" EntityType="bdieModel.grupos_pagos" />
+    <EntitySet Name="intereses_manuales" EntityType="bdieModel.intereses_manuales" />
+    <EntitySet Name="matriculas" EntityType="bdieModel.matriculas" />
+    <EntitySet Name="movimientos" EntityType="bdieModel.movimientos" />
+    <EntitySet Name="pagos" EntityType="bdieModel.pagos" />
+    <EntitySet Name="parametros" EntityType="bdieModel.parametros" />
+    <EntitySet Name="periodos" EntityType="bdieModel.periodos" />
+    <EntitySet Name="saldos_a_favor" EntityType="bdieModel.saldos_a_favor" />
+    <EntitySet Name="tarifas" EntityType="bdieModel.tarifas" />
+    <EntitySet Name="tasas" EntityType="bdieModel.tasas" />
+    <EntitySet Name="terceros" EntityType="bdieModel.terceros" />
+    <EntitySet Name="tipos_documentos" EntityType="bdieModel.tipos_documentos" />
+    <EntitySet Name="tipos_terceros" EntityType="bdieModel.tipos_terceros" />
+    <EntitySet Name="vigencias" EntityType="bdieModel.vigencias" />
+    <AssociationSet Name="FK_carterap_conceptos" Association="bdieModel.FK_carterap_conceptos">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="carterap" EntitySet="carterap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_carterap_estudiantes" Association="bdieModel.FK_carterap_estudiantes">
+      <End Role="estudiantes" EntitySet="estudiantes" />
+      <End Role="carterap" EntitySet="carterap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_carterap_grupos_pagos" Association="bdieModel.FK_carterap_grupos_pagos">
+      <End Role="grupos_pagos" EntitySet="grupos_pagos" />
+      <End Role="carterap" EntitySet="carterap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_carterap_matriculas" Association="bdieModel.FK_carterap_matriculas">
+      <End Role="matriculas" EntitySet="matriculas" />
+      <End Role="carterap" EntitySet="carterap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_carterap_vigencias" Association="bdieModel.FK_carterap_vigencias">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="carterap" EntitySet="carterap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_pago_carterap" Association="bdieModel.FK_detalles_pago_carterap">
+      <End Role="carterap" EntitySet="carterap" />
+      <End Role="detalles_pago" EntitySet="detalles_pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fechas_calculo_intereses_carterap" Association="bdieModel.FK_fechas_calculo_intereses_carterap">
+      <End Role="carterap" EntitySet="carterap" />
+      <End Role="fechas_calculo_intereses" EntitySet="fechas_calculo_intereses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movimientos_carterap" Association="bdieModel.FK_movimientos_carterap">
+      <End Role="carterap" EntitySet="carterap" />
+      <End Role="movimientos" EntitySet="movimientos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_config_concetos" Association="bdieModel.fk_config_concetos">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_pago_conceptos" Association="bdieModel.FK_detalles_pago_conceptos">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="detalles_pago" EntitySet="detalles_pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movimientos_conceptos1" Association="bdieModel.FK_movimientos_conceptos1">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="movimientos" EntitySet="movimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tarifas_conceptos1" Association="bdieModel.FK_tarifas_conceptos1">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="tarifas" EntitySet="tarifas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_config_grupos" Association="bdieModel.fk_config_grupos">
+      <End Role="grupos_pagos" EntitySet="grupos_pagos" />
+      <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_config_vigencia" Association="bdieModel.fk_config_vigencia">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cursos_grados" Association="bdieModel.FK_cursos_grados">
+      <End Role="grados" EntitySet="grados" />
+      <End Role="cursos" EntitySet="cursos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_natriculas_cursos" Association="bdieModel.FK_natriculas_cursos">
+      <End Role="cursos" EntitySet="cursos" />
+      <End Role="matriculas" EntitySet="matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_pago_pagos" Association="bdieModel.FK_detalles_pago_pagos">
+      <End Role="pagos" EntitySet="pagos" />
+      <End Role="detalles_pago" EntitySet="detalles_pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_pago_vigencias" Association="bdieModel.FK_detalles_pago_vigencias">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="detalles_pago" EntitySet="detalles_pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_tipos_tercero_terceros" Association="bdieModel.FK_detalles_tipos_tercero_terceros">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="detalles_tipos_tercero" EntitySet="detalles_tipos_tercero" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_tipos_tercero_tipos_terceros" Association="bdieModel.FK_detalles_tipos_tercero_tipos_terceros">
+      <End Role="tipos_terceros" EntitySet="tipos_terceros" />
+      <End Role="detalles_tipos_tercero" EntitySet="detalles_tipos_tercero" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documentos_tipos_documentos" Association="bdieModel.FK_documentos_tipos_documentos">
+      <End Role="tipos_documentos" EntitySet="tipos_documentos" />
+      <End Role="documentos" EntitySet="documentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_devoluciones_estudiante" Association="bdieModel.FK_devoluciones_estudiante">
+      <End Role="estudiantes" EntitySet="estudiantes" />
+      <End Role="saldos_a_favor" EntitySet="saldos_a_favor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudiantes_tercero_estudiante" Association="bdieModel.FK_estudiantes_tercero_estudiante">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="estudiantes" EntitySet="estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudiantes_tercero_madre" Association="bdieModel.FK_estudiantes_tercero_madre">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="estudiantes" EntitySet="estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estudiantes_terceros_padre" Association="bdieModel.FK_estudiantes_terceros_padre">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="estudiantes" EntitySet="estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movimientos_estudiantes" Association="bdieModel.FK_movimientos_estudiantes">
+      <End Role="estudiantes" EntitySet="estudiantes" />
+      <End Role="movimientos" EntitySet="movimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_natriculas_estudiantes" Association="bdieModel.FK_natriculas_estudiantes">
+      <End Role="estudiantes" EntitySet="estudiantes" />
+      <End Role="matriculas" EntitySet="matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pagos_estudiante" Association="bdieModel.FK_pagos_estudiante">
+      <End Role="estudiantes" EntitySet="estudiantes" />
+      <End Role="pagos" EntitySet="pagos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_studiantes_acudientes" Association="bdieModel.fk_studiantes_acudientes">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="estudiantes" EntitySet="estudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tarifas_grados" Association="bdieModel.FK_tarifas_grados">
+      <End Role="grados" EntitySet="grados" />
+      <End Role="tarifas" EntitySet="tarifas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pagos_grupospagos" Association="bdieModel.FK_pagos_grupospagos">
+      <End Role="grupos_pagos" EntitySet="grupos_pagos" />
+      <End Role="pagos" EntitySet="pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_intereses_manuales_vigencias" Association="bdieModel.FK_intereses_manuales_vigencias">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="intereses_manuales" EntitySet="intereses_manuales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_natriculas_vigencias" Association="bdieModel.FK_natriculas_vigencias">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="matriculas" EntitySet="matriculas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movimientos_tipos_documentos" Association="bdieModel.FK_movimientos_tipos_documentos">
+      <End Role="tipos_documentos" EntitySet="tipos_documentos" />
+      <End Role="movimientos" EntitySet="movimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_movimientos_vigencias1" Association="bdieModel.FK_movimientos_vigencias1">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="movimientos" EntitySet="movimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_parametros_vigencias1" Association="bdieModel.FK_parametros_vigencias1">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="parametros" EntitySet="parametros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_periodos_vigencias1" Association="bdieModel.FK_periodos_vigencias1">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="periodos" EntitySet="periodos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tarifas_vigencias1" Association="bdieModel.FK_tarifas_vigencias1">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="tarifas" EntitySet="tarifas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="carterap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="Int32" Name="id_concepto" Nullable="false" />
+    <Property Type="Int32" Name="periodo" Nullable="false" />
+    <Property Type="Double" Name="valor" Nullable="false" />
+    <Property Type="Int32" Name="id_matricula" Nullable="false" />
+    <Property Type="String" Name="id_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="pagado" Nullable="false" />
+    <Property Type="Int32" Name="id_grupo" Nullable="false" />
+    <Property Type="Int32" Name="id_est" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="pago_genero_intereses" />
+    <NavigationProperty Name="conceptos" Relationship="bdieModel.FK_carterap_conceptos" FromRole="carterap" ToRole="conceptos" />
+    <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_carterap_estudiantes" FromRole="carterap" ToRole="estudiantes" />
+    <NavigationProperty Name="grupos_pagos" Relationship="bdieModel.FK_carterap_grupos_pagos" FromRole="carterap" ToRole="grupos_pagos" />
+    <NavigationProperty Name="matriculas" Relationship="bdieModel.FK_carterap_matriculas" FromRole="carterap" ToRole="matriculas" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_carterap_vigencias" FromRole="carterap" ToRole="vigencias" />
+    <NavigationProperty Name="detalles_pago" Relationship="bdieModel.FK_detalles_pago_carterap" FromRole="carterap" ToRole="detalles_pago" />
+    <NavigationProperty Name="fechas_calculo_intereses" Relationship="bdieModel.FK_fechas_calculo_intereses_carterap" FromRole="carterap" ToRole="fechas_calculo_intereses" />
+    <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_carterap" FromRole="carterap" ToRole="movimientos" />
+  </EntityType>
+  <EntityType Name="conceptos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="cod_contable" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_carterap_conceptos" FromRole="conceptos" ToRole="carterap" />
+    <NavigationProperty Name="config_grupos_pagos" Relationship="bdieModel.fk_config_concetos" FromRole="conceptos" ToRole="config_grupos_pagos" />
+    <NavigationProperty Name="detalles_pago" Relationship="bdieModel.FK_detalles_pago_conceptos" FromRole="conceptos" ToRole="detalles_pago" />
+    <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_conceptos1" FromRole="conceptos" ToRole="movimientos" />
+    <NavigationProperty Name="tarifas" Relationship="bdieModel.FK_tarifas_conceptos1" FromRole="conceptos" ToRole="tarifas" />
+  </EntityType>
+  <EntityType Name="config_grupos_pagos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_grupo" Nullable="false" />
+    <Property Type="Int32" Name="id_concepto" Nullable="false" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="String" Name="intereses" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="conceptos" Relationship="bdieModel.fk_config_concetos" FromRole="config_grupos_pagos" ToRole="conceptos" />
+    <NavigationProperty Name="grupos_pagos" Relationship="bdieModel.fk_config_grupos" FromRole="config_grupos_pagos" ToRole="grupos_pagos" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.fk_config_vigencia" FromRole="config_grupos_pagos" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="cursos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="id_grado" Nullable="false" />
+    <NavigationProperty Name="grados" Relationship="bdieModel.FK_cursos_grados" FromRole="cursos" ToRole="grados" />
+    <NavigationProperty Name="matriculas" Relationship="bdieModel.FK_natriculas_cursos" FromRole="cursos" ToRole="matriculas" />
+  </EntityType>
+  <EntityType Name="detalles_pago">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_pago" Nullable="false" />
+    <Property Type="Int32" Name="id_concepto" />
+    <Property Type="Int32" Name="periodo" Nullable="false" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="Double" Name="valor" Nullable="false" />
+    <Property Type="String" Name="tipo" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="id_cartera" Nullable="false" />
+    <Property Type="String" Name="nombre_concepto" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_detalles_pago_carterap" FromRole="detalles_pago" ToRole="carterap" />
+    <NavigationProperty Name="conceptos" Relationship="bdieModel.FK_detalles_pago_conceptos" FromRole="detalles_pago" ToRole="conceptos" />
+    <NavigationProperty Name="pagos" Relationship="bdieModel.FK_detalles_pago_pagos" FromRole="detalles_pago" ToRole="pagos" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_detalles_pago_vigencias" FromRole="detalles_pago" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="detalles_tipos_tercero">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_tercero" Nullable="false" />
+    <Property Type="String" Name="nombre_tipo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="terceros" Relationship="bdieModel.FK_detalles_tipos_tercero_terceros" FromRole="detalles_tipos_tercero" ToRole="terceros" />
+    <NavigationProperty Name="tipos_terceros" Relationship="bdieModel.FK_detalles_tipos_tercero_tipos_terceros" FromRole="detalles_tipos_tercero" ToRole="tipos_terceros" />
+  </EntityType>
+  <EntityType Name="documentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="fecha" Precision="3" />
+    <Property Type="String" Name="tipo_documento" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="descripcion" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tipos_documentos" Relationship="bdieModel.FK_documentos_tipos_documentos" FromRole="documentos" ToRole="tipos_documentos" />
+  </EntityType>
+  <EntityType Name="entidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="logo" MaxLength="Max" FixedLength="false" />
+    <Property Type="Int32" Name="id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="estudiantes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_ultima_matricula" />
+    <Property Type="Int32" Name="id_ultimo_grado" />
+    <Property Type="String" Name="lugar_nacimiento" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="fecha_nacimiento" Precision="3" />
+    <Property Type="String" Name="colegio_procedencia" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="estado_civil_padres" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="parentesco_acudiente" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="id_acudiente" Nullable="false" />
+    <Property Type="Int32" Name="id_tercero_madre" />
+    <Property Type="Int32" Name="id_tercero_padre" />
+    <Property Type="Int32" Name="id_tercero_estudiante" Nullable="false" />
+    <Property Type="String" Name="identificacion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vive_con" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="codigo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_carterap_estudiantes" FromRole="estudiantes" ToRole="carterap" />
+    <NavigationProperty Name="saldos_a_favor" Relationship="bdieModel.FK_devoluciones_estudiante" FromRole="estudiantes" ToRole="saldos_a_favor" />
+    <NavigationProperty Name="terceros" Relationship="bdieModel.FK_estudiantes_tercero_estudiante" FromRole="estudiantes" ToRole="terceros" />
+    <NavigationProperty Name="terceros1" Relationship="bdieModel.FK_estudiantes_tercero_madre" FromRole="estudiantes" ToRole="terceros" />
+    <NavigationProperty Name="terceros2" Relationship="bdieModel.FK_estudiantes_terceros_padre" FromRole="estudiantes" ToRole="terceros" />
+    <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_estudiantes" FromRole="estudiantes" ToRole="movimientos" />
+    <NavigationProperty Name="matriculas" Relationship="bdieModel.FK_natriculas_estudiantes" FromRole="estudiantes" ToRole="matriculas" />
+    <NavigationProperty Name="pagos" Relationship="bdieModel.FK_pagos_estudiante" FromRole="estudiantes" ToRole="pagos" />
+    <NavigationProperty Name="terceros3" Relationship="bdieModel.fk_studiantes_acudientes" FromRole="estudiantes" ToRole="terceros" />
+  </EntityType>
+  <EntityType Name="fc_menu">
+    <Key>
+      <PropertyRef Name="fc_menuid" />
+      <PropertyRef Name="fc_titulo" />
+      <PropertyRef Name="fc_padreid" />
+    </Key>
+    <Property Type="String" Name="fc_menuid" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fc_titulo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fc_descripcion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fc_padreid" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="fc_posicion" />
+    <Property Type="String" Name="fc_icono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="fc_habilitado" />
+    <Property Type="String" Name="fc_url" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fc_modulo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fc_target" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fc_ppal" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fc_roles" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="fechas_calculo_intereses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="id_cartera" Nullable="false" />
+    <Property Type="String" Name="estado" MaxLength="2" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_fechas_calculo_intereses_carterap" FromRole="fechas_calculo_intereses" ToRole="carterap" />
+  </EntityType>
+  <EntityType Name="formas_pago">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="grados">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="cursos" Relationship="bdieModel.FK_cursos_grados" FromRole="grados" ToRole="cursos" />
+    <NavigationProperty Name="tarifas" Relationship="bdieModel.FK_tarifas_grados" FromRole="grados" ToRole="tarifas" />
+  </EntityType>
+  <EntityType Name="grupos_pagos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="prioridad" Nullable="false" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_carterap_grupos_pagos" FromRole="grupos_pagos" ToRole="carterap" />
+    <NavigationProperty Name="config_grupos_pagos" Relationship="bdieModel.fk_config_grupos" FromRole="grupos_pagos" ToRole="config_grupos_pagos" />
+    <NavigationProperty Name="pagos" Relationship="bdieModel.FK_pagos_grupospagos" FromRole="grupos_pagos" ToRole="pagos" />
+  </EntityType>
+  <EntityType Name="intereses_manuales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="String" Name="en_mes" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="inicio" />
+    <Property Type="Int32" Name="fin" />
+    <Property Type="Int32" Name="valor" Nullable="false" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_intereses_manuales_vigencias" FromRole="intereses_manuales" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="matriculas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="Int32" Name="id_curso" Nullable="false" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+    <Property Type="String" Name="id_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="id_grado" Nullable="false" />
+    <Property Type="Int32" Name="id_est" Nullable="false" />
+    <Property Type="String" Name="estado" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="folio" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="id_matricula" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_carterap_matriculas" FromRole="matriculas" ToRole="carterap" />
+    <NavigationProperty Name="cursos" Relationship="bdieModel.FK_natriculas_cursos" FromRole="matriculas" ToRole="cursos" />
+    <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_natriculas_estudiantes" FromRole="matriculas" ToRole="estudiantes" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_natriculas_vigencias" FromRole="matriculas" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="movimientos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="id_estudiante" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="vigencia" />
+    <Property Type="Int32" Name="periodo" />
+    <Property Type="Int32" Name="id_cartera" />
+    <Property Type="Int32" Name="id_concepto" />
+    <Property Type="Double" Name="valor_debito" />
+    <Property Type="Double" Name="valor_credito" />
+    <Property Type="DateTime" Name="fecha_movimiento" Precision="3" />
+    <Property Type="String" Name="estado" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="fecha_novedad" Precision="3" />
+    <Property Type="DateTime" Name="fecha_registro" Precision="3" />
+    <Property Type="String" Name="tipo_documento" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="numero_documento" />
+    <Property Type="Int32" Name="id_est" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_movimientos_carterap" FromRole="movimientos" ToRole="carterap" />
+    <NavigationProperty Name="conceptos" Relationship="bdieModel.FK_movimientos_conceptos1" FromRole="movimientos" ToRole="conceptos" />
+    <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_movimientos_estudiantes" FromRole="movimientos" ToRole="estudiantes" />
+    <NavigationProperty Name="tipos_documentos" Relationship="bdieModel.FK_movimientos_tipos_documentos" FromRole="movimientos" ToRole="tipos_documentos" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_movimientos_vigencias1" FromRole="movimientos" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="pagos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="id_forma_pago" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="fecha_pago" Precision="3" />
+    <Property Type="String" Name="id_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="id_grupo" />
+    <Property Type="Int32" Name="id_est" Nullable="false" />
+    <Property Type="String" Name="tipo" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="observacion" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="fecha_max_pago" Precision="3" />
+    <NavigationProperty Name="detalles_pago" Relationship="bdieModel.FK_detalles_pago_pagos" FromRole="pagos" ToRole="detalles_pago" />
+    <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_pagos_estudiante" FromRole="pagos" ToRole="estudiantes" />
+    <NavigationProperty Name="grupos_pagos" Relationship="bdieModel.FK_pagos_grupospagos" FromRole="pagos" ToRole="grupos_pagos" />
+  </EntityType>
+  <EntityType Name="parametros">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="valor" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_parametros_vigencias1" FromRole="parametros" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="periodos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="periodo" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="Int32" Name="vence_dia" Nullable="false" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_periodos_vigencias1" FromRole="periodos" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="saldos_a_favor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="id_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="valor" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="id_est" Nullable="false" />
+    <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_devoluciones_estudiante" FromRole="saldos_a_favor" ToRole="estudiantes" />
+  </EntityType>
+  <EntityType Name="tarifas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="Int32" Name="id_grado" Nullable="false" />
+    <Property Type="Int32" Name="id_concepto" Nullable="false" />
+    <Property Type="Double" Name="valor" Nullable="false" />
+    <Property Type="Int32" Name="periodo_desde" Nullable="false" />
+    <Property Type="Int32" Name="periodo_hasta" Nullable="false" />
+    <NavigationProperty Name="conceptos" Relationship="bdieModel.FK_tarifas_conceptos1" FromRole="tarifas" ToRole="conceptos" />
+    <NavigationProperty Name="grados" Relationship="bdieModel.FK_tarifas_grados" FromRole="tarifas" ToRole="grados" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_tarifas_vigencias1" FromRole="tarifas" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="tasas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="fecha_inicio" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="fecha_fin" Nullable="false" Precision="3" />
+    <Property Type="Double" Name="tasa" Nullable="false" />
+  </EntityType>
+  <EntityType Name="terceros">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="identificacion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="apellido" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RH" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="direccion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="telefono" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="celular" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="tipo_identificacion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ocupacion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="direccion_trabajo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="sexo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="detalles_tipos_tercero" Relationship="bdieModel.FK_detalles_tipos_tercero_terceros" FromRole="terceros" ToRole="detalles_tipos_tercero" />
+    <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_estudiantes_tercero_estudiante" FromRole="terceros" ToRole="estudiantes" />
+    <NavigationProperty Name="estudiantes1" Relationship="bdieModel.FK_estudiantes_tercero_madre" FromRole="terceros" ToRole="estudiantes" />
+    <NavigationProperty Name="estudiantes2" Relationship="bdieModel.FK_estudiantes_terceros_padre" FromRole="terceros" ToRole="estudiantes" />
+    <NavigationProperty Name="estudiantes3" Relationship="bdieModel.fk_studiantes_acudientes" FromRole="terceros" ToRole="estudiantes" />
+  </EntityType>
+  <EntityType Name="tipos_documentos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="nombre" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="documentos" Relationship="bdieModel.FK_documentos_tipos_documentos" FromRole="tipos_documentos" ToRole="documentos" />
+    <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_tipos_documentos" FromRole="tipos_documentos" ToRole="movimientos" />
+  </EntityType>
+  <EntityType Name="tipos_terceros">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="detalles_tipos_tercero" Relationship="bdieModel.FK_detalles_tipos_tercero_tipos_terceros" FromRole="tipos_terceros" ToRole="detalles_tipos_tercero" />
+  </EntityType>
+  <EntityType Name="vigencias">
+    <Key>
+      <PropertyRef Name="vigencia" />
+    </Key>
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_carterap_vigencias" FromRole="vigencias" ToRole="carterap" />
+    <NavigationProperty Name="config_grupos_pagos" Relationship="bdieModel.fk_config_vigencia" FromRole="vigencias" ToRole="config_grupos_pagos" />
+    <NavigationProperty Name="detalles_pago" Relationship="bdieModel.FK_detalles_pago_vigencias" FromRole="vigencias" ToRole="detalles_pago" />
+    <NavigationProperty Name="intereses_manuales" Relationship="bdieModel.FK_intereses_manuales_vigencias" FromRole="vigencias" ToRole="intereses_manuales" />
+    <NavigationProperty Name="matriculas" Relationship="bdieModel.FK_natriculas_vigencias" FromRole="vigencias" ToRole="matriculas" />
+    <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_vigencias1" FromRole="vigencias" ToRole="movimientos" />
+    <NavigationProperty Name="parametros" Relationship="bdieModel.FK_parametros_vigencias1" FromRole="vigencias" ToRole="parametros" />
+    <NavigationProperty Name="periodos" Relationship="bdieModel.FK_periodos_vigencias1" FromRole="vigencias" ToRole="periodos" />
+    <NavigationProperty Name="tarifas" Relationship="bdieModel.FK_tarifas_vigencias1" FromRole="vigencias" ToRole="tarifas" />
+  </EntityType>
+  <Association Name="FK_carterap_conceptos">
+    <End Type="bdieModel.conceptos" Role="conceptos" Multiplicity="1" />
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="carterap">
+        <PropertyRef Name="id_concepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_carterap_estudiantes">
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="1" />
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estudiantes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="carterap">
+        <PropertyRef Name="id_est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_carterap_grupos_pagos">
+    <End Type="bdieModel.grupos_pagos" Role="grupos_pagos" Multiplicity="1" />
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupos_pagos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="carterap">
+        <PropertyRef Name="id_grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_carterap_matriculas">
+    <End Type="bdieModel.matriculas" Role="matriculas" Multiplicity="1" />
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="matriculas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="carterap">
+        <PropertyRef Name="id_matricula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_carterap_vigencias">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="carterap">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_pago_carterap">
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="1" />
+    <End Type="bdieModel.detalles_pago" Role="detalles_pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carterap">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalles_pago">
+        <PropertyRef Name="id_cartera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fechas_calculo_intereses_carterap">
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="1" />
+    <End Type="bdieModel.fechas_calculo_intereses" Role="fechas_calculo_intereses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carterap">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="fechas_calculo_intereses">
+        <PropertyRef Name="id_cartera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movimientos_carterap">
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="0..1" />
+    <End Type="bdieModel.movimientos" Role="movimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carterap">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="movimientos">
+        <PropertyRef Name="id_cartera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_config_concetos">
+    <End Type="bdieModel.conceptos" Role="conceptos" Multiplicity="1" />
+    <End Type="bdieModel.config_grupos_pagos" Role="config_grupos_pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="config_grupos_pagos">
+        <PropertyRef Name="id_concepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_pago_conceptos">
+    <End Type="bdieModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+    <End Type="bdieModel.detalles_pago" Role="detalles_pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalles_pago">
+        <PropertyRef Name="id_concepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movimientos_conceptos1">
+    <End Type="bdieModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+    <End Type="bdieModel.movimientos" Role="movimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="movimientos">
+        <PropertyRef Name="id_concepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tarifas_conceptos1">
+    <End Type="bdieModel.conceptos" Role="conceptos" Multiplicity="1" />
+    <End Type="bdieModel.tarifas" Role="tarifas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarifas">
+        <PropertyRef Name="id_concepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_config_grupos">
+    <End Type="bdieModel.grupos_pagos" Role="grupos_pagos" Multiplicity="1" />
+    <End Type="bdieModel.config_grupos_pagos" Role="config_grupos_pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupos_pagos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="config_grupos_pagos">
+        <PropertyRef Name="id_grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_config_vigencia">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.config_grupos_pagos" Role="config_grupos_pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="config_grupos_pagos">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cursos_grados">
+    <End Type="bdieModel.grados" Role="grados" Multiplicity="1" />
+    <End Type="bdieModel.cursos" Role="cursos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grados">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cursos">
+        <PropertyRef Name="id_grado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_natriculas_cursos">
+    <End Type="bdieModel.cursos" Role="cursos" Multiplicity="1" />
+    <End Type="bdieModel.matriculas" Role="matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cursos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="matriculas">
+        <PropertyRef Name="id_curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_pago_pagos">
+    <End Type="bdieModel.pagos" Role="pagos" Multiplicity="1" />
+    <End Type="bdieModel.detalles_pago" Role="detalles_pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pagos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalles_pago">
+        <PropertyRef Name="id_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_pago_vigencias">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.detalles_pago" Role="detalles_pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="detalles_pago">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_tipos_tercero_terceros">
+    <End Type="bdieModel.terceros" Role="terceros" Multiplicity="1" />
+    <End Type="bdieModel.detalles_tipos_tercero" Role="detalles_tipos_tercero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalles_tipos_tercero">
+        <PropertyRef Name="id_tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_tipos_tercero_tipos_terceros">
+    <End Type="bdieModel.tipos_terceros" Role="tipos_terceros" Multiplicity="1" />
+    <End Type="bdieModel.detalles_tipos_tercero" Role="detalles_tipos_tercero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipos_terceros">
+        <PropertyRef Name="nombre" />
+      </Principal>
+      <Dependent Role="detalles_tipos_tercero">
+        <PropertyRef Name="nombre_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documentos_tipos_documentos">
+    <End Type="bdieModel.tipos_documentos" Role="tipos_documentos" Multiplicity="0..1" />
+    <End Type="bdieModel.documentos" Role="documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipos_documentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="documentos">
+        <PropertyRef Name="tipo_documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_devoluciones_estudiante">
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="1" />
+    <End Type="bdieModel.saldos_a_favor" Role="saldos_a_favor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estudiantes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="saldos_a_favor">
+        <PropertyRef Name="id_est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudiantes_tercero_estudiante">
+    <End Type="bdieModel.terceros" Role="terceros" Multiplicity="1" />
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="estudiantes">
+        <PropertyRef Name="id_tercero_estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudiantes_tercero_madre">
+    <End Type="bdieModel.terceros" Role="terceros" Multiplicity="0..1" />
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="estudiantes">
+        <PropertyRef Name="id_tercero_madre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estudiantes_terceros_padre">
+    <End Type="bdieModel.terceros" Role="terceros" Multiplicity="0..1" />
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="estudiantes">
+        <PropertyRef Name="id_tercero_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movimientos_estudiantes">
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="0..1" />
+    <End Type="bdieModel.movimientos" Role="movimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estudiantes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="movimientos">
+        <PropertyRef Name="id_est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_natriculas_estudiantes">
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="1" />
+    <End Type="bdieModel.matriculas" Role="matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estudiantes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="matriculas">
+        <PropertyRef Name="id_est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pagos_estudiante">
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="1" />
+    <End Type="bdieModel.pagos" Role="pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estudiantes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pagos">
+        <PropertyRef Name="id_est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_studiantes_acudientes">
+    <End Type="bdieModel.terceros" Role="terceros" Multiplicity="1" />
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="estudiantes">
+        <PropertyRef Name="id_acudiente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tarifas_grados">
+    <End Type="bdieModel.grados" Role="grados" Multiplicity="1" />
+    <End Type="bdieModel.tarifas" Role="tarifas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grados">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tarifas">
+        <PropertyRef Name="id_grado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pagos_grupospagos">
+    <End Type="bdieModel.grupos_pagos" Role="grupos_pagos" Multiplicity="0..1" />
+    <End Type="bdieModel.pagos" Role="pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupos_pagos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="pagos">
+        <PropertyRef Name="id_grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_intereses_manuales_vigencias">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.intereses_manuales" Role="intereses_manuales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="intereses_manuales">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_natriculas_vigencias">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.matriculas" Role="matriculas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="matriculas">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movimientos_tipos_documentos">
+    <End Type="bdieModel.tipos_documentos" Role="tipos_documentos" Multiplicity="0..1" />
+    <End Type="bdieModel.movimientos" Role="movimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipos_documentos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="movimientos">
+        <PropertyRef Name="tipo_documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_movimientos_vigencias1">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="0..1" />
+    <End Type="bdieModel.movimientos" Role="movimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="movimientos">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_parametros_vigencias1">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.parametros" Role="parametros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="parametros">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_periodos_vigencias1">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.periodos" Role="periodos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="periodos">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tarifas_vigencias1">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.tarifas" Role="tarifas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="tarifas">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

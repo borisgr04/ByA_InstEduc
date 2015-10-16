@@ -1,0 +1,10 @@
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Debug\DAL.dll.config
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Debug\DAL.dll
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Debug\DAL.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Debug\EntityFramework.dll
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Debug\EntityFramework.xml
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\obj\Debug\DAL.dll
+D:\Dev\byaIE\IEWTk\InstEduc\DAL\obj\Debug\DAL.pdb

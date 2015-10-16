@@ -1,0 +1,9 @@
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\bin\Debug\ByA.dll.config
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\bin\Debug\ByA.dll
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\bin\Debug\ByA.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\bin\Debug\EntityFramework.dll
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\bin\Debug\EntityFramework.xml
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\obj\Debug\ByA.dll
+D:\Dev\byaIE\IEWTk\InstEduc\ByA\obj\Debug\ByA.pdb

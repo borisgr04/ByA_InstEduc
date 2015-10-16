@@ -1,0 +1,11 @@
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\Entidades.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\Entidades.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\ByA.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\DAL.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\EntityFramework.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\ByA.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\DAL.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Release\EntityFramework.xml
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\obj\Release\Entidades.csprojResolveAssemblyReference.cache
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\obj\Release\Entidades.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\obj\Release\Entidades.pdb

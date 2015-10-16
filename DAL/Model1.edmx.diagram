@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8de09e7f755f441095b1bceb7a20b831" Name="Diagrama1" ZoomLevel="10">
+        <EntityTypeShape EntityType="bdieModel.carterap" Width="1.5" PointX="0.77379035613210423" PointY="17.574397885042426" />
+        <EntityTypeShape EntityType="bdieModel.conceptos" Width="1.5" PointX="8.1375071183487346" PointY="27.430564252394515" />
+        <EntityTypeShape EntityType="bdieModel.config_grupos_pagos" Width="1.5" PointX="9.51021441328815" PointY="23.43705916005981" />
+        <EntityTypeShape EntityType="bdieModel.cursos" Width="1.5" PointX="9.4475899568980513" PointY="10.203993712646884" />
+        <EntityTypeShape EntityType="bdieModel.detalles_pago" Width="1.5" PointX="9.8906366219234823" PointY="17.391931467406419" />
+        <EntityTypeShape EntityType="bdieModel.detalles_tipos_tercero" Width="1.5" PointX="9.69269978333856" PointY="23.861595239425821" />
+        <EntityTypeShape EntityType="bdieModel.documentos" Width="1.5" PointX="3.3173899237613149" PointY="28.670138923763361" />
+        <EntityTypeShape EntityType="bdieModel.entidad" Width="1.5" PointX="5.6370376002215954" PointY="9.7125127360748653" />
+        <EntityTypeShape EntityType="bdieModel.estudiantes" Width="1.5" PointX="6.7347432965108851" PointY="6.1822417258202291" />
+        <EntityTypeShape EntityType="bdieModel.fc_menu" Width="1.5" PointX="10.558203286751269" PointY="19.507750192427892" />
+        <EntityTypeShape EntityType="bdieModel.fechas_calculo_intereses" Width="1.5" PointX="3.070879498063996" PointY="20.871234352174788" />
+        <EntityTypeShape EntityType="bdieModel.formas_pago" Width="1.5" PointX="2.9831959060315025" PointY="4.1591924299295959" />
+        <EntityTypeShape EntityType="bdieModel.grados" Width="1.5" PointX="2.3380059443125529" PointY="22.574616725824129" />
+        <EntityTypeShape EntityType="bdieModel.grupos_pagos" Width="1.5" PointX="11.505845647075143" PointY="12.711529037315179" />
+        <EntityTypeShape EntityType="bdieModel.intereses_manuales" Width="1.5" PointX="8.621607177248972" PointY="4.7721973828841922" />
+        <EntityTypeShape EntityType="bdieModel.matriculas" Width="1.5" PointX="7.7321513461564439" PointY="25.372680765284542" />
+        <EntityTypeShape EntityType="bdieModel.movimientos" Width="1.5" PointX="3.37278673768639" PointY="30.176614760503458" />
+        <EntityTypeShape EntityType="bdieModel.pagos" Width="1.5" PointX="11.407492752842369" PointY="16.76427000051563" />
+        <EntityTypeShape EntityType="bdieModel.parametros" Width="1.5" PointX="2.8524059294035689" PointY="14.348638526326342" />
+        <EntityTypeShape EntityType="bdieModel.periodos" Width="1.5" PointX="11.937282610655428" PointY="19.598403403348478" />
+        <EntityTypeShape EntityType="bdieModel.saldos_a_favor" Width="1.5" PointX="3.3732901603790424" PointY="4.120741264950829" />
+        <EntityTypeShape EntityType="bdieModel.tarifas" Width="1.5" PointX="0.12432165077157395" PointY="13.428913241917693" />
+        <EntityTypeShape EntityType="bdieModel.tasas" Width="1.5" PointX="6.4979819015124729" PointY="23.000825326424476" />
+        <EntityTypeShape EntityType="bdieModel.terceros" Width="1.5" PointX="1.6478961620702857" PointY="11.984183302141812" />
+        <EntityTypeShape EntityType="bdieModel.tipos_documentos" Width="1.5" PointX="11.71434372277667" PointY="16.945105471157053" />
+        <EntityTypeShape EntityType="bdieModel.tipos_terceros" Width="1.5" PointX="4.0973016452497344" PointY="0.41953796167836432" />
+        <EntityTypeShape EntityType="bdieModel.vigencias" Width="1.5" PointX="2.7370042832274941" PointY="21.423416773520138" />
+        <AssociationConnector Association="bdieModel.FK_carterap_conceptos" />
+        <AssociationConnector Association="bdieModel.FK_carterap_estudiantes" />
+        <AssociationConnector Association="bdieModel.FK_carterap_grupos_pagos" />
+        <AssociationConnector Association="bdieModel.FK_carterap_matriculas" />
+        <AssociationConnector Association="bdieModel.FK_carterap_vigencias" />
+        <AssociationConnector Association="bdieModel.FK_detalles_pago_carterap" />
+        <AssociationConnector Association="bdieModel.FK_fechas_calculo_intereses_carterap" />
+        <AssociationConnector Association="bdieModel.FK_movimientos_carterap" />
+        <AssociationConnector Association="bdieModel.fk_config_concetos" />
+        <AssociationConnector Association="bdieModel.FK_detalles_pago_conceptos" />
+        <AssociationConnector Association="bdieModel.FK_movimientos_conceptos1" />
+        <AssociationConnector Association="bdieModel.FK_tarifas_conceptos1" />
+        <AssociationConnector Association="bdieModel.fk_config_grupos" />
+        <AssociationConnector Association="bdieModel.fk_config_vigencia" />
+        <AssociationConnector Association="bdieModel.FK_cursos_grados" />
+        <AssociationConnector Association="bdieModel.FK_natriculas_cursos" />
+        <AssociationConnector Association="bdieModel.FK_detalles_pago_pagos" />
+        <AssociationConnector Association="bdieModel.FK_detalles_pago_vigencias" />
+        <AssociationConnector Association="bdieModel.FK_detalles_tipos_tercero_terceros" />
+        <AssociationConnector Association="bdieModel.FK_detalles_tipos_tercero_tipos_terceros" />
+        <AssociationConnector Association="bdieModel.FK_documentos_tipos_documentos" />
+        <AssociationConnector Association="bdieModel.FK_devoluciones_estudiante" />
+        <AssociationConnector Association="bdieModel.FK_estudiantes_tercero_estudiante" />
+        <AssociationConnector Association="bdieModel.FK_estudiantes_tercero_madre" />
+        <AssociationConnector Association="bdieModel.FK_estudiantes_terceros_padre" />
+        <AssociationConnector Association="bdieModel.FK_movimientos_estudiantes" />
+        <AssociationConnector Association="bdieModel.FK_natriculas_estudiantes" />
+        <AssociationConnector Association="bdieModel.FK_pagos_estudiante" />
+        <AssociationConnector Association="bdieModel.fk_studiantes_acudientes" />
+        <AssociationConnector Association="bdieModel.FK_tarifas_grados" />
+        <AssociationConnector Association="bdieModel.FK_pagos_grupospagos" />
+        <AssociationConnector Association="bdieModel.FK_intereses_manuales_vigencias" />
+        <AssociationConnector Association="bdieModel.FK_natriculas_vigencias" />
+        <AssociationConnector Association="bdieModel.FK_movimientos_tipos_documentos" />
+        <AssociationConnector Association="bdieModel.FK_movimientos_vigencias1" />
+        <AssociationConnector Association="bdieModel.FK_parametros_vigencias1" />
+        <AssociationConnector Association="bdieModel.FK_periodos_vigencias1" />
+        <AssociationConnector Association="bdieModel.FK_tarifas_vigencias1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

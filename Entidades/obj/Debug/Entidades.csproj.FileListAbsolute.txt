@@ -1,0 +1,11 @@
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\Entidades.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\Entidades.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\ByA.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\DAL.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\EntityFramework.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\ByA.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\DAL.pdb
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\bin\Debug\EntityFramework.xml
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\obj\Debug\Entidades.dll
+D:\Dev\byaIE\IEWTk\InstEduc\Entidades\obj\Debug\Entidades.pdb
