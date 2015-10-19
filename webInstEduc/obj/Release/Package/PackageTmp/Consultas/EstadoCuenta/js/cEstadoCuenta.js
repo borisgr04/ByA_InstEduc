@@ -1,5 +1,5 @@
 ﻿// create the controller and inject Angular's $scope
-app.controller('cEstadoCuenta', function ($scope, gradosService, estudiantesService, cursosService, matriculasService, carteraService, pagosService, periodosService, estudiantessaldosService) {
+app.controller('cEstadoCuenta', function ($scope, gradosService, estadocuentaresumenService, estudiantesService, cursosService, matriculasService, carteraService, pagosService, periodosService, estudiantessaldosService) {
     $scope.estudiante = {};
     $scope.obj_consulta = {};
     $scope.saldos = [];
@@ -8,6 +8,10 @@ app.controller('cEstadoCuenta', function ($scope, gradosService, estudiantesServ
     $scope.saldo_vigencia = {};
     $scope.saldos_vigencias_periodos = [];
     $scope.saldo_vigencia_periodo = {};
+    $scope.vigencia = byaSite.getVigencia();
+    $scope.fecha_actual = new Date();
+    $scope.estadocuentaresumen = {};
+    $scope.spensiones = 0;
     $scope._traerestudiante = function () {
         var serEstu = estudiantesService.Get($scope.obj_consulta.id_estudiante);
         serEstu.then(function (pl) {
@@ -15,12 +19,22 @@ app.controller('cEstadoCuenta', function ($scope, gradosService, estudiantesServ
                 $("#LbMsg").html("");
                 $scope.estudiante = pl.data;
                 _consultarSaldo();
+                $scope._traerEstadocuenta();
             }
             else {
                 $("#LbMsg").msgBox({ titulo: "Estudiantes", mensaje: "El estudiante no se encuantra registrado", tipo: false });
                 $scope.estudiante = {};
                 $scope.obj_consulta.id_estudiante = "";
             }
+        }, function (errorPl) {
+            console.log(errorPl);
+        });
+    };
+    $scope._traerEstadocuenta = function () {
+        var serEstu = estadocuentaresumenService.Get($scope.estudiante.identificacion, $scope.vigencia);
+        serEstu.then(function (pl) {
+            $scope.estadocuentaresumen = pl.data;
+            _calcularSaldoPensiones();
         }, function (errorPl) {
             console.log(errorPl);
         });
@@ -70,9 +84,33 @@ app.controller('cEstadoCuenta', function ($scope, gradosService, estudiantesServ
         });
         return valor - pagado;
     };
+    $scope._verModalEstadoCuenta = function () {
+        $("#modalResumenEstadoCuenta").modal("show");
+    };
+    $scope._imprimirEstadoCuenta = function () {
+        var printContents = document.getElementById("dvdEstadoCuenta").innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+        //byaPage.printDiv("dvdEstadoCuenta");
+    };
 
     _init();
 
+    function _calcularSaldoPensiones(){
+        $scope.spensiones = 0;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension2.valor - $scope.estadocuentaresumen.pension2.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension3.valor - $scope.estadocuentaresumen.pension3.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension4.valor - $scope.estadocuentaresumen.pension4.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension5.valor - $scope.estadocuentaresumen.pension5.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension6.valor - $scope.estadocuentaresumen.pension6.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension7.valor - $scope.estadocuentaresumen.pension7.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension8.valor - $scope.estadocuentaresumen.pension8.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension9.valor - $scope.estadocuentaresumen.pension9.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension10.valor - $scope.estadocuentaresumen.pension10.pagado;
+        $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension11.valor - $scope.estadocuentaresumen.pension11.pagado;
+    };
     function _init() {
         byaSite.SetModuloP({ TituloForm: "Estado de cuenta", Modulo: "Consultas", urlToPanelModulo: "EstadoCuenta.aspx", Cod_Mod: "CONSU", Rol: "CONSUEstCuenta" });
         var id_estudiante = varLocal.Get("id_estudiante");

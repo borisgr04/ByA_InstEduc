@@ -412,5 +412,15 @@ var byaPage = {
         var date = new Date();
         var datenow = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes());
         return datenow;
+    },
+    printDiv: function (element) {
+        var objeto = document.getElementById(element);  //obtenemos el objeto a imprimir
+        var ventana = window.open('', '_blank');  //abrimos una ventana vacía nueva
+        //var url = "/jqwidgets/styles/jqx.metro.css";
+        ventana.document.write(objeto.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana
+        //ventana.document.find('head').append('<link rel="stylesheet" href="' + url + '" media="screen" />');
+        ventana.document.close();  //cerramos el documento
+        ventana.print();  //imprimimos la ventana
+        ventana.close();  //cerramos la ventana
     }
 }

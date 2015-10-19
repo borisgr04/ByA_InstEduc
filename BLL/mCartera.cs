@@ -287,7 +287,7 @@ namespace BLL
                 bool ban = false;
                 foreach (carterap item in lCartera)
                 {
-                    if ((item.id_grupo == lCartera[0].id_grupo) && (ban == false))
+                    if (((item.id_grupo == lCartera[0].id_grupo) && (ban == false)) || reg.id_grupo == null)
                     {
                         detalles_pagoDto pagoCapital = new detalles_pagoDto();
                         detalles_pagoDto pagoIntereses = new detalles_pagoDto();
@@ -355,7 +355,7 @@ namespace BLL
                 bool ban = false;
                 while ((i <= lCartera.Count() - 1) && (ValorLiquidado < reg.ValorPagar) && (!ban))
                 {
-                    if ((lCartera[i].id_grupo == lCartera[0].id_grupo) && (ban == false))
+                    if (((lCartera[i].id_grupo == lCartera[0].id_grupo) && (ban == false)) || reg.id_grupo == null)
                     {
                         detalles_pagoDto pagoCapital = new detalles_pagoDto();
                         detalles_pagoDto pagoIntereses = new detalles_pagoDto();

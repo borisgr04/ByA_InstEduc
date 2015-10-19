@@ -22,7 +22,6 @@ app.controller('cDeudasGrados', function ($scope, deudasgradosService) {
         _traerDeudasEstudianteCursoGrado();
     };
     $scope._traerDeudaEstudiante = function (deuda) {
-        alert(JSON.stringify(deuda));
         $scope.estudiante_seleccionado = deuda;
         _traerDeudasEstudiante(deuda.id_estudiante);
     };

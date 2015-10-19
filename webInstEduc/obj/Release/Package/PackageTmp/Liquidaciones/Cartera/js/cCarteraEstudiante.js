@@ -63,7 +63,7 @@
         }
     };
     function _traerCarteraEstudiante() {
-        var serCart = carteraService.GetCarteraEstudiantes($scope.estudiante.identificacion);
+        var serCart = carteraService.GetCarteraEstudiantes($scope.estudiante.identificacion, byaSite.getVigencia());
         serCart.then(function (pl) {
             $scope.carteras = pl.data;
             $.each($scope.carteras, function (index, item) {

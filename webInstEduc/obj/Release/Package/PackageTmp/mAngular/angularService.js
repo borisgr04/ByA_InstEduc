@@ -113,8 +113,8 @@ app.service("carteraService", function ($http) {
         var req = $http.get('/api/Cartera/Conceptos');
         return req;
     };
-    this.GetCarteraEstudiantes = function (id_estudiante) {
-        var req = $http.get('/api/Cartera/' + id_estudiante);
+    this.GetCarteraEstudiantes = function (id_estudiante, vigencia) {
+        var req = $http.get('/api/Cartera/' + id_estudiante + "/vigencia/" + vigencia);
         return req;
     };
     this.PostCarteraEstudiante = function (lCarteras) {
@@ -327,6 +327,10 @@ app.service("deudasgradosService", function ($http) {
         var req = $http.get('/api/DeudaGrados/Curso/' + id_curso);
         return req;
     };
+    this.DeudasEstudiante = function (id_estudiante) {
+        var req = $http.get('/api/DeudaGrados/Estudiante/' + id_estudiante);
+        return req;
+    };
 });
 app.service("vigenciasService", function ($http) {
     this.Post = function (lVigencias) {
@@ -363,6 +367,12 @@ app.service("fechaCausacionService", function ($http) {
     };
     this.Post = function (Fecha) {
         var req = $http.post('/api/FechaCausacion/', Fecha);
+        return req;
+    };
+});
+app.service("estadocuentaresumenService", function ($http) {
+    this.Get = function (id_estudiante, vigencia) {
+        var req = $http.get('/api/EstadoCuentaResumen/' + id_estudiante + "/Vigencia/" + vigencia);
         return req;
     };
 });

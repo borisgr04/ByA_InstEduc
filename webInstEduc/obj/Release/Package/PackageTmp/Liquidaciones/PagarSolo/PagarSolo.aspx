@@ -129,8 +129,9 @@
                                             <td class="text-center"><a href="javascript:;" ng-click="_removeItemCartera(cartera)"><span class="glyphicon glyphicon-remove"></span></a></td>
                                         </tr>
                                         <tr ng-show="carteras.length > 0">
-                                            <td class="text-right" colspan="4"><strong> Total = </strong></td>
+                                            <td class="text-right" colspan="3"><strong> Total = </strong></td>
                                             <td class="text-right">{{carteras |sumByKey:'valor' | currency:"$":0}}</td>
+                                            <td class="text-right"></td>
                                         </tr>
                                         <tr ng-show="carteras.length == 0">
                                             <td colspan="5">No se han encontrado registros</td>

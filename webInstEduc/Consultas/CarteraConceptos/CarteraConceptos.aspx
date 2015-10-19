@@ -38,6 +38,18 @@
             <%--<div class="panel panel-default">
                 <div class="panel-heading">Cartera Conceptos</div>
                 <div class="panel-body">--%>
+
+                    <div class="row" style="margin-bottom:15px;">
+                        <div class="col-xs-4">
+                            <label>Filtrar:</label>   
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="filtro"/>
+                                <div class="input-group-btn ">
+                                    <button ng-click="_filtrarCarteras()" type="button" class="btn btn-info no-border btn-sm" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <table class="table table-bordered table-hover table-striped tablesorter">
                                 <thead>
