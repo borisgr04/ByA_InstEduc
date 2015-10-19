@@ -17,6 +17,10 @@ namespace DAL
         public int id { get; set; }
         public int id_tercero { get; set; }
         public string nombre_tipo { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual terceros terceros { get; set; }
         public virtual tipos_terceros tipos_terceros { get; set; }

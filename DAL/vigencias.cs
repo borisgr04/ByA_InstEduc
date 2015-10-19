@@ -29,6 +29,10 @@ namespace DAL
     
         public int vigencia { get; set; }
         public string estado { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual ICollection<carterap> carterap { get; set; }
         public virtual ICollection<config_grupos_pagos> config_grupos_pagos { get; set; }

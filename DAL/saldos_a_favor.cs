@@ -20,6 +20,10 @@ namespace DAL
         public string estado { get; set; }
         public System.DateTime fecha { get; set; }
         public int id_est { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual estudiantes estudiantes { get; set; }
     }

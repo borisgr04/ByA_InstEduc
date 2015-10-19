@@ -22,6 +22,10 @@ namespace DAL
         public int id { get; set; }
         public string nombre { get; set; }
         public int id_grado { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual grados grados { get; set; }
         public virtual ICollection<matriculas> matriculas { get; set; }

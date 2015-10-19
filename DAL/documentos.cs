@@ -18,6 +18,10 @@ namespace DAL
         public Nullable<System.DateTime> fecha { get; set; }
         public string tipo_documento { get; set; }
         public string descripcion { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual tipos_documentos tipos_documentos { get; set; }
     }

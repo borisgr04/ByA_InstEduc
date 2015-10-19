@@ -4,6 +4,10 @@
     <EntitySetMapping Name="carterap">
       <EntityTypeMapping TypeName="bdieModel.carterap">
         <MappingFragment StoreEntitySet="carterap">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="pago_genero_intereses" ColumnName="pago_genero_intereses" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="id_est" ColumnName="id_est" />
@@ -22,6 +26,10 @@
     <EntitySetMapping Name="conceptos">
       <EntityTypeMapping TypeName="bdieModel.conceptos">
         <MappingFragment StoreEntitySet="conceptos">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="cod_contable" ColumnName="cod_contable" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -32,6 +40,10 @@
     <EntitySetMapping Name="config_grupos_pagos">
       <EntityTypeMapping TypeName="bdieModel.config_grupos_pagos">
         <MappingFragment StoreEntitySet="config_grupos_pagos">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="intereses" ColumnName="intereses" />
           <ScalarProperty Name="vigencia" ColumnName="vigencia" />
           <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
@@ -43,6 +55,10 @@
     <EntitySetMapping Name="cursos">
       <EntityTypeMapping TypeName="bdieModel.cursos">
         <MappingFragment StoreEntitySet="cursos">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="id_grado" ColumnName="id_grado" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -67,6 +83,10 @@
     <EntitySetMapping Name="detalles_tipos_tercero">
       <EntityTypeMapping TypeName="bdieModel.detalles_tipos_tercero">
         <MappingFragment StoreEntitySet="detalles_tipos_tercero">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
           <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -76,6 +96,10 @@
     <EntitySetMapping Name="documentos">
       <EntityTypeMapping TypeName="bdieModel.documentos">
         <MappingFragment StoreEntitySet="documentos">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
@@ -86,6 +110,10 @@
     <EntitySetMapping Name="entidad">
       <EntityTypeMapping TypeName="bdieModel.entidad">
         <MappingFragment StoreEntitySet="entidad">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="logo" ColumnName="logo" />
           <ScalarProperty Name="telefono" ColumnName="telefono" />
@@ -97,6 +125,10 @@
     <EntitySetMapping Name="estudiantes">
       <EntityTypeMapping TypeName="bdieModel.estudiantes">
         <MappingFragment StoreEntitySet="estudiantes">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
           <ScalarProperty Name="vive_con" ColumnName="vive_con" />
           <ScalarProperty Name="identificacion" ColumnName="identificacion" />
@@ -154,6 +186,10 @@
     <EntitySetMapping Name="grados">
       <EntityTypeMapping TypeName="bdieModel.grados">
         <MappingFragment StoreEntitySet="grados">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
@@ -162,6 +198,10 @@
     <EntitySetMapping Name="grupos_pagos">
       <EntityTypeMapping TypeName="bdieModel.grupos_pagos">
         <MappingFragment StoreEntitySet="grupos_pagos">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="prioridad" ColumnName="prioridad" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -171,6 +211,10 @@
     <EntitySetMapping Name="intereses_manuales">
       <EntityTypeMapping TypeName="bdieModel.intereses_manuales">
         <MappingFragment StoreEntitySet="intereses_manuales">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="valor" ColumnName="valor" />
           <ScalarProperty Name="fin" ColumnName="fin" />
           <ScalarProperty Name="inicio" ColumnName="inicio" />
@@ -183,6 +227,10 @@
     <EntitySetMapping Name="matriculas">
       <EntityTypeMapping TypeName="bdieModel.matriculas">
         <MappingFragment StoreEntitySet="matriculas">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
           <ScalarProperty Name="folio" ColumnName="folio" />
           <ScalarProperty Name="estado" ColumnName="estado" />
@@ -220,6 +268,10 @@
     <EntitySetMapping Name="pagos">
       <EntityTypeMapping TypeName="bdieModel.pagos">
         <MappingFragment StoreEntitySet="pagos">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="fecha_max_pago" ColumnName="fecha_max_pago" />
           <ScalarProperty Name="observacion" ColumnName="observacion" />
           <ScalarProperty Name="tipo" ColumnName="tipo" />
@@ -247,6 +299,10 @@
     <EntitySetMapping Name="periodos">
       <EntityTypeMapping TypeName="bdieModel.periodos">
         <MappingFragment StoreEntitySet="periodos">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="vence_dia" ColumnName="vence_dia" />
           <ScalarProperty Name="vigencia" ColumnName="vigencia" />
           <ScalarProperty Name="estado" ColumnName="estado" />
@@ -258,6 +314,10 @@
     <EntitySetMapping Name="saldos_a_favor">
       <EntityTypeMapping TypeName="bdieModel.saldos_a_favor">
         <MappingFragment StoreEntitySet="saldos_a_favor">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="id_est" ColumnName="id_est" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="estado" ColumnName="estado" />
@@ -270,6 +330,10 @@
     <EntitySetMapping Name="tarifas">
       <EntityTypeMapping TypeName="bdieModel.tarifas">
         <MappingFragment StoreEntitySet="tarifas">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="periodo_hasta" ColumnName="periodo_hasta" />
           <ScalarProperty Name="periodo_desde" ColumnName="periodo_desde" />
           <ScalarProperty Name="valor" ColumnName="valor" />
@@ -283,6 +347,10 @@
     <EntitySetMapping Name="tasas">
       <EntityTypeMapping TypeName="bdieModel.tasas">
         <MappingFragment StoreEntitySet="tasas">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="tasa" ColumnName="tasa" />
           <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
           <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
@@ -327,6 +395,10 @@
     <EntitySetMapping Name="vigencias">
       <EntityTypeMapping TypeName="bdieModel.vigencias">
         <MappingFragment StoreEntitySet="vigencias">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="vigencia" ColumnName="vigencia" />
         </MappingFragment>

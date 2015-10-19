@@ -20,6 +20,10 @@ namespace DAL
         public Nullable<int> inicio { get; set; }
         public Nullable<int> fin { get; set; }
         public int valor { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual vigencias vigencias { get; set; }
     }

@@ -19,6 +19,10 @@ namespace DAL
         public int id_concepto { get; set; }
         public int vigencia { get; set; }
         public string intereses { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual conceptos conceptos { get; set; }
         public virtual grupos_pagos grupos_pagos { get; set; }

@@ -33,6 +33,10 @@ namespace DAL
         public int id_est { get; set; }
         public string estado { get; set; }
         public Nullable<int> pago_genero_intereses { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual conceptos conceptos { get; set; }
         public virtual estudiantes estudiantes { get; set; }

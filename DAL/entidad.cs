@@ -19,5 +19,9 @@ namespace DAL
         public string telefono { get; set; }
         public byte[] logo { get; set; }
         public int id { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     }
 }

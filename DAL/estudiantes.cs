@@ -17,10 +17,10 @@ namespace DAL
         public estudiantes()
         {
             this.carterap = new HashSet<carterap>();
-            this.saldos_a_favor = new HashSet<saldos_a_favor>();
-            this.movimientos = new HashSet<movimientos>();
             this.matriculas = new HashSet<matriculas>();
+            this.movimientos = new HashSet<movimientos>();
             this.pagos = new HashSet<pagos>();
+            this.saldos_a_favor = new HashSet<saldos_a_favor>();
         }
     
         public int id { get; set; }
@@ -38,15 +38,19 @@ namespace DAL
         public string identificacion { get; set; }
         public string vive_con { get; set; }
         public string codigo { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual ICollection<carterap> carterap { get; set; }
-        public virtual ICollection<saldos_a_favor> saldos_a_favor { get; set; }
         public virtual terceros terceros { get; set; }
         public virtual terceros terceros1 { get; set; }
         public virtual terceros terceros2 { get; set; }
-        public virtual ICollection<movimientos> movimientos { get; set; }
-        public virtual ICollection<matriculas> matriculas { get; set; }
-        public virtual ICollection<pagos> pagos { get; set; }
         public virtual terceros terceros3 { get; set; }
+        public virtual ICollection<matriculas> matriculas { get; set; }
+        public virtual ICollection<movimientos> movimientos { get; set; }
+        public virtual ICollection<pagos> pagos { get; set; }
+        public virtual ICollection<saldos_a_favor> saldos_a_favor { get; set; }
     }
 }

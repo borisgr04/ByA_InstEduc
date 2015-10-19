@@ -18,5 +18,9 @@ namespace DAL
         public System.DateTime fecha_inicio { get; set; }
         public System.DateTime fecha_fin { get; set; }
         public double tasa { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     }
 }

@@ -30,6 +30,10 @@ namespace DAL
         public string tipo { get; set; }
         public string observacion { get; set; }
         public Nullable<System.DateTime> fecha_max_pago { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual ICollection<detalles_pago> detalles_pago { get; set; }
         public virtual estudiantes estudiantes { get; set; }

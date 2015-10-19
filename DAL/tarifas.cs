@@ -21,6 +21,10 @@ namespace DAL
         public double valor { get; set; }
         public int periodo_desde { get; set; }
         public int periodo_hasta { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual conceptos conceptos { get; set; }
         public virtual grados grados { get; set; }

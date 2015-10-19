@@ -29,6 +29,10 @@ namespace DAL
         public string estado { get; set; }
         public string folio { get; set; }
         public string id_matricula { get; set; }
+        public Nullable<System.DateTime> fec_reg { get; set; }
+        public Nullable<System.DateTime> fec_mod { get; set; }
+        public string usu_reg { get; set; }
+        public string usu_mod { get; set; }
     
         public virtual ICollection<carterap> carterap { get; set; }
         public virtual cursos cursos { get; set; }
