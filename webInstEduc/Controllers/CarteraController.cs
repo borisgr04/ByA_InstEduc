@@ -8,6 +8,10 @@ using System.Net.Http;
 using System.Web.Http;
 using ByA;
 using Entidades.Consultas;
+using AspIdentity.Models;
+using System.Security.Claims;
+using System.Web;
+using System.Net.Http.Headers;
 
 namespace Skeleton.WebAPI.Controllers
 {
@@ -49,7 +53,7 @@ namespace Skeleton.WebAPI.Controllers
 
         [Route("Causado/Estudiante/Liquidacion")]
         public List<detalles_pagoDto> PostObtenerDeudaEstudianteL(bDeudaEstudianteFecha reg)
-        {
+        {            
             mCartera o = new mCartera();
             return o.GetDeudaEstudianteL(reg);
         }

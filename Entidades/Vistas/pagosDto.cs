@@ -18,6 +18,7 @@ namespace Entidades.Vistas
         public string tipo { get; set; }
         public string observacion { get; set; }
         public Nullable<System.DateTime> fecha_max_pago { get; set; }
+        public string usu { get; set; }
 
         public Nullable<int> ValorTotal { get; set; }
         public List<detalles_pagoDto> detalles_pago { get; set; }

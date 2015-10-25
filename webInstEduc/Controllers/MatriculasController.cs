@@ -7,6 +7,7 @@ using System.Web.Http;
 using ByA;
 using Entidades.Vistas;
 using BLL;
+using System.Net.Http.Headers;
 
 namespace Skeleton.WebAPI.Controllers
 {
@@ -28,6 +29,7 @@ namespace Skeleton.WebAPI.Controllers
         [Route("")]
         public ByARpt Post(matriculasDto m)
         {
+            m.usu = GetUser();
             mMatricula o = new mMatricula();
             return o.MatricularEstudiante(m);
         }
@@ -42,6 +44,13 @@ namespace Skeleton.WebAPI.Controllers
         {
             mMatricula o = new mMatricula();
             return o.RetirarEstudiante(id_estudiante);
+        }
+        private string GetUser()
+        {
+            string sessionId = "";
+            CookieHeaderValue cookie = Request.Headers.GetCookies("fc_user").FirstOrDefault();
+            if (cookie != null) sessionId = cookie["fc_user"].Value;
+            return sessionId;
         }
     }
 }

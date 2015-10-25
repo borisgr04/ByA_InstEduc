@@ -160,11 +160,22 @@ namespace BLL
                 oDto.folio = GetFolio();
                 oDto.id_matricula = CalcularConsecutivoMatricula();
                 Mapper.Map(oDto, Dto);
+
+                _cmpReg();
+
                 ctx.matriculas.Add(Dto);
 
                 AsignarGradoEstudiante();
 
                 ArmarCartera();
+            }
+
+            private void _cmpReg()
+            {
+                Dto.fec_reg = DateTime.Now;
+                Dto.fec_mod = DateTime.Now;
+                Dto.usu_mod = oDto.usu;
+                Dto.usu_reg = oDto.usu;
             }
             protected override void Despues()
             {

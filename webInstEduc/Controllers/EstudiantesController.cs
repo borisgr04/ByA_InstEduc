@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using ByA;
 using Entidades.Consultas;
+using System.Net.Http.Headers;
 
 namespace Skeleton.WebAPI.Controllers
 {
@@ -53,15 +54,23 @@ namespace Skeleton.WebAPI.Controllers
         [Route("")]
         public ByARpt Post(estudiantesDto Reg)
         {
+            Reg.usu = GetUser();
             mEstudiantes o = new mEstudiantes();
             return o.Insert(Reg);
-        }
+        }        
         [Route("")]
         public ByARpt Put(estudiantesDto Reg)
         {
+            Reg.usu = GetUser();
             mEstudiantes o = new mEstudiantes();
             return o.Update(Reg);
         }
-
+        private string GetUser()
+        {
+            string sessionId = "";
+            CookieHeaderValue cookie = Request.Headers.GetCookies("fc_user").FirstOrDefault();
+            if (cookie != null) sessionId = cookie["fc_user"].Value;
+            return sessionId;
+        }
     }
 }

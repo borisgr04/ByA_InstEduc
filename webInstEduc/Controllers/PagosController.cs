@@ -8,6 +8,7 @@ using System.Web.Http;
 using Entidades.Vistas;
 using ByA;
 using Entidades.Consultas;
+using System.Net.Http.Headers;
 
 namespace Skeleton.WebAPI.Controllers
 {
@@ -36,29 +37,32 @@ namespace Skeleton.WebAPI.Controllers
         public ByARpt PostAnularPago(int id_pago)
         {
             mPagos o = new mPagos();
-            return o.AnularPago(id_pago);
+            return o.AnularPago(id_pago, GetUser());
         }
         [Route("Anular/Liquidacion/{id_pago}")]
         public ByARpt PostAnularLiquidacion(int id_pago)
         {
             mPagos o = new mPagos();
-            return o.AnularLiquidacion(id_pago);
+            return o.AnularLiquidacion(id_pago, GetUser());
         } 
         [Route("Liquidar")]
         public ByARpt PostLiquidacion(pagosDto Reg)
         {
+            Reg.usu = GetUser();
             mPagos o = new mPagos();
             return o.InsertLiquidacion(Reg);
         }
         [Route("Pagar")]
         public ByARpt PostPagar(pagosDto Reg)
         {
+            Reg.usu = GetUser();
             mPagos o = new mPagos();
             return o.Pagar(Reg);
         }
         [Route("PagarLiquidacion")]
         public ByARpt PostPagarLiquidacion(pagosDto Reg)
         {
+            Reg.usu = GetUser();
             mPagos o = new mPagos();
             return o.PagarLiquidacion(Reg);
         }
@@ -67,6 +71,13 @@ namespace Skeleton.WebAPI.Controllers
         {
             mPagos o = new mPagos();
             return o.GetPagosEstudiante(Reg);
+        }
+        private string GetUser()
+        {
+            string sessionId = "";
+            CookieHeaderValue cookie = Request.Headers.GetCookies("fc_user").FirstOrDefault();
+            if (cookie != null) sessionId = cookie["fc_user"].Value;
+            return sessionId;
         }
     }
 }

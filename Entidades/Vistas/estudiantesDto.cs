@@ -22,6 +22,7 @@ namespace Entidades.Vistas
         public string identificacion { get; set; }
         public string vive_con { get; set; }
         public string codigo { get; set; }
+        public string usu { get; set; }
 
         public string nombre_curso { get; set; }
         public string nombre_grado { get; set; }

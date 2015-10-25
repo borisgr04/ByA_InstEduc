@@ -18,6 +18,7 @@ namespace Entidades.Vistas
         public string estado { get; set; }
         public string folio { get; set; }
         public string id_matricula { get; set; }
+        public string usu { get; set; }
 
         public string codigo_estudiante { get; set; }
         public string nombre_estudiante { get; set; }

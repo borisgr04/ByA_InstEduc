@@ -72,16 +72,18 @@ namespace BLL
                 return lr;
             }
         }
-        public ByARpt AnularPago(int id_pago)
+        public ByARpt AnularPago(int id_pago, string usu)
         {
             cmdAnularPago o = new cmdAnularPago();
             o.id_pago = id_pago;
+            o.usu = usu;
             return o.Enviar();
         }
-        public ByARpt AnularLiquidacion(int id_pago)
+        public ByARpt AnularLiquidacion(int id_pago, string usu)
         {
             cmdAnularLiquidacion o = new cmdAnularLiquidacion();
             o.id_pago = id_pago;
+            o.usu = usu;
             return o.Enviar();
         }
         public ByARpt InsertLiquidacion(pagosDto Reg)
@@ -180,7 +182,7 @@ namespace BLL
 
                 Dto = new pagos();
                 Mapper.Map(oDto,Dto);
-
+                _cmpReg();
                 ctx.pagos.Add(Dto);
                 InsertDetallesPagos();
             }
@@ -307,6 +309,13 @@ namespace BLL
                 }
                 return Ok;
             }
+            private void _cmpReg()
+            {
+                Dto.fec_reg = DateTime.Now;
+                Dto.fec_mod = DateTime.Now;
+                Dto.usu_mod = oDto.usu;
+                Dto.usu_reg = oDto.usu;
+            }
             #endregion
         }
         class cmdInsertPago : absTemplate
@@ -372,9 +381,18 @@ namespace BLL
                 Dto = new pagos();
                 Mapper.Map(oDto, Dto);
 
+                _cmpReg();
+
                 ctx.pagos.Add(Dto);
 
                 InsertDetallesPagos();
+            }
+            private void _cmpReg()
+            {
+                Dto.fec_reg = DateTime.Now;
+                Dto.fec_mod = DateTime.Now;
+                Dto.usu_mod = oDto.usu;
+                Dto.usu_reg = oDto.usu;
             }
             private void UltIdFechaIntereses()
             {
@@ -629,9 +647,16 @@ namespace BLL
                 Dto.observacion = oDto.observacion;
                 Dto.estado = "PA";
                 Dto.fecha_pago = oDto.fecha_pago.Value.Date;
+                _cmpReg();
                 AfectarCarteraDetallesPago();
                
                 if(oDto.VerificadoIntereses) OperacionIntereses();
+            }
+
+            private void _cmpReg()
+            {
+                Dto.usu_mod = oDto.usu;
+                Dto.fec_mod = DateTime.Now;
             }
             private void AfectarCarteraDetallesPago()
             {
@@ -751,6 +776,7 @@ namespace BLL
         class cmdAnularPago : absTemplate
         {
             public int id_pago { get; set; }
+            public string usu { get; set; }
             int ultIdMov { get; set; }
             pagos pago { get; set; }
             DateTime fecha_pago { get; set; }
@@ -811,6 +837,14 @@ namespace BLL
                 pago.fecha_pago = null;
                 AfectarCartera();
                 VerificarSiPagoVencido();
+
+                _cmpReg();
+            }
+
+            private void _cmpReg()
+            {
+                pago.usu_mod = usu;
+                pago.fec_mod = DateTime.Now;
             }
             private void VerificarSiPagoVencido()
             {
@@ -925,6 +959,7 @@ namespace BLL
         }
         class cmdAnularLiquidacion : absTemplate
         {
+            public string usu { get; set; }
             public int id_pago { get; set; }
             pagos pago { get; set; }
             protected internal override bool esValido()
@@ -967,6 +1002,12 @@ namespace BLL
                     fechas_calculo_intereses ult_fecha = item.carterap.fechas_calculo_intereses.Where(t=> t.estado == "LI").OrderByDescending(t => t.fecha).FirstOrDefault();
                     if(ult_fecha != null) ult_fecha.estado = "AN";
                 }
+                _cmpReg();
+            }
+            private void _cmpReg()
+            {
+                pago.usu_mod = usu;
+                pago.fec_mod = DateTime.Now;
             }
         }
     }

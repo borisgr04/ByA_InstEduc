@@ -7,6 +7,7 @@ using DAL;
 using ByA;
 using AutoMapper;
 using Entidades.Consultas;
+using System.Web;
 
 namespace BLL
 {
@@ -16,7 +17,7 @@ namespace BLL
         public List<carteraDto> GetVisualizacionCarteraAntes(int grado, int vigencia, int vigenciaActual, int periodoActual)
         {
             using (ctx = new ieEntities())
-            {
+            {                
                 mConceptos oConceptos = new mConceptos();
                 mTarifas oTarifas = new mTarifas();
                 int MaxPeriodo = ctx.vigencias.Where(t => t.vigencia == vigencia).FirstOrDefault().periodos.Max(t => t.periodo);

@@ -11,17 +11,7 @@
           <EntitySet Name="config_grupos_pagos" EntityType="bdieModel.Store.config_grupos_pagos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="cursos" EntityType="bdieModel.Store.cursos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="detalles_pago" EntityType="bdieModel.Store.detalles_pago" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="detalles_tipos_tercero" EntityType="bdieModel.Store.detalles_tipos_tercero" store:Type="Tables" store:Schema="dbo" store:Name="detalles_tipos_tercero">
-            <DefiningQuery>SELECT 
-      [detalles_tipos_tercero].[id] AS [id], 
-      [detalles_tipos_tercero].[id_tercero] AS [id_tercero], 
-      [detalles_tipos_tercero].[nombre_tipo] AS [nombre_tipo], 
-      [detalles_tipos_tercero].[fec_reg] AS [fec_reg], 
-      [detalles_tipos_tercero].[fec_mod] AS [fec_mod], 
-      [detalles_tipos_tercero].[usu_reg] AS [usu_reg], 
-      [detalles_tipos_tercero].[usu_mod] AS [usu_mod]
-      FROM [dbo].[detalles_tipos_tercero] AS [detalles_tipos_tercero]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="detalles_tipos_tercero" EntityType="bdieModel.Store.detalles_tipos_tercero" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="documentos" EntityType="bdieModel.Store.documentos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="entidad" EntityType="bdieModel.Store.entidad" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="estudiantes" EntityType="bdieModel.Store.estudiantes" store:Type="Tables" Schema="dbo" />
@@ -285,14 +275,9 @@
           <Property Name="id_cartera" Type="int" Nullable="false" />
           <Property Name="nombre_concepto" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'bdie.dbo.detalles_tipos_tercero' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
         <EntityType Name="detalles_tipos_tercero">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="id_tercero" />
-            <PropertyRef Name="nombre_tipo" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="id_tercero" Type="int" Nullable="false" />
@@ -1337,8 +1322,6 @@
         <EntityType Name="detalles_tipos_tercero">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="id_tercero" />
-            <PropertyRef Name="nombre_tipo" />
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="Int32" Name="id_tercero" Nullable="false" />

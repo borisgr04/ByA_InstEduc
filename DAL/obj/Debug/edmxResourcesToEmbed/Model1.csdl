@@ -280,8 +280,6 @@
   <EntityType Name="detalles_tipos_tercero">
     <Key>
       <PropertyRef Name="id" />
-      <PropertyRef Name="id_tercero" />
-      <PropertyRef Name="nombre_tipo" />
     </Key>
     <Property Type="Int32" Name="id" Nullable="false" />
     <Property Type="Int32" Name="id_tercero" Nullable="false" />

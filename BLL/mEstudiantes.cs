@@ -219,9 +219,19 @@ namespace BLL
                 oDto.id = ultId_est;
                 Mapper.Map(oDto, Dto);
 
+                _cmpReg();
+
                 AsignoTerceros(tercero_acudiente, tercero_madre, tercero_padre, tercero_estudiante);
 
                 ctx.estudiantes.Add(Dto);
+            }
+
+            private void _cmpReg()
+            {
+                Dto.fec_reg = DateTime.Now;
+                Dto.fec_mod = DateTime.Now;
+                Dto.usu_mod = oDto.usu;
+                Dto.usu_reg = oDto.usu;
             }
             private void AsignoTerceros(terceros tercero_acudiente, terceros tercero_madre, terceros tercero_padre, terceros tercero_estudiante)
             {
@@ -415,9 +425,17 @@ namespace BLL
                 oDto.id = Dto.id;
                 Mapper.Map(oDto, Dto);
 
+                _cmpReg();
+
                 AsignoTerceros(tercero_acudiente, tercero_padre, tercero_madre, tercero_estudiante);
 
                 AsignarIdsTercerosAEstudiante();
+            }
+
+            private void _cmpReg()
+            {
+                Dto.fec_mod = DateTime.Now;
+                Dto.usu_mod = oDto.usu;
             }
             private void AsignarIdsTercerosAEstudiante()
             {

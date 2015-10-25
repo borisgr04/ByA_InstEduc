@@ -1887,6 +1887,7 @@
     <Content Include="DatosBasicos\Terceros\Web.config" />
     <Content Include="Liquidaciones\Cartera\Web.config" />
     <Content Include="Consultas\PagosEstudiantes\Web.config" />
+    <Content Include="Images\Libro1.xlsx" />
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
