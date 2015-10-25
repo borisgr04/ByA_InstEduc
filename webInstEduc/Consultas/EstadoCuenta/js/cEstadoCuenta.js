@@ -88,12 +88,13 @@ app.controller('cEstadoCuenta', function ($scope, gradosService, estadocuentares
         $("#modalResumenEstadoCuenta").modal("show");
     };
     $scope._imprimirEstadoCuenta = function () {
-        var printContents = document.getElementById("dvdEstadoCuenta").innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-        //byaPage.printDiv("dvdEstadoCuenta");
+        $.get("/DiseñosReportes/ImpLiq.html", function (data) {
+            var win;
+            win = window.open();
+            win.document.write(data);
+            win.print();
+            win.close();
+        });
     };
 
     _init();

@@ -1,0 +1,117 @@
+﻿<html>
+    <head>
+    <title></title>
+    <style>
+        body {
+            font-family:Arial;
+            font-size:10pt;
+        }
+        th {
+             text-align: left;
+        }
+        .tbconborde {
+            border-collapse: collapse;
+        }
+        .tbconborde td {
+                border: 1px solid black;
+                padding: 2mm;
+         }
+
+         .tbconborde th {
+                background-color: #f8f3f3;
+                border: 1px solid black;
+         }       
+
+    </style>
+    </head>
+    <body>
+        <div style="text-align:justify">
+            <table class="tbconborde" style="width:100%;font-size:90%;">
+                <tbody>
+                    <tr>
+                        <th style="text-align:center;font-size:70%;">Colegio Calleja Real</th>
+                        <th style="text-align:center;font-size:70%;">Estado de Cuenta</th>
+                        <th style="text-align:center;font-size:70%;">Fecha: {FECHA}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <table style="width:100%;font-size:70%;">
+                <tbody>
+                    <tr>
+                        <td><strong>Nro. liquidación:</strong></td>
+                        <td>{NRO_LIQ}</td>
+                        <td><strong>Fecha de liquidación:</strong></td>
+                        <td>{FEC_LIQ}</td>
+                        <td><strong>Nro. Contrato:</strong></td>
+                        <td colspan="3" style="border:none">{NUM_CTO}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cod. Impto:</strong></td>
+                        <td>40</td>
+                        <td><strong>Impuesto sobre:</strong></td>
+                        <td colspan="3">CONTRATO Y/O CONVENIOS</td>
+                        <td><strong>Estado:</strong></td>
+                        <td>{NOM_ESTADO}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nit:</strong></td>
+                        <td>{TER_NIT}</td>
+                        <td><strong>Contribuyente:</strong></td>
+                        <td colspan="5">{NOM_TER}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Agente recaudador:</strong></td>
+                        <td colspan="7">{NOM_AGE}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1"><strong>Periodo de liquidación:</strong></td>
+                        <td colspan="3" style="text-align:left">{PER_LIQ}</td>
+                        <td colspan="2"><strong>Valor Base:</strong></td>
+                        <td colspan="2">{VAL_BAS}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Observaciones:</strong></td>
+                        <td colspan="7">{OBS_LIQ}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <table class="tbconborde" style="width:100%;font-size:70%;">
+                <tbody>
+                    <tr>
+                        <th style="text-align:center" colspan="3">Impuesto</th>
+                        <th style="text-align:center">Tarifa Aplicada</th>
+                        <th style="text-align:center">Vlr. Base ($)</th>
+                        <th style="text-align:center">Total</th>
+                    </tr>
+                    {SEC_TBL_IMP}
+                    <tr>
+                        <td style="text-align:left;border:none;padding:2px" rowspan="6" colspan="4">{CODIGO_QR}</td>
+                        <td style="text-align:center;border:none;padding:2px"><strong>Sub Total</strong></td>
+                        <td style="text-align:right;border:none;padding:2px">{SUB_TOT}</td>
+                    </tr>
+                    <tr>
+                        <!--<td style="text-align:left;border:none;padding:2px" colspan="4"></td>-->
+                        <td style="text-align:center;border:none;padding:2px"><strong>Intereses(+)</strong></td>
+                        <td style="text-align:right;border:none;padding:2px">{INTERES}</td>
+                    </tr>
+                    <tr>
+                        <!--<td style="text-align:left;border:none;padding:2px" colspan="4"></td>-->
+                        <td style="text-align:center;border:none;padding:2px"><strong>Sanción(+)</strong></td>
+                        <td style="text-align:right;border:none;padding:2px">{SANCION}</td>
+                    </tr>
+                    <tr>
+                        <!--<td style="text-align:left;border:none;padding:2px" colspan="4"></td>-->
+                        <td style="text-align:center;border:none;padding:2px"><strong>Descuentos(-)</strong></td>
+                        <td style="text-align:right;border:none;padding:2px">{DECUENT}</td>
+                    </tr>
+                    <tr>
+                        <!--<td style="text-align:left;border:none;padding:2px" colspan="4"></td>-->
+                        <td style="text-align:center;border:none;padding:2px"><strong>Total a pagar</strong></td>
+                        <td style="text-align:right;border:none;padding:2px">{TOTAL}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

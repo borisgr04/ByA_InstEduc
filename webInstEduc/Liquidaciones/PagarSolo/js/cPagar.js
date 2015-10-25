@@ -171,7 +171,7 @@ app.controller('cLiquidacion', function ($scope, estudiantesService, pagosServic
         e.id_estudiante = $scope.estudiante.identificacion;
         e.ValorPagar = $scope.valor_a_liquidar;
         e.fecha = $("#txtFechaPago").val();
-        e.id_grupo = $scope.grupo_pago.id != null ? $scope.grupo_pago.id : 1;
+        e.id_grupo = $scope.grupo_pago.id;
         return e;
     };
     function _GetCarteraCausada() {
