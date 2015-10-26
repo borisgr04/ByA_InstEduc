@@ -56,24 +56,43 @@ app.controller('cConsultaPagosEstudiante', function ($scope, gradosService, estu
         $scope._traerestudiante();
     };
     $scope._printPagos = function () {
+        var classActual = $("#tblPagos").attr("class");
+        $("#tblPagos").removeAttr("class");
+        $("#tblPagos").addClass("tbconborde");
+        var htmlPagos = $("#printPagos").html();
+        $("#tblPagos").removeAttr("class");
+        $("#tblPagos").addClass(classActual);
 
-        var printContents = document.getElementById("printPagos").innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
+        var objListadoPagosImprimir = {
+            FECHA_INICIAL: $("#fch_inicial").val(),
+            FECHA_FINAL: $("#fch_final").val(),
+            TABLA_PAGOS: htmlPagos
+        };
+
+        $.get("/DiseñosReportes/ListadoPagos.html", function (data) {
+            $.each(camposImp, function (index, item) {
+                data = data.split("{" + item + "}").join(objListadoPagosImprimir[item]);
+            });
+
+            var win;
+            win = window.open();
+            win.document.write(data);
+            win.print();
+            win.close();
+        });
     };
-    $scope._printDetalles = function () {
-        var printContents = document.getElementById("printDetalles").innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-    };
+    var camposImp = [];
 
     _init();
 
+    function llenarcamposImp() {
+        camposImp = new Array();
+        camposImp.push("FECHA_INICIAL");
+        camposImp.push("FECHA_FINAL");
+        camposImp.push("TABLA_PAGOS");
+    };
     function _init() {
+        llenarcamposImp();
         FechaActualCausacion();        
         byaSite.SetModuloP({ TituloForm: "Pagos Estudiante", Modulo: "Consultas", urlToPanelModulo: "PagosEstudiante.aspx", Cod_Mod: "CONSU", Rol: "CONSULstPagos" });
     };
@@ -102,6 +121,17 @@ app.controller('cConsultaPagosEstudiante', function ($scope, gradosService, estu
         var serPago = pagosService.PagosEstudiante($scope.obj_consulta);
         serPago.then(function (pl) {
             $scope.pagos = pl.data;
+            $.each($scope.pagos, function (index, item) {
+                item.detalles_pago2 = [];
+                item.detalles_pago2.push(item.detalles_pago[0]);
+
+                item.detalles_pago3 = [];
+                $.each(item.detalles_pago, function (index2, item2) {                    
+                    if (index2 > 0) {                        
+                        item.detalles_pago3.push(item2);
+                    }
+                });
+            });
         }, function (errorPl) {
             console.log(JSON.stringify(errorPl));
         });

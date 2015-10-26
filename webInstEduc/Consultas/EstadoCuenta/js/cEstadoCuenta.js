@@ -96,9 +96,11 @@ app.controller('cEstadoCuenta', function ($scope, gradosService, estadocuentares
             win.close();
         });
     };
+    
 
     _init();
 
+    
     function _calcularSaldoPensiones(){
         $scope.spensiones = 0;
         $scope.spensiones = $scope.spensiones + $scope.estadocuentaresumen.pension2.valor - $scope.estadocuentaresumen.pension2.pagado;
