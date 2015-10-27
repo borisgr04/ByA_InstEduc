@@ -55,6 +55,7 @@
     <Compile Include="Consultas\cDeudaCursosGrado.cs" />
     <Compile Include="Consultas\cDeudaEstudiantesCursoGrado.cs" />
     <Compile Include="Consultas\cDeudaGrados.cs" />
+    <Compile Include="Consultas\cEstadoCuenta.cs" />
     <Compile Include="Consultas\cEstadoCuentaEstudiante.cs" />
     <Compile Include="Consultas\cEstadoCuentaResumen.cs" />
     <Compile Include="Consultas\cEstudiantesOrden.cs" />

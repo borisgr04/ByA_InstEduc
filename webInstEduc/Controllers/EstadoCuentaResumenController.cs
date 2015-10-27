@@ -13,10 +13,10 @@ namespace AspIdentity.Controllers
     public class EstadoCuentaResumenController : ApiController
     {
         [Route("{id_estudiante}/Vigencia/{vigencia}")]
-        public cEstadoCuentaResumen GetDeudasGrados(string id_estudiante, int vigencia)
+        public List<cEstadoCuenta> GetEstadoCuenta(string id_estudiante, int vigencia)
         {
-            mEstadoCuenta oEstadoCuentaResumen = new mEstadoCuenta();
-            return oEstadoCuentaResumen.GetEstadoCuentaResumido(id_estudiante, vigencia);
+            mEstadoCuenta oEstCuenta = new mEstadoCuenta();
+            return oEstCuenta.GetEstadoCuentaResumido(id_estudiante);
         }
     }
 }

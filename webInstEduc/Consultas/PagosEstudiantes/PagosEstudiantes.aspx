@@ -64,7 +64,7 @@
                             <tr>                                
                                 <th style="text-align:right">No. Pago</th>
                                 <th style="text-align:right">Identificación</th>
-                                <th>Nombre Estudiante</th>
+                                <th style="text-align:left">Nombre Estudiante</th>
                                 <th>Fecha Pago</th>
                                 <th>Concepto</th>
                                 <th style="text-align:right">Periodo</th>
@@ -75,7 +75,7 @@
                             <tr>                                
                                 <td rowspan="{{pago.detalles_pago.length + 2}}" style="text-align:right"><strong>{{pago.id}}</strong></td>
                                 <td rowspan="{{pago.detalles_pago.length + 2}}" style="text-align:right"><strong>{{pago.id_estudiante}}</strong></td>
-                                <td rowspan="{{pago.detalles_pago.length + 2}}"><strong>{{pago.nombre_estudiante}}</strong></td>
+                                <td rowspan="{{pago.detalles_pago.length + 2}}" style="text-align:left"><strong>{{pago.nombre_estudiante}}</strong></td>
                                 <td rowspan="{{pago.detalles_pago.length + 2}}">{{pago.fecha_pago | date:'medium'}}</td>       
                                 <td>{{pago.detalles_pago2[0].nombre_concepto}}</td>       
                                 <td style="text-align:right">{{pago.detalles_pago2[0].periodo}}</td>       
