@@ -20,5 +20,9 @@ namespace Entidades.Consultas
     {
         public int vigencia { get; set; }
         public List<itemPorVigencia> l_items { get; set; }
+        public int causado_vigencia { get; set; }
+        public int intereses_vigencia { get; set; }
+        public int pagado_vigencia { get; set; }
+        public int saldo_vigencia { get; set; }
     }
 }

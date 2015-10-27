@@ -27,6 +27,11 @@ namespace BLL
                 {
                     cEstadoCuenta objEstCuenta = new cEstadoCuenta();
                     objEstCuenta.vigencia = vigencia.vigencia;
+                    objEstCuenta.saldo_vigencia = 0;
+                    objEstCuenta.intereses_vigencia = 0;
+                    objEstCuenta.pagado_vigencia = 0;
+                    objEstCuenta.saldo_vigencia = 0;
+
                     objEstCuenta.l_items = new List<itemPorVigencia>();
                     List<carterap> lCarteras = ctx.carterap.Where(t => t.id_estudiante == id_estudiante && (t.estado == "PR" || t.estado == "CA") && (t.vigencia * 100 + t.periodo) <= VigPerAct && t.vigencia == vigencia.vigencia).ToList();
                     foreach (carterap cartera in lCarteras)
@@ -46,15 +51,19 @@ namespace BLL
                         item.intereses = ValorIntereses;
                         item.pagado = (int) cartera.pagado + ValorPagadoIntereses;
                         item.saldo = item.causado + item.intereses - item.pagado;
+
+                        objEstCuenta.causado_vigencia += item.causado;
+                        objEstCuenta.intereses_vigencia += item.intereses;
+                        objEstCuenta.pagado_vigencia += item.pagado;
+                        objEstCuenta.saldo_vigencia += item.saldo;
+
                         objEstCuenta.l_items.Add(item);
                     }
                     lEstadoCuenta.Add(objEstCuenta);
                 }
 
             }
-
-
-            return lEstadoCuenta;
+            return lEstadoCuenta.Where(t => t.saldo_vigencia > 0).OrderBy(t => t.vigencia).ToList();
         }
         private int PreCalcularInteresesCartera(DateTime FechaCausacion, carterap cartera, int ValorIntereses)
         {
