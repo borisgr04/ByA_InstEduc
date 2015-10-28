@@ -1,0 +1,45 @@
+﻿<html>
+    <head>
+    <title></title>
+    <style>
+        body {
+            font-family:Arial;
+            font-size:10pt;
+        }
+        th {
+             text-align: left;
+        }
+        .tbconborde {
+            border-collapse: collapse;
+            font-size:70%;
+        }
+        .tbconborde td {
+                border: 1px solid black;
+         }
+
+         .tbconborde th {
+                background-color: #f8f3f3;
+                border: 1px solid black;
+         }       
+
+    </style>
+    </head>
+    <body>
+        <div style="text-align:justify">
+            <table class="tbconborde" style="width:100%;">
+                <tbody>
+                    <tr>
+                        <th style="text-align:center;" colspan="3">Colegio Calleja Real</th>
+                    </tr>
+                    <tr>                        
+                        <th style="text-align:center;">Listado de Pagos</th>
+                        <th style="text-align:center;">Fecha Inicial: {FECHA_INICIAL}</th>
+                        <th style="text-align:center;">Fecha Final: {FECHA_FINAL}</th>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            {TABLA_PAGOS}
+        </div>
+    </body>
+</html>

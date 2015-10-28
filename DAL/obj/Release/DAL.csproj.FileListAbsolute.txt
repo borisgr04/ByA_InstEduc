@@ -8,3 +8,13 @@ D:\Dev\byaIE\IEWTk\InstEduc\DAL\bin\Release\EntityFramework.SqlServer.xml
 D:\Dev\byaIE\IEWTk\InstEduc\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 D:\Dev\byaIE\IEWTk\InstEduc\DAL\obj\Release\DAL.dll
 D:\Dev\byaIE\IEWTk\InstEduc\DAL\obj\Release\DAL.pdb
+D:\Dev\InstEduc\DAL\bin\Release\DAL.dll.config
+D:\Dev\InstEduc\DAL\bin\Release\DAL.dll
+D:\Dev\InstEduc\DAL\bin\Release\DAL.pdb
+D:\Dev\InstEduc\DAL\bin\Release\EntityFramework.dll
+D:\Dev\InstEduc\DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\Dev\InstEduc\DAL\bin\Release\EntityFramework.xml
+D:\Dev\InstEduc\DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\Dev\InstEduc\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Dev\InstEduc\DAL\obj\Release\DAL.dll
+D:\Dev\InstEduc\DAL\obj\Release\DAL.pdb

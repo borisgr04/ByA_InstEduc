@@ -31,8 +31,9 @@ namespace BLL
                     objEstCuenta.intereses_vigencia = 0;
                     objEstCuenta.pagado_vigencia = 0;
                     objEstCuenta.saldo_vigencia = 0;
-
+                    objEstCuenta.ban_agregar = false;
                     objEstCuenta.l_items = new List<itemPorVigencia>();
+
                     List<carterap> lCarteras = ctx.carterap.Where(t => t.id_estudiante == id_estudiante && (t.estado == "PR" || t.estado == "CA") && (t.vigencia * 100 + t.periodo) <= VigPerAct && t.vigencia == vigencia.vigencia).ToList();
                     foreach (carterap cartera in lCarteras)
                     {
@@ -59,11 +60,35 @@ namespace BLL
 
                         objEstCuenta.l_items.Add(item);
                     }
-                    lEstadoCuenta.Add(objEstCuenta);
-                }
+                    List<carterap> lCarterasNoCausadas = ctx.carterap.Where(t => t.id_estudiante == id_estudiante && (t.estado == "PR" || t.estado == "CA") && (t.vigencia * 100 + t.periodo) > VigPerAct && t.vigencia == vigencia.vigencia).ToList();
+                    if (lCarteras.Count() > 0) objEstCuenta.ban_agregar = true;
+                    foreach (carterap itemC in lCarterasNoCausadas)
+                    {
+                        itemPorVigencia item = new itemPorVigencia();
+                        item.id_concepto = itemC.id_concepto;
+                        item.nombre_concepto = itemC.conceptos.nombre;
+                        item.periodo = itemC.periodo;
+                        item.causado = 0;
+                        item.intereses = 0;
+                        item.pagado = 0;
+                        List<detalles_pago> lDet = ctx.detalles_pago.Where(t => t.id_cartera == itemC.id && t.pagos.estado == "PA").ToList();
+                        lDet.ForEach(t => item.pagado += (int) t.valor);
+                        item.saldo = item.causado + item.intereses - item.pagado;
 
+                        objEstCuenta.causado_vigencia += item.causado;
+                        objEstCuenta.intereses_vigencia += item.intereses;
+                        objEstCuenta.pagado_vigencia += item.pagado;
+                        objEstCuenta.saldo_vigencia += item.saldo;
+
+                        objEstCuenta.l_items.Add(item);
+                    }
+                    if(objEstCuenta.l_items.Count() > 0) lEstadoCuenta.Add(objEstCuenta);
+                }
             }
-            return lEstadoCuenta.Where(t => t.saldo_vigencia > 0).OrderBy(t => t.vigencia).ToList();
+
+            int MaxVig = lEstadoCuenta.Max(t => t.vigencia);
+
+            return lEstadoCuenta.Where(t=> t.saldo_vigencia != 0 || t.vigencia == MaxVig || t.ban_agregar).OrderBy(t => t.vigencia).ToList();
         }
         private int PreCalcularInteresesCartera(DateTime FechaCausacion, carterap cartera, int ValorIntereses)
         {

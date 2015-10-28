@@ -68,6 +68,7 @@
                                 <th>Fecha Pago</th>
                                 <th>Concepto</th>
                                 <th style="text-align:right">Periodo</th>
+                                <th style="text-align:right">Vigencia</th>
                                 <th style="text-align:right">Valor</th>                              
                             </tr>
                         </thead>
@@ -78,22 +79,24 @@
                                 <td rowspan="{{pago.detalles_pago.length + 2}}" style="text-align:left"><strong>{{pago.nombre_estudiante}}</strong></td>
                                 <td rowspan="{{pago.detalles_pago.length + 2}}">{{pago.fecha_pago | date:'medium'}}</td>       
                                 <td>{{pago.detalles_pago2[0].nombre_concepto}}</td>       
-                                <td style="text-align:right">{{pago.detalles_pago2[0].periodo}}</td>       
+                                <td style="text-align:right">{{pago.detalles_pago2[0].periodo}}</td>  
+                                <td style="text-align:right">{{pago.detalles_pago2[0].vigencia}}</td>       
                                 <td style="text-align:right">{{pago.detalles_pago2[0].valor  | currency:"$":0}}</td>                           
                             </tr>
                             <tr ng-repeat="detalle in pago.detalles_pago3">
                                 <td>{{detalle.nombre_concepto}}</td>       
-                                <td style="text-align:right">{{detalle.periodo}}</td>       
+                                <td style="text-align:right">{{detalle.periodo}}</td>  
+                                <td style="text-align:right">{{detalle.vigencia}}</td>       
                                 <td style="text-align:right">{{detalle.valor  | currency:"$":0}}</td> 
                             </tr>
                             <tr>
-                                <td colspan="2" style="text-align:right"><strong>Total=</strong></td>
+                                <td colspan="3" style="text-align:right"><strong>Total=</strong></td>
                                 <td style="text-align:right"><strong>{{pago.detalles_pago |sumByKey:'valor'| currency:"$":0}}</strong></td>
                             </tr>        
                         </tbody>
                         <tbody ng-show="pagos.length > 0">
                             <tr>
-                                <td colspan="6" style="text-align:right"><strong>Total pagos=</strong></td>
+                                <td colspan="7" style="text-align:right"><strong>Total pagos=</strong></td>
                                 <td style="text-align:right"><strong>{{_valorPagos() | currency:"$":0}}</strong></td>
                             </tr>  
                         </tbody>

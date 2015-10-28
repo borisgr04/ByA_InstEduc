@@ -12,6 +12,7 @@ app.controller('cEstadoCuenta', function ($scope, gradosService, estadocuentares
     $scope.fecha_actual = new Date();
     $scope.estadocuentaresumen = [];
     $scope.spensiones = 0;
+    $scope.xx = -1000 ;
     $scope.consolidado_estado_cuenta = {};
     $scope._traerestudiante = function () {
         var serEstu = estudiantesService.Get($scope.obj_consulta.id_estudiante);

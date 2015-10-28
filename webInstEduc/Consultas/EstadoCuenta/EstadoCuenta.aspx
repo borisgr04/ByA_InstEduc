@@ -71,7 +71,7 @@
                             <table class="table table-bordered table-hover table-striped tablesorter" style="width:70%">
                                 <thead>
                                     <tr>                                        
-                                        <th style="text-align:right">Vigencia <i class="fa fa-sort"></i></th>
+                                        <th style="text-align:right">Vigencia<i class="fa fa-sort"></i></th>
                                         <th style="text-align:right">Causado <i class="fa fa-sort"></i></th>
                                         <th style="text-align:right">Pagado <i class="fa fa-sort"></i></th>  
                                         <th style="text-align:right">Deuda <i class="fa fa-sort"></i></th>  

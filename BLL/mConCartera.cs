@@ -140,6 +140,17 @@ namespace BLL
                     objValorI.Pagado = ValorPagadoIntereses;
                     lst.Add(objValorI);
                 }
+                List<detalles_pago> lPagos = db.detalles_pago.Where(t => t.vigencia == vigencia.vigencia && t.periodo == periodo && t.pagos.estado == "PA" && t.pagos.id_estudiante == ide_est && (t.vigencia * 100 + t.periodo) > VigPerAct).ToList();
+                foreach (detalles_pago item in lPagos)
+                {
+                    vmCarteraxSaldosxConceptos objValor = new vmCarteraxSaldosxConceptos();
+                    objValor.Item = new conceptosDto();
+                    objValor.Item.id = item.id_concepto;
+                    objValor.Item.nombre = item.nombre_concepto;
+                    objValor.Valor = 0;
+                    objValor.Pagado = item.valor;
+                    lst.Add(objValor);
+                }
                 return lst;
             }
         }

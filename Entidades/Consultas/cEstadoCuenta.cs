@@ -24,5 +24,7 @@ namespace Entidades.Consultas
         public int intereses_vigencia { get; set; }
         public int pagado_vigencia { get; set; }
         public int saldo_vigencia { get; set; }
+
+        public bool ban_agregar { get; set; }
     }
 }
