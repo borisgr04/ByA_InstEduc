@@ -1996,6 +1996,7 @@
       <DependentUpon>TransaccionesEstudiante.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConceptosACarteraController.cs" />
     <Compile Include="Controllers\ConceptosController.cs" />
     <Compile Include="Controllers\ConfiguracionGrupoPagoController.cs" />
     <Compile Include="Controllers\EstadoCuentaResumenController.cs" />

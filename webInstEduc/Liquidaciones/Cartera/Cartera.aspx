@@ -60,8 +60,9 @@
                                             </div>
                                         </div>                                     
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-5">
                                         <button style="margin-top:21px" ng-disabled="!habGuardar" ng-click="_guardar()" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+                                        <button style="margin-top:21px" ng-click="_agregarNuevoConcepto()" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-plus"></span> Agregar Nuevo Concepto</button>
                                     </div>
                                 </form>
                             </div>
@@ -105,6 +106,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="modalAgregarNuevoConcepto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Agregar Nuevo Concepto</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div class="row">
+                              <div class="col-xs-5">
+                                  <label>Concepto</label>
+                                  <select class="form-control" ng-options="concepto.id as concepto.nombre for concepto in config_conceptos_periodos.lConceptos" ng-model="obj_nuevo_concepto.concepto_seleccionado"></select>
+                              </div>
+                              <div class="col-xs-2">
+                                  <label>Desde</label>
+                                  <select class="form-control" ng-options="periodo.periodo as periodo.periodo for periodo in config_conceptos_periodos.lPeriodos" ng-model="obj_nuevo_concepto.perido_desde_seleccionado"></select>
+                              </div>
+                              <div class="col-xs-2">
+                                  <label>Hasta</label>
+                                  <select class="form-control" ng-options="periodo.periodo as periodo.periodo for periodo in config_conceptos_periodos.lPeriodos" ng-model="obj_nuevo_concepto.perido_hasta_seleccionado"></select>
+                              </div>
+                              <div class="col-xs-3">
+                                  <label>Valor</label>
+                                  <input type="text" class="form-control text-right" format="number" ng-model="obj_nuevo_concepto.valor"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info" ng-click="_guardarNuevoConcepto()">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
             </div>
         </div>
     </div>

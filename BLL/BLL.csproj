@@ -84,6 +84,7 @@
     <Compile Include="DatosBasicos\mConfigGruposPagos.cs" />
     <Compile Include="DatosBasicos\mVigencias.cs" />
     <Compile Include="mCausacion.cs" />
+    <Compile Include="mConceptosACartera.cs" />
     <Compile Include="mConsultaCartera.cs" />
     <Compile Include="mDuedaGrados.cs" />
     <Compile Include="mEstadoCuenta.cs" />

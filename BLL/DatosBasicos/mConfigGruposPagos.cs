@@ -77,29 +77,11 @@ namespace BLL
             #region ImplementaciónMetodosAbstractos
             protected internal override bool esValido()
             {
-                /*if (ctx.conceptos.Where(t => t.id == oDto.id_concepto).FirstOrDefault() == null) {
-                    byaRpt.Mensaje = "No existe un concepto asociado a este registro";
-                    byaRpt.Error = true;
-                    return false;
-                }
-                if (ctx.grupos_pagos.Where(t => t.id == oDto.id_grupo).FirstOrDefault() == null)
-                {
-                    byaRpt.Mensaje = "No existe un grupo de pago asociado a este registro";
-                    byaRpt.Error = true;
-                    return false;
-                }
-                if (ctx.vigencias.Where(t => t.vigencia == oDto.vigencia).FirstOrDefault() == null)
-                {
-                    byaRpt.Mensaje = "No existe una vigencia asociada a este registro";
-                    byaRpt.Error = true;
-                    return false;
-                }*/
-
-                Dto = ctx.config_grupos_pagos.Where(t => t.id_concepto == oDto.id_concepto && t.id_grupo == oDto.id_grupo && t.vigencia == oDto.vigencia).FirstOrDefault();
+                Dto = ctx.config_grupos_pagos.Where(t => t.id_concepto == oDto.id_concepto && t.vigencia == oDto.vigencia).FirstOrDefault();
                 if (Dto == null) return true;
                 else
                 {
-                    byaRpt.Mensaje = "Existe una configuracion de grupos de pago exactamente igual";
+                    byaRpt.Mensaje = "No puede agregar dos veces el mismo concepto";
                     byaRpt.Error = true;
                     return false;
                 }

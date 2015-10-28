@@ -68,6 +68,7 @@
     <Compile Include="Vistas\carteraDto.cs" />
     <Compile Include="Vistas\carterapDto.cs" />
     <Compile Include="Vistas\conceptosDto.cs" />
+    <Compile Include="Vistas\ConceptosPeriodosDto.cs" />
     <Compile Include="Vistas\configGruposPagosDto.cs" />
     <Compile Include="Vistas\ConsultaMatriculasDto.cs" />
     <Compile Include="Vistas\DiasInteresesDto.cs" />

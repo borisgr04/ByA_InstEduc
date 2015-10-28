@@ -74,6 +74,7 @@ app.controller('cConfigGruposPagos', function ($scope, configGruposPagosService,
     };
     function _nuevo() {
         var e = {};
+        e.vigencia = byaSite.getVigencia();
         $scope.configGruposP.push(e);
         byaPage.irFin();
     };
