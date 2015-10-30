@@ -376,3 +376,13 @@ app.service("estadocuentaresumenService", function ($http) {
         return req;
     };
 });
+app.service("conceptoacarteraService", function ($http) {
+    this.Get = function (vigencia) {
+        var req = $http.get('/api/ConceptosACartera/Configuracion/' + vigencia);
+        return req;
+    };
+    this.Post = function (obj_nuevo_concepto) {
+        var req = $http.post('/api/ConceptosACartera/', obj_nuevo_concepto);
+        return req;
+    };
+});

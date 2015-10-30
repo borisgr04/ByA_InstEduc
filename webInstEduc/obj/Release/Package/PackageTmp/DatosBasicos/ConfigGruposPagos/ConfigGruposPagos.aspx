@@ -66,7 +66,7 @@
                                         <select class="form-control transparente" ng-model="config.id_concepto" ng-options="concepto.id as concepto.nombre for concepto in conceptos" required></select>                                        
                                     </td>
                                     <td>
-                                        <select class="form-control transparente" ng-model="config.vigencia" ng-options="vigencia.vigencia as vigencia.vigencia for vigencia in vigencias" required></select>                                      
+                                        <p style="color:gray;margin-top:5px;">{{config.vigencia}}</p>                                   
                                     </td>
                                     <td>
                                         <select class="form-control transparente" ng-model="config.intereses" ng-options="interes.id as interes.id for interes in intereses" required></select>                                        

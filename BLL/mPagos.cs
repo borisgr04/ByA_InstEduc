@@ -66,6 +66,10 @@ namespace BLL
                 Reg.FechaFinal = new DateTime(Reg.FechaFinal.Year, Reg.FechaFinal.Month, Reg.FechaFinal.Day, 0, 0, 0);
                 List<pagosDto> lr = new List<pagosDto>();
                 List<pagos> l = new List<pagos>();
+
+                Reg.FechaInicial = new DateTime(Reg.FechaInicial.Year, Reg.FechaInicial.Month, Reg.FechaInicial.Day, 0, 0, 0);
+                Reg.FechaFinal = new DateTime(Reg.FechaFinal.Year, Reg.FechaFinal.Month, Reg.FechaFinal.Day, 23, 59, 0);
+
                 if(Reg.id_estudiante != "") l = ctx.pagos.Where(t => t.id_estudiante == Reg.id_estudiante && t.estado == "PA" && t.fecha_pago >= Reg.FechaInicial && t.fecha_pago <= Reg.FechaFinal).OrderByDescending(t=> t.id).ToList();
                 else l = ctx.pagos.Where(t => t.estado == "PA" && t.fecha_pago >= Reg.FechaInicial && t.fecha_pago <= Reg.FechaFinal).OrderByDescending(t => t.id).ToList();
                 Mapper.Map(l, lr);

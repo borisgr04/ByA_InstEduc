@@ -144,7 +144,7 @@ namespace BLL
             {
                 MaperCarterap();
                 List<carterapDto> lrCartera = new List<carterapDto>();
-                List<carterap> lCartera = ctx.carterap.Where(t => t.id_estudiante == id_estudiante && t.estado != "AN" && t.vigencia == vigencia).ToList();
+                List<carterap> lCartera = ctx.carterap.Where(t => t.id_estudiante == id_estudiante && t.estado != "AN" && t.vigencia == vigencia).OrderBy(t=> t.periodo).ToList();
                 Mapper.Map(lCartera, lrCartera);
                 return lrCartera;
             }

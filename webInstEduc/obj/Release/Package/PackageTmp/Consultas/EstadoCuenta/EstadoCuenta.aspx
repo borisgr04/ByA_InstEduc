@@ -208,7 +208,7 @@
                     <table class="table table-bordered table-hover table-striped tablesorter" style="width:100%;font-size:80%; margin:2px;padding:2px;" id="tblItemsEstadoCuenta">
                         <tbody ng-repeat="itemEstado in estadocuentaresumen">
                             <tr>
-                                <td style="padding:2px;text-align:center;" colspan="6"><strong>Vigencia: </strong>{{itemEstado.vigencia}}</td>
+                                <td style="padding:2px;text-align:center;" colspan="7"><strong>Vigencia: </strong>{{itemEstado.vigencia}}</td>
                             </tr>  
                             <tr>
                                 <td style="padding:2px;"><strong>Concepto</strong></td>
@@ -216,6 +216,7 @@
                                 <td style="text-align:right;padding:2px;"><strong>Causado</strong></td>
                                 <td style="text-align:right;padding:2px;"><strong>Intereses</strong></td>
                                 <td style="text-align:right;padding:2px;"><strong>Pagado</strong></td>
+                                <td style="text-align:center;padding:2px;"><strong>Fecha pago</strong></td>
                                 <td style="text-align:right;padding:2px;"><strong>Saldo</strong></td>
                             </tr>  
                             <tr ng-repeat="cartera in itemEstado.l_items">
@@ -224,6 +225,7 @@
                                 <td style="text-align:right;padding:2px;">{{cartera.causado| currency:"$":0}}</td>
                                 <td style="text-align:right;padding:2px;">{{cartera.intereses| currency:"$":0}}</td>
                                 <td style="text-align:right;padding:2px;">{{cartera.pagado| currency:"$":0}}</td>
+                                <td style="text-align:right;padding:2px;">{{cartera.fecha_pago | date:'MM/dd/yyyy'}}</td>
                                 <td style="text-align:right;padding:2px;">{{cartera.saldo| currency:"$":0}}</td>
                             </tr> 
                             <tr>
@@ -231,6 +233,7 @@
                                 <td style="text-align:right;padding:2px;"><strong>{{itemEstado.causado_vigencia | currency:"$":0}}</strong></td>
                                 <td style="text-align:right;padding:2px;"><strong>{{itemEstado.intereses_vigencia | currency:"$":0}}</strong></td>
                                 <td style="text-align:right;padding:2px;"><strong>{{itemEstado.pagado_vigencia | currency:"$":0}}</strong></td>
+                                <td></td>                                
                                 <td style="text-align:right;padding:2px;"><strong>{{itemEstado.saldo_vigencia | currency:"$":0}}</strong></td>
                             </tr>
                         </tbody>

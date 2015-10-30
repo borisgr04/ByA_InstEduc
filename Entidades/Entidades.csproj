@@ -73,6 +73,7 @@
     <Compile Include="Vistas\ConsultaMatriculasDto.cs" />
     <Compile Include="Vistas\DiasInteresesDto.cs" />
     <Compile Include="Vistas\fecha_causacionDto.cs" />
+    <Compile Include="Vistas\oNuevoConceptoDto.cs" />
     <Compile Include="Vistas\tasasDto.cs" />
     <Compile Include="Vistas\tiposDocumentosDto.cs" />
     <Compile Include="Vistas\cursosDto.cs" />

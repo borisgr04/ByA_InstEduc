@@ -134,7 +134,7 @@
                           </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-info" ng-click="_guardarNuevoConcepto()">Guardar</button>
+                        <button type="button" class="btn btn-info" ng-disabled="!habGuardar" ng-click="_guardarNuevoConcepto()">Guardar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                       </div>
                     </div><!-- /.modal-content -->

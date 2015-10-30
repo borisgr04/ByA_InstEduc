@@ -53,6 +53,12 @@ namespace BLL
                         item.pagado = (int) cartera.pagado + ValorPagadoIntereses;
                         item.saldo = item.causado + item.intereses - item.pagado;
 
+                        detalles_pago detalle = ctx.detalles_pago.Where(t => t.pagos.estado == "PA" && t.id_cartera == cartera.id).OrderByDescending(t => t.pagos.fecha_pago).FirstOrDefault();
+                        if(detalle != null){
+                            if(detalle.pagos.fecha_pago != null) item.fecha_pago = detalle.pagos.fecha_pago;
+                            else item.fecha_pago = null;
+                        } else item.fecha_pago = null;
+
                         objEstCuenta.causado_vigencia += item.causado;
                         objEstCuenta.intereses_vigencia += item.intereses;
                         objEstCuenta.pagado_vigencia += item.pagado;
@@ -75,6 +81,12 @@ namespace BLL
                         lDet.ForEach(t => item.pagado += (int) t.valor);
                         item.saldo = item.causado + item.intereses - item.pagado;
 
+                        detalles_pago detalle = ctx.detalles_pago.Where(t => t.pagos.estado == "PA" && t.id_cartera == itemC.id).OrderByDescending(t => t.pagos.fecha_pago).FirstOrDefault();
+                        if(detalle != null){
+                            if(detalle.pagos.fecha_pago != null) item.fecha_pago = detalle.pagos.fecha_pago;
+                            else item.fecha_pago = null;
+                        } else item.fecha_pago = null;
+
                         objEstCuenta.causado_vigencia += item.causado;
                         objEstCuenta.intereses_vigencia += item.intereses;
                         objEstCuenta.pagado_vigencia += item.pagado;
@@ -82,6 +94,7 @@ namespace BLL
 
                         objEstCuenta.l_items.Add(item);
                     }
+                    objEstCuenta.l_items = objEstCuenta.l_items.OrderBy(t => t.periodo).ToList();
                     if(objEstCuenta.l_items.Count() > 0) lEstadoCuenta.Add(objEstCuenta);
                 }
             }

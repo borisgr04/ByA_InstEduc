@@ -15,6 +15,7 @@ namespace Entidades.Consultas
         public int intereses { get; set; }
         public int pagado { get; set; }
         public int saldo { get; set; }
+        public Nullable<DateTime> fecha_pago { get; set; }
     }
     public class cEstadoCuenta
     {

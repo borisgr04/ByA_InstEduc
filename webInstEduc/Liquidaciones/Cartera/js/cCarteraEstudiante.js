@@ -109,6 +109,15 @@
     function _esValido() {
         return true;
     };
+    function _esValidoNuevoConcepto() {
+        if ($scope.obj_nuevo_concepto.perido_desde_seleccionado == "" || $scope.obj_nuevo_concepto.perido_hasta_seleccionado == "" || $scope.obj_nuevo_concepto.concepto_seleccionado == "" || $scope.obj_nuevo_concepto.valor == "") {
+            alert("Debe completar todos los campos!!!");
+            return false;
+        } else if ($scope.obj_nuevo_concepto.perido_desde_seleccionado > $scope.obj_nuevo_concepto.perido_hasta_seleccionado) {
+            alert("El periodo 'Desde' debe ser menor o igual al periodo 'Hasta'");
+            return false;
+        } else return true;
+    };
     function _configuracionConceptosPeriodos() {
         var serCon = conceptoacarteraService.Get(byaSite.getVigencia());
         serCon.then(function (pl) {
@@ -121,6 +130,24 @@
         });
     };
     function _guardarNuevoConcepto() {
-        alert(JSON.stringify($scope.obj_nuevo_concepto));
+        if (_esValidoNuevoConcepto()) {
+            if (confirm("¿Ha comprobado la información y está seguro de agregar el item a la cartera?")) {
+                $("#modalAgregarNuevoConcepto").modal("hide");
+                $scope.obj_nuevo_concepto.vigencia = byaSite.getVigencia();
+                $scope.obj_nuevo_concepto.id_estudiante = $scope.estudiante.identificacion;
+                $scope.habGuardar = false;
+                var serCon = conceptoacarteraService.Post($scope.obj_nuevo_concepto);
+                serCon.then(function (pl) {
+                    $scope.habGuardar = true;
+                    $("#LbMsg").msgBox({ titulo: "Cartera Estudiante", mensaje: pl.data.Mensaje, tipo: !pl.data.Error });
+                    if (!pl.data.Error) {
+                        _traerCarteraEstudiante();
+                    }
+                }, function (pl) {
+                    $scope.habGuardar = true;
+                    console.log(JSON.stringify(pl.data));
+                });
+            }
+        }
     };
 });
