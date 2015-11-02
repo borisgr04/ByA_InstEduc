@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ByA;
+using System.Net.Http.Headers;
 
 namespace AspIdentity.Controllers
 {
@@ -22,8 +23,16 @@ namespace AspIdentity.Controllers
         [Route("")]
         public ByARpt Post(oNuevoConceptoDto Reg)
         {
+            Reg.usu = GetUser();
             mConceptosACartera oConcpCart = new mConceptosACartera();
             return oConcpCart.NuevoConceptoACartera(Reg);
+        }
+        private string GetUser()
+        {
+            string sessionId = "";
+            CookieHeaderValue cookie = Request.Headers.GetCookies("fc_user").FirstOrDefault();
+            if (cookie != null) sessionId = cookie["fc_user"].Value;
+            return sessionId;
         }
     }
 }

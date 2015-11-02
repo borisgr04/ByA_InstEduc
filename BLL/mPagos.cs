@@ -18,7 +18,7 @@ namespace BLL
             Mapper.CreateMap<detalles_pago,detalles_pagoDto>();
             Mapper.CreateMap<pagos, pagosDto>()
                 .ForMember(dest => dest.detalles_pago, opt => opt.MapFrom(src => src.detalles_pago))
-                .ForMember(dest => dest.nombre_estudiante, opt => opt.MapFrom(src => src.estudiantes.terceros.nombre + " " + src.estudiantes.terceros.apellido))
+                .ForMember(dest => dest.nombre_estudiante, opt => opt.MapFrom(src => src.estudiantes.terceros.apellido + " " + src.estudiantes.terceros.nombre))
                 .ForMember(dest => dest.nombre_grupo, opt => opt.MapFrom(src => src.grupos_pagos != null ? src.grupos_pagos.nombre : "Ninguno")); 
             Mapper.CreateMap<pagosDto, pagos>();
 

@@ -917,6 +917,8 @@
     <Content Include="Consultas\DeudasGrados\js\cDeudasGrados.js" />
     <Content Include="Consultas\EstadoCuenta\EstadoCuenta.aspx" />
     <Content Include="Consultas\EstadoCuenta\js\cEstadoCuenta.js" />
+    <Content Include="Consultas\EstudiantesGrados\EstudiantesGrados.aspx" />
+    <Content Include="Consultas\EstudiantesGrados\js\cEstudiantesGrados.js" />
     <Content Include="Consultas\PagosEstudiantes\js\PagosEstudiantes.js" />
     <Content Include="Consultas\PagosEstudiantes\PagosEstudiantes.aspx" />
     <Content Include="Consultas\PagosEstudiante\js\cPagosEstudiante.js" />
@@ -1891,6 +1893,7 @@
     <Content Include="Liquidaciones\Cartera\Web.config" />
     <Content Include="Consultas\PagosEstudiantes\Web.config" />
     <Content Include="Images\Libro1.xlsx" />
+    <Content Include="Consultas\EstudiantesGrados\Web.config" />
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -1973,6 +1976,13 @@
     </Compile>
     <Compile Include="Consultas\EstadoCuenta\EstadoCuenta.aspx.designer.cs">
       <DependentUpon>EstadoCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\EstudiantesGrados\EstudiantesGrados.aspx.cs">
+      <DependentUpon>EstudiantesGrados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\EstudiantesGrados\EstudiantesGrados.aspx.designer.cs">
+      <DependentUpon>EstudiantesGrados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\PagosEstudiantes\PagosEstudiantes.aspx.cs">
       <DependentUpon>PagosEstudiantes.aspx</DependentUpon>

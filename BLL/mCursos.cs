@@ -34,6 +34,16 @@ namespace BLL
                 return lr;
             }
         }
+        public cursosDto Get(int id_curso)
+        {
+            using (ctx = new ieEntities())
+            {
+                cursosDto lr = new cursosDto();
+                cursos l = ctx.cursos.Where(t => t.id == id_curso).OrderBy(t => t.id).FirstOrDefault();
+                Mapper.Map(l, lr);
+                return lr;
+            }
+        }
         public List<ByARpt> InsertsOrUpdates(List<cursosDto> lReg)
         {
             List<ByARpt> lResp = new List<ByARpt>();

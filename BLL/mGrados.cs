@@ -27,6 +27,16 @@ namespace BLL
                 return lr;
             }
         }
+        public gradosDto Get(int id_grado)
+        {
+            using (ctx = new ieEntities())
+            {
+                gradosDto lr = new gradosDto();
+                grados l = ctx.grados.Where(t=> t.id == id_grado).OrderBy(t => t.id).FirstOrDefault();
+                Mapper.Map(l, lr);
+                return lr;
+            }
+        }
         public List<ByARpt> InsertsOrUpdates(List<gradosDto> lReg)
         {
             List<ByARpt> lResp = new List<ByARpt>();

@@ -65,6 +65,19 @@ namespace Skeleton.WebAPI.Controllers
             mEstudiantes o = new mEstudiantes();
             return o.Update(Reg);
         }
+        [Route("Vigencia/{vigencia}/Grado/{id_grado}")]
+        public grado_contactoDto GetXGrado(int vigencia, int id_grado)
+        {
+            mEstudiantes o = new mEstudiantes();
+            return o.GetXGrado(vigencia, id_grado, null);
+        }
+        [Route("Vigencia/{vigencia}/Grado/{id_grado}/Curso/{id_curso}")]
+        public grado_contactoDto GetXGrado(int vigencia, int id_grado, int id_curso)
+        {
+            mEstudiantes o = new mEstudiantes();
+            return o.GetXGrado(vigencia, id_grado, id_curso);
+        }
+
         private string GetUser()
         {
             string sessionId = "";

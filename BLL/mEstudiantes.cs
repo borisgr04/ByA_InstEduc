@@ -145,6 +145,45 @@ namespace BLL
                 return r;
             }
         }
+        public grado_contactoDto GetXGrado(int vigencia, int id_grado, int? id_curso)
+        {
+            using (ctx = new ieEntities())
+            {
+                mGrados oGrados = new mGrados();
+                mCursos oCursos = new mCursos();
+
+                gradosDto grado = oGrados.Get(id_grado);
+                cursosDto curso = new cursosDto();
+                if(id_curso != null) curso = oCursos.Get((int) id_curso);                
+
+                grado_contactoDto contacto_grado = new grado_contactoDto();
+                contacto_grado.vigencia = vigencia;
+                contacto_grado.nombre_grado = grado.nombre;
+                contacto_grado.nombre_curso = curso.nombre != null ? curso.nombre : "";
+                contacto_grado.l_estudiantes = new List<estudiante_contactoDto>();
+                
+                List<matriculas> l_matriculas = new List<matriculas>();
+                if (id_curso != null) l_matriculas = ctx.matriculas.Where(t => t.vigencia == vigencia && t.id_grado == id_grado && t.id_curso == id_curso && t.estado == "AC").ToList();
+                else l_matriculas = ctx.matriculas.Where(t => t.vigencia == vigencia && t.id_grado == id_grado && t.estado == "AC").ToList();
+
+                foreach (matriculas matricula in l_matriculas)
+                {
+                    estudiante_contactoDto estudiante = new estudiante_contactoDto();
+                    estudiante.id_estudiante = matricula.id_estudiante;
+                    estudiante.codigo_estudiante = matricula.estudiantes.codigo;
+                    estudiante.nombre_estudiante = matricula.estudiantes.terceros.apellido + " " + matricula.estudiantes.terceros.nombre;
+                    estudiante.vive_con_estudiante = matricula.estudiantes.vive_con;
+                    estudiante.nombre_acudiente = matricula.estudiantes.terceros3.apellido + " " + matricula.estudiantes.terceros3.nombre;
+                    estudiante.direccion_acudiente = matricula.estudiantes.terceros3.direccion;
+                    estudiante.telefono_acudiente = matricula.estudiantes.terceros3.telefono;
+                    estudiante.celular_acudiente = matricula.estudiantes.terceros3.celular;
+                    estudiante.correo_acudiente = matricula.estudiantes.terceros3.email;
+                    contacto_grado.l_estudiantes.Add(estudiante);
+                }
+                contacto_grado.l_estudiantes = contacto_grado.l_estudiantes.OrderBy(t => t.nombre_estudiante).ToList();
+                return contacto_grado;
+            }
+        }
         public ByARpt Insert(estudiantesDto Reg)
         {
             cmdInsert o = new cmdInsert();
