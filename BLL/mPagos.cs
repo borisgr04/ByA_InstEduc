@@ -390,6 +390,7 @@ namespace BLL
                 ctx.pagos.Add(Dto);
 
                 InsertDetallesPagos();
+                CambiarFechaCausacion();
             }
             private void _cmpReg()
             {
@@ -527,6 +528,16 @@ namespace BLL
                 ctx.fechas_calculo_intereses.Add(fecha_intereses);
 
             }
+            private void CambiarFechaCausacion()
+            {
+                parametros strFechaCausacion = ctx.parametros.Where(t => t.nombre == "FECCAUSA").FirstOrDefault();
+                int strFechaPago = int.Parse(oDto.fecha_pago.Value.Year.ToString() + oDto.fecha_pago.Value.Month.ToString().PadLeft(2, '0') + oDto.fecha_pago.Value.Day.ToString().PadLeft(2, '0'));
+                int FechaCausacion = int.Parse(strFechaCausacion.valor);
+                if (strFechaPago > FechaCausacion)
+                {
+                    strFechaCausacion.valor = strFechaPago.ToString();
+                }
+            }
             #endregion
         }
         class cmdInsertPagar : absTemplate
@@ -652,11 +663,10 @@ namespace BLL
                 Dto.estado = "PA";
                 Dto.fecha_pago = oDto.fecha_pago.Value.Date;
                 _cmpReg();
-                AfectarCarteraDetallesPago();
-               
+                AfectarCarteraDetallesPago();               
                 if(oDto.VerificadoIntereses) OperacionIntereses();
+                CambiarFechaCausacion();
             }
-
             private void _cmpReg()
             {
                 Dto.usu_mod = oDto.usu;
@@ -773,6 +783,16 @@ namespace BLL
                             }
                         }
                     }
+                }
+            }
+            private void CambiarFechaCausacion()
+            {
+                parametros strFechaCausacion = ctx.parametros.Where(t => t.nombre == "FECCAUSA").FirstOrDefault();
+                int strFechaPago = int.Parse(oDto.fecha_pago.Value.Year.ToString() + oDto.fecha_pago.Value.Month.ToString().PadLeft(2, '0') + oDto.fecha_pago.Value.Day.ToString().PadLeft(2, '0'));
+                int FechaCausacion = int.Parse(strFechaCausacion.valor);
+                if (strFechaPago > FechaCausacion)
+                {
+                    strFechaCausacion.valor = strFechaPago.ToString();
                 }
             }
             #endregion

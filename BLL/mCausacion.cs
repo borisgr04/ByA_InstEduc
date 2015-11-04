@@ -21,13 +21,41 @@ namespace BLL
         public static DateTime FechaCausacion()
         {
             ieEntities ctx = new ieEntities();
-            DateTime FechaCausacion = new DateTime(2001, 1, 1);
-            pagos oldPayment = ctx.pagos.Where(t => t.estado == "PA").OrderByDescending(t => t.fecha_pago).FirstOrDefault();
-            if (oldPayment != null)
-            {
-                FechaCausacion = oldPayment.fecha_pago.Value.Date;
-            }
+
+            parametros strFechaCausacion = ctx.parametros.Where(t => t.nombre == "FECCAUSA").FirstOrDefault();
+            int year = int.Parse(strFechaCausacion.valor.Substring(0, 4));
+            int month = int.Parse(strFechaCausacion.valor.Substring(4, 2));
+            int day = int.Parse(strFechaCausacion.valor.Substring(6, 2));
+            DateTime FechaCausacion = new DateTime(year, month, day);
             return FechaCausacion;
+        }
+        public ByARpt CambiarFechaCausacion(DateTime FechaCausacion)
+        {
+            cmdCambiarFechaCausacion o = new cmdCambiarFechaCausacion();
+            o.FechaCausacionNueva = FechaCausacion;
+            return o.Enviar();
+        }
+    }
+    class cmdCambiarFechaCausacion : absTemplate
+    {
+        parametros strFechaCausacion { get; set; }
+        public DateTime FechaCausacionNueva { get; set; }
+        protected internal override bool esValido()
+        {
+            strFechaCausacion = ctx.parametros.Where(t => t.nombre == "FECCAUSA").FirstOrDefault();
+            string fech = strFechaCausacion.valor;
+            DateTime FechaCausacion = new DateTime(int.Parse(fech.Substring(0, 4)), int.Parse(fech.Substring(4, 2)), int.Parse(fech.Substring(6, 2)));
+            if (FechaCausacion < FechaCausacionNueva) return true;
+            else
+            {
+                byaRpt.Error = true;
+                byaRpt.Mensaje = "La fecha de causación nueva no puede ser menor a la fecha de causación actual";
+                return false;
+            }
+        }
+        protected internal override void Antes()
+        {
+            strFechaCausacion.valor = FechaCausacionNueva.Year.ToString() + FechaCausacionNueva.Month.ToString().PadLeft(2, '0') + FechaCausacionNueva.Day.ToString().PadLeft(2, '0');
         }
     }
     class cmdCausar : absTemplate

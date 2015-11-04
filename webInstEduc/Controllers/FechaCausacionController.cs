@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ByA;
-using BLL;
 using Entidades.Vistas;
 
 namespace AspIdentity.Controllers
@@ -18,6 +17,12 @@ namespace AspIdentity.Controllers
         public DateTime Get()
         {
             return mCausacion.FechaCausacion();
+        }
+        [Route("")]
+        public ByARpt Post(fechaCausacionDto Reg)
+        {
+            mCausacion o = new mCausacion();
+            return o.CambiarFechaCausacion(Reg.Fecha);
         }
     }
 }

@@ -1413,6 +1413,8 @@
     <Content Include="DatosBasicos\ConfigGruposPagos\ConfigGruposPagos.aspx" />
     <Content Include="DatosBasicos\Cursos\Cursos.aspx" />
     <Content Include="DatosBasicos\Cursos\js\cCursos.js" />
+    <Content Include="DatosBasicos\FechaCausacion\FechaCausacion.aspx" />
+    <Content Include="DatosBasicos\FechaCausacion\js\cFechaCausacion.js" />
     <Content Include="DatosBasicos\Grados\Grados.aspx" />
     <Content Include="DatosBasicos\Grados\js\cGrados.js" />
     <Content Include="DatosBasicos\Tarifas\js\cTarifas.js" />
@@ -1894,6 +1896,7 @@
     <Content Include="Consultas\PagosEstudiantes\Web.config" />
     <Content Include="Images\Libro1.xlsx" />
     <Content Include="Consultas\EstudiantesGrados\Web.config" />
+    <Content Include="DatosBasicos\FechaCausacion\Web.config" />
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -2050,6 +2053,13 @@
     </Compile>
     <Compile Include="DatosBasicos\Cursos\Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatosBasicos\FechaCausacion\FechaCausacion.aspx.cs">
+      <DependentUpon>FechaCausacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatosBasicos\FechaCausacion\FechaCausacion.aspx.designer.cs">
+      <DependentUpon>FechaCausacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="DatosBasicos\Grados\Grados.aspx.cs">
       <DependentUpon>Grados.aspx</DependentUpon>
