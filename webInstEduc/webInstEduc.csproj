@@ -1432,6 +1432,7 @@
     <Content Include="DatosBasicos\Vigencias\js\cVigencias.js" />
     <Content Include="DatosBasicos\Vigencias\Vigencias.aspx" />
     <Content Include="default.aspx" />
+    <Content Include="DiseñosReportes\ListadoEstudiantes.html" />
     <Content Include="DiseñosReportes\EstadoCuenta.html" />
     <Content Include="DiseñosReportes\ListadoPagos.html" />
     <Content Include="DiseñosReportes\ImpLiq.html" />

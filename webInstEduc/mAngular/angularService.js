@@ -47,6 +47,10 @@ app.service("estudiantesService", function ($http) {
         var req = $http.get('/api/Estudiantes/Orden/' + orden + '/' + filtro);
         return req;
     };
+    this.GetXGrado = function (vigencia, grado, curso) {
+        var req = $http.get('/api/Estudiantes/Vigencia/' + vigencia + '/Grado/' + grado + '/Curso/' + curso);
+        return req;
+    };
 });
 app.service("tercerosService", function ($http) {
     this.Get = function (id) {
@@ -240,7 +244,7 @@ app.service("estudiantessaldosService", function ($http) {
     this.GetSaldoVigenciaPeriodo = function (id_estudiante, vigencia,periodo) {
         var req = $http.get('/api/Estudiantes/' + id_estudiante + '/Saldos/vigencia/' + vigencia + '/periodo/' + periodo);
         return req;
-    };
+    };    
 });
 app.service("conceptosService", function ($http) {
     this.Gets = function () {
