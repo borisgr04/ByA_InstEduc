@@ -13,7 +13,7 @@ namespace BLL
     public class mDuedaGrados
     {
         ieEntities ctx;
-        public List<cDeudaGrados> GetDeudaGrados()
+        public List<cDeudaGrados> GetDeudaGrados(int vigencia)
         {
             //mCausacion.Causar("");
             using (ctx = new ieEntities())
@@ -27,7 +27,10 @@ namespace BLL
                     oDeuda.nombre_grado = item.nombre;
                     oDeuda.valor_deuda = 0;
 
-                    List<estudiantes> lEstudiantesGrados = ctx.estudiantes.Where(t => t.id_ultimo_grado == item.id).ToList();
+                    List<matriculas> lMatriculas = ctx.matriculas.Where(t => t.vigencia == vigencia && t.id_grado == item.id && t.estado == "AC").ToList();
+                    List<estudiantes> lEstudiantesGrados = new List<estudiantes>();
+                    lMatriculas.ForEach(t => lEstudiantesGrados.Add(t.estudiantes));
+
                     foreach (estudiantes item2 in lEstudiantesGrados)
                     {
                         oDeuda.valor_deuda += GetDeudaTotalEstudiante(ctx, item2.identificacion);
@@ -67,7 +70,7 @@ namespace BLL
             }
             return ValorDeuda;
         }
-        public List<cDeudaCursosGrado> GetDeudaCursosGrado(int id_grado)
+        public List<cDeudaCursosGrado> GetDeudaCursosGrado(int id_grado, int vigencia)
         {
             using (ctx = new ieEntities())
             {
@@ -85,7 +88,8 @@ namespace BLL
                         oDeuda.nombre_grado = item.grados.nombre;
                         oDeuda.valor_deuda = 0;
 
-                        List<matriculas> lMatriculas = item.matriculas.Where(t => t.estado == "AC" && t.id == t.estudiantes.id_ultima_matricula).ToList();
+                        List<matriculas> lMatriculas = item.matriculas.Where(t => t.estado == "AC" && t.vigencia == vigencia && t.id_curso == item.id).ToList();
+
                         foreach (matriculas item2 in lMatriculas)
                         {
                             oDeuda.valor_deuda += GetDeudaTotalEstudiante(ctx, item2.estudiantes.identificacion);                       
@@ -96,7 +100,7 @@ namespace BLL
                 return lDeuda.OrderByDescending(t => t.valor_deuda).ToList();
             }
         }
-        public List<cDeudaEstudiantesCursoGrado> GetDeudaEstudiantesCursoGrado(int id_curso)
+        public List<cDeudaEstudiantesCursoGrado> GetDeudaEstudiantesCursoGrado(int id_curso, int vigencia)
         {
             using (ctx = new ieEntities())
             {
@@ -104,7 +108,7 @@ namespace BLL
                 cursos curso = ctx.cursos.Where(t => t.id == id_curso).FirstOrDefault();
                 if (curso != null)
                 {
-                    List<matriculas> lMatriculas = curso.matriculas.Where(t => t.estado == "AC" && t.id == t.estudiantes.id_ultima_matricula).ToList();
+                    List<matriculas> lMatriculas = curso.matriculas.Where(t => t.estado == "AC" && t.id_curso == id_curso && t.vigencia == vigencia).ToList();
                     foreach (matriculas item2 in lMatriculas)
                     {
                         cDeudaEstudiantesCursoGrado oDeuda = new cDeudaEstudiantesCursoGrado();

@@ -13,23 +13,23 @@ namespace AspIdentity.Controllers
     [RoutePrefix("api/DeudaGrados")]
     public class DeudaGradosController : ApiController
     {
-        [Route("")]
-        public List<cDeudaGrados> GetDeudasGrados()
+        [Route("{vigencia}")]
+        public List<cDeudaGrados> GetDeudasGrados(int vigencia)
         {
             mDuedaGrados o = new mDuedaGrados();
-            return o.GetDeudaGrados();
+            return o.GetDeudaGrados(vigencia);
         }
-        [Route("{id_grado}")]
-        public List<cDeudaCursosGrado> GetDeudasCursosGrado(int id_grado)
+        [Route("{id_grado}/{vigencia}")]
+        public List<cDeudaCursosGrado> GetDeudasCursosGrado(int id_grado, int vigencia)
         {
             mDuedaGrados o = new mDuedaGrados();
-            return o.GetDeudaCursosGrado(id_grado);
+            return o.GetDeudaCursosGrado(id_grado, vigencia);
         }
-        [Route("Curso/{id_curso}")]
-        public List<cDeudaEstudiantesCursoGrado> GetDeudasEstudiantesCursoGrado(int id_curso)
+        [Route("Curso/{id_curso}/{vigencia}")]
+        public List<cDeudaEstudiantesCursoGrado> GetDeudasEstudiantesCursoGrado(int id_curso, int vigencia)
         {
             mDuedaGrados o = new mDuedaGrados();
-            return o.GetDeudaEstudiantesCursoGrado(id_curso);
+            return o.GetDeudaEstudiantesCursoGrado(id_curso,vigencia);
         }
         [Route("Estudiante/{id_estudiante}")]
         public List<detalles_pagoDto> GetDeudasEstudiantesCursoGrado(string id_estudiante)

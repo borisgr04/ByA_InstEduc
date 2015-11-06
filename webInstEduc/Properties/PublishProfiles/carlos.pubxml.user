@@ -2388,13 +2388,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>07/27/2015 11:07:02</publishTime>
     </File>
     <File Include="bin/AspIdentity.dll">
-      <publishTime>11/02/2015 19:01:10</publishTime>
+      <publishTime>11/05/2015 21:56:57</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>07/27/2015 11:08:57</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>11/02/2015 19:01:08</publishTime>
+      <publishTime>11/05/2015 21:56:55</publishTime>
     </File>
     <File Include="bin/BLL.Security.dll">
       <publishTime>11/02/2015 19:01:09</publishTime>
@@ -2493,10 +2493,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>07/27/2015 11:07:20</publishTime>
     </File>
     <File Include="Consultas/EstudiantesGrados/EstudiantesGrados.aspx">
-      <publishTime>10/30/2015 16:02:45</publishTime>
+      <publishTime>11/05/2015 11:56:00</publishTime>
     </File>
     <File Include="Consultas/EstudiantesGrados/js/cEstudiantesGrados.js">
-      <publishTime>10/30/2015 16:48:21</publishTime>
+      <publishTime>11/05/2015 11:32:49</publishTime>
     </File>
     <File Include="Consultas/EstudiantesGrados/Web.config">
       <publishTime>10/30/2015 16:04:59</publishTime>
@@ -4310,6 +4310,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="DiseñosReportes/ImpLiq.html">
       <publishTime>10/25/2015 17:28:17</publishTime>
     </File>
+    <File Include="DiseñosReportes/ListadoEstudiantes.html">
+      <publishTime>11/05/2015 11:21:21</publishTime>
+    </File>
     <File Include="DiseñosReportes/ListadoPagos.html">
       <publishTime>10/25/2015 19:09:49</publishTime>
     </File>
@@ -5604,7 +5607,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>10/27/2015 20:55:33</publishTime>
     </File>
     <File Include="mAngular/angularService.js">
-      <publishTime>10/29/2015 22:17:05</publishTime>
+      <publishTime>11/05/2015 10:19:50</publishTime>
     </File>
     <File Include="Matriculas/AnularMatricula/AnularMatricula.aspx">
       <publishTime>08/13/2015 22:00:31</publishTime>

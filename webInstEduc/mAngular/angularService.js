@@ -320,15 +320,15 @@ app.service("movimientosService", function ($http) {
 });
 app.service("deudasgradosService", function ($http) {
     this.DeudasGrados = function () {
-        var req = $http.get('/api/DeudaGrados');
+        var req = $http.get('/api/DeudaGrados/' + byaSite.getVigencia());
         return req;
     };
     this.DeudasCursosGrado = function (id_grado) {
-        var req = $http.get('/api/DeudaGrados/' + id_grado);
+        var req = $http.get('/api/DeudaGrados/' + id_grado + "/" + byaSite.getVigencia());
         return req;
     };
     this.DeudasEstudiantesCursoGrado = function (id_curso) {
-        var req = $http.get('/api/DeudaGrados/Curso/' + id_curso);
+        var req = $http.get('/api/DeudaGrados/Curso/' + id_curso + "/" + byaSite.getVigencia());
         return req;
     };
     this.DeudasEstudiante = function (id_estudiante) {
