@@ -7,6 +7,7 @@ var masterP = (function ($) {
     var idNav = "#MenuIzq";
 
     var Modulos = [
+       { codigo: "INICI", nombre: "Inicio", icono: "icon-hand-right" },
        { codigo: "ESTUD", nombre: "Estudiantes", icono: "icon-user" },
        { codigo: "MATRI", nombre: "Matriculas", icono: "icon-book" },
        { codigo: "PAGOS", nombre: "Pagos", icono: "icon-usd" },       
@@ -194,6 +195,12 @@ var masterP = (function ($) {
             _createWidgets();
             _addHandlers();
             _crearNaviagation();
+
+            $(".irInicio").click(function () {
+                var rol = byaSite.getRol();
+                if (rol == "administrador") window.location.href = "/Inicio/Administrativo/Inicio.aspx";
+                if (rol == "acudiente") window.location.href = "/Inicio/Acudientes/Inicio.aspx";
+            });
         }
     }
 

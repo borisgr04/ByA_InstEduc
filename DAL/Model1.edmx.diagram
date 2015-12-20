@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="bdieModel.carterap" Width="1.5" PointX="6.8027228055534525" PointY="15.29773581740341" />
         <EntityTypeShape EntityType="bdieModel.conceptos" Width="1.5" PointX="1.7672156103733998" PointY="28.460849685809038" />
         <EntityTypeShape EntityType="bdieModel.config_grupos_pagos" Width="1.5" PointX="9.2934120340707764" PointY="11.822082182309629" />
-        <EntityTypeShape EntityType="bdieModel.cursos" Width="1.5" PointX="8.5405929594024066" PointY="4.1042327601947974" />
-        <EntityTypeShape EntityType="bdieModel.detalles_pago" Width="1.5" PointX="11.16372246070007" PointY="9.2186353696596974" />
+        <EntityTypeShape EntityType="bdieModel.cursos" Width="1.5" PointX="14.981481223930558" PointY="5.2245369933453629" />
+        <EntityTypeShape EntityType="bdieModel.detalles_pago" Width="1.5" PointX="17.317129383576514" PointY="9.8287036807080863" />
         <EntityTypeShape EntityType="bdieModel.detalles_tipos_tercero" Width="1.5" PointX="7.92098510261671" PointY="10.17055540260419" />
         <EntityTypeShape EntityType="bdieModel.documentos" Width="1.5" PointX="2.8310980977635358" PointY="4.8008842937652414" />
         <EntityTypeShape EntityType="bdieModel.entidad" Width="1.5" PointX="7.6771790141599165" PointY="27.31941193124252" />

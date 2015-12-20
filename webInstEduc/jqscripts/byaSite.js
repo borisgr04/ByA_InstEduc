@@ -6,6 +6,7 @@ var byaSite = {
     urlToGetVigencias : "/api/Vigencias/Gets/",
     usuario: 'fc_user',
     vigencia: 'fc_vig',
+    rolUsuario: 'rol_user',
     modulo: 'modulo',
     ModuloActual: null,
     OpcionActual: null,
@@ -43,6 +44,14 @@ var byaSite = {
         var user = $.getCookie(byaSite.usuario);
         if (user == null) window.location.href = "/login.aspx?opt=logout";
         else return $.getCookie(byaSite.usuario);
+    },
+    setRol: function (rol) {
+        $.setCookie(byaSite.rolUsuario, rol);
+    },
+    getRol: function () {
+        var role = $.getCookie(byaSite.rolUsuario);
+        if (role == null) window.location.href = "/login.aspx?opt=logout";
+        else return role;
     },
     setVigencia: function (vigencia) {
         localStorage.setItem(this.vigencia, vigencia);

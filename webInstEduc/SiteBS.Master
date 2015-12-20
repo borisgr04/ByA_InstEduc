@@ -88,7 +88,7 @@
 
             <div class="navbar-container" id="navbar-container">
                 <div class="navbar-header pull-left">
-                    <a href="/" class="navbar-brand">
+                    <a class="navbar-brand irInicio">
                         <small>
                             <i class="glyphicon glyphicon-pencil"></i>
                             Colegio Calleja Real &reg 
@@ -433,7 +433,7 @@
                         <ul class="breadcrumb">
                             <li>
                                 <i class="icon-home home-icon"></i>
-                                <a href="/">Inicio</a>
+                                <a class="irInicio">Inicio</a>
                             </li>
 
                             <li>

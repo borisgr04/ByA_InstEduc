@@ -1458,6 +1458,10 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Inicio\Acudientes\Inicio.aspx" />
+    <Content Include="Inicio\Acudientes\js\cInicioAcudientes.js" />
+    <Content Include="Inicio\Administrativo\Inicio.aspx" />
+    <Content Include="Inicio\Administrativo\js\cInicioAdministrativo.js" />
     <Content Include="jqscripts\bootbox.js" />
     <Content Include="jqscripts\bootbox.min.js" />
     <Content Include="jqscripts\bootstrap-wysiwyg.js" />
@@ -1898,6 +1902,8 @@
     <Content Include="Images\Libro1.xlsx" />
     <Content Include="Consultas\EstudiantesGrados\Web.config" />
     <Content Include="DatosBasicos\FechaCausacion\Web.config" />
+    <Content Include="Inicio\Acudientes\Web.config" />
+    <Content Include="Inicio\Administrativo\Web.config" />
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -2138,6 +2144,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\Acudientes\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio\Acudientes\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\Administrativo\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio\Administrativo\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Liquidaciones\AnularLiquidacion\AnularLiquidacion.aspx.cs">
       <DependentUpon>AnularLiquidacion.aspx</DependentUpon>

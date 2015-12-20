@@ -14,6 +14,7 @@ using Microsoft.Owin.Security.OAuth;
 using System.Net;
 using AspIdentity;
 using System.Configuration;
+using BLL.Security;
 
 
 namespace Skeleton.WebAPI
@@ -62,7 +63,17 @@ namespace Skeleton.WebAPI
             myCookie.Value = vig;
             myCookie.Expires = now.AddHours(8);
             HttpContext.Current.Response.Cookies.Add(myCookie);
+        }
+        private void SetCookieRol(string rol)
+        {
+            DateTime now = DateTime.Now;
 
+            HttpCookie myCookie;
+
+            myCookie = new HttpCookie("rol_user");
+            myCookie.Value = rol;
+            myCookie.Expires = now.AddHours(8);
+            HttpContext.Current.Response.Cookies.Add(myCookie);
         }
         protected void BtnIniciar_Click1(object sender, EventArgs e)
         {
@@ -122,11 +133,26 @@ namespace Skeleton.WebAPI
                     string vig = DateTime.Now.Year.ToString();
                     SetCookieUser(UserName.Text, vig);
 
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-
-                    //Response.Redirect("default.aspx");
-
-                    
+                    string url = Request.QueryString["ReturnUrl"];
+                    if (url == "" || url == null)
+                    {
+                        gesMenuAdapter mg = new gesMenuAdapter();
+                        List<dataTree> l = mg.getOpciones("INICI", UserName.Text);
+                        if (l.Where(t => t.roles == "INICIAdministrativo").FirstOrDefault() != null)
+                        {
+                            SetCookieRol("administrador");
+                            url = "/Inicio/Administrativo/Inicio.aspx";
+                        }
+                        else
+                        {
+                            if (l.Where(t => t.roles == "INICIAdministrativo").FirstOrDefault() != null)
+                            {
+                                SetCookieRol("acudiente");
+                                url = "/Inicio/Acudientes/Inicio.aspx";
+                            }
+                        }
+                    }
+                    IdentityHelper.RedirectToReturnUrl(url, Response);
                 }
 
 
