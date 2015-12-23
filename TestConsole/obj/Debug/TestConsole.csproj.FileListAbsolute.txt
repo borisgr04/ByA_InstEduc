@@ -64,3 +64,9 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\bin\Debug\AutoMapper.xml
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\obj\Debug\TestConsole.csprojResolveAssemblyReference.cache
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\obj\Debug\TestConsole.exe
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\obj\Debug\TestConsole.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\bin\Debug\BLL.Security.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\bin\Debug\BLL.Security.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.Core.xml

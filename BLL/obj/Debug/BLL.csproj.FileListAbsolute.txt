@@ -82,3 +82,9 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\EntityFramework.SqlServe
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\obj\Debug\BLL.dll
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\obj\Debug\BLL.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\BLL.Security.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\BLL.Security.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml

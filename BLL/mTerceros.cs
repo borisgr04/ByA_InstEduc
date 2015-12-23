@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using Entidades.Vistas;
 using Entidades.Consultas;
+using Entidades.Security;
 using DAL;
 using ByA;
 using AutoMapper;
+using BLL.Security;
 
 namespace BLL
 {
@@ -18,6 +20,79 @@ namespace BLL
             Mapper.CreateMap<terceros,tercerosDto>();
             Mapper.CreateMap<tercerosDto,terceros>();
         }
+
+        public List<tercerosDto> GetsAcudientes()
+        {            
+            using(ctx = new ieEntities())
+            {
+                List<tercerosDto> listTercerosDto = new List<tercerosDto>();
+                List<terceros> listTerceros = ctx.terceros.Where(t => t.estudiantes3.Count() > 0).ToList();
+                Mapper.Map(listTerceros, listTercerosDto);
+               
+                gesUsuarios gUsuarios = new gesUsuarios();
+                List<USUARIOS_DTO> listUsuariosDto = gUsuarios.GetUsuarios("");
+
+                List<tercerosDto> newListTercerosDto = new List<tercerosDto>();
+                
+                foreach (var item in listTercerosDto) 
+                {
+                    if(listUsuariosDto.Where(t=> t.USERNAME == item.identificacion).FirstOrDefault() == null)
+                    {
+                        newListTercerosDto.Add(item);
+                    }
+                }
+                return newListTercerosDto;
+            }
+        }
+        public ByARpt CrearUsuariosAcudientes(List<tercerosDto> lReg)
+        {
+            try
+            {
+                gesUsuarios GestionUsuario = new gesUsuarios();
+                foreach (tercerosDto tercero in lReg)
+                {
+                    if (tercero.identificacion != null && tercero.identificacion != "")
+                    {
+
+                        Entidades.Security.USUARIOS_DTO Usuario = new Entidades.Security.USUARIOS_DTO()
+                        {
+                            EMAIL = tercero.email,
+                            USERNAME = tercero.identificacion,
+                            PASSWORD = tercero.identificacion + ".",
+                            TERCERO = tercero.nombre + " " + tercero.apellido
+                        };
+                        GestionUsuario.InsUsuarios(Usuario);
+                        GestionUsuario.GuardarRoles(GetRolesAcudientes(), Usuario.USERNAME);
+                    }
+                }
+                ByARpt res = new ByARpt();
+                res.Error = false;
+                res.Mensaje = "Se asignaron los usuarios correctamente";
+                return res;
+            }
+            catch
+            {
+                ByARpt res = new ByARpt();
+                res.Error = true;
+                res.Mensaje = "Ha ocurrido un error al intentar asignar los usuarios";
+                return res;
+            }
+        }
+        public List<Entidades.Security.ModuloRoles> GetRolesAcudientes()
+        {
+            List<Entidades.Security.ModuloRoles> Permisos = new List<Entidades.Security.ModuloRoles>() 
+            { 
+                new Entidades.Security.ModuloRoles() { hasRol = true, Modulo = "INICI", Roles = "INICIAcudientes" },
+                new Entidades.Security.ModuloRoles() { hasRol = true, Modulo = "ACUDI", Roles = "ACUDIEstudiantes" },
+                new Entidades.Security.ModuloRoles() { hasRol = true, Modulo = "ACUDI", Roles = "ACUDIMatriculas" },
+                new Entidades.Security.ModuloRoles() { hasRol = true, Modulo = "ACUDI", Roles = "ACUDILiquidaciones" },
+                new Entidades.Security.ModuloRoles() { hasRol = true, Modulo = "ACUDI", Roles = "ACUDIEstadoCuenta" },
+                new Entidades.Security.ModuloRoles() { hasRol = true, Modulo = "ACUDI", Roles = "ACUDIPagosEstudiante" },
+                new Entidades.Security.ModuloRoles() { hasRol = true, Modulo = "ACUDI", Roles = "ACUDISeguridad" }
+            };
+            return Permisos;
+        }
+
         public List<tercerosDto> Gets()
         {
             using (ctx = new ieEntities())

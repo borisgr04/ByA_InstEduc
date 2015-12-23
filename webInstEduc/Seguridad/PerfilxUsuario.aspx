@@ -21,6 +21,9 @@
         </div>
         <div class="col-md-3" >
             <select id="CboFil" class="form-control input-sm">
+                <optgroup label="Inicio">
+                    <option value="INICI">Acudientes</option>
+                </optgroup>
                 <optgroup label="Matricula">
                     <option value="MATRI">Matricula</option>
                 </optgroup>
@@ -39,7 +42,9 @@
                 <optgroup label="Seguridad">
                     <option value="SEGUD">Seguridad</option>
                 </optgroup>
-                
+                <optgroup label="Acudientes">
+                    <option value="ACUDI">Acudientes</option>
+                </optgroup>
 
 
             </select>

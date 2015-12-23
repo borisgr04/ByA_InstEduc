@@ -1977,6 +1977,9 @@
     <Content Include="Seguridad\PerfilxUsuario.aspx" />
     <Content Include="Servicios\wsSecurity.asmx" />
     <Content Include="Servicios\wsSeguridad.asmx" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\js\cgMatriculas.js" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\js\cUsuariosAcudientes.js" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\UsuariosAcudientes.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -2447,6 +2450,13 @@
       <DependentUpon>SiteBS.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UsuariosAcudientes\UsuariosAcudientes\UsuariosAcudientes.aspx.cs">
+      <DependentUpon>UsuariosAcudientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsuariosAcudientes\UsuariosAcudientes\UsuariosAcudientes.aspx.designer.cs">
+      <DependentUpon>UsuariosAcudientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2555,6 +2565,7 @@
     <Content Include="SiteBS.Master" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Seguridad\Web.config" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

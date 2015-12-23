@@ -40,22 +40,6 @@
                     <div class="panel-heading">Matrículas Estudiantes</div>
                     <div class="panel-body">
             <div class="container">
-                <div class="row form-group">
-                    <div class="col-xs-2">
-                        <button class="btn btn-info btn-sm" ng-click="_nuevo()"><span class="glyphicon glyphicon-plus" style="margin-top:50px;"></span> Nuevo</button>
-                    </div>
-                    <div class="col-xs-4">
-                    </div>
-                    <div class="col-xs-1">
-                        <strong>Buscar: </strong>
-                    </div>
-                    <div class="col-xs-4">                        
-                        <input type="text" class="form-control" ng-model="filtro" /> 
-                    </div> 
-                    <div class="col-xs-1">
-                         <button type="button" class="btn btn-info no-border btn-sm" data-toggle="dropdown" ng-click="_traerEstudiantes()"><span class="glyphicon glyphicon-search"></span></button>
-                    </div>                   
-                </div>
                 <div class="row text-right">
                     <h4>
                         <strong>Resultado: </strong> {{estudiantes.length}} Estudiantes

@@ -42,23 +42,19 @@
                 <div class="row">
                     <form name="datosConsulta">
                         <div class="col-xs-2">
-                                        <label>Id. Estudiante:</label>   
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" ng-blur="_traerestudiante()" ng-model="obj_consulta.id_estudiante" required format="number"/>
-                                            <div class="input-group-btn ">
-                                                <button ng-click="_traerestudiante()" type="button" class="btn btn-info no-border btn-sm" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></button>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <label>Nombre:</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" ng-model="estudiante.nombre_completo" disabled="disabled"/>
-                                            <div class="input-group-btn ">
-                                                <button ng-click="_limpiarEstudiante()" type="button" class="btn btn-danger no-border btn-sm" data-toggle="dropdown"><span class="glyphicon glyphicon-remove"></span></button>                  
-                                            </div>
-                                        </div>                                     
-                                    </div>
+                            <label>Id. Estudiante:</label>   
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-blur="_traerestudiante()" ng-model="obj_consulta.id_estudiante" required="required" disabled="disabled" format="number"/>
+                                </div> 
+                        </div>
+                        
+                        <div class="col-xs-2">
+                            <label>Nombre:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="estudiante.nombre_completo" disabled="disabled"/>
+                            </div>                                     
+                        </div>
+
                         <div class="col-xs-2">
                             <label>Desde</label>
                             <input type="date" class="form-control" ng-model="obj_consulta.FechaInicial" required />

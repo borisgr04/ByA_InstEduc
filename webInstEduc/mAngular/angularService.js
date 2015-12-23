@@ -61,12 +61,20 @@ app.service("tercerosService", function ($http) {
         var req = $http.get('/api/Terceros/');
         return req;
     };
+    this.GetAcudientes = function () {
+        var req = $http.get('/api/Terceros/Acudientes');
+        return req;
+    }
     this.InsertOrUpdate = function (acudiente) {
         var req = $http.post('/api/Acudientes', estudiante);
         return req;
     };
     this.Post = function (estudiante) {
         var req = $http.post('/api/Terceros/', estudiante);
+        return req;
+    };
+    this.PostUsuariosAcudientes = function (acudientes) {
+        var req = $http.post('/api/Terceros/CrearUsuariosAcudientes', acudientes);
         return req;
     };
     this.Put = function (estudiante) {

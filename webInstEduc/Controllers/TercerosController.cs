@@ -13,6 +13,20 @@ namespace AspIdentity.Controllers
     [RoutePrefix("api/Terceros")]
     public class TercerosController : ApiController
     {
+        [Route("Acudientes")]
+        public List<tercerosDto> GetsAcudientes()
+        {
+            mTerceros o = new mTerceros();
+            return o.GetsAcudientes();
+        }
+
+        [Route("CrearUsuariosAcudientes")]
+        public ByARpt PostCrearUsuariosAcudientes(List<tercerosDto> lReg)
+        {
+            mTerceros o = new mTerceros();
+            return o.CrearUsuariosAcudientes(lReg);
+        }
+
         [Route("")]
         public List<tercerosDto> Gets()
         {

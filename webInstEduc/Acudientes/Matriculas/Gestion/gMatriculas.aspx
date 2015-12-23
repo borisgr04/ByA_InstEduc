@@ -40,26 +40,6 @@
                     <div class="panel-heading">Matrículas Estudiantes</div>
                     <div class="panel-body">
             <div class="container">                
-                        <div class="row form-group">                            
-                            <div class="col-xs-2">
-                                <strong>Grado:</strong>
-                                <select ng-model="grado" ng-change="_buscarCurso()" ng-options="grado as grado.nombre for grado in grados" class="form-control" required></select>
-                            </div>
-                            <div class="col-xs-2">
-                                <strong>Curso:</strong>
-                                <select ng-model="objConsulta.Curso" ng-options="curso.id as curso.nombre for curso in cursos" class="form-control" required></select>
-                            </div>
-                            <div class="col-xs-4">          
-                                <strong>Buscar: </strong>              
-                                <input type="text" class="form-control" ng-model="objConsulta.Filtro" /> 
-                            </div> 
-                            <div class="col-xs-1" style="margin-top:18px;">
-                                 <button type="button" class="btn btn-info no-border btn-sm" data-toggle="dropdown" ng-click="_traerMatriculas()"><span class="glyphicon glyphicon-search"></span></button>
-                            </div> 
-                            <div class="col-xs-2" style="margin-top:18px;">
-                                <button class="btn btn-success btn-sm" ng-click="_nuevo()"><span class="glyphicon glyphicon-plus"></span> Nueva Matricula</button>
-                            </div>                  
-                        </div>
                 <div class="row">
                     <div class="col-xs-6 text-left">
                         <button ng-disabled="editCartera" class="btn btn-info" ng-click="_print()"><span class="glyphicon glyphicon-print"></span> Imprimir</button>
