@@ -40,7 +40,6 @@
             console.log(JSON.stringify(errorPl));
         });
     };
-
     function _crearTablaEstudiantes() {
         $scope.tableEstudiantes = new ngTableParams({
             page: 1,
