@@ -1,10 +1,13 @@
 ﻿// create the controller and inject Angular's $scope
-app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantesService, cursosService, matriculasService, carteraService, pagosService, periodosService, estudiantessaldosService, fechaCausacionService) {
+app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantesService, cursosService, matriculasService, carteraService, pagosService, periodosService, estudiantessaldosService, fechaCausacionService, tercerosService) {
     $scope.estudiantes = [];
     $scope.estudiante = {};
     $scope.filtro = "";
     $scope.fecha_causacion = {};
     $scope.editFecha = false;
+    $scope.identificacionAcudiente;
+    $scope.data = { selectEstudiante: "" }
+    $scope.noSeleccionadoEstudiante = true;
     $scope._traerestudiante = function () {
         $("#LbMsg").html("");
         var serEstu = estudiantesService.Get($scope.estudiante.identificacion);
@@ -67,9 +70,8 @@ app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantes
         //$scope._traerestudiante();
     };
     $scope._seleccionarEstudiante = function (estu) {
-        $scope.estudiantes = [];
-        $scope.estudiantes.push(estu);
-        varLocal.Set("id_estudiante", $scope.estudiantes[0].identificacion);
+        varLocal.Set("id_estudiante", $scope.estudiantes.identificacion);
+        alert(varLocal.Get("id_estudiante"));
     };
     $scope.SiEditarFechaCausacion = function () {
         $scope.editFecha = true;
@@ -80,17 +82,55 @@ app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantes
     $scope.GuardarFechaCausacion = function () {
         GuardarFechaCausacion();
     };
+    $scope.traerEstudiantesAcudiente = function () {
+        var promiseGet = tercerosService.GetTraerEstudiantesAcudiente($scope.identificacionAcudiente);
+        promiseGet.then(function (pl) {
+            var respuesta = pl.data;
+            $scope.estudiantes = respuesta;
+            alert(varLocal.Get("id_estudiante"));
+        }, function (errorPl) {
+            console.log(JSON.stringify(errorPl));
+        });
+    };
+    $scope.SelecEstudiante = function () {
+        if ($scope.data.selectEstudiante != null) {
+            $scope.noSeleccionadoEstudiante = false;
+            varLocal.Set("id_estudiante", $scope.data.selectEstudiante);
+            alert(varLocal.Get("id_estudiante"));
+            //alert(document.getElementById(varLocal.Get("id_estudiante").value));
+            //alert(document.getElementById(varLocal.Get("id_estudiante")));
+            console.log(document.getElementById(varLocal.Get("id_estudiante")));
+        }
+    };
+    $scope._activarRadio = function () {
+        var estudiante_actual = varLocal.Get("id_estudiante");
+        var ban = false;
+        $.each($scope.estudiantes, function (index, estudiante) {
+            if (estudiante.identificacion == estudiante_actual) ban = true;
+        });
+        alert($scope.estudiantes);
+        if (ban == true) {
+            alert(document.getElementById(varLocal.Get("id_estudiante")).value);
+            document.getElementById(varLocal.Get("id_estudiante")).checked = true;
+        }
+    };
+
 
     _init();
 
     function _init() {
-        FechaActualCausacion();
         byaSite.SetModuloP({ TituloForm: "Inicio", Modulo: "Acudientes", urlToPanelModulo: "Inicio.aspx", Cod_Mod: "INICI", Rol: "INICIAcudientes" });
-        var id_estudiante = varLocal.Get("id_estudiante");
-        if (id_estudiante != null) {
-            $scope.estudiante.identificacion = id_estudiante;
-            $scope._traerestudiante();
+        var identificacionAcudiente = byaSite.getUsuario();
+        if (identificacionAcudiente != null && identificacionAcudiente != "")
+        {
+            $scope.identificacionAcudiente = identificacionAcudiente;
+            $scope.traerEstudiantesAcudiente();
         }
+        //var id_estudiante = varLocal.Get("id_estudiante");
+        //if (id_estudiante != null) {
+        //    $scope.estudiante.identificacion = id_estudiante;
+        //    $scope._traerestudiante();
+        //}
     };
     function FechaActualCausacion() {
         var fecCau = fechaCausacionService.Get();

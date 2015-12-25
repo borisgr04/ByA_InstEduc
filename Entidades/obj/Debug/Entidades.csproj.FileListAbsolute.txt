@@ -20,3 +20,14 @@ D:\Dev\InstEduc\Entidades\bin\Debug\EntityFramework.xml
 D:\Dev\InstEduc\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 D:\Dev\InstEduc\Entidades\obj\Debug\Entidades.dll
 D:\Dev\InstEduc\Entidades\obj\Debug\Entidades.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\Entidades.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\Entidades.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\ByA.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\DAL.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\EntityFramework.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\ByA.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\DAL.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\bin\Debug\EntityFramework.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\obj\Debug\Entidades.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Entidades\obj\Debug\Entidades.pdb

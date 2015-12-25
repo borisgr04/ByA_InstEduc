@@ -145,7 +145,7 @@ namespace Skeleton.WebAPI
                         }
                         else
                         {
-                            if (l.Where(t => t.roles == "INICIAdministrativo").FirstOrDefault() != null)
+                            if (l.Where(t => t.roles == "INICIAcudientes").FirstOrDefault() != null)
                             {
                                 SetCookieRol("acudiente");
                                 url = "/Inicio/Acudientes/Inicio.aspx";

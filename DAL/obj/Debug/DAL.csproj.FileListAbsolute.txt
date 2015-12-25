@@ -18,3 +18,13 @@ D:\Dev\InstEduc\DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\Dev\InstEduc\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\Dev\InstEduc\DAL\obj\Debug\DAL.dll
 D:\Dev\InstEduc\DAL\obj\Debug\DAL.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\DAL.dll.config
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\DAL.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\DAL.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\EntityFramework.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\EntityFramework.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\obj\Debug\DAL.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\obj\Debug\DAL.pdb

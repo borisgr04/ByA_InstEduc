@@ -8,12 +8,13 @@ var masterP = (function ($) {
 
     var Modulos = [
        { codigo: "INICI", nombre: "Inicio", icono: "icon-hand-right" },
+       { codigo: "ACUDI", nombre: "Acudientes", icono: "icon-user" },
        { codigo: "ESTUD", nombre: "Estudiantes", icono: "icon-user" },
        { codigo: "MATRI", nombre: "Matriculas", icono: "icon-book" },
        { codigo: "PAGOS", nombre: "Pagos", icono: "icon-usd" },       
        { codigo: "CONSU", nombre: "Consultas", icono: "icon-file-text-alt" },
        { codigo: "DATOB", nombre: "Datos Basicos", icono: "icon-book" },
-       { codigo: "SEGUD", nombre: "Seguridad", icono: "icon-unlock-alt" }
+       { codigo: "SEGUD", nombre: "Seguridad", icono: "icon-unlock-alt" }       
     ];
     var _addHandlers = function () {
         $(".classVigencias").click(function () {

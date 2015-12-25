@@ -130,6 +130,32 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Acudientes\Consultas\EstadoCuenta\EstadoCuenta.aspx" />
+    <Content Include="Acudientes\Consultas\EstadoCuenta\js\cEstadoCuenta.js" />
+    <Content Include="Acudientes\Consultas\PagosEstudiante\js\cPagosEstudiante.js" />
+    <Content Include="Acudientes\Consultas\PagosEstudiante\PagosEstudiante.aspx" />
+    <Content Include="Acudientes\Estudiantes\Estudiantes\Estudiantes.aspx" />
+    <Content Include="Acudientes\Estudiantes\Estudiantes\js\cEstudiantes.js" />
+    <Content Include="Acudientes\Estudiantes\Registro\js\cRegistroEstudiante.js" />
+    <Content Include="Acudientes\Estudiantes\Registro\RegistroEstudiante.aspx" />
+    <Content Include="Acudientes\Liquidaciones\AnularLiquidacion\AnularLiquidacion.aspx" />
+    <Content Include="Acudientes\Liquidaciones\AnularLiquidacion\js\cPagarLiquidacion.js" />
+    <Content Include="Acudientes\Liquidaciones\gLiquidaciones\DetalleLiquidacion.aspx" />
+    <Content Include="Acudientes\Liquidaciones\gLiquidaciones\gLiquidaciones.aspx" />
+    <Content Include="Acudientes\Liquidaciones\gLiquidaciones\js\cDetalleLiquidacion.js" />
+    <Content Include="Acudientes\Liquidaciones\gLiquidaciones\js\cLiquidaciones.js" />
+    <Content Include="Acudientes\Liquidaciones\Liquidar\js\cLiquidacion.js" />
+    <Content Include="Acudientes\Liquidaciones\Liquidar\Liquidacion.aspx" />
+    <Content Include="Acudientes\Matriculas\Gestion\DetallesMatricula.aspx" />
+    <Content Include="Acudientes\Matriculas\Gestion\gMatriculas.aspx" />
+    <Content Include="Acudientes\Matriculas\Gestion\js\cDetallesMatricula.js" />
+    <Content Include="Acudientes\Matriculas\Gestion\js\cgMatriculas.js" />
+    <Content Include="Acudientes\Seguridad\gesUsuarios.aspx" />
+    <Content Include="Acudientes\Seguridad\js\GesUsuarios.js" />
+    <Content Include="Acudientes\Seguridad\js\PanelAdmin.js" />
+    <Content Include="Acudientes\Seguridad\js\PerfilxUsuario.js" />
+    <Content Include="Acudientes\Seguridad\PanelAdmin.aspx" />
+    <Content Include="Acudientes\Seguridad\PerfilxUsuario.aspx" />
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\Administrador.aspx" />
     <Content Include="Angular\angular-animate.js" />
@@ -904,6 +930,15 @@
     <Content Include="Angular\i18n\angular-locale_zh.js" />
     <Content Include="Angular\i18n\angular-locale_zu-za.js" />
     <Content Include="Angular\i18n\angular-locale_zu.js" />
+    <Content Include="Acudientes\Estudiantes\Estudiantes\Web.config" />
+    <Content Include="Acudientes\Estudiantes\Registro\Web.config" />
+    <Content Include="Acudientes\Matriculas\Gestion\Web.config" />
+    <Content Include="Acudientes\Liquidaciones\AnularLiquidacion\Web.config" />
+    <Content Include="Acudientes\Liquidaciones\gLiquidaciones\Web.config" />
+    <Content Include="Acudientes\Liquidaciones\Liquidar\Web.config" />
+    <Content Include="Acudientes\Consultas\EstadoCuenta\Web.config" />
+    <Content Include="Acudientes\Consultas\PagosEstudiante\Web.config" />
+    <Content Include="Acudientes\Seguridad\Web.config" />
     <None Include="Angular\jquery-1.9.1.intellisense.js" />
     <Content Include="Angular\jquery-1.9.1.js" />
     <Content Include="Angular\jquery-1.9.1.min.js" />
@@ -1904,6 +1939,7 @@
     <Content Include="DatosBasicos\FechaCausacion\Web.config" />
     <Content Include="Inicio\Acudientes\Web.config" />
     <Content Include="Inicio\Administrativo\Web.config" />
+    <Content Include="Matriculas\Gestion\Web.config" />
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -1941,6 +1977,9 @@
     <Content Include="Seguridad\PerfilxUsuario.aspx" />
     <Content Include="Servicios\wsSecurity.asmx" />
     <Content Include="Servicios\wsSeguridad.asmx" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\js\cgMatriculas.js" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\js\cUsuariosAcudientes.js" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\UsuariosAcudientes.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1948,6 +1987,97 @@
     <Content Include="wsFoto.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acudientes\Consultas\EstadoCuenta\EstadoCuenta.aspx.cs">
+      <DependentUpon>EstadoCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Consultas\EstadoCuenta\EstadoCuenta.aspx.designer.cs">
+      <DependentUpon>EstadoCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Consultas\PagosEstudiante\PagosEstudiante.aspx.cs">
+      <DependentUpon>PagosEstudiante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Consultas\PagosEstudiante\PagosEstudiante.aspx.designer.cs">
+      <DependentUpon>PagosEstudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Estudiantes\Estudiantes\Estudiantes.aspx.cs">
+      <DependentUpon>Estudiantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Estudiantes\Estudiantes\Estudiantes.aspx.designer.cs">
+      <DependentUpon>Estudiantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Estudiantes\Registro\RegistroEstudiante.aspx.cs">
+      <DependentUpon>RegistroEstudiante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Estudiantes\Registro\RegistroEstudiante.aspx.designer.cs">
+      <DependentUpon>RegistroEstudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\AnularLiquidacion\AnularLiquidacion.aspx.cs">
+      <DependentUpon>AnularLiquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\AnularLiquidacion\AnularLiquidacion.aspx.designer.cs">
+      <DependentUpon>AnularLiquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\gLiquidaciones\DetalleLiquidacion.aspx.cs">
+      <DependentUpon>DetalleLiquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\gLiquidaciones\DetalleLiquidacion.aspx.designer.cs">
+      <DependentUpon>DetalleLiquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\gLiquidaciones\gLiquidaciones.aspx.cs">
+      <DependentUpon>gLiquidaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\gLiquidaciones\gLiquidaciones.aspx.designer.cs">
+      <DependentUpon>gLiquidaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\Liquidar\Liquidacion.aspx.cs">
+      <DependentUpon>Liquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Liquidaciones\Liquidar\Liquidacion.aspx.designer.cs">
+      <DependentUpon>Liquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Matriculas\Gestion\DetallesMatricula.aspx.cs">
+      <DependentUpon>DetallesMatricula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Matriculas\Gestion\DetallesMatricula.aspx.designer.cs">
+      <DependentUpon>DetallesMatricula.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Matriculas\Gestion\gMatriculas.aspx.cs">
+      <DependentUpon>gMatriculas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Matriculas\Gestion\gMatriculas.aspx.designer.cs">
+      <DependentUpon>gMatriculas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Seguridad\gesUsuarios.aspx.cs">
+      <DependentUpon>gesUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Seguridad\gesUsuarios.aspx.designer.cs">
+      <DependentUpon>gesUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Seguridad\PanelAdmin.aspx.cs">
+      <DependentUpon>PanelAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Seguridad\PanelAdmin.aspx.designer.cs">
+      <DependentUpon>PanelAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acudientes\Seguridad\PerfilxUsuario.aspx.cs">
+      <DependentUpon>PerfilxUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acudientes\Seguridad\PerfilxUsuario.aspx.designer.cs">
+      <DependentUpon>PerfilxUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2320,6 +2450,13 @@
       <DependentUpon>SiteBS.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UsuariosAcudientes\UsuariosAcudientes\UsuariosAcudientes.aspx.cs">
+      <DependentUpon>UsuariosAcudientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsuariosAcudientes\UsuariosAcudientes\UsuariosAcudientes.aspx.designer.cs">
+      <DependentUpon>UsuariosAcudientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2428,6 +2565,7 @@
     <Content Include="SiteBS.Master" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Seguridad\Web.config" />
+    <Content Include="UsuariosAcudientes\UsuariosAcudientes\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
