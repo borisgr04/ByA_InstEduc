@@ -88,3 +88,9 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identit
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\BLL.Security.pdb
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Dev\InstEduc\BLL\bin\Debug\BLL.Security.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Dev\InstEduc\BLL\bin\Debug\BLL.Security.pdb
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml

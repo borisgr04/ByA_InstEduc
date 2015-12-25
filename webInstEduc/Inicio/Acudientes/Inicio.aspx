@@ -30,7 +30,7 @@
                             <td><strong>Grado</strong></td>
                         </tr>
                         <tr ng-repeat="estudiante in estudiantes">
-                            <td><label><input id="{{estudiante.identificacion}}" ng-model="data.selectEstudiante" ng-value="{{estudiante.identificacion}}" ng-change="SelecEstudiante()" type="radio" name="name"/></label></td>
+                            <td><label><input type="checkbox" ng-model="estudiante.activo" ng-change="SelecEstudiante(estudiante)"/></label></td>
                             <td class="text-right" style="width:100px"><strong>{{estudiante.codigo}}</strong></td>
                             <td class="text-right" style="width:100px"><strong>{{estudiante.identificacion | currency:"":0}}</strong></td>
                             <td class="text-left"><strong>{{estudiante.terceros.apellido}}  {{estudiante.terceros.nombre}}</strong></td>

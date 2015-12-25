@@ -87,32 +87,28 @@ app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantes
         promiseGet.then(function (pl) {
             var respuesta = pl.data;
             $scope.estudiantes = respuesta;
-            alert(varLocal.Get("id_estudiante"));
+            $scope._activarRadio();
         }, function (errorPl) {
             console.log(JSON.stringify(errorPl));
         });
     };
-    $scope.SelecEstudiante = function () {
-        if ($scope.data.selectEstudiante != null) {
-            $scope.noSeleccionadoEstudiante = false;
-            varLocal.Set("id_estudiante", $scope.data.selectEstudiante);
-            alert(varLocal.Get("id_estudiante"));
-            //alert(document.getElementById(varLocal.Get("id_estudiante").value));
-            //alert(document.getElementById(varLocal.Get("id_estudiante")));
-            console.log(document.getElementById(varLocal.Get("id_estudiante")));
+    $scope.SelecEstudiante = function (estudiante) {
+        if (estudiante.activo == true) {
+            varLocal.Set("id_estudiante", estudiante.identificacion);
         }
+        $.each($scope.estudiantes, function (index, ite_estudiante) {
+            if (ite_estudiante.identificacion != estudiante.identificacion) {
+                ite_estudiante.activo = false;
+            }
+        });
     };
     $scope._activarRadio = function () {
         var estudiante_actual = varLocal.Get("id_estudiante");
-        var ban = false;
-        $.each($scope.estudiantes, function (index, estudiante) {
-            if (estudiante.identificacion == estudiante_actual) ban = true;
+        $.each($scope.estudiantes, function (index, ite_estudiante) {
+            if (ite_estudiante.identificacion == estudiante_actual) {
+                ite_estudiante.activo = true;
+            }
         });
-        alert($scope.estudiantes);
-        if (ban == true) {
-            alert(document.getElementById(varLocal.Get("id_estudiante")).value);
-            document.getElementById(varLocal.Get("id_estudiante")).checked = true;
-        }
     };
 
 
@@ -126,11 +122,6 @@ app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantes
             $scope.identificacionAcudiente = identificacionAcudiente;
             $scope.traerEstudiantesAcudiente();
         }
-        //var id_estudiante = varLocal.Get("id_estudiante");
-        //if (id_estudiante != null) {
-        //    $scope.estudiante.identificacion = id_estudiante;
-        //    $scope._traerestudiante();
-        //}
     };
     function FechaActualCausacion() {
         var fecCau = fechaCausacionService.Get();
