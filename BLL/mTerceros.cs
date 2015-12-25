@@ -19,10 +19,36 @@ namespace BLL
         {
             Mapper.CreateMap<terceros,tercerosDto>();
             Mapper.CreateMap<tercerosDto,terceros>();
+
+            Mapper.CreateMap<estudiantes, estudiantesDto>()
+                .ForMember(dest => dest.nombre_grado, obj => obj.MapFrom(src => src.id_ultima_matricula != null ? src.matriculas.Where(t => t.id == src.id_ultima_matricula).FirstOrDefault().cursos.grados.nombre : "Ninguno"))
+                .ForMember(dest => dest.nombre_curso, obj => obj.MapFrom(src => src.id_ultima_matricula != null ? src.matriculas.Where(t => t.id == src.id_ultima_matricula).FirstOrDefault().cursos.nombre : "Ninguno"));
+            Mapper.CreateMap<estudiantesDto, estudiantes>();
+        }
+
+        public List<estudiantesDto> GetEstudiantesAcudientes(string identificacionAcudiente)
+        {
+            
+            using (ctx = new ieEntities())
+            {
+                terceros acudiente = ctx.terceros.Where(t => t.identificacion == identificacionAcudiente).FirstOrDefault();
+                List<estudiantesDto> listEstudiantesDto = new List<estudiantesDto>();
+                if(acudiente != null)
+                {
+                    List<estudiantes> listEstudiantes = ctx.estudiantes.Where(t => t.id_acudiente == acudiente.id).ToList();
+                    Mapper.Map(listEstudiantes, listEstudiantesDto);
+                    return listEstudiantesDto;
+                }
+                else
+                {
+                    listEstudiantesDto = null;
+                    return listEstudiantesDto;
+                }
+            }
         }
 
         public List<tercerosDto> GetsAcudientes()
-        {            
+        {
             using(ctx = new ieEntities())
             {
                 List<tercerosDto> listTercerosDto = new List<tercerosDto>();

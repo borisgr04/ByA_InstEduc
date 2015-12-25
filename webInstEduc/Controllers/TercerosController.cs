@@ -27,6 +27,13 @@ namespace AspIdentity.Controllers
             return o.CrearUsuariosAcudientes(lReg);
         }
 
+        [Route("EstudiantesAcudientes/{identificacionAcudiente}")]
+        public List<estudiantesDto> GetEstudiantesAcudientes(string identificacionAcudiente)
+        {
+            mTerceros o = new mTerceros();
+            return o.GetEstudiantesAcudientes(identificacionAcudiente);
+        }
+
         [Route("")]
         public List<tercerosDto> Gets()
         {

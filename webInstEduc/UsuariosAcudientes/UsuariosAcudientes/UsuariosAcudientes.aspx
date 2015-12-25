@@ -71,14 +71,14 @@
                 </div>
                 <div class="row" id="print">
                     <table ng-table="tableUsuariosAcudientes" template-pagination="/data-table-pager.html"  class="table table-bordered table-hover table-striped tablesorter">
-                        <tr ng-repeat="item in $data | filter:filtro">
-                            <td class="text-right" header-class="'text-right'" data-title="'Identificación'" filter="{ 'identificacion': 'text' }" sortable="'identificacion'"><strong>{{item.identificacion}}</strong></td>
-                            <td class="text-right" header-class="'text-right'" data-title="'Nombre'" filter="{ 'nombre': 'text' }" sortable="'nombre'"><strong>{{item.apellido}} {{item.nombre}}</strong></td>
-                            <td class="text-right" header-class="'text-right'" data-title="'Email'" filter="{ 'email': 'text' }" sortable="'email'"><strong>{{item.email}}</strong></td>
-                            <td class="text-left" header-class="'text-left'" data-title="'Dirección'" filter="{ 'direccion': 'text' }" sortable="'direccion'"><strong>{{item.direccion}}</strong></td>
-                            <td class="text-left" header-class="'text-left'" data-title="'Teléfono'" filter="{ 'telefono': 'text' }" sortable="'telefono'"><strong>{{item.telefono}}</strong></td>
-                            <td class="text-left" header-class="'text-left'" data-title="'Célular'" filter="{ 'celular': 'text' }" sortable="'celular'"><strong>{{item.celular}}</strong></td>
-                            <td style="text-align:left"><a href="javascript:;" ng-click="_removerAcudiente(item, $index)"><span class="glyphicon glyphicon-remove" style="color: #d15b47!important;"></span></a></td>
+                        <tr ng-repeat="acudiente in $data | filter:filtro">
+                            <td class="text-right" header-class="'text-right'" data-title="'Identificación'" filter="{ 'identificacion': 'text' }" sortable="'identificacion'"><strong>{{acudiente.identificacion}}</strong></td>
+                            <td class="text-right" header-class="'text-right'" data-title="'Nombre'" filter="{ 'nombre': 'text' }" sortable="'nombre'"><strong>{{acudiente.apellido}} {{acudiente.nombre}}</strong></td>
+                            <td class="text-right" header-class="'text-right'" data-title="'Email'" filter="{ 'email': 'text' }" sortable="'email'"><strong>{{acudiente.email}}</strong></td>
+                            <td class="text-left" header-class="'text-left'" data-title="'Dirección'" filter="{ 'direccion': 'text' }" sortable="'direccion'"><strong>{{acudiente.direccion}}</strong></td>
+                            <td class="text-left" header-class="'text-left'" data-title="'Teléfono'" filter="{ 'telefono': 'text' }" sortable="'telefono'"><strong>{{acudiente.telefono}}</strong></td>
+                            <td class="text-left" header-class="'text-left'" data-title="'Célular'" filter="{ 'celular': 'text' }" sortable="'celular'"><strong>{{acudiente.celular}}</strong></td>
+                            <td style="text-align:left"><a href="javascript:;" ng-click="_removerAcudiente(acudiente, $index)"><span class="glyphicon glyphicon-remove" style="color: #d15b47!important;"></span></a></td>
                         </tr>
                         <tr ng-show="UsuariosAcudientes.length == 0">
                             <td colspan="7"><strong>No se hay acudientes sin usuarios</strong></td>

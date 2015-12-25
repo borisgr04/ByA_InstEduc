@@ -65,6 +65,11 @@ app.service("tercerosService", function ($http) {
         var req = $http.get('/api/Terceros/Acudientes');
         return req;
     }
+    this.GetTraerEstudiantesAcudiente = function(identificacionAcudiente)
+    {
+        var req = $http.get('/api/Terceros/EstudiantesAcudientes/'+ identificacionAcudiente);
+        return req;
+    }
     this.InsertOrUpdate = function (acudiente) {
         var req = $http.post('/api/Acudientes', estudiante);
         return req;
