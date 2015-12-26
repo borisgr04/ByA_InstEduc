@@ -60,6 +60,22 @@
             </div>
             <div class="col-xs-3">
                 <a href="javascript:;">
+                    <div class="panel panel-default" ng-click="_irMatricula()">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="icon-table icon-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-center">
+                                    <h4 style="margin-top:23px">Matricula</h4>
+                                </div>
+                            </div>            
+                        </div>   
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="javascript:;">
                     <div class="panel panel-default" ng-click="_irLiquidaciones()">
                         <div class="panel-heading">
                             <div class="row">
@@ -74,7 +90,9 @@
                     </div>
                 </a>
             </div>
-            <div class="col-xs-3">
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-md-offset-1">
                 <a href="javascript:;">
                     <div class="panel panel-default" ng-click="_irLiquidar()">
                         <div class="panel-heading">
@@ -84,24 +102,6 @@
                                 </div>
                                 <div class="col-xs-9 text-center">
                                     <h4>Liquidar</h4>
-                                </div>
-                            </div>            
-                        </div>   
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-3 col-md-offset-2">
-                <a href="javascript:;">
-                    <div class="panel panel-default" ng-click="_irPagosEstudiante()">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="icon-sort-by-attributes icon-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-center">
-                                    <h4>Pagos Estudiante</h4>
                                 </div>
                             </div>            
                         </div>   
@@ -118,6 +118,22 @@
                                 </div>
                                 <div class="col-xs-9 text-center">
                                     <h4>Estado cuenta</h4>
+                                </div>
+                            </div>            
+                        </div>   
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href="javascript:;">
+                    <div class="panel panel-default" ng-click="_irPagosEstudiante()">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="icon-sort-by-attributes icon-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-center">
+                                    <h4>Pagos Estudiante</h4>
                                 </div>
                             </div>            
                         </div>   

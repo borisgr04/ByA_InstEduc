@@ -54,6 +54,7 @@ namespace BLL.Security
 
         public List<USUARIOS_DTO> GetUsuarios(string filtro)
         {
+            filtro = filtro.ToUpper();
             List<USUARIOS_DTO> lst = new List<USUARIOS_DTO>();
             ctx = new ieEntities();
             var userStore = new UserStore<IdentityUser>();
@@ -63,11 +64,22 @@ namespace BLL.Security
                    .ForMember(dest => dest.TERCERO, opt => opt.MapFrom(src => GetTercero(src.UserName)));
             Mapper.Map(lstO, lst);
 
+
             List<USUARIOS_DTO> lstR = new List<USUARIOS_DTO>();
+            
             if (filtro == "") lstR = lst;
-            else return lstR = lst.Where(t => t.TERCERO.ToUpper().Contains(filtro.ToUpper()) || t.USERNAME.ToUpper().Contains(filtro.ToUpper())).ToList(); 
+            else foreach (var t in lst)
+                {
+                    if (t.TERCERO != null && t.USERNAME != null)
+                    {
+                        if (t.USERNAME.Contains(filtro) || t.TERCERO.ToUpper().Contains(filtro))
+
+                            lstR.Add(t);
+                    }
+                }
             return lstR;
         }
+
 
         private string GetTercero(string username)
         {

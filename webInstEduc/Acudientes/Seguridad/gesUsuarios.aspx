@@ -3,21 +3,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-1" hidden="hidden">
             <label>
                 Filtro:</label>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2" hidden="hidden">
             <input type="text" id="txtFiltro" placeHolder="Identificación o Nombre" class="form-control input-sm" title="Identificación o Nombre" />
         </div>
         <div class="col-md-8">
             <div class="btn-toolbar">
 
-                <button type="button" value="Consultar" id="BtnConsulta" data-loading-text="Loading..." class="btn btn-warning">
+              <%--  <button type="button" value="Consultar" id="BtnConsulta" data-loading-text="Loading..." class="btn btn-warning">
                     <span class="glyphicon glyphicon-search"></span>Buscar
-                </button>
+                </button>--%>
 
-                <button type="button" value="Nuevo" id="BtnNuevo" class="btn btn-success">
+                <%--<button type="button" value="Nuevo" id="BtnNuevo" class="btn btn-success">
                     <span class="glyphicon glyphicon-user"></span>Nuevo
                 </button>
 
@@ -35,7 +35,7 @@
 
                 <button type="button" value="Nuevo" id="BtnDesbloq" class="btn btn-danger" disabled>
                     <span class="glyphicon glyphicon-asterisk"></span>Desbloqueo
-                </button>
+                </button>--%>
 
                 <button type="button" value="Nuevo" id="BtnClave" class="btn btn-warning" disabled>
                     <span class="glyphicon glyphicon-edit"></span>Clave

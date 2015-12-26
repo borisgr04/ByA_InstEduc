@@ -40,16 +40,16 @@ app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantes
         }
     };
     $scope._irInformacion = function () {
-        window.location.href = "/Estudiantes/Registro/RegistroEstudiante.aspx";
+        window.location.href = "/Acudientes/Estudiantes/Registro/RegistroEstudiante.aspx";
     };
     $scope._irMatricula = function () {
-        window.location.href = "/Matriculas/Matricular/Matricular.aspx";
+        window.location.href = "/Acudientes/Matriculas/Gestion/DetallesMatricula.aspx";
     };
     $scope._irLiquidaciones = function () {
-        window.location.href = "/Liquidaciones/gLiquidaciones/gLiquidaciones.aspx";
+        window.location.href = "/Acudientes/Liquidaciones/gLiquidaciones/gLiquidaciones.aspx";
     };
     $scope._irLiquidar = function () {
-        window.location.href = "/Liquidaciones/Liquidar/Liquidacion.aspx";
+        window.location.href = "/Acudientes/Liquidaciones/Liquidar/Liquidacion.aspx";
     };
     $scope._irTransacciones = function () {
         window.location.href = "/Consultas/TransaccionesEstudiante/TransaccionesEstudiante.aspx";
@@ -58,10 +58,10 @@ app.controller('cInicioAcudientes', function ($scope, gradosService, estudiantes
         window.location.href = "/Liquidaciones/PagarSolo/PagarSolo.aspx";
     };
     $scope._irPagosEstudiante = function () {
-        window.location.href = "/Consultas/PagosEstudiante/PagosEstudiante.aspx";
+        window.location.href = "/Acudientes/Consultas/PagosEstudiante/PagosEstudiante.aspx";
     };
     $scope._irEstadoCuentaEstudiante = function () {
-        window.location.href = "/Consultas/EstadoCuenta/EstadoCuenta.aspx";
+        window.location.href = "/Acudientes/Consultas/EstadoCuenta/EstadoCuenta.aspx";
     };
     $scope._limpiarEstudiante = function () {
         varLocal.Remove("id_estudiante");

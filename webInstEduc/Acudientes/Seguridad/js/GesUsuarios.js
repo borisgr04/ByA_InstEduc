@@ -301,6 +301,7 @@
             return dataRecord;
         },
         init: function () {
+            $("#txtFiltro").val(byaSite.getUsuario());
             _createElements();
             _addHandlers();
             _createGridCon();
