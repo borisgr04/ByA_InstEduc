@@ -18,9 +18,9 @@ namespace BLL
             Mapper.CreateMap<terceros, tercerosDto>();
             Mapper.CreateMap<estudiantesDto, estudiantes>();
             Mapper.CreateMap<estudiantes, estudiantesDto>()
-                .ForMember(dest => dest.nombre_completo, obj => obj.MapFrom(src => src.terceros.apellido + " " + src.terceros.nombre))
-                .ForMember(dest => dest.nombre_grado, obj => obj.MapFrom(src => src.id_ultima_matricula != null ? src.matriculas.Where(t=> t.id == src.id_ultima_matricula).FirstOrDefault().cursos.grados.nombre : "Ninguno"))
-                .ForMember(dest => dest.nombre_curso, obj => obj.MapFrom(src => src.id_ultima_matricula != null ? src.matriculas.Where(t => t.id == src.id_ultima_matricula).FirstOrDefault().cursos.nombre : "Ninguno"));
+                .ForMember(dest => dest.nombre_grado, obj => obj.MapFrom(src => src.id_ultima_matricula != null ? src.matriculas.Where(t => t.id == src.id_ultima_matricula).FirstOrDefault().cursos.grados.nombre : "Ninguno"))
+                .ForMember(dest => dest.nombre_curso, obj => obj.MapFrom(src => src.id_ultima_matricula != null ? src.matriculas.Where(t => t.id == src.id_ultima_matricula).FirstOrDefault().cursos.nombre : "Ninguno"))
+                .ForMember(dest => dest.nombre_completo, obj => obj.MapFrom(src => src.terceros.apellido + " " + src.terceros.nombre));
         }
         public estudiantesDto Get(string Id)
         {
