@@ -1,0 +1,29 @@
+<ion-view view-title='{{TituloMenu.titulo}}'>
+    <ion-content>
+        <div>
+        <div ng-repeat="cumplimiento in listaCumplimientos | orderBy:'-cumplimientoField.fechaInicioPeriodoVerificacionField' | limitTo:3">
+          <ion-item class="item-stable" ng-click="toggleGroup(cumplimiento)" ng-class="{active: isGroupShown(cumplimiento)}" style="background-color: #fff;">
+              <div class="row">
+                <div class="col col-10">
+                    <img ng-src="img/profile.png" style="width:75%;">
+                </div>
+                <div class="col col-80">
+                    <p><strong ng-show="mostrarTituloSalud(cumplimiento)">Periodo Cumplimiento Salud</strong></p>
+                    <p><strong ng-show="mostrarTituloEducacion(cumplimiento)">Periodo Cumplimientos Educación</strong></p>
+                    <p class='gray-light-2'>{{cumplimiento.cumplimientoField.fechaInicioPeriodoVerificacionField | date:'MMM d, y'}} - {{cumplimiento.cumplimientoField.fechaFinPeriodoVerificacionField | date:'MMM d, y'}}</p>
+                </div>
+                <div class="col col-10">
+                    <i class="icon" ng-class="isGroupShown(cumplimiento) ? 'ion-minus-circled' : 'ion-plus-circled'" style="color:#F29400;"></i>
+                </div>
+              </div>   
+          </ion-item>
+          <ion-item class="item-accordion item-accordion-button" ng-show="isGroupShown(cumplimiento)" style="padding-left:15%;margin-top:0px;padding-top:0px;">
+            <p>{{cumplimiento.datosBaseField.primerNombreField | capitalize}} {{cumplimiento.datosBaseField.segundoNombreField | capitalize}} {{cumplimiento.datosBaseField.primerApellidoField | capitalize}} {{cumplimiento.datosBaseField.segundoApellidoField | capitalize}}</p>
+            <p>{{cumplimiento.cumplimientoField.causalCumplimientoTipoIncentivoField | lowercase | capitalize}}</p>  
+            <p>Cumplió: {{cumplimiento.cumplimientoField.cumplioField | capitalize}}</p>
+            <p>Fecha de Cumplimiento: @@</p>
+          </ion-item>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

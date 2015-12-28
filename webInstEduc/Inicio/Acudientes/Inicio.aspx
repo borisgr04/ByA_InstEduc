@@ -64,7 +64,7 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="icon-table icon-5x"></i>
+                                    <i class="icon-file-text-alt icon-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-center">
                                     <h4 style="margin-top:23px">Matricula</h4>

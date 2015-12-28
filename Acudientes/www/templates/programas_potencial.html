@@ -1,0 +1,18 @@
+<ion-view view-title='{{TituloMenu.titulo}}'>
+    <ion-content>
+        <div class="item item-avatar">
+            <img ng-src="img/profile.png">
+            <p>{{persona.TipoIdentificacion}} {{persona.Documento}}</p>
+            <p style="color:#C0C0C0;">{{persona.Nombre}}</p>
+        </div> 
+        <br>
+        <div class="item item-avatar borde-item item-programa" ng-repeat="programa in lProgramas">
+            <img ng-src="{{programa.Img}}">            
+            <h2>{{programa.NombrePrograma}}</h2>
+            <p>{{programa.TextoPrograma}}</p>
+            <a class="button button-clear button-small link" style="color:#F29400;" ng-click="_elegirPrograma(programa)">VER DETALLE</a>
+         </div>
+        <h5 class="assertive text-center" ng-show="ocultoMensaje">No se encuentra inscrito en nuestros programa</h5>
+        <ion-spinner class="spinner" ng-show="ocultoLoader"></ion-spinner>
+    </ion-content>
+</ion-view>	

@@ -1,0 +1,22 @@
+<ion-view view-title='{{TituloMenu.titulo}}'>
+    <ion-content>
+        <div class="card text-center">
+            <div class="item item-text-wrap" style="text-align:justify">
+                <p style="color:#F29400;">Señor Usuario: por favor seleccione la respuesta que corresponde a su informaci&oacuten personal y haga click en Continuar.</p>
+	        </div>
+        </div>
+        <div class="list">
+            <div class="row text-justify"> 
+                {{pregunta_actual.pregunta}}
+            </div>                            
+            <ion-checkbox ng-repeat="respuesta in pregunta_actual.respuestas" ng-model="respuesta.value" ng-click="_verificarValidarRespuestaActual(respuesta)">{{respuesta.nombre}}</ion-checkbox>
+
+            <div class="text-center" style="margin-top:20px;">
+                <a class="button button-block button-positive" ng-click="_continuar()">
+                    <p class="text-button-large">Continuar</p> 
+                </a>
+            </div>
+            <ion-spinner class="spinner" ng-show="ocultarLoader"></ion-spinner>
+        </div>        
+    </ion-content>
+</ion-view>	
