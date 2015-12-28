@@ -40,7 +40,7 @@ app.controller('cDetallesMatricula', function ($scope, entidadService, gradosSer
 
     _init();
     function _init() {
-        byaSite.SetModuloP({ TituloForm: "Gestión", Modulo: "Matriculas", urlToPanelModulo: "gMatriculas.aspx", Cod_Mod: "ACUDI", Rol: "ACUDIMatriculas" });
+        byaSite.SetModuloP({ TituloForm: "Detalles Matricula", Modulo: "Acudientes", urlToPanelModulo: "gMatriculas.aspx", Cod_Mod: "ACUDI", Rol: "ACUDIMatriculas" });
         _traerMatriculaEstudiante();
         _traerestudiante(varLocal.Get("id_estudiante"));
         _traerInformacionEntidad();
