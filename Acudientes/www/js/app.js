@@ -36,6 +36,12 @@ var app = angular.module('app', ['ionic'])
         url: '/home',
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl'
+      })
+
+      .state('mensajes', {
+        url: '/mensajes',
+        templateUrl: 'templates/mensajes.html',
+        controller: 'MensajesCtrl'
       });
     $urlRouterProvider.otherwise('/login');
 });

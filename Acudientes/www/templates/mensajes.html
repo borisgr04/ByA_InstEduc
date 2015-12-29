@@ -1,0 +1,21 @@
+<ion-header-bar class="bar info">
+    <div class="buttons">
+        <button style="color:#fff;" ui-sref="home" class="button button-icon ion-chevron-left">Atrás
+        </button>
+    </div>
+    <h1 class="title" style="color:#fff;">Mensajes</h1>
+</ion-header-bar>
+
+<div class="card text-center" style="margin-top: 65px;">
+    <div class="item item-text-wrap" style="text-align:justify">
+        <h2 style="font-weight: bold; color: #3e97cf">Tiene {{contador}} mensajes sin leer</h2>
+    </div>
+
+    <div class="row text-left"  ng-repeat = "mensaje in Mensajes">
+        <a ng-click="abrirMensaje(mensaje, $index)" class="item item-icon-left" href="#" style="width: 100%">
+            <i class="{{iconoMensaje(mensaje.estado)}}" style="color: {{ColorMensaje(mensaje.tipo)}}"></i>
+            <label style="float: left">{{mensaje.nombre}}</label>
+            <label style="color: #b2b2b2; float: right">({{mensaje.estado}})</label>
+        </a>
+    </div>
+</div>
