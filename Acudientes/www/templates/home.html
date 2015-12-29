@@ -1,0 +1,65 @@
+<ion-header-bar class="bar info">
+    <h1 class="title" style="color:#fff;">Colegio Calleja Real</h1>
+</ion-header-bar>
+<div class="container" style="margin-top: 65px;">
+    <div class="card text-center">
+        <div class="item item-text-wrap" style="text-align:justify">
+            <h2 style="font-weight: bold; color: #3e97cf">Mi Información</h2>
+        </div>
+        <div class="row text-left" style="margin:0px 10px 0px 10px;">
+            <div class="col col-20">
+                <label style="font-weight: bold">
+                    Nombre:
+                </label>
+            </div>
+
+            <div class="col">
+                <label>{{Acudiente.nombre}}</label>
+            </div>
+        </div>
+
+        <div class="row text-left" style="margin:0px 10px 0px 10px;">
+            <div class="col col-20">
+                <label style="font-weight: bold">
+                    Cedula:
+                </label>
+            </div>
+            <div class="col">
+                <label>{{Acudiente.cedula}}</label>
+            </div>
+        </div>
+
+        <div class="row text-left" style="margin:0px 10px 0px 10px;">
+            <div class="col col-20">
+                <label style="font-weight: bold">
+                    Email:
+                </label>
+            </div>
+            <div class="col">
+                <label>{{Acudiente.email}}</label>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card text-center">
+    <div class="item item-text-wrap" style="text-align:justify">
+        <h2 style="font-weight: bold; color: #3e97cf">Mis Estudiantes</h2>
+    </div>
+
+    <div class="row text-left"  ng-repeat = "estudiante in Estudiantes">
+        <a class="item item-icon-left" href="#" style="width: 100%">
+            <i class="icon ion-person"></i>
+            {{estudiante.idEstudiante}} - {{estudiante.nombre}}
+        </a>
+    </div>
+</div>
+
+<!--<ion-footer-bar class="bar bar-footer info">
+    <a class="item item-icon-left" href="#">
+        <i class="icon ion-email"></i>
+        Me
+        <span class="badge badge-assertive text-right">{{mensajes}}</span>
+    </a>
+</ion-footer-bar>-->
