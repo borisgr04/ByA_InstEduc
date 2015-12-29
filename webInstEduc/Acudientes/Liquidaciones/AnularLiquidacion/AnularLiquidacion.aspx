@@ -49,7 +49,6 @@
                                         <div class="text-left" style="margin:10px;">
                                             <button ng-disabled="!verLiquidacion" class="btn btn-info" ng-click="_print()"><span class="glyphicon glyphicon-print"></span> Imprimir</button>   
                                             <button ng-show="verLiquidacion" ng-disabled="liquidacion.estado == 'PA' || liquidacion.estado == 'AN' || !habGuardar" ng-click="_anularLiquidacion()" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Anular Liquidación</button>
-                                            <button ng-show="verLiquidacion" ng-click="_limpiar()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> Buscar otra liquidación</button>
                                             <button ng-click="_Back()" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Atrás</button>
                                         </div>
                                         <div class="panel panel-default" id="print">

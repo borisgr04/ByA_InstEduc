@@ -182,7 +182,7 @@ app.controller('cRegistroEstudiante', function ($scope, gradosService, estudiant
     _init();
 
     function _init() {
-        byaSite.SetModuloP({ TituloForm: "Gestión", Modulo: "Estudiantes", urlToPanelModulo: "Estudiantes.aspx", Cod_Mod: "ACUDI", Rol: "ACUDIEstudiantes" });
+        byaSite.SetModuloP({ TituloForm: "Información Estudiante", Modulo: "Acudientes", urlToPanelModulo: "RegistroEstudiante.aspx", Cod_Mod: "ACUDI", Rol: "ACUDIEstudiantes" });
         _traerGrados();
 
         var id_estudiante = varLocal.Get("id_estudiante");

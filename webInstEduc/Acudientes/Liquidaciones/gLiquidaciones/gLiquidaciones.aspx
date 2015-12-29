@@ -70,9 +70,7 @@
                                         <%--<a ng-click="_irPagar()" class="btn btn-xs btn-default btn-xs" style="margin-right:15px"><span class="glyphicon glyphicon-usd"></span> Pago  </a>--%>
 
                                         <a ng-disabled="noSeleccionadoLiq" class="btn btn-default btn-xs" ng-click="_irDetalleLiquidacion()"><span class="glyphicon glyphicon-search"></span> Detalles  </a>
-                                        <a ng-disabled="noSeleccionadoLiq || data.selectLiquidacion.estado == 'PA'" ng-click="_irPagarLiquidacion()" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-usd"></span> Pagar liquidación  </a>
                                         <button ng-disabled="noSeleccionadoLiq || data.selectLiquidacion.estado == 'PA'" class="btn btn-xs btn-default" ng-click="_irAnularLiquidacion()"><span class="glyphicon glyphicon-remove"></span> Anular liquidación</button>
-                                        <button ng-disabled="noSeleccionadoLiq || data.selectLiquidacion.estado == 'LI'" class="btn btn-xs btn-default" ng-click="_irAnularPago()"><span class="glyphicon glyphicon-remove"></span> Anular pago</button>                                        
                                     </div>                                    
                                 </div>
                                 <div class="row" style="margin:10px">

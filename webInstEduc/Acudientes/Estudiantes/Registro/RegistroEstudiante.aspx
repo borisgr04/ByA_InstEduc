@@ -45,15 +45,13 @@
                                 <h4 class="text-left">1. Datos del estudiante</h4>
                             </div>
                             <div class="text-right col-xs-6">
-                                <button type="button" class="btn btn-success btn-sm" ng-disabled="!habGuardar" ng-click="_guardarEstudiante()"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar</button>
-                                <button type="button" class="btn btn-info btn-sm" ng-disabled="!habGuardar" ng-click="_limpiarEstudiante()"><span class="glyphicon glyphicon-remove"></span>Limpiar</button>
                                 <button type="button" ng-click="_Back()" ng-disabled="!habGuardar" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"></span> Atrás</button>
                             </div>                            
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Tipo Identificación</label>
-                                <select class="form-control input-sm" ng-model="estudiante.terceros.tipo_identificacion" required>
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros.tipo_identificacion" required>
                                     <option value="RC">Registro civil</option>
                                     <option value="TI">Tarjeta de identidad</option>
                                     <option value="CC">Cedula de ciudadanía</option>
@@ -63,25 +61,25 @@
                             </div>
                             <div class="col-xs-3">
                                 <label>Identificación</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.identificacion" ng-blur="_traerestudiante()" format="number" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.identificacion" ng-blur="_traerestudiante()" format="number" required/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Nombres</label>                                
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros.nombre" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros.nombre" required/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Apellidos</label>                                
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros.apellido" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros.apellido" required/>
                             </div>                            
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Lugar de nacimiento</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.lugar_nacimiento" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.lugar_nacimiento" required/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Fecha de nacimiento</label>
-                                <input type="date" ng-change="mostrarE()" class="form-control input-sm" ng-model="estudiante.fecha_nacimiento" required/>
+                                <input disabled="disabled" type="date" ng-change="mostrarE()" class="form-control input-sm" ng-model="estudiante.fecha_nacimiento" required/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Edad</label>
@@ -89,7 +87,7 @@
                             </div>
                             <div class="col-xs-3">
                                 <label>Sexo</label>
-                                <select class="form-control input-sm" ng-model="estudiante.terceros.sexo" required>
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros.sexo" required>
                                     <option value="MASCULINO">MASCULINO</option>
                                     <option value="FEMENINO">FEMENINO</option>
                                 </select>
@@ -98,37 +96,37 @@
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>GS - RH</label>
-                                <input class="form-control input-sm" type="text" ng-model="estudiante.terceros.RH" required/>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros.RH" required/>
                             </div>
                             <div class="col-xs-3">                                
                                 <label>Dirección residencia</label>
-                                <autocomplete ng-model="estudiante.terceros.direccion" attr-placeholder="" ng-blur="_agregarDireccionEstudiante" data="direcciones"></autocomplete>
+                                <input type="text" class="form-control input-sm" disabled="disabled" ng-model="estudiante.terceros.direccion"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Teléfono residencia</label>
-                                <autocomplete ng-model="estudiante.terceros.telefono" attr-placeholder="" ng-blur="_agregarTelefonoEstudiante" data="telefonos"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros.telefono"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Celular</label>
-                                <autocomplete ng-model="estudiante.terceros.celular" attr-placeholder="" ng-blur="_agregarCelularEstudiante" data="celulares"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text"  ng-model="estudiante.terceros.celular"/>
                             </div>                                                      
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Email</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros.email"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros.email"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Colegio de procedencia</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.colegio_procedencia"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.colegio_procedencia"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Grado anterior</label>
-                                <select ng-model="estudiante.id_ultimo_grado" ng-options="grado.id as grado.nombre for grado in grados" class="form-control"></select>
+                                <select disabled="disabled" ng-model="estudiante.id_ultimo_grado" ng-options="grado.id as grado.nombre for grado in grados" class="form-control"></select>
                             </div>   
                             <div class="col-xs-3">
                                 <label>Estado civil padres</label>
-                                <select class="form-control input-sm" ng-model="estudiante.estado_civil_padres" required>
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.estado_civil_padres" required>
                                     <option value="CASADOS">CASADOS</option>
                                     <option value="UNION LIBRE">UNION LIBRE</option>
                                     <option value="DIVORCIADOS">DIVORCIADOS</option>
@@ -138,14 +136,14 @@
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Vive con</label>
-                                <select class="form-control input-sm" ng-model="estudiante.vive_con" required>
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.vive_con" required>
                                     <option value="PADRES">PADRES</option>
                                     <option value="ACUDIENTE">ACUDIENTE</option>
                                 </select>
                             </div>  
                             <div class="col-xs-3">
                                 <label>Código Estudiante</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.codigo" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.codigo" required/>
                             </div> 
                         </div>
                         <hr />
@@ -155,7 +153,7 @@
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Tipo Identificación</label>
-                                <select class="form-control input-sm" ng-model="estudiante.terceros2.tipo_identificacion">
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros2.tipo_identificacion">
                                     <option value="RC">Registro civil</option>
                                     <option value="TI">Tarjeta de identidad</option>
                                     <option value="CC">Cedula de ciudadanía</option>
@@ -165,47 +163,47 @@
                             </div>
                             <div class="col-xs-3">
                                 <label>Identificación</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros2.identificacion" ng-blur="_traerTerceroPadre()" format="number"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros2.identificacion" ng-blur="_traerTerceroPadre()" format="number"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros2.nombre"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros2.nombre"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros2.apellido"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros2.apellido"/>
                             </div>                            
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>GS - RH</label>
-                                <input class="form-control input-sm" type="text" ng-model="estudiante.terceros2.RH"/>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros2.RH"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Dirección residencia</label>
-                                <autocomplete ng-model="estudiante.terceros2.direccion" attr-placeholder="" ng-blur="_agregarDireccionPadre" data="direcciones"></autocomplete>
+                                <input type="text" disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros2.direccion"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Teléfono residencia</label>
-                                <autocomplete ng-model="estudiante.terceros2.telefono" attr-placeholder="" ng-blur="_agregarTelefonoPadre" data="telefonos"></autocomplete>
+                                <input type="text" disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros2.telefono"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Celular</label>
-                                <autocomplete ng-model="estudiante.terceros2.celular" attr-placeholder="" ng-blur="_agregarCelularPadre" data="celulares"></autocomplete>
+                                <input type="text" disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros2.celular"/>
                             </div>                                                      
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Email</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros2.email"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros2.email"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Ocupación</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros2.ocupacion"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros2.ocupacion"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Dirección y lugar de trabajo</label>
-                                <autocomplete ng-model="estudiante.terceros2.direccion_trabajo" attr-placeholder="" ng-blur="_agregarDireccionPadreTrabajo" data="direcciones"></autocomplete>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros2.direccion_trabajo"/>
                             </div>                                                    
                         </div>
                         <hr />
@@ -215,7 +213,7 @@
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Tipo Identificación</label>
-                                <select class="form-control input-sm" ng-model="estudiante.terceros1.tipo_identificacion">
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros1.tipo_identificacion">
                                     <option value="RC">Registro civil</option>
                                     <option value="TI">Tarjeta de identidad</option>
                                     <option value="CC">Cedula de ciudadanía</option>
@@ -225,47 +223,47 @@
                             </div>
                             <div class="col-xs-3">
                                 <label>Identificación</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros1.identificacion" ng-blur="_traerTerceroMadre()" format="number"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros1.identificacion" ng-blur="_traerTerceroMadre()" format="number"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros1.nombre"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros1.nombre"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros1.apellido"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros1.apellido"/>
                             </div>                            
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>GS - RH</label>
-                                <input class="form-control input-sm" type="text" ng-model="estudiante.terceros1.RH"/>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros1.RH"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Dirección residencia</label>
-                                <autocomplete ng-model="estudiante.terceros1.direccion" attr-placeholder="" ng-blur="_agregarDireccionMadre" data="direcciones"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros1.direccion"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Teléfono residencia</label>
-                                <autocomplete ng-model="estudiante.terceros1.telefono" attr-placeholder="" ng-blur="_agregarTelefonoMadre" data="telefonos"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros1.telefono"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Celular</label>
-                                <autocomplete ng-model="estudiante.terceros1.celular" attr-placeholder="" ng-blur="_agregarCelularMadre" data="celulares"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros1.celular"/>
                             </div>                                                      
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Email</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros1.email"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros1.email"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Ocupación</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros1.ocupacion"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros1.ocupacion"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Dirección y lugar de trabajo</label>
-                                <autocomplete ng-model="estudiante.terceros1.direccion_trabajo" attr-placeholder="" ng-blur="_agregarDireccionMadreTrabajo" data="direcciones"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros1.direccion_trabajo"/>
                             </div>                                                    
                         </div>
                         <hr />
@@ -274,7 +272,7 @@
                                 <h4 class="text-left">4. Datos acudiente</h4>
                             </div>
                             <div class="col-xs-2">
-                                <select class="form-control" ng-model="quien_acudiente" ng-change="_cambiarAcudiente()">
+                                <select disabled="disabled" class="form-control" ng-model="quien_acudiente" ng-change="_cambiarAcudiente()">
                                     <option value="PADRE">PADRE</option>
                                     <option value="MADRE">MADRE</option>
                                     <option value="OTRO" selected="selected">OTRO</option>
@@ -284,7 +282,7 @@
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Tipo Identificación</label>
-                                <select class="form-control input-sm" ng-model="estudiante.terceros3.tipo_identificacion" required>
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros3.tipo_identificacion" required>
                                     <option value="RC">Registro civil</option>
                                     <option value="TI">Tarjeta de identidad</option>
                                     <option value="CC">Cedula de ciudadanía</option>
@@ -294,60 +292,60 @@
                             </div>
                             <div class="col-xs-3">
                                 <label>Identificación</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros3.identificacion" format="number" ng-blur="_traerTerceroAcudiente()" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros3.identificacion" format="number" ng-blur="_traerTerceroAcudiente()" required/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Nombres</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros3.nombre" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros3.nombre" required/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Apellidos</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros3.apellido" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros3.apellido" required/>
                             </div>                            
                         </div>
                         <div class="form-group row">
                              <div class="col-xs-3">
                                 <label>Sexo</label>
-                                <select class="form-control input-sm" ng-model="estudiante.terceros3.sexo" required>
+                                <select disabled="disabled" class="form-control input-sm" ng-model="estudiante.terceros3.sexo" required>
                                     <option value="MASCULINO">MASCULINO</option>
                                     <option value="FEMENINO">FEMENINO</option>
                                 </select>
                             </div>     
                             <div class="col-xs-3">
                                 <label>GS - RH</label>
-                                <input class="form-control input-sm" type="text" ng-model="estudiante.terceros3.RH"/>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros3.RH"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Dirección residencia</label>
-                                <autocomplete ng-model="estudiante.terceros3.direccion" attr-placeholder="" ng-blur="_agregarDireccionAcudiente" data="direcciones" ng-required></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros3.direccion"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Teléfono residencia</label>
-                                <autocomplete ng-model="estudiante.terceros3.telefono" attr-placeholder="" ng-blur="_agregarTelefonoAcudiente" data="telefonos"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros3.telefono"/>
                             </div>                                                                                 
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Celular</label>
-                                <autocomplete ng-model="estudiante.terceros3.celular" attr-placeholder="" ng-blur="_agregarCelularAcudiente" data="celulares"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros3.celular"/>
                             </div> 
                             <div class="col-xs-3">
                                 <label>Email</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros3.email"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros3.email"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Ocupación</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.terceros3.ocupacion"/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.terceros3.ocupacion"/>
                             </div>
                             <div class="col-xs-3">
                                 <label>Dirección y lugar de trabajo</label>
-                                <autocomplete ng-model="estudiante.terceros3.direccion_trabajo" attr-placeholder="" ng-blur="_agregarDireccionAcudienteTrabajo" data="direcciones"></autocomplete>
+                                <input disabled="disabled" class="form-control input-sm" type="text" ng-model="estudiante.terceros3.direccion_trabajo"/>
                             </div>                                                                               
                         </div>
                         <div class="form-group row">
                             <div class="col-xs-3">
                                 <label>Parentesco del acudiente</label>
-                                <input type="text" class="form-control input-sm" ng-model="estudiante.parentesco_acudiente" required/>
+                                <input disabled="disabled" type="text" class="form-control input-sm" ng-model="estudiante.parentesco_acudiente" required/>
                             </div> 
                         </div>
                         </form>
