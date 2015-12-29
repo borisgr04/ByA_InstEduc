@@ -1,179 +1,39 @@
-var app = angular.module('starter', ['ionic', 'starter.controllers','ngMessages'])
+// Ionic Starter App
 
-.filter('capitalize', function() {
-    return function(input, all) {
-      var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
-      return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+angular.module('starter', ['ionic'])
+
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    if(window.cordova && window.cordova.plugins.Keyboard) {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
+      // Don't remove this line unless you know what you are doing. It stops the viewport
+      // from snapping when text inputs are focused. Ionic handles this internally for
+      // a much nicer keyboard experience.
+      cordova.plugins.Keyboard.disableScroll(true);
     }
-  })
-
-.run(function ($ionicPlatform, $ionicPopup, $state, $ionicHistory, $rootScope) {
-    $ionicPlatform.ready(function () {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            cordova.plugins.Keyboard.disableScroll(true);
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-    });
+    if(window.StatusBar) {
+      StatusBar.styleDefault();
+    }
+  });
 })
 
-.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-    $stateProvider
-      .state('app', {
-          url: '/app',
-          abstract: true,
-          templateUrl: 'templates/menu.html',
-      })
-    .state('app.home', {
-        url: '/home',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'HomeCtrl',
-                templateUrl: 'templates/home.html'
-            }
-        }
-    })
-    .state('app.identificar_persona', {
-        url: '/identificar_persona',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: "IdentificarPersonaCtrl",
-                templateUrl: 'templates/identificar_persona.html'
-            }
-        }
-    })
-    .state('app.pregunta_validacion', {
-        url: '/pregunta_validacion',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'PreguntasPersonasCtrl',
-                templateUrl: 'templates/pregunta_validacion.html'
-            }
-        }
-    })
-    .state('app.programas_inscritos', {
-        url: '/programas_inscritos',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'ProgramasInscritosCtrl',
-                templateUrl: 'templates/programas_inscritos.html'
-            }
-        }
-    })
-    .state('app.menu-familias-en-accion', {
-        url: '/menu-familias-en-accion',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'MenuFamiliasEnAccionCtrl',
-                templateUrl: 'templates/menu-familias-en-accion.html'
-            }
-        }
-    })
-    .state('app.datos-familia', {
-        url: '/datos-familia',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'EstadoFamiliaCtrl',
-                templateUrl: 'templates/datos-familia.html'
-            }
-        }
-    })
-    .state('app.novedades', {
-        url: '/novedades',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'NovedadesCtrl',
-                templateUrl: 'templates/novedades.html'
-            }
-        }
-    })
-    .state('app.cumplimiento', {
-        url: '/cumplimiento',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'CumplimientoCtrl',
-                templateUrl: 'templates/cumplimiento.html'
-            }
-        }
-    })
-    .state('app.antifraude', {
-        url: '/antifraude',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'AntifraudeCtrl',
-                templateUrl: 'templates/antifraude.html'
-            }
-        }
-    })
-    .state('app.liquidacionypagos', {
-        url: '/liquidacionypagos',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: 'LiquidacionYPagoCtrl',
-                templateUrl: 'templates/liquidacionesypagos.html'
-            }
-        }
-    })
-    .state('app.identificar_persona_potencial', {
-        url: '/identificar_persona_potencial',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: "IdentificarPersonaPotencialCtrl",
-                templateUrl: 'templates/identificar_persona_potencial.html'
-            }
-        }
-    })
-    .state('app.seleccionar_personas', {
-        url: '/seleccionar_persona',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: "SeleccionarPersonaCtrl",
-                templateUrl: 'templates/seleccionar_persona.html'
-            }
-        }
-    })
-    .state('app.programas_potencial', {
-        url: '/programas_potencial',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: "ProgramasPotencialCtrl",
-                templateUrl: 'templates/programas_potencial.html'
-            }
-        }
-    })
-    .state('app.informacion_programa', {
-        url: '/informacion_programa',
-        views: {
-            'menuContent': {
-                cache: false,
-                controller: "InformacionProgramaCtrl",
-                templateUrl: 'templates/informacion_programa.html'
-            }
-        }
-    })
-    ;
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/home');
 
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-});
+.config(function($stateProvider, $urlRouterProvider){
+  $stateProvider
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    });
+    $urlRouterProvider.otherwise('/login');
+})
 
+.controller('LoginCtrl', function($scope){
+
+})

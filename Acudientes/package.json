@@ -1,7 +1,7 @@
 {
-  "name": "dps",
-  "version": "1.0.0",
-  "description": "DPS: An Ionic project",
+  "name": "acudientes",
+  "version": "1.1.1",
+  "description": "Acudientes: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -21,8 +21,5 @@
     "cordova-plugin-splashscreen",
     "com.ionic.keyboard"
   ],
-  "cordovaPlatforms": [
-    "android",
-    "ios"
-  ]
+  "cordovaPlatforms": []
 }
