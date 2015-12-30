@@ -52,5 +52,7 @@ namespace DAL
         public DbSet<tipos_documentos> tipos_documentos { get; set; }
         public DbSet<tipos_terceros> tipos_terceros { get; set; }
         public DbSet<vigencias> vigencias { get; set; }
+        public DbSet<mensajes> mensajes { get; set; }
+        public DbSet<mensajes_acudientes> mensajes_acudientes { get; set; }
     }
 }

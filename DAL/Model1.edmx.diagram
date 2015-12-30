@@ -70,6 +70,11 @@
         <AssociationConnector Association="bdieModel.FK_parametros_vigencias" />
         <AssociationConnector Association="bdieModel.FK_periodos_vigencias" />
         <AssociationConnector Association="bdieModel.FK_tarifas_vigencias" />
+        <EntityTypeShape EntityType="bdieModel.mensajes" Width="1.5" PointX="11.845948101880936" PointY="5.814823406662244" />
+        <EntityTypeShape EntityType="bdieModel.mensajes_acudientes" Width="1.5" PointX="9.4502515855479281" PointY="26.468980741905504" />
+        <AssociationConnector Association="bdieModel.FK_mensajes_acudientes_mensajes" />
+        <AssociationConnector Association="bdieModel.FK_mensajes_terceros" />
+        <AssociationConnector Association="bdieModel.FK_mensajes_acudientes_terceros" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
