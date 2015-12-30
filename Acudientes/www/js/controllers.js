@@ -1,5 +1,6 @@
-app.controller('LoginCtrl', function($scope){
-});
+app.controller('LoginCtrl', ['loginServices', '$scope', function(loginServices, $scope){
+
+}]);
 app.controller('HomeCtrl', function($scope){
     $scope.Acudiente = {
         nombre: "Carlos Tirado",
