@@ -14,8 +14,8 @@
     <div class="row text-left"  ng-repeat = "mensaje in Mensajes">
         <a ng-click="abrirMensaje(mensaje, $index)" class="item item-icon-left" href="#" style="width: 100%">
             <i class="{{iconoMensaje(mensaje.estado)}}" style="color: {{ColorMensaje(mensaje.tipo)}}"></i>
-            <label style="float: left">{{mensaje.nombre}}</label>
-            <label style="color: #b2b2b2; float: right">({{mensaje.estado}})</label>
+            <label style="float: left">{{mensaje.asunto}}</label>
+            <label style="color: #b2b2b2; float: right">({{mensaje.tipo}})</label>
         </a>
     </div>
 </div>

@@ -90,6 +90,7 @@
     <Compile Include="mEstadoCuenta.cs" />
     <Compile Include="mIntereses.cs" />
     <Compile Include="mInteresesManuales.cs" />
+    <Compile Include="mMensajesAcudiente.cs" />
     <Compile Include="mTiposDocumentos.cs" />
     <Compile Include="mTerceros.cs" />
     <Compile Include="mCartera.cs" />

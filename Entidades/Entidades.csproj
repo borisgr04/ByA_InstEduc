@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consultas\bDeudaEstudianteFecha.cs" />
+    <Compile Include="Consultas\bInformacionAcudienteMensajes.cs" />
     <Compile Include="Consultas\bPagosEstudiante.cs" />
     <Compile Include="Consultas\bTransaccionesEstudiante.cs" />
     <Compile Include="Consultas\CarteraxConceptoDto.cs" />
@@ -75,6 +76,8 @@
     <Compile Include="Vistas\estudiantes_gradoDto.cs" />
     <Compile Include="Vistas\fechaCausacionDto.cs" />
     <Compile Include="Vistas\fecha_causacionDto.cs" />
+    <Compile Include="Vistas\mensajesAcudientesDto.cs" />
+    <Compile Include="Vistas\mensajesDto.cs" />
     <Compile Include="Vistas\oNuevoConceptoDto.cs" />
     <Compile Include="Vistas\tasasDto.cs" />
     <Compile Include="Vistas\tiposDocumentosDto.cs" />

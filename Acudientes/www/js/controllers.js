@@ -1,52 +1,61 @@
-app.controller('LoginCtrl', ['loginServices', '$scope', function(loginServices, $scope){
-
-}]);
-app.controller('HomeCtrl', function($scope){
-    $scope.Acudiente = {
-        nombre: "Carlos Tirado",
-        cedula: "1,890,567,234",
-        email: "visual-andrea@gmail.com"
+app.controller('LoginCtrl', ['loginServices', '$scope', '$ionicPopup', '$state', function(loginServices, $scope, $ionicPopup, $state){
+    $scope.username;
+    $scope.password;
+    $scope.login = function(){
+        var promisePost = loginServices.Login($scope.username, $scope.password);
+        promisePost.then(
+            function (pl) {
+                byaSite._setToken(pl.data.access_token);
+                byaSite._setUsername($scope.username);
+                $state.go("home");
+            },
+            function (errorPl){
+                showAlert("Error", "Verifique Username/Password")
+            }
+        );
     };
-    $scope.Estudiantes = [
-        {
-            idEstudiante: "1,899,909,786",
-            nombre: "C# José"
-        },
-        {
-            idEstudiante: "1,678,998,112",
-            nombre: "Visual Andréa"
-        }
-    ];
-    $scope.mensajes = 3;
-});
 
-app.controller('MensajesCtrl', function($scope, $ionicModal){
-    $scope.Mensajes = [
-       {
-           nombre: 'mensaje 1',
-           tipo: 'Urgente',
-           contenido: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-           estado: 'Revisado'
-       },
-       {
-           nombre: 'mensaje 2',
-           tipo: 'Informativo',
-           contenido: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-           estado: 'Sin revisar'
-       },
-       {
-           nombre: 'mensaje 3',
-           tipo: 'Informativo',
-           contenido: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-           estado: 'Sin revisar'
-       },
-       {
-           nombre: 'mensaje 4',
-           tipo: 'Informativo',
-           contenido: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-           estado: 'Sin revisar'
-       }
-   ];
+    function showAlert(title, data) {
+        var alertPopup = $ionicPopup.alert({
+            title: title,
+            template: data
+        });
+        alertPopup.then(function (res) {
+            console.log('Thank you');
+        });
+    };
+}]);
+app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope', function($scope, homeServices, $ionicPopup, $rootScope){
+    $scope.username = byaSite._getUsername();
+    $scope.Acudiente = {};
+    $scope.Estudiantes = [];
+    $scope.Mensajes = [];
+    _init();
+    function _init()
+    {
+      _getInformacionAcudienteMensajes();
+    };
+
+    function _getInformacionAcudienteMensajes()
+    {
+        var promiseGet = homeServices.getInformacionAcudienteMensajes($scope.username);
+        promiseGet.then(
+            function(pl){
+                var respuesta = pl.data;
+                $scope.Acudiente = respuesta.acudiente;
+                $scope.Estudiantes = respuesta.estudiantes;
+                $rootScope.Mensajes = respuesta.mensajes;
+                alert($rootScope.Mensajes);
+            },
+            function (errorPl) {
+                console.log(JSON.stringify(errorPl));
+            }
+        );
+    };
+}]);
+
+app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', function($scope, $rootScope, $ionicModal){
+
     $scope.mensajeActual;
     $scope.contador = 0;
     $scope.ColorMensaje = function(value){
@@ -85,11 +94,11 @@ app.controller('MensajesCtrl', function($scope, $ionicModal){
 
     function contarMensajes(){
         $scope.contador = 0;
-      for(i in $scope.Mensajes)
-      {
-          if($scope.Mensajes[i].estado == "Sin revisar"){
-              $scope.contador++;
-          }
-      }
+        for(i in $rootScope.Mensajes)
+        {
+            if($rootScope.Mensajes[i].estado == "Sin revisar"){
+                $scope.contador++;
+            }
+        }
     };
-});
+}]);
