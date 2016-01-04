@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="bdieModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-  <EntityContainer Name="ieEntities" annotation:LazyLoadingEnabled="true">
+<Schema Namespace="bdieModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="ieEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
     <EntitySet Name="carterap" EntityType="bdieModel.carterap" />
     <EntitySet Name="conceptos" EntityType="bdieModel.conceptos" />
     <EntitySet Name="config_grupos_pagos" EntityType="bdieModel.config_grupos_pagos" />
@@ -17,7 +17,6 @@
     <EntitySet Name="grupos_pagos" EntityType="bdieModel.grupos_pagos" />
     <EntitySet Name="intereses_manuales" EntityType="bdieModel.intereses_manuales" />
     <EntitySet Name="matriculas" EntityType="bdieModel.matriculas" />
-    <EntitySet Name="mensajes" EntityType="bdieModel.mensajes" />
     <EntitySet Name="mensajes_acudientes" EntityType="bdieModel.mensajes_acudientes" />
     <EntitySet Name="movimientos" EntityType="bdieModel.movimientos" />
     <EntitySet Name="pagos" EntityType="bdieModel.pagos" />
@@ -162,14 +161,6 @@
       <End Role="vigencias" EntitySet="vigencias" />
       <End Role="matriculas" EntitySet="matriculas" />
     </AssociationSet>
-    <AssociationSet Name="FK_mensajes_acudientes_mensajes" Association="bdieModel.FK_mensajes_acudientes_mensajes">
-      <End Role="mensajes" EntitySet="mensajes" />
-      <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_mensajes_terceros" Association="bdieModel.FK_mensajes_terceros">
-      <End Role="terceros" EntitySet="terceros" />
-      <End Role="mensajes" EntitySet="mensajes" />
-    </AssociationSet>
     <AssociationSet Name="FK_mensajes_acudientes_terceros" Association="bdieModel.FK_mensajes_acudientes_terceros">
       <End Role="terceros" EntitySet="terceros" />
       <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
@@ -193,6 +184,15 @@
     <AssociationSet Name="FK_tarifas_vigencias" Association="bdieModel.FK_tarifas_vigencias">
       <End Role="vigencias" EntitySet="vigencias" />
       <End Role="tarifas" EntitySet="tarifas" />
+    </AssociationSet>
+    <EntitySet Name="mensajes" EntityType="bdieModel.mensajes" />
+    <AssociationSet Name="FK_mensajes_acudientes_mensajes" Association="bdieModel.FK_mensajes_acudientes_mensajes">
+      <End Role="mensajes" EntitySet="mensajes" />
+      <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mensajes_terceros" Association="bdieModel.FK_mensajes_terceros">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="mensajes" EntitySet="mensajes" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="carterap">
@@ -469,19 +469,6 @@
     <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_matriculas_estudiantes" FromRole="matriculas" ToRole="estudiantes" />
     <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_matriculas_vigencias" FromRole="matriculas" ToRole="vigencias" />
   </EntityType>
-  <EntityType Name="mensajes">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="asunto" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-    <Property Name="mensaje" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-    <Property Name="fecha" Type="DateTime" Precision="3" />
-    <Property Name="tipo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="id_remitente" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="mensajes_acudientes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes" ToRole="mensajes_acudientes" />
-    <NavigationProperty Name="terceros" Relationship="bdieModel.FK_mensajes_terceros" FromRole="mensajes" ToRole="terceros" />
-  </EntityType>
   <EntityType Name="mensajes_acudientes">
     <Key>
       <PropertyRef Name="id" />
@@ -490,8 +477,8 @@
     <Property Name="id_mensaje" Type="Int32" Nullable="false" />
     <Property Name="id_acudiente" Type="Int32" Nullable="false" />
     <Property Name="estado" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-    <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes_acudientes" ToRole="mensajes" />
     <NavigationProperty Name="terceros" Relationship="bdieModel.FK_mensajes_acudientes_terceros" FromRole="mensajes_acudientes" ToRole="terceros" />
+    <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes_acudientes" ToRole="mensajes" />
   </EntityType>
   <EntityType Name="movimientos">
     <Key>
@@ -636,8 +623,8 @@
     <NavigationProperty Name="estudiantes1" Relationship="bdieModel.FK_estudiantes_terceros1" FromRole="terceros" ToRole="estudiantes" />
     <NavigationProperty Name="estudiantes2" Relationship="bdieModel.FK_estudiantes_terceros2" FromRole="terceros" ToRole="estudiantes" />
     <NavigationProperty Name="estudiantes3" Relationship="bdieModel.FK_estudiantes_terceros3" FromRole="terceros" ToRole="estudiantes" />
-    <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_terceros" FromRole="terceros" ToRole="mensajes" />
     <NavigationProperty Name="mensajes_acudientes" Relationship="bdieModel.FK_mensajes_acudientes_terceros" FromRole="terceros" ToRole="mensajes_acudientes" />
+    <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_terceros" FromRole="terceros" ToRole="mensajes" />
   </EntityType>
   <EntityType Name="tipos_documentos">
     <Key>
@@ -1071,30 +1058,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_mensajes_acudientes_mensajes">
-    <End Role="mensajes" Type="bdieModel.mensajes" Multiplicity="1" />
-    <End Role="mensajes_acudientes" Type="bdieModel.mensajes_acudientes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="mensajes">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="mensajes_acudientes">
-        <PropertyRef Name="id_mensaje" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_mensajes_terceros">
-    <End Role="terceros" Type="bdieModel.terceros" Multiplicity="1" />
-    <End Role="mensajes" Type="bdieModel.mensajes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="terceros">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="mensajes">
-        <PropertyRef Name="id_remitente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_mensajes_acudientes_terceros">
     <End Role="terceros" Type="bdieModel.terceros" Multiplicity="1" />
     <End Role="mensajes_acudientes" Type="bdieModel.mensajes_acudientes" Multiplicity="*" />
@@ -1164,6 +1127,44 @@
       </Principal>
       <Dependent Role="tarifas">
         <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="mensajes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="asunto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="mensaje" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_remitente" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="mensajes_acudientes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes" ToRole="mensajes_acudientes" />
+    <NavigationProperty Name="terceros" Relationship="bdieModel.FK_mensajes_terceros" FromRole="mensajes" ToRole="terceros" />
+  </EntityType>
+  <Association Name="FK_mensajes_acudientes_mensajes">
+    <End Type="bdieModel.mensajes" Role="mensajes" Multiplicity="1" />
+    <End Type="bdieModel.mensajes_acudientes" Role="mensajes_acudientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mensajes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensajes_acudientes">
+        <PropertyRef Name="id_mensaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mensajes_terceros">
+    <End Type="bdieModel.terceros" Role="terceros" Multiplicity="1" />
+    <End Type="bdieModel.mensajes" Role="mensajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensajes">
+        <PropertyRef Name="id_remitente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

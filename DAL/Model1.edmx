@@ -1,220 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bdieModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="bdieModelStoreContainer">
-          <EntitySet Name="carterap" EntityType="bdieModel.Store.carterap" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="conceptos" EntityType="bdieModel.Store.conceptos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="config_grupos_pagos" EntityType="bdieModel.Store.config_grupos_pagos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="cursos" EntityType="bdieModel.Store.cursos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="detalles_pago" EntityType="bdieModel.Store.detalles_pago" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="detalles_tipos_tercero" EntityType="bdieModel.Store.detalles_tipos_tercero" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="documentos" EntityType="bdieModel.Store.documentos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="entidad" EntityType="bdieModel.Store.entidad" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="estudiantes" EntityType="bdieModel.Store.estudiantes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="fc_menu" EntityType="bdieModel.Store.fc_menu" store:Type="Tables" store:Schema="dbo" store:Name="fc_menu">
-            <DefiningQuery>SELECT 
-      [fc_menu].[fc_menuid] AS [fc_menuid], 
-      [fc_menu].[fc_titulo] AS [fc_titulo], 
-      [fc_menu].[fc_descripcion] AS [fc_descripcion], 
-      [fc_menu].[fc_padreid] AS [fc_padreid], 
-      [fc_menu].[fc_posicion] AS [fc_posicion], 
-      [fc_menu].[fc_icono] AS [fc_icono], 
-      [fc_menu].[fc_habilitado] AS [fc_habilitado], 
-      [fc_menu].[fc_url] AS [fc_url], 
-      [fc_menu].[fc_modulo] AS [fc_modulo], 
-      [fc_menu].[fc_target] AS [fc_target], 
-      [fc_menu].[fc_ppal] AS [fc_ppal], 
-      [fc_menu].[fc_roles] AS [fc_roles]
-      FROM [dbo].[fc_menu] AS [fc_menu]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="fechas_calculo_intereses" EntityType="bdieModel.Store.fechas_calculo_intereses" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="formas_pago" EntityType="bdieModel.Store.formas_pago" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="grados" EntityType="bdieModel.Store.grados" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="grupos_pagos" EntityType="bdieModel.Store.grupos_pagos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="intereses_manuales" EntityType="bdieModel.Store.intereses_manuales" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="matriculas" EntityType="bdieModel.Store.matriculas" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="mensajes" EntityType="bdieModel.Store.mensajes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="mensajes_acudientes" EntityType="bdieModel.Store.mensajes_acudientes" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="movimientos" EntityType="bdieModel.Store.movimientos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="pagos" EntityType="bdieModel.Store.pagos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="parametros" EntityType="bdieModel.Store.parametros" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="periodos" EntityType="bdieModel.Store.periodos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="saldos_a_favor" EntityType="bdieModel.Store.saldos_a_favor" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="tarifas" EntityType="bdieModel.Store.tarifas" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="tasas" EntityType="bdieModel.Store.tasas" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="terceros" EntityType="bdieModel.Store.terceros" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="tipos_documentos" EntityType="bdieModel.Store.tipos_documentos" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="tipos_terceros" EntityType="bdieModel.Store.tipos_terceros" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="vigencias" EntityType="bdieModel.Store.vigencias" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_carterap_conceptos" Association="bdieModel.Store.FK_carterap_conceptos">
-            <End Role="conceptos" EntitySet="conceptos" />
-            <End Role="carterap" EntitySet="carterap" />
-          </AssociationSet>
-          <AssociationSet Name="FK_carterap_estudiantes" Association="bdieModel.Store.FK_carterap_estudiantes">
-            <End Role="estudiantes" EntitySet="estudiantes" />
-            <End Role="carterap" EntitySet="carterap" />
-          </AssociationSet>
-          <AssociationSet Name="FK_carterap_grupos_pagos" Association="bdieModel.Store.FK_carterap_grupos_pagos">
-            <End Role="grupos_pagos" EntitySet="grupos_pagos" />
-            <End Role="carterap" EntitySet="carterap" />
-          </AssociationSet>
-          <AssociationSet Name="FK_carterap_matriculas" Association="bdieModel.Store.FK_carterap_matriculas">
-            <End Role="matriculas" EntitySet="matriculas" />
-            <End Role="carterap" EntitySet="carterap" />
-          </AssociationSet>
-          <AssociationSet Name="FK_carterap_vigencias" Association="bdieModel.Store.FK_carterap_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="carterap" EntitySet="carterap" />
-          </AssociationSet>
-          <AssociationSet Name="FK_config_grupos_pagos_conceptos" Association="bdieModel.Store.FK_config_grupos_pagos_conceptos">
-            <End Role="conceptos" EntitySet="conceptos" />
-            <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_config_grupos_pagos_grupos_pagos" Association="bdieModel.Store.FK_config_grupos_pagos_grupos_pagos">
-            <End Role="grupos_pagos" EntitySet="grupos_pagos" />
-            <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_config_grupos_pagos_vigencias" Association="bdieModel.Store.FK_config_grupos_pagos_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cursos_grados" Association="bdieModel.Store.FK_cursos_grados">
-            <End Role="grados" EntitySet="grados" />
-            <End Role="cursos" EntitySet="cursos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_detalles_pago_carterap" Association="bdieModel.Store.FK_detalles_pago_carterap">
-            <End Role="carterap" EntitySet="carterap" />
-            <End Role="detalles_pago" EntitySet="detalles_pago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_detalles_pago_conceptos" Association="bdieModel.Store.FK_detalles_pago_conceptos">
-            <End Role="conceptos" EntitySet="conceptos" />
-            <End Role="detalles_pago" EntitySet="detalles_pago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_detalles_pago_pagos" Association="bdieModel.Store.FK_detalles_pago_pagos">
-            <End Role="pagos" EntitySet="pagos" />
-            <End Role="detalles_pago" EntitySet="detalles_pago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_detalles_pago_vigencias" Association="bdieModel.Store.FK_detalles_pago_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="detalles_pago" EntitySet="detalles_pago" />
-          </AssociationSet>
-          <AssociationSet Name="FK_detalles_tipos_tercero_terceros" Association="bdieModel.Store.FK_detalles_tipos_tercero_terceros">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="detalles_tipos_tercero" EntitySet="detalles_tipos_tercero" />
-          </AssociationSet>
-          <AssociationSet Name="FK_detalles_tipos_tercero_tipos_terceros" Association="bdieModel.Store.FK_detalles_tipos_tercero_tipos_terceros">
-            <End Role="tipos_terceros" EntitySet="tipos_terceros" />
-            <End Role="detalles_tipos_tercero" EntitySet="detalles_tipos_tercero" />
-          </AssociationSet>
-          <AssociationSet Name="FK_documentos_tipos_documentos" Association="bdieModel.Store.FK_documentos_tipos_documentos">
-            <End Role="tipos_documentos" EntitySet="tipos_documentos" />
-            <End Role="documentos" EntitySet="documentos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_estudiantes_terceros" Association="bdieModel.Store.FK_estudiantes_terceros">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="estudiantes" EntitySet="estudiantes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_estudiantes_terceros1" Association="bdieModel.Store.FK_estudiantes_terceros1">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="estudiantes" EntitySet="estudiantes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_estudiantes_terceros2" Association="bdieModel.Store.FK_estudiantes_terceros2">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="estudiantes" EntitySet="estudiantes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_estudiantes_terceros3" Association="bdieModel.Store.FK_estudiantes_terceros3">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="estudiantes" EntitySet="estudiantes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_fechas_calculo_intereses_carterap" Association="bdieModel.Store.FK_fechas_calculo_intereses_carterap">
-            <End Role="carterap" EntitySet="carterap" />
-            <End Role="fechas_calculo_intereses" EntitySet="fechas_calculo_intereses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_intereses_manuales_vigencias" Association="bdieModel.Store.FK_intereses_manuales_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="intereses_manuales" EntitySet="intereses_manuales" />
-          </AssociationSet>
-          <AssociationSet Name="FK_matriculas_cursos" Association="bdieModel.Store.FK_matriculas_cursos">
-            <End Role="cursos" EntitySet="cursos" />
-            <End Role="matriculas" EntitySet="matriculas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_matriculas_estudiantes" Association="bdieModel.Store.FK_matriculas_estudiantes">
-            <End Role="estudiantes" EntitySet="estudiantes" />
-            <End Role="matriculas" EntitySet="matriculas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_matriculas_vigencias" Association="bdieModel.Store.FK_matriculas_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="matriculas" EntitySet="matriculas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_mensajes_acudientes_mensajes" Association="bdieModel.Store.FK_mensajes_acudientes_mensajes">
-            <End Role="mensajes" EntitySet="mensajes" />
-            <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_mensajes_acudientes_terceros" Association="bdieModel.Store.FK_mensajes_acudientes_terceros">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_mensajes_terceros" Association="bdieModel.Store.FK_mensajes_terceros">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="mensajes" EntitySet="mensajes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientos_carterap" Association="bdieModel.Store.FK_movimientos_carterap">
-            <End Role="carterap" EntitySet="carterap" />
-            <End Role="movimientos" EntitySet="movimientos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientos_conceptos" Association="bdieModel.Store.FK_movimientos_conceptos">
-            <End Role="conceptos" EntitySet="conceptos" />
-            <End Role="movimientos" EntitySet="movimientos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientos_estudiantes" Association="bdieModel.Store.FK_movimientos_estudiantes">
-            <End Role="estudiantes" EntitySet="estudiantes" />
-            <End Role="movimientos" EntitySet="movimientos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientos_tipos_documentos" Association="bdieModel.Store.FK_movimientos_tipos_documentos">
-            <End Role="tipos_documentos" EntitySet="tipos_documentos" />
-            <End Role="movimientos" EntitySet="movimientos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_movimientos_vigencias" Association="bdieModel.Store.FK_movimientos_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="movimientos" EntitySet="movimientos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_pagos_estudiantes" Association="bdieModel.Store.FK_pagos_estudiantes">
-            <End Role="estudiantes" EntitySet="estudiantes" />
-            <End Role="pagos" EntitySet="pagos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_pagos_grupos_pagos" Association="bdieModel.Store.FK_pagos_grupos_pagos">
-            <End Role="grupos_pagos" EntitySet="grupos_pagos" />
-            <End Role="pagos" EntitySet="pagos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_parametros_vigencias" Association="bdieModel.Store.FK_parametros_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="parametros" EntitySet="parametros" />
-          </AssociationSet>
-          <AssociationSet Name="FK_periodos_vigencias" Association="bdieModel.Store.FK_periodos_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="periodos" EntitySet="periodos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_saldos_a_favor_estudiantes" Association="bdieModel.Store.FK_saldos_a_favor_estudiantes">
-            <End Role="estudiantes" EntitySet="estudiantes" />
-            <End Role="saldos_a_favor" EntitySet="saldos_a_favor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tarifas_conceptos" Association="bdieModel.Store.FK_tarifas_conceptos">
-            <End Role="conceptos" EntitySet="conceptos" />
-            <End Role="tarifas" EntitySet="tarifas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tarifas_grados" Association="bdieModel.Store.FK_tarifas_grados">
-            <End Role="grados" EntitySet="grados" />
-            <End Role="tarifas" EntitySet="tarifas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tarifas_vigencias" Association="bdieModel.Store.FK_tarifas_vigencias">
-            <End Role="vigencias" EntitySet="vigencias" />
-            <End Role="tarifas" EntitySet="tarifas" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="bdieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="carterap">
           <Key>
             <PropertyRef Name="id" />
@@ -225,11 +15,11 @@
           <Property Name="periodo" Type="int" Nullable="false" />
           <Property Name="valor" Type="float" Nullable="false" />
           <Property Name="id_matricula" Type="int" Nullable="false" />
-          <Property Name="id_estudiante" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="id_estudiante" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="pagado" Type="float" Nullable="false" />
           <Property Name="id_grupo" Type="int" Nullable="false" />
           <Property Name="id_est" Type="int" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="estado" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="pago_genero_intereses" Type="int" />
           <Property Name="fec_reg" Type="datetime" />
           <Property Name="fec_mod" Type="datetime" />
@@ -241,9 +31,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="2" />
-          <Property Name="cod_contable" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="estado" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="cod_contable" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="fec_reg" Type="datetime" />
           <Property Name="fec_mod" Type="datetime" />
           <Property Name="usu_reg" Type="nvarchar" MaxLength="50" />
@@ -268,7 +58,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="id_grado" Type="int" Nullable="false" />
           <Property Name="fec_reg" Type="datetime" />
           <Property Name="fec_mod" Type="datetime" />
@@ -285,7 +75,7 @@
           <Property Name="periodo" Type="int" Nullable="false" />
           <Property Name="vigencia" Type="int" Nullable="false" />
           <Property Name="valor" Type="float" Nullable="false" />
-          <Property Name="tipo" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="tipo" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="id_cartera" Type="int" Nullable="false" />
           <Property Name="nombre_concepto" Type="nvarchar" MaxLength="200" />
         </EntityType>
@@ -295,7 +85,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="id_tercero" Type="int" Nullable="false" />
-          <Property Name="nombre_tipo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="nombre_tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="fec_reg" Type="datetime" />
           <Property Name="fec_mod" Type="datetime" />
           <Property Name="usu_reg" Type="nvarchar" MaxLength="50" />
@@ -344,7 +134,7 @@
           <Property Name="id_tercero_madre" Type="int" />
           <Property Name="id_tercero_padre" Type="int" />
           <Property Name="id_tercero_estudiante" Type="int" Nullable="false" />
-          <Property Name="identificacion" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="identificacion" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="vive_con" Type="nvarchar" MaxLength="50" />
           <Property Name="codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="fec_reg" Type="datetime" />
@@ -352,19 +142,18 @@
           <Property Name="usu_reg" Type="nvarchar" MaxLength="50" />
           <Property Name="usu_mod" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="fc_menu">
           <Key>
             <PropertyRef Name="fc_menuid" />
             <PropertyRef Name="fc_titulo" />
             <PropertyRef Name="fc_padreid" />
           </Key>
-          <Property Name="fc_menuid" Type="nvarchar" Nullable="false" MaxLength="10" />
-          <Property Name="fc_titulo" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="fc_menuid" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="fc_titulo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="fc_descripcion" Type="nvarchar" MaxLength="50" />
-          <Property Name="fc_padreid" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="fc_padreid" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="fc_posicion" Type="int" />
           <Property Name="fc_icono" Type="nvarchar" MaxLength="50" />
           <Property Name="fc_habilitado" Type="int" />
@@ -388,7 +177,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="grados">
           <Key>
@@ -406,7 +195,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="prioridad" Type="int" Nullable="false" />
           <Property Name="fec_reg" Type="datetime" />
           <Property Name="fec_mod" Type="datetime" />
@@ -419,7 +208,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="vigencia" Type="int" Nullable="false" />
-          <Property Name="en_mes" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="en_mes" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="inicio" Type="int" />
           <Property Name="fin" Type="int" />
           <Property Name="valor" Type="int" Nullable="false" />
@@ -436,7 +225,7 @@
           <Property Name="vigencia" Type="int" Nullable="false" />
           <Property Name="id_curso" Type="int" Nullable="false" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
-          <Property Name="id_estudiante" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="id_estudiante" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="id_grado" Type="int" Nullable="false" />
           <Property Name="id_est" Type="int" Nullable="false" />
           <Property Name="estado" Type="nvarchar" MaxLength="5" />
@@ -457,6 +246,7 @@
           <Property Name="fecha" Type="datetime" />
           <Property Name="tipo" Type="nvarchar" MaxLength="50" />
           <Property Name="id_remitente" Type="int" Nullable="false" />
+          <Property Name="estado" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="mensajes_acudientes">
           <Key>
@@ -465,7 +255,7 @@
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="id_mensaje" Type="int" Nullable="false" />
           <Property Name="id_acudiente" Type="int" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="movimientos">
           <Key>
@@ -494,9 +284,9 @@
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="id_forma_pago" Type="int" />
-          <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="estado" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="fecha_pago" Type="datetime" />
-          <Property Name="id_estudiante" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="id_estudiante" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="id_grupo" Type="int" />
           <Property Name="id_est" Type="int" Nullable="false" />
           <Property Name="tipo" Type="nvarchar" MaxLength="5" />
@@ -522,7 +312,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="periodo" Type="int" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="estado" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="vigencia" Type="int" Nullable="false" />
           <Property Name="vence_dia" Type="int" Nullable="false" />
           <Property Name="fec_reg" Type="datetime" />
@@ -535,9 +325,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="id_estudiante" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="id_estudiante" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="valor" Type="float" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="estado" Type="nvarchar" MaxLength="5" Nullable="false" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="id_est" Type="int" Nullable="false" />
           <Property Name="fec_reg" Type="datetime" />
@@ -596,29 +386,29 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="id" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="nombre" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tipos_terceros">
           <Key>
             <PropertyRef Name="nombre" />
           </Key>
-          <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="vigencias">
           <Key>
             <PropertyRef Name="vigencia" />
           </Key>
           <Property Name="vigencia" Type="int" Nullable="false" />
-          <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="estado" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="fec_reg" Type="datetime" />
           <Property Name="fec_mod" Type="datetime" />
           <Property Name="usu_reg" Type="nvarchar" MaxLength="50" />
           <Property Name="usu_mod" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_carterap_conceptos">
-          <End Role="conceptos" Type="bdieModel.Store.conceptos" Multiplicity="1" />
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="*" />
+          <End Role="conceptos" Type="Self.conceptos" Multiplicity="1" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="conceptos">
               <PropertyRef Name="id" />
@@ -629,8 +419,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_carterap_estudiantes">
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="1" />
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="*" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="1" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="estudiantes">
               <PropertyRef Name="id" />
@@ -641,8 +431,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_carterap_grupos_pagos">
-          <End Role="grupos_pagos" Type="bdieModel.Store.grupos_pagos" Multiplicity="1" />
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="*" />
+          <End Role="grupos_pagos" Type="Self.grupos_pagos" Multiplicity="1" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="grupos_pagos">
               <PropertyRef Name="id" />
@@ -653,8 +443,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_carterap_matriculas">
-          <End Role="matriculas" Type="bdieModel.Store.matriculas" Multiplicity="1" />
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="*" />
+          <End Role="matriculas" Type="Self.matriculas" Multiplicity="1" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="matriculas">
               <PropertyRef Name="id" />
@@ -665,8 +455,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_carterap_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -677,8 +467,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_config_grupos_pagos_conceptos">
-          <End Role="conceptos" Type="bdieModel.Store.conceptos" Multiplicity="1" />
-          <End Role="config_grupos_pagos" Type="bdieModel.Store.config_grupos_pagos" Multiplicity="*" />
+          <End Role="conceptos" Type="Self.conceptos" Multiplicity="1" />
+          <End Role="config_grupos_pagos" Type="Self.config_grupos_pagos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="conceptos">
               <PropertyRef Name="id" />
@@ -689,8 +479,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_config_grupos_pagos_grupos_pagos">
-          <End Role="grupos_pagos" Type="bdieModel.Store.grupos_pagos" Multiplicity="1" />
-          <End Role="config_grupos_pagos" Type="bdieModel.Store.config_grupos_pagos" Multiplicity="*" />
+          <End Role="grupos_pagos" Type="Self.grupos_pagos" Multiplicity="1" />
+          <End Role="config_grupos_pagos" Type="Self.config_grupos_pagos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="grupos_pagos">
               <PropertyRef Name="id" />
@@ -701,8 +491,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_config_grupos_pagos_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="config_grupos_pagos" Type="bdieModel.Store.config_grupos_pagos" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="config_grupos_pagos" Type="Self.config_grupos_pagos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -713,8 +503,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_cursos_grados">
-          <End Role="grados" Type="bdieModel.Store.grados" Multiplicity="1" />
-          <End Role="cursos" Type="bdieModel.Store.cursos" Multiplicity="*" />
+          <End Role="grados" Type="Self.grados" Multiplicity="1" />
+          <End Role="cursos" Type="Self.cursos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="grados">
               <PropertyRef Name="id" />
@@ -725,8 +515,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_detalles_pago_carterap">
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="1" />
-          <End Role="detalles_pago" Type="bdieModel.Store.detalles_pago" Multiplicity="*" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="1" />
+          <End Role="detalles_pago" Type="Self.detalles_pago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="carterap">
               <PropertyRef Name="id" />
@@ -737,8 +527,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_detalles_pago_conceptos">
-          <End Role="conceptos" Type="bdieModel.Store.conceptos" Multiplicity="0..1" />
-          <End Role="detalles_pago" Type="bdieModel.Store.detalles_pago" Multiplicity="*" />
+          <End Role="conceptos" Type="Self.conceptos" Multiplicity="0..1" />
+          <End Role="detalles_pago" Type="Self.detalles_pago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="conceptos">
               <PropertyRef Name="id" />
@@ -749,8 +539,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_detalles_pago_pagos">
-          <End Role="pagos" Type="bdieModel.Store.pagos" Multiplicity="1" />
-          <End Role="detalles_pago" Type="bdieModel.Store.detalles_pago" Multiplicity="*" />
+          <End Role="pagos" Type="Self.pagos" Multiplicity="1" />
+          <End Role="detalles_pago" Type="Self.detalles_pago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pagos">
               <PropertyRef Name="id" />
@@ -761,8 +551,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_detalles_pago_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="detalles_pago" Type="bdieModel.Store.detalles_pago" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="detalles_pago" Type="Self.detalles_pago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -773,8 +563,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_detalles_tipos_tercero_terceros">
-          <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="1" />
-          <End Role="detalles_tipos_tercero" Type="bdieModel.Store.detalles_tipos_tercero" Multiplicity="*" />
+          <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
+          <End Role="detalles_tipos_tercero" Type="Self.detalles_tipos_tercero" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="terceros">
               <PropertyRef Name="id" />
@@ -785,8 +575,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_detalles_tipos_tercero_tipos_terceros">
-          <End Role="tipos_terceros" Type="bdieModel.Store.tipos_terceros" Multiplicity="1" />
-          <End Role="detalles_tipos_tercero" Type="bdieModel.Store.detalles_tipos_tercero" Multiplicity="*" />
+          <End Role="tipos_terceros" Type="Self.tipos_terceros" Multiplicity="1" />
+          <End Role="detalles_tipos_tercero" Type="Self.detalles_tipos_tercero" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipos_terceros">
               <PropertyRef Name="nombre" />
@@ -797,8 +587,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_documentos_tipos_documentos">
-          <End Role="tipos_documentos" Type="bdieModel.Store.tipos_documentos" Multiplicity="0..1" />
-          <End Role="documentos" Type="bdieModel.Store.documentos" Multiplicity="*" />
+          <End Role="tipos_documentos" Type="Self.tipos_documentos" Multiplicity="0..1" />
+          <End Role="documentos" Type="Self.documentos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipos_documentos">
               <PropertyRef Name="id" />
@@ -809,8 +599,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_estudiantes_terceros">
-          <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="1" />
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="*" />
+          <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="terceros">
               <PropertyRef Name="id" />
@@ -821,8 +611,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_estudiantes_terceros1">
-          <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="0..1" />
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="*" />
+          <End Role="terceros" Type="Self.terceros" Multiplicity="0..1" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="terceros">
               <PropertyRef Name="id" />
@@ -833,8 +623,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_estudiantes_terceros2">
-          <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="0..1" />
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="*" />
+          <End Role="terceros" Type="Self.terceros" Multiplicity="0..1" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="terceros">
               <PropertyRef Name="id" />
@@ -845,8 +635,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_estudiantes_terceros3">
-          <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="1" />
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="*" />
+          <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="terceros">
               <PropertyRef Name="id" />
@@ -857,8 +647,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_fechas_calculo_intereses_carterap">
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="1" />
-          <End Role="fechas_calculo_intereses" Type="bdieModel.Store.fechas_calculo_intereses" Multiplicity="*" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="1" />
+          <End Role="fechas_calculo_intereses" Type="Self.fechas_calculo_intereses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="carterap">
               <PropertyRef Name="id" />
@@ -869,8 +659,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_intereses_manuales_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="intereses_manuales" Type="bdieModel.Store.intereses_manuales" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="intereses_manuales" Type="Self.intereses_manuales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -881,8 +671,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_matriculas_cursos">
-          <End Role="cursos" Type="bdieModel.Store.cursos" Multiplicity="1" />
-          <End Role="matriculas" Type="bdieModel.Store.matriculas" Multiplicity="*" />
+          <End Role="cursos" Type="Self.cursos" Multiplicity="1" />
+          <End Role="matriculas" Type="Self.matriculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cursos">
               <PropertyRef Name="id" />
@@ -893,8 +683,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_matriculas_estudiantes">
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="1" />
-          <End Role="matriculas" Type="bdieModel.Store.matriculas" Multiplicity="*" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="1" />
+          <End Role="matriculas" Type="Self.matriculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="estudiantes">
               <PropertyRef Name="id" />
@@ -905,8 +695,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_matriculas_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="matriculas" Type="bdieModel.Store.matriculas" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="matriculas" Type="Self.matriculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -917,8 +707,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_mensajes_acudientes_mensajes">
-          <End Role="mensajes" Type="bdieModel.Store.mensajes" Multiplicity="1" />
-          <End Role="mensajes_acudientes" Type="bdieModel.Store.mensajes_acudientes" Multiplicity="*" />
+          <End Role="mensajes" Type="Self.mensajes" Multiplicity="1" />
+          <End Role="mensajes_acudientes" Type="Self.mensajes_acudientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="mensajes">
               <PropertyRef Name="id" />
@@ -929,8 +719,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_mensajes_acudientes_terceros">
-          <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="1" />
-          <End Role="mensajes_acudientes" Type="bdieModel.Store.mensajes_acudientes" Multiplicity="*" />
+          <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
+          <End Role="mensajes_acudientes" Type="Self.mensajes_acudientes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="terceros">
               <PropertyRef Name="id" />
@@ -941,8 +731,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_mensajes_terceros">
-          <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="1" />
-          <End Role="mensajes" Type="bdieModel.Store.mensajes" Multiplicity="*" />
+          <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
+          <End Role="mensajes" Type="Self.mensajes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="terceros">
               <PropertyRef Name="id" />
@@ -953,8 +743,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_movimientos_carterap">
-          <End Role="carterap" Type="bdieModel.Store.carterap" Multiplicity="0..1" />
-          <End Role="movimientos" Type="bdieModel.Store.movimientos" Multiplicity="*" />
+          <End Role="carterap" Type="Self.carterap" Multiplicity="0..1" />
+          <End Role="movimientos" Type="Self.movimientos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="carterap">
               <PropertyRef Name="id" />
@@ -965,8 +755,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_movimientos_conceptos">
-          <End Role="conceptos" Type="bdieModel.Store.conceptos" Multiplicity="0..1" />
-          <End Role="movimientos" Type="bdieModel.Store.movimientos" Multiplicity="*" />
+          <End Role="conceptos" Type="Self.conceptos" Multiplicity="0..1" />
+          <End Role="movimientos" Type="Self.movimientos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="conceptos">
               <PropertyRef Name="id" />
@@ -977,8 +767,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_movimientos_estudiantes">
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="0..1" />
-          <End Role="movimientos" Type="bdieModel.Store.movimientos" Multiplicity="*" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="0..1" />
+          <End Role="movimientos" Type="Self.movimientos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="estudiantes">
               <PropertyRef Name="id" />
@@ -989,8 +779,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_movimientos_tipos_documentos">
-          <End Role="tipos_documentos" Type="bdieModel.Store.tipos_documentos" Multiplicity="0..1" />
-          <End Role="movimientos" Type="bdieModel.Store.movimientos" Multiplicity="*" />
+          <End Role="tipos_documentos" Type="Self.tipos_documentos" Multiplicity="0..1" />
+          <End Role="movimientos" Type="Self.movimientos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipos_documentos">
               <PropertyRef Name="id" />
@@ -1001,8 +791,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_movimientos_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="0..1" />
-          <End Role="movimientos" Type="bdieModel.Store.movimientos" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="0..1" />
+          <End Role="movimientos" Type="Self.movimientos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -1013,8 +803,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_pagos_estudiantes">
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="1" />
-          <End Role="pagos" Type="bdieModel.Store.pagos" Multiplicity="*" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="1" />
+          <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="estudiantes">
               <PropertyRef Name="id" />
@@ -1025,8 +815,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_pagos_grupos_pagos">
-          <End Role="grupos_pagos" Type="bdieModel.Store.grupos_pagos" Multiplicity="0..1" />
-          <End Role="pagos" Type="bdieModel.Store.pagos" Multiplicity="*" />
+          <End Role="grupos_pagos" Type="Self.grupos_pagos" Multiplicity="0..1" />
+          <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="grupos_pagos">
               <PropertyRef Name="id" />
@@ -1037,8 +827,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_parametros_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="parametros" Type="bdieModel.Store.parametros" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="parametros" Type="Self.parametros" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -1049,8 +839,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_periodos_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="periodos" Type="bdieModel.Store.periodos" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="periodos" Type="Self.periodos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -1061,8 +851,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_saldos_a_favor_estudiantes">
-          <End Role="estudiantes" Type="bdieModel.Store.estudiantes" Multiplicity="1" />
-          <End Role="saldos_a_favor" Type="bdieModel.Store.saldos_a_favor" Multiplicity="*" />
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="1" />
+          <End Role="saldos_a_favor" Type="Self.saldos_a_favor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="estudiantes">
               <PropertyRef Name="id" />
@@ -1073,8 +863,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tarifas_conceptos">
-          <End Role="conceptos" Type="bdieModel.Store.conceptos" Multiplicity="1" />
-          <End Role="tarifas" Type="bdieModel.Store.tarifas" Multiplicity="*" />
+          <End Role="conceptos" Type="Self.conceptos" Multiplicity="1" />
+          <End Role="tarifas" Type="Self.tarifas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="conceptos">
               <PropertyRef Name="id" />
@@ -1085,8 +875,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tarifas_grados">
-          <End Role="grados" Type="bdieModel.Store.grados" Multiplicity="1" />
-          <End Role="tarifas" Type="bdieModel.Store.tarifas" Multiplicity="*" />
+          <End Role="grados" Type="Self.grados" Multiplicity="1" />
+          <End Role="tarifas" Type="Self.tarifas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="grados">
               <PropertyRef Name="id" />
@@ -1097,8 +887,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tarifas_vigencias">
-          <End Role="vigencias" Type="bdieModel.Store.vigencias" Multiplicity="1" />
-          <End Role="tarifas" Type="bdieModel.Store.tarifas" Multiplicity="*" />
+          <End Role="vigencias" Type="Self.vigencias" Multiplicity="1" />
+          <End Role="tarifas" Type="Self.tarifas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="vigencias">
               <PropertyRef Name="vigencia" />
@@ -1108,12 +898,221 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityContainer Name="bdieModelStoreContainer">
+          <EntitySet Name="carterap" EntityType="Self.carterap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="config_grupos_pagos" EntityType="Self.config_grupos_pagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cursos" EntityType="Self.cursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalles_pago" EntityType="Self.detalles_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalles_tipos_tercero" EntityType="Self.detalles_tipos_tercero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="documentos" EntityType="Self.documentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="entidad" EntityType="Self.entidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estudiantes" EntityType="Self.estudiantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fechas_calculo_intereses" EntityType="Self.fechas_calculo_intereses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="formas_pago" EntityType="Self.formas_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="grados" EntityType="Self.grados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="grupos_pagos" EntityType="Self.grupos_pagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="intereses_manuales" EntityType="Self.intereses_manuales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="matriculas" EntityType="Self.matriculas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mensajes" EntityType="Self.mensajes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mensajes_acudientes" EntityType="Self.mensajes_acudientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movimientos" EntityType="Self.movimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pagos" EntityType="Self.pagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="parametros" EntityType="Self.parametros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="periodos" EntityType="Self.periodos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="saldos_a_favor" EntityType="Self.saldos_a_favor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tarifas" EntityType="Self.tarifas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tasas" EntityType="Self.tasas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="terceros" EntityType="Self.terceros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipos_documentos" EntityType="Self.tipos_documentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipos_terceros" EntityType="Self.tipos_terceros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vigencias" EntityType="Self.vigencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fc_menu" EntityType="Self.fc_menu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fc_menu].[fc_menuid] AS [fc_menuid], 
+    [fc_menu].[fc_titulo] AS [fc_titulo], 
+    [fc_menu].[fc_descripcion] AS [fc_descripcion], 
+    [fc_menu].[fc_padreid] AS [fc_padreid], 
+    [fc_menu].[fc_posicion] AS [fc_posicion], 
+    [fc_menu].[fc_icono] AS [fc_icono], 
+    [fc_menu].[fc_habilitado] AS [fc_habilitado], 
+    [fc_menu].[fc_url] AS [fc_url], 
+    [fc_menu].[fc_modulo] AS [fc_modulo], 
+    [fc_menu].[fc_target] AS [fc_target], 
+    [fc_menu].[fc_ppal] AS [fc_ppal], 
+    [fc_menu].[fc_roles] AS [fc_roles]
+    FROM [dbo].[fc_menu] AS [fc_menu]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_carterap_conceptos" Association="Self.FK_carterap_conceptos">
+            <End Role="conceptos" EntitySet="conceptos" />
+            <End Role="carterap" EntitySet="carterap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carterap_estudiantes" Association="Self.FK_carterap_estudiantes">
+            <End Role="estudiantes" EntitySet="estudiantes" />
+            <End Role="carterap" EntitySet="carterap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carterap_grupos_pagos" Association="Self.FK_carterap_grupos_pagos">
+            <End Role="grupos_pagos" EntitySet="grupos_pagos" />
+            <End Role="carterap" EntitySet="carterap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carterap_matriculas" Association="Self.FK_carterap_matriculas">
+            <End Role="matriculas" EntitySet="matriculas" />
+            <End Role="carterap" EntitySet="carterap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carterap_vigencias" Association="Self.FK_carterap_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="carterap" EntitySet="carterap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_config_grupos_pagos_conceptos" Association="Self.FK_config_grupos_pagos_conceptos">
+            <End Role="conceptos" EntitySet="conceptos" />
+            <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_config_grupos_pagos_grupos_pagos" Association="Self.FK_config_grupos_pagos_grupos_pagos">
+            <End Role="grupos_pagos" EntitySet="grupos_pagos" />
+            <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_config_grupos_pagos_vigencias" Association="Self.FK_config_grupos_pagos_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="config_grupos_pagos" EntitySet="config_grupos_pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cursos_grados" Association="Self.FK_cursos_grados">
+            <End Role="grados" EntitySet="grados" />
+            <End Role="cursos" EntitySet="cursos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalles_pago_carterap" Association="Self.FK_detalles_pago_carterap">
+            <End Role="carterap" EntitySet="carterap" />
+            <End Role="detalles_pago" EntitySet="detalles_pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalles_pago_conceptos" Association="Self.FK_detalles_pago_conceptos">
+            <End Role="conceptos" EntitySet="conceptos" />
+            <End Role="detalles_pago" EntitySet="detalles_pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalles_pago_pagos" Association="Self.FK_detalles_pago_pagos">
+            <End Role="pagos" EntitySet="pagos" />
+            <End Role="detalles_pago" EntitySet="detalles_pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalles_pago_vigencias" Association="Self.FK_detalles_pago_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="detalles_pago" EntitySet="detalles_pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalles_tipos_tercero_terceros" Association="Self.FK_detalles_tipos_tercero_terceros">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="detalles_tipos_tercero" EntitySet="detalles_tipos_tercero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalles_tipos_tercero_tipos_terceros" Association="Self.FK_detalles_tipos_tercero_tipos_terceros">
+            <End Role="tipos_terceros" EntitySet="tipos_terceros" />
+            <End Role="detalles_tipos_tercero" EntitySet="detalles_tipos_tercero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_documentos_tipos_documentos" Association="Self.FK_documentos_tipos_documentos">
+            <End Role="tipos_documentos" EntitySet="tipos_documentos" />
+            <End Role="documentos" EntitySet="documentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estudiantes_terceros" Association="Self.FK_estudiantes_terceros">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="estudiantes" EntitySet="estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estudiantes_terceros1" Association="Self.FK_estudiantes_terceros1">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="estudiantes" EntitySet="estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estudiantes_terceros2" Association="Self.FK_estudiantes_terceros2">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="estudiantes" EntitySet="estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estudiantes_terceros3" Association="Self.FK_estudiantes_terceros3">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="estudiantes" EntitySet="estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fechas_calculo_intereses_carterap" Association="Self.FK_fechas_calculo_intereses_carterap">
+            <End Role="carterap" EntitySet="carterap" />
+            <End Role="fechas_calculo_intereses" EntitySet="fechas_calculo_intereses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_intereses_manuales_vigencias" Association="Self.FK_intereses_manuales_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="intereses_manuales" EntitySet="intereses_manuales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_matriculas_cursos" Association="Self.FK_matriculas_cursos">
+            <End Role="cursos" EntitySet="cursos" />
+            <End Role="matriculas" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_matriculas_estudiantes" Association="Self.FK_matriculas_estudiantes">
+            <End Role="estudiantes" EntitySet="estudiantes" />
+            <End Role="matriculas" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_matriculas_vigencias" Association="Self.FK_matriculas_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="matriculas" EntitySet="matriculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mensajes_acudientes_mensajes" Association="Self.FK_mensajes_acudientes_mensajes">
+            <End Role="mensajes" EntitySet="mensajes" />
+            <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mensajes_acudientes_terceros" Association="Self.FK_mensajes_acudientes_terceros">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mensajes_terceros" Association="Self.FK_mensajes_terceros">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="mensajes" EntitySet="mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientos_carterap" Association="Self.FK_movimientos_carterap">
+            <End Role="carterap" EntitySet="carterap" />
+            <End Role="movimientos" EntitySet="movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientos_conceptos" Association="Self.FK_movimientos_conceptos">
+            <End Role="conceptos" EntitySet="conceptos" />
+            <End Role="movimientos" EntitySet="movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientos_estudiantes" Association="Self.FK_movimientos_estudiantes">
+            <End Role="estudiantes" EntitySet="estudiantes" />
+            <End Role="movimientos" EntitySet="movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientos_tipos_documentos" Association="Self.FK_movimientos_tipos_documentos">
+            <End Role="tipos_documentos" EntitySet="tipos_documentos" />
+            <End Role="movimientos" EntitySet="movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_movimientos_vigencias" Association="Self.FK_movimientos_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="movimientos" EntitySet="movimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pagos_estudiantes" Association="Self.FK_pagos_estudiantes">
+            <End Role="estudiantes" EntitySet="estudiantes" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pagos_grupos_pagos" Association="Self.FK_pagos_grupos_pagos">
+            <End Role="grupos_pagos" EntitySet="grupos_pagos" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_parametros_vigencias" Association="Self.FK_parametros_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="parametros" EntitySet="parametros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_periodos_vigencias" Association="Self.FK_periodos_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="periodos" EntitySet="periodos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_saldos_a_favor_estudiantes" Association="Self.FK_saldos_a_favor_estudiantes">
+            <End Role="estudiantes" EntitySet="estudiantes" />
+            <End Role="saldos_a_favor" EntitySet="saldos_a_favor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tarifas_conceptos" Association="Self.FK_tarifas_conceptos">
+            <End Role="conceptos" EntitySet="conceptos" />
+            <End Role="tarifas" EntitySet="tarifas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tarifas_grados" Association="Self.FK_tarifas_grados">
+            <End Role="grados" EntitySet="grados" />
+            <End Role="tarifas" EntitySet="tarifas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tarifas_vigencias" Association="Self.FK_tarifas_vigencias">
+            <End Role="vigencias" EntitySet="vigencias" />
+            <End Role="tarifas" EntitySet="tarifas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="bdieModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="ieEntities" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="bdieModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="ieEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="carterap" EntityType="bdieModel.carterap" />
           <EntitySet Name="conceptos" EntityType="bdieModel.conceptos" />
           <EntitySet Name="config_grupos_pagos" EntityType="bdieModel.config_grupos_pagos" />
@@ -1130,7 +1129,6 @@
           <EntitySet Name="grupos_pagos" EntityType="bdieModel.grupos_pagos" />
           <EntitySet Name="intereses_manuales" EntityType="bdieModel.intereses_manuales" />
           <EntitySet Name="matriculas" EntityType="bdieModel.matriculas" />
-          <EntitySet Name="mensajes" EntityType="bdieModel.mensajes" />
           <EntitySet Name="mensajes_acudientes" EntityType="bdieModel.mensajes_acudientes" />
           <EntitySet Name="movimientos" EntityType="bdieModel.movimientos" />
           <EntitySet Name="pagos" EntityType="bdieModel.pagos" />
@@ -1275,14 +1273,6 @@
             <End Role="vigencias" EntitySet="vigencias" />
             <End Role="matriculas" EntitySet="matriculas" />
           </AssociationSet>
-          <AssociationSet Name="FK_mensajes_acudientes_mensajes" Association="bdieModel.FK_mensajes_acudientes_mensajes">
-            <End Role="mensajes" EntitySet="mensajes" />
-            <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_mensajes_terceros" Association="bdieModel.FK_mensajes_terceros">
-            <End Role="terceros" EntitySet="terceros" />
-            <End Role="mensajes" EntitySet="mensajes" />
-          </AssociationSet>
           <AssociationSet Name="FK_mensajes_acudientes_terceros" Association="bdieModel.FK_mensajes_acudientes_terceros">
             <End Role="terceros" EntitySet="terceros" />
             <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
@@ -1306,6 +1296,15 @@
           <AssociationSet Name="FK_tarifas_vigencias" Association="bdieModel.FK_tarifas_vigencias">
             <End Role="vigencias" EntitySet="vigencias" />
             <End Role="tarifas" EntitySet="tarifas" />
+          </AssociationSet>
+          <EntitySet Name="mensajes" EntityType="bdieModel.mensajes" />
+          <AssociationSet Name="FK_mensajes_acudientes_mensajes" Association="bdieModel.FK_mensajes_acudientes_mensajes">
+            <End Role="mensajes" EntitySet="mensajes" />
+            <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mensajes_terceros" Association="bdieModel.FK_mensajes_terceros">
+            <End Role="terceros" EntitySet="terceros" />
+            <End Role="mensajes" EntitySet="mensajes" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="carterap">
@@ -1582,19 +1581,6 @@
           <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_matriculas_estudiantes" FromRole="matriculas" ToRole="estudiantes" />
           <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_matriculas_vigencias" FromRole="matriculas" ToRole="vigencias" />
         </EntityType>
-        <EntityType Name="mensajes">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="asunto" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="mensaje" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
-          <Property Name="fecha" Type="DateTime" Precision="3" />
-          <Property Name="tipo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="id_remitente" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="mensajes_acudientes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes" ToRole="mensajes_acudientes" />
-          <NavigationProperty Name="terceros" Relationship="bdieModel.FK_mensajes_terceros" FromRole="mensajes" ToRole="terceros" />
-        </EntityType>
         <EntityType Name="mensajes_acudientes">
           <Key>
             <PropertyRef Name="id" />
@@ -1603,8 +1589,8 @@
           <Property Name="id_mensaje" Type="Int32" Nullable="false" />
           <Property Name="id_acudiente" Type="Int32" Nullable="false" />
           <Property Name="estado" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes_acudientes" ToRole="mensajes" />
           <NavigationProperty Name="terceros" Relationship="bdieModel.FK_mensajes_acudientes_terceros" FromRole="mensajes_acudientes" ToRole="terceros" />
+          <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes_acudientes" ToRole="mensajes" />
         </EntityType>
         <EntityType Name="movimientos">
           <Key>
@@ -1749,8 +1735,8 @@
           <NavigationProperty Name="estudiantes1" Relationship="bdieModel.FK_estudiantes_terceros1" FromRole="terceros" ToRole="estudiantes" />
           <NavigationProperty Name="estudiantes2" Relationship="bdieModel.FK_estudiantes_terceros2" FromRole="terceros" ToRole="estudiantes" />
           <NavigationProperty Name="estudiantes3" Relationship="bdieModel.FK_estudiantes_terceros3" FromRole="terceros" ToRole="estudiantes" />
-          <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_terceros" FromRole="terceros" ToRole="mensajes" />
           <NavigationProperty Name="mensajes_acudientes" Relationship="bdieModel.FK_mensajes_acudientes_terceros" FromRole="terceros" ToRole="mensajes_acudientes" />
+          <NavigationProperty Name="mensajes" Relationship="bdieModel.FK_mensajes_terceros" FromRole="terceros" ToRole="mensajes" />
         </EntityType>
         <EntityType Name="tipos_documentos">
           <Key>
@@ -2184,30 +2170,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_mensajes_acudientes_mensajes">
-          <End Role="mensajes" Type="bdieModel.mensajes" Multiplicity="1" />
-          <End Role="mensajes_acudientes" Type="bdieModel.mensajes_acudientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="mensajes">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="mensajes_acudientes">
-              <PropertyRef Name="id_mensaje" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_mensajes_terceros">
-          <End Role="terceros" Type="bdieModel.terceros" Multiplicity="1" />
-          <End Role="mensajes" Type="bdieModel.mensajes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="terceros">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="mensajes">
-              <PropertyRef Name="id_remitente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_mensajes_acudientes_terceros">
           <End Role="terceros" Type="bdieModel.terceros" Multiplicity="1" />
           <End Role="mensajes_acudientes" Type="bdieModel.mensajes_acudientes" Multiplicity="*" />
@@ -2280,11 +2242,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="mensajes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="asunto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="mensaje" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_remitente" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="mensajes_acudientes" Relationship="bdieModel.FK_mensajes_acudientes_mensajes" FromRole="mensajes" ToRole="mensajes_acudientes" />
+          <NavigationProperty Name="terceros" Relationship="bdieModel.FK_mensajes_terceros" FromRole="mensajes" ToRole="terceros" />
+        </EntityType>
+        <Association Name="FK_mensajes_acudientes_mensajes">
+          <End Type="bdieModel.mensajes" Role="mensajes" Multiplicity="1" />
+          <End Type="bdieModel.mensajes_acudientes" Role="mensajes_acudientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mensajes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mensajes_acudientes">
+              <PropertyRef Name="id_mensaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mensajes_terceros">
+          <End Type="bdieModel.terceros" Role="terceros" Multiplicity="1" />
+          <End Type="bdieModel.mensajes" Role="mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="terceros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="mensajes">
+              <PropertyRef Name="id_remitente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="bdieModelStoreContainer" CdmEntityContainer="ieEntities">
           <EntitySetMapping Name="carterap">
             <EntityTypeMapping TypeName="bdieModel.carterap">
@@ -2529,18 +2529,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="mensajes">
-            <EntityTypeMapping TypeName="bdieModel.mensajes">
-              <MappingFragment StoreEntitySet="mensajes">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="asunto" ColumnName="asunto" />
-                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="id_remitente" ColumnName="id_remitente" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="mensajes_acudientes">
             <EntityTypeMapping TypeName="bdieModel.mensajes_acudientes">
               <MappingFragment StoreEntitySet="mensajes_acudientes">
@@ -2711,26 +2699,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="mensajes">
+            <EntityTypeMapping TypeName="bdieModel.mensajes">
+              <MappingFragment StoreEntitySet="mensajes">
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_remitente" ColumnName="id_remitente" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+                <ScalarProperty Name="asunto" ColumnName="asunto" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
-    <Connection>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </DesignerInfoPropertySet>
-    </Connection>
-    <Options>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
-      </DesignerInfoPropertySet>
-    </Options>
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
-  </Designer>
+    <edmx:Diagrams />
+  </edmx:Designer>
 </edmx:Edmx>

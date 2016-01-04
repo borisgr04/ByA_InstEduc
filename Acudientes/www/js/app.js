@@ -5,7 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('app', ['ionic'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
+      $rootScope.Mensajes = [];
+      $rootScope.contador;
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -42,6 +44,12 @@ var app = angular.module('app', ['ionic'])
         url: '/mensajes',
         templateUrl: 'templates/mensajes.html',
         controller: 'MensajesCtrl'
+      })
+
+      .state('estudiante', {
+        url: '/estudiante',
+        templateUrl: 'templates/menuEstudiante.html',
+        controller: 'EstudianteCtrl'
       });
     $urlRouterProvider.otherwise('/login');
 });

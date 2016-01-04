@@ -19,7 +19,7 @@ namespace DAL
         public int id_acudiente { get; set; }
         public string estado { get; set; }
     
-        public virtual mensajes mensajes { get; set; }
         public virtual terceros terceros { get; set; }
+        public virtual mensajes mensajes { get; set; }
     }
 }

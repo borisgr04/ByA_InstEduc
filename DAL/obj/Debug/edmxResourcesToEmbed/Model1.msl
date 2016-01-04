@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="bdieModelStoreContainer" CdmEntityContainer="ieEntities">
     <EntitySetMapping Name="carterap">
       <EntityTypeMapping TypeName="bdieModel.carterap">
@@ -244,18 +244,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="mensajes">
-      <EntityTypeMapping TypeName="bdieModel.mensajes">
-        <MappingFragment StoreEntitySet="mensajes">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="asunto" ColumnName="asunto" />
-          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
-          <ScalarProperty Name="id_remitente" ColumnName="id_remitente" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="mensajes_acudientes">
       <EntityTypeMapping TypeName="bdieModel.mensajes_acudientes">
         <MappingFragment StoreEntitySet="mensajes_acudientes">
@@ -423,6 +411,19 @@
           <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
           <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mensajes">
+      <EntityTypeMapping TypeName="bdieModel.mensajes">
+        <MappingFragment StoreEntitySet="mensajes">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_remitente" ColumnName="id_remitente" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="asunto" ColumnName="asunto" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

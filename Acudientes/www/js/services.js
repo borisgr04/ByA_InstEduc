@@ -17,7 +17,7 @@ app.service('loginServices', ['$http', function($http){
 }]);
 
 app.service('homeServices', ['$http', function($http){
-    var url = "http://localhost:49811/api/terceros/InformacionAcudientesMensajes/username";
+    var url = byaSite._getUrl() + "terceros/InformacionAcudientesMensajes/username";
     this.getInformacionAcudienteMensajes = function(username){
         var pet = {
             method: 'GET',
@@ -31,22 +31,21 @@ app.service('homeServices', ['$http', function($http){
         var req = $http(pet);
         return req;
     };
+}]);
 
-    this._obtenerCuestionario = function (tip_ide, ide) {
-
-        tip_ide = tip_ide != null ? tip_ide : "";
-        ide = tip_ide != null ? ide : "";
-
+app.service('mensajesServices', ['$http', function($http){
+    var url = byaSite._getUrl() + "MensajeAcudiente";
+    this.getCambiarEstado = function(id_mensaje_acudiente){
         var pet = {
             method: 'GET',
-            url: 'http://186.170.31.187/DPS/VerificacionCiudadano/InfraVerificaCiudadanoWebAPI/ObtenerCuestionario?CantidadPreguntas=3&CantidadRespuestas=3&NumeroDocumento=' + ide + '&TipoDocumento=' + tip_ide,
+            url: url + "/" + id_mensaje_acudiente,
             headers: {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + byaSite._getToken(),
                 'Content-Type': 'application/json'
             }
-        }
+        };
         var req = $http(pet);
         return req;
-    };
+    }
 }]);

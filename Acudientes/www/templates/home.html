@@ -1,6 +1,6 @@
 <ion-header-bar class="bar info">
     <button style="color:#fff; font-size: 14px;" class="button button-icon ion-person">{{username}}</button>
-    <h1 class="title" style="color:#fff;">Colegio Calleja Real</h1>
+    <h1 class="title" style="color:#fff;">C. Calleja Real</h1>
     <button style="color:#fff; font-size: 14px;" ui-sref="login" class="button button-icon">Salir</button>
 </ion-header-bar>
 
@@ -10,37 +10,40 @@
             <h2 style="font-weight: bold; color: #3e97cf">Mi Información</h2>
         </div>
         <div class="row text-left" style="margin:0px 10px 0px 10px;">
-            <div class="col col-20">
+            <div class="col">
                 <label style="font-weight: bold">
                     Nombre:
                 </label>
+                <label class="etiqueta" style="margin-left: 15px;">{{Acudiente.nombre}}</label>
             </div>
 
-            <div class="col">
-                <label>{{Acudiente.nombre}}</label>
-            </div>
+            <!--<div class="col text-left">
+                <label></label>
+            </div>-->
         </div>
 
         <div class="row text-left" style="margin:0px 10px 0px 10px;">
-            <div class="col col-20">
+            <div class="col">
                 <label style="font-weight: bold">
                     Cedula:
                 </label>
+                <label class="etiqueta" style="margin-left: 25px;">{{Acudiente.identificacion}}</label>
             </div>
-            <div class="col">
+            <!--<div class="col col-offset-10">
                 <label>{{Acudiente.identificacion}}</label>
-            </div>
+            </div>-->
         </div>
 
         <div class="row text-left" style="margin:0px 10px 0px 10px;">
-            <div class="col col-20">
+            <div class="col">
                 <label style="font-weight: bold">
                     Email:
                 </label>
+                <label class="etiqueta" style="margin-left: 32px">{{Acudiente.email}}</label>
             </div>
-            <div class="col">
+            <!--<div class="col col-offset-10">
                 <label>{{Acudiente.email}}</label>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -52,9 +55,10 @@
     </div>
 
     <div class="row text-left"  ng-repeat = "estudiante in Estudiantes">
-        <a class="item item-icon-left" href="#" style="width: 100%">
+        <a class="item item-icon-left" ng-click="_irMenuEstudiante(estudiante)" style="width: 100%">
             <i class="icon ion-university"></i>
-            {{estudiante.identificacion}} - {{estudiante.nombre_completo}}
+            <p>{{estudiante.nombre_completo}}</p>
+            <p>{{estudiante.identificacion}}</p>
         </a>
     </div>
 </div>
@@ -68,7 +72,7 @@
     <a ui-sref="mensajes" class="title" style="color:#fff; width: 100%; text-decoration: none; font-size: 18px;">
         <i class="icon ion-email-unread" style="font-size: 20px;"></i>
         Mensajes
-        <span class="badge badge-assertive">{{Mensajes.length}}</span>
+        <span class="badge badge-assertive">{{contador}}</span>
     </a>
 
 </ion-footer-bar>

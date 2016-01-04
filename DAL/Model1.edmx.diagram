@@ -21,7 +21,6 @@
         <EntityTypeShape EntityType="bdieModel.grupos_pagos" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="bdieModel.intereses_manuales" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
         <EntityTypeShape EntityType="bdieModel.matriculas" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdieModel.mensajes" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdieModel.mensajes_acudientes" Width="1.5" PointX="9" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bdieModel.movimientos" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="bdieModel.pagos" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
@@ -67,14 +66,15 @@
         <AssociationConnector Association="bdieModel.FK_pagos_grupos_pagos" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_intereses_manuales_vigencias" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_matriculas_vigencias" ManuallyRouted="false" />
-        <AssociationConnector Association="bdieModel.FK_mensajes_acudientes_mensajes" ManuallyRouted="false" />
-        <AssociationConnector Association="bdieModel.FK_mensajes_terceros" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_mensajes_acudientes_terceros" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_movimientos_tipos_documentos" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_movimientos_vigencias" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_parametros_vigencias" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_periodos_vigencias" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_tarifas_vigencias" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="bdieModel.mensajes" Width="1.5" PointX="3.75" PointY="0.75" />
+        <AssociationConnector Association="bdieModel.FK_mensajes_acudientes_mensajes" />
+        <AssociationConnector Association="bdieModel.FK_mensajes_terceros" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

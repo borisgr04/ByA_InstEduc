@@ -25,6 +25,7 @@ namespace DAL
         public Nullable<System.DateTime> fecha { get; set; }
         public string tipo { get; set; }
         public int id_remitente { get; set; }
+        public string estado { get; set; }
     
         public virtual ICollection<mensajes_acudientes> mensajes_acudientes { get; set; }
         public virtual terceros terceros { get; set; }
