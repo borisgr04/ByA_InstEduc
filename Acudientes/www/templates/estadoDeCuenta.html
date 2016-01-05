@@ -1,0 +1,74 @@
+<ion-header-bar class="bar info">
+    <div class="buttons">
+        <button style="color:#fff;" ui-sref="estudiante" class="button button-icon ion-chevron-left">Atrás
+        </button>
+    </div>
+    <h1 class="title" style="color:#fff;">C. Calleja Real</h1>
+</ion-header-bar>
+
+<ion-content>
+
+<div class="card text-center">
+    <div class="item item-text-wrap" style="text-align:justify">
+        <h2 style="font-weight: bold; color: #3e97cf">Estudiante</h2>
+    </div>
+
+    <div class="row text-left">
+        <a class="item item-icon-left" style="width: 100%;">
+            <i class="icon ion-university"></i>
+            <p>{{nombre_estudiante}}</p>
+            <p>{{identificacion_estudiante}}</p>
+        </a>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="item item-text-wrap" style="text-align:justify">
+        <h2 style="font-weight: bold; color: #3e97cf">Información General</h2>
+    </div>
+        <div class="row">
+            <a class="itemList item-icon-left text-left" style="width: 100%;">
+                <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
+                <label style="color: #666;">Causado: </label>
+                <label style="color: #f0ad4e; font-weight: bold; margin-left: 25px; float: right;">${{informacionGeneral.causado}}</label>
+            </a>
+        </div>
+        <div class="row">
+            <a class="itemList item-icon-left text-left" style="width: 100%;">
+                <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
+                <label style="color: #666;">Intereses: </label>
+                <label style="color: #f0ad4e; font-weight: bold; float: right;">${{informacionGeneral.interes}}</label>
+            </a>
+        </div>
+        <div class="row">
+            <a class="itemList item-icon-left text-left" style="width: 100%;">
+                <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
+                <label style="color: #666;">Pagado: </label>
+                <label style="color: #5cb85c; font-weight: bold; float: right;">${{informacionGeneral.pagado}}</label>
+            </a>
+        </div>
+        <div class="row">
+            <a class="itemList item-icon-left text-left" style="width: 100%;">
+                <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
+                <label style="color: #666;">Total a Pagar: </label
+                        ><label style="color: #d9534f; font-weight: bold; float: right;">${{informacionGeneral.total}}</label>
+            </a>
+        </div>
+</div>
+
+<div class="card text-center">
+    <div class="item item-text-wrap" style="text-align:justify">
+        <h2 style="font-weight: bold; color: #3e97cf">Estado de Cuenta: Vigencia 2015</h2>
+    </div>
+    <div class="row" ng-repeat="estado in estadoCuenta">
+        <a class="itemList item-icon-left text-left" style="width: 100%;">
+            <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
+            <label style="color: #666; font-size: 14px; font-weight: bold;">{{estado.concepto}}</label>
+            <label style="color: #666; font-size: 14px; float: right;">Saldo</label><br>
+            <label style="color: #666; font-size: 14px;">{{estado.fecha_pago}}</label>
+            <label style="color: #d9534f; font-size: 14px; float: right; font-weight: bold;">${{estado.saldo}}</label>
+        </a>
+    </div>
+</div>
+
+</ion-content>

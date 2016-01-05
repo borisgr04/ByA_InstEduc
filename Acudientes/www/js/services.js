@@ -47,5 +47,20 @@ app.service('mensajesServices', ['$http', function($http){
         };
         var req = $http(pet);
         return req;
-    }
+    };
+
+    this.PostCambiarMensajeInactivo = function(ListMsjeDto)
+    {
+        var pet = {
+            method: 'POST',
+            url: url + '/EliminarMensajes',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + byaSite._getToken(),
+            },
+            data: ListMsjeDto
+        };
+        var req = $http(pet);
+        return req;
+    };
 }]);

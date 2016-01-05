@@ -23,5 +23,14 @@ namespace Skeleton.WebAPI.Controllers
             mMensajesAcudiente msje = new mMensajesAcudiente();
             return msje.cambiarEstado(id_mensaje_acudiente);
         }
+
+        [Route("EliminarMensajes")]
+        public ByARpt PostCambiarMensajeInactivo(List<mensajesDto> ListId)
+        {
+            mMensajesAcudiente msje = new mMensajesAcudiente();
+            return msje.cambiarMensajeInactivo(ListId);
+        }
     }
+
+
 }

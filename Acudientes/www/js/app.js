@@ -50,6 +50,12 @@ var app = angular.module('app', ['ionic'])
         url: '/estudiante',
         templateUrl: 'templates/menuEstudiante.html',
         controller: 'EstudianteCtrl'
+      })
+
+      .state('cuenta', {
+        url: '/cuenta',
+        templateUrl: 'templates/estadoDeCuenta.html',
+        controller: 'CuentaCtrl'
       });
     $urlRouterProvider.otherwise('/login');
 });
