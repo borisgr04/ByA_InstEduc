@@ -64,3 +64,20 @@ app.service('mensajesServices', ['$http', function($http){
         return req;
     };
 }]);
+
+app.service('estadoCuentaServices', ['$http', function($http){
+    var url = byaSite._getUrl() + "EstadoCuentaResumen";
+    this.getEstadoCuenta = function(id_estudiante){
+        var pet = {
+            method: 'GET',
+            url: url + "/" + id_estudiante,
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + byaSite._getToken(),
+                'Content-Type': 'application/json'
+            }
+        };
+        var req = $http(pet);
+        return req;
+    };
+}]);

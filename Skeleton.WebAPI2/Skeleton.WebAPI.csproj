@@ -193,6 +193,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CursosController.cs" />
+    <Compile Include="Controllers\EstadoCuentaResumenController.cs" />
     <Compile Include="Controllers\MensajeAcudienteController.cs" />
     <Compile Include="Controllers\TercerosController.cs" />
     <Compile Include="Global.asax.cs">

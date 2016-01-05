@@ -242,19 +242,22 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', function($scope, $root
     $scope.identificacion_estudiante = byaSite._getIdentificacionEstudiante();
 }]);
 
-app.controller('CuentaCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuentaServices', function($scope, $rootScope, $ionicModal, estadoCuentaServices) {
     $scope.username = byaSite._getUsername();
     $scope.nombre_estudiante = byaSite._getNombreEstudiante();
     $scope.identificacion_estudiante = byaSite._getIdentificacionEstudiante();
-    $scope.informacionGeneral =
-    {
-            "causado": "2,786,600",
-            "interes": "40,000",
-            "pagado": "2,346,600",
-            "total": "480,000"
-    };
+    $scope.estado_actual;
+    $scope.estadoCuenta = [];
+    $scope.informacionGeneral = {};
+    //$scope.informacionGeneral =
+    //{
+      //      "causado": "2,786,600",
+        //    "interes": "40,000",
+          //  "pagado": "2,346,600",
+            //"total": "480,000"
+    //};
 
-    $scope.estadoCuenta =
+    //$scope.estadoCuenta =
         [
             {
                 "concepto": "Matricula",
@@ -383,4 +386,45 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', function($scope, $rootScop
                 "saldo": "240,000"
             },
         ];
+
+    $scope.verEstadoCuenta = function(estado)
+    {
+        $scope.estado_actual = estado;
+        $scope.modal.show();
+    }
+
+    _init();
+
+    function _init()
+    {
+        _crearModal();
+        _getEstadoCuenta();
+    }
+
+    function _crearModal() {
+        $ionicModal.fromTemplateUrl('templates/modalEstadoCuenta.html', {
+            scope: $scope
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
+    };
+
+    function _getEstadoCuenta()
+    {
+        var promiseGet = estadoCuentaServices.getEstadoCuenta($scope.identificacion_estudiante);
+        promiseGet.then(
+            function(pl){
+                var respuesta = pl.data;
+                $scope.estadoCuenta = [];
+                $scope.informacionGeneral = {};
+                $scope.estadoCuenta = respuesta;
+                //console.log(JSON.stringify($scope.estadoCuenta));
+                //alert(JSON.stringify($scope.estadoCuenta[0].l_items));
+                //alert($scope.estadoCuenta.length);
+            },
+            function (errorPl) {
+                console.log(JSON.stringify(errorPl));
+            }
+        );
+    };
 }]);

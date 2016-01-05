@@ -6,28 +6,32 @@
     <h1 class="title" style="color:#fff;">Mensajes</h1>
 </ion-header-bar>
 
-<div class="card text-center" style="margin-top: 65px;">
-    <div class="item item-text-wrap" style="text-align:justify">
-        <h2 style="font-weight: bold; color: #3e97cf">Tiene {{contador}} mensajes sin leer</h2>
-    </div>
+<ion-content>
 
-    <div class="row text-left"  ng-repeat = "mensaje in Mensajes">
-            <label style="margin-top: 16px;"><input type="checkbox" ng-model="mensaje.activo" ng-change="checkearMensaje(mensaje, $index)"/></label>
-            <a ng-click="abrirMensaje(mensaje, $index)" class="item item-icon-left" href="#" style="width: 100%">
-                <i class="{{iconoMensaje(mensaje.estado_mensaje_acudiente)}}" style="color: {{ColorMensaje(mensaje.tipo)}}"></i>
-                <label style="float: left; font-size: 14px;">{{mensaje.asunto}}</label>
-                <label style="color: #b2b2b2; float: right">({{mensaje.estado_mensaje_acudiente}})</label>
+    <div class="card text-center">
+        <div class="item item-text-wrap" style="text-align:justify">
+            <h2 style="font-weight: bold; color: #3e97cf">Tiene {{contador}} mensajes sin leer</h2>
+        </div>
+
+        <div class="row text-left"  ng-repeat = "mensaje in Mensajes">
+                <label style="margin-top: 16px;"><input type="checkbox" ng-model="mensaje.activo" ng-change="checkearMensaje(mensaje, $index)"/></label>
+                <a ng-click="abrirMensaje(mensaje, $index)" class="item item-icon-left" href="#" style="width: 100%">
+                    <i class="{{iconoMensaje(mensaje.estado_mensaje_acudiente)}}" style="color: {{ColorMensaje(mensaje.tipo)}}"></i>
+                    <label style="float: left; font-size: 14px;">{{mensaje.asunto}}</label>
+                    <label style="color: #b2b2b2; float: right">({{mensaje.estado_mensaje_acudiente}})</label>
+                </a>
+        </div>
+    </div>
+    <div class="row" style="position: relative;">
+        <div class="col col-50">
+            <label style="font-size: 14px; margin-left: 4px;"><input type="checkbox" ng-model="check_mensajes" ng-change="checkearMensajes()"/>     Seleccionar Todos</label>
+        </div>
+
+        <div class="col col-50">
+            <a class="item-icon-right" ng-click="EliminarMensajes()" style="text-decoration: none; font-size: 20px;">
+                <i class="icon ion-trash-b" style="font-size: 22px; color: #d9534f;"></i>
             </a>
-    </div>
-</div>
-<div class="row" style="position: relative;">
-    <div class="col col-50">
-        <label style="font-size: 14px; margin-left: 4px;"><input type="checkbox" ng-model="check_mensajes" ng-change="checkearMensajes()"/>     Seleccionar Todos</label>
+        </div>
     </div>
 
-    <div class="col col-50">
-        <a class="item-icon-right" ng-click="EliminarMensajes()" style="text-decoration: none; font-size: 20px;">
-            <i class="icon ion-trash-b" style="font-size: 22px; color: #d9534f;"></i>
-        </a>
-    </div>
-</div>
+</ion-content>

@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<div class="card text-center">
+<div class="card text-center" ng-repeat="itemEstado in estadoCuenta">
     <div class="item item-text-wrap" style="text-align:justify">
         <h2 style="font-weight: bold; color: #3e97cf">Información General</h2>
     </div>
@@ -30,43 +30,43 @@
             <a class="itemList item-icon-left text-left" style="width: 100%;">
                 <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
                 <label style="color: #666;">Causado: </label>
-                <label style="color: #f0ad4e; font-weight: bold; margin-left: 25px; float: right;">${{informacionGeneral.causado}}</label>
+                <label style="color: #f0ad4e; font-weight: bold; margin-left: 25px; float: right;">{{itemEstado.causado_vigencia | currency:"$":0}}</label>
             </a>
         </div>
         <div class="row">
             <a class="itemList item-icon-left text-left" style="width: 100%;">
                 <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
                 <label style="color: #666;">Intereses: </label>
-                <label style="color: #f0ad4e; font-weight: bold; float: right;">${{informacionGeneral.interes}}</label>
+                <label style="color: #f0ad4e; font-weight: bold; float: right;">{{itemEstado.intereses_vigencia | currency:"$":0}}</label>
             </a>
         </div>
         <div class="row">
             <a class="itemList item-icon-left text-left" style="width: 100%;">
                 <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
                 <label style="color: #666;">Pagado: </label>
-                <label style="color: #5cb85c; font-weight: bold; float: right;">${{informacionGeneral.pagado}}</label>
+                <label style="color: #5cb85c; font-weight: bold; float: right;">{{itemEstado.pagado_vigencia | currency:"$":0}}</label>
             </a>
         </div>
         <div class="row">
             <a class="itemList item-icon-left text-left" style="width: 100%;">
                 <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
-                <label style="color: #666;">Total a Pagar: </label
-                        ><label style="color: #d9534f; font-weight: bold; float: right;">${{informacionGeneral.total}}</label>
+                <label style="color: #666;">Total a Pagar: </label>
+                <label style="color: #d9534f; font-weight: bold; float: right;">{{itemEstado.saldo_vigencia | currency:"$":0}}</label>
             </a>
         </div>
 </div>
 
 <div class="card text-center">
     <div class="item item-text-wrap" style="text-align:justify">
-        <h2 style="font-weight: bold; color: #3e97cf">Estado de Cuenta: Vigencia 2015</h2>
+        <h2 style="font-weight: bold; color: #3e97cf">Estado de Cuenta: Vigencia {{estadoCuenta[0].vigencia}}</h2>
     </div>
-    <div class="row" ng-repeat="estado in estadoCuenta">
-        <a class="itemList item-icon-left text-left" style="width: 100%;">
+    <div class="row" ng-repeat="estado in estadoCuenta[0].l_items">
+        <a class="itemList item-icon-left text-left" ng-click="verEstadoCuenta(estado)" style="width: 100%;">
             <i class="icon ion-paper-airplane" style="font-size: 18px; color: #000;"></i>
-            <label style="color: #666; font-size: 14px; font-weight: bold;">{{estado.concepto}}</label>
+            <label style="color: #666; font-size: 14px; font-weight: bold;">{{estado.nombre_concepto}}</label>
             <label style="color: #666; font-size: 14px; float: right;">Saldo</label><br>
-            <label style="color: #666; font-size: 14px;">{{estado.fecha_pago}}</label>
-            <label style="color: #d9534f; font-size: 14px; float: right; font-weight: bold;">${{estado.saldo}}</label>
+            <label style="color: #666; font-size: 14px;">{{estado.fecha_pago | date:'MM/dd/yyyy'}}</label>
+            <label style="color: #d9534f; font-size: 14px; float: right; font-weight: bold;">{{estado.saldo | currency:"$":0}}</label>
         </a>
     </div>
 </div>
