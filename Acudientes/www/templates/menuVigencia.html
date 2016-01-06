@@ -1,6 +1,6 @@
 <ion-header-bar class="bar info" ng-load="redireccionar()">
     <div class="buttons">
-        <button style="color:#fff;" ui-sref="home" class="button button-icon ion-chevron-left">Atrás
+        <button style="color:#fff;" ui-sref="estudiante" class="button button-icon ion-chevron-left">Atrás
         </button>
     </div>
     <h1 class="title" style="color:#fff;">C. Calleja Real</h1>
@@ -23,17 +23,19 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="text-center">
-                    <a ui-sref="vigencia" style="text-decoration: none; color: #666">
-                        <i class="ion ion-ios-paper-outline" style="font-size: 70px;"></i>
-                        <p style="font-size: 20px; font-weight: bold;">Estado de Cuenta</p>
-                    </a>
-                </div>
-            </div>
+    <div class="card text-center">
+        <div class="item item-text-wrap" style="text-align:justify">
+            <h2 style="font-weight: bold; color: #3e97cf">Seleccione Vigencia</h2>
+        </div>
+
+        <div class="row text-left" ng-repeat="itemEstado in estadoCuenta">
+            <a class="item item-icon-left" ng-click="irEstadoCuentaDeVigencia(itemEstado)" style="width: 100%;">
+                <i class="icon ion-university"></i>
+                <label>Vigencia {{itemEstado.vigencia}}</label>
+            </a>
         </div>
     </div>
+
+
 
 </ion-content>

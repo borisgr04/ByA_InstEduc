@@ -8,6 +8,7 @@ var app = angular.module('app', ['ionic'])
 .run(function($ionicPlatform, $rootScope) {
       $rootScope.Mensajes = [];
       $rootScope.contador;
+      $rootScope.estadoCuentaVigenciaActual = [];
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -50,6 +51,12 @@ var app = angular.module('app', ['ionic'])
         url: '/estudiante',
         templateUrl: 'templates/menuEstudiante.html',
         controller: 'EstudianteCtrl'
+      })
+
+      .state('vigencia', {
+        url: '/vigencia',
+        templateUrl: 'templates/menuVigencia.html',
+        controller: 'CuentaCtrl'
       })
 
       .state('cuenta', {

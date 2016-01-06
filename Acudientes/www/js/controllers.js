@@ -36,10 +36,22 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
         $state.go("estudiante");
     };
 
+    $scope.logout = function() {
+        localStorage.clear();
+        $rootScope.Mensajes = [];
+        $rootScope.estadoCuentaVigenciaActual = [];
+        $state.go('login');
+    };
+
+    $scope.redireccionar = function () {
+        _redireccionar();
+    }
+
     _init();
     function _init()
     {
         _getInformacionAcudienteMensajes();
+        $scope.redireccionar();
     };
 
     function _getInformacionAcudienteMensajes()
@@ -68,9 +80,15 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
             }
         }
     };
+
+    function _redireccionar() {
+        if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
+            $state.go('login');
+        }
+    };
 }]);
 
-app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajesServices', '$ionicPopup', function($scope, $rootScope, $ionicModal, mensajesServices, $ionicPopup){
+app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajesServices', '$ionicPopup', '$state', function($scope, $rootScope, $ionicModal, mensajesServices, $ionicPopup, $state){
 
     $scope.mensajeActual;
     $scope.contador;
@@ -97,9 +115,17 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         _getCambiarEstado(index);
     };
 
-    $scope.checkearMensajes = function(){
-        console.log($scope.mensajeDto);
+    $scope.checkear_Mensajes = function(){
+        if($scope.check_mensajes == undefined)
+        {
+            $scope.check_mensajes = true;
+        }
+        else
+        {
+            $scope.check_mensajes = !$scope.check_mensajes;
+        }
         if($scope.check_mensajes == true){
+            console.log($rootScope.Mensajes);
             $.each($rootScope.Mensajes, function (index, ite_mensajes) {
                 ite_mensajes.activo = true;
                 $scope.mensajeDto = [];
@@ -108,6 +134,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
                     $scope.mensajeDto.push($rootScope.Mensajes[i]);
                 }
             });
+            console.log($scope.mensajeDto);
         }
         if($scope.check_mensajes == false)
         {
@@ -122,16 +149,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
     $scope.checkearMensaje = function(msje, index){
         if(msje.activo)
         {
-            $scope.mensaje_auxiliar = {};
-            $scope.mensaje_auxiliar.asunto = msje.asunto;
-            $scope.mensaje_auxiliar.estado_mensaje_acudiente = msje.estado_mensaje_acudiente;
-            $scope.mensaje_auxiliar.fecha = msje.fecha;
-            $scope.mensaje_auxiliar.id = msje.id;
-            $scope.mensaje_auxiliar.id_mensaje_acudiente = msje.id_estado_mensaje_acudiente;
-            $scope.mensaje_auxiliar.id_remitente = msje.id_remitente;
-            $scope.mensaje_auxiliar.mensaje = msje.mensaje;
-            $scope.mensaje_auxiliar.tipo = msje.tipo;
-            $scope.mensajeDto.push($scope.mensaje_auxiliar);
+            $scope.mensajeDto.push(msje);
         }
         if(msje.activo == false)
         {
@@ -145,33 +163,45 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
     };
 
     $scope.EliminarMensajes = function() {
-        var promisePost = mensajesServices.PostCambiarMensajeInactivo($scope.mensajeDto);
-        promisePost.then(
-            function (pl) {
-                var respuesta = pl.data;
-                alert(JSON.stringify(respuesta));
-                if(respuesta.Error == false)
-                {
-                    showAlert("Exito!", respuesta.Mensaje);
-                    _EliminarItemMensajes();
+        alert($scope.mensajeDto.length);
+        if($scope.mensajeDto.length > 0)
+        {
+            var promisePost = mensajesServices.PostCambiarMensajeInactivo($scope.mensajeDto);
+            promisePost.then(
+                function (pl) {
+                    var respuesta = pl.data;
+                    if(respuesta.Error == false)
+                    {
+                        showAlert("Exito!", respuesta.Mensaje);
+                        _EliminarItemMensajes();
+                    }
+                    if(respuesta.Error)
+                    {
+                        showAlert("Error!", respuesta.Mensaje);
+                    }
+                },
+                function (errorPl){
+                    console.log(JSON.stringify(errorPl));
                 }
-                if(respuesta.Error)
-                {
-                    showAlert("Error!", respuesta.Mensaje);
-                }
-            },
-            function (errorPl){
-                console.log(JSON.stringify(errorPl));
-            }
-        );
-        _contarMensajes();
+            );
+            _contarMensajes();
+        }
+        else
+        {
+            showAlert("Alerta!", "Para eliminar los mensajes, debe checkear al menos un mensaje");
+        }
     };
+
+    $scope.redireccionar = function () {
+        _redireccionar();
+    }
 
     _init();
     function _init()
     {
         _crearModal();
         _contarMensajes();
+        $scope.redireccionar();
     }
 
     function _crearModal() {
@@ -232,165 +262,58 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
                 }
             }
         }
-        console.log($rootScope.Mensajes);
+        $scope.mensajeDto = [];
     }
+
+    function _redireccionar() {
+        if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
+            $state.go('login');
+        }
+    };
 }]);
 
-app.controller('EstudianteCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
     $scope.username = byaSite._getUsername();
     $scope.nombre_estudiante = byaSite._getNombreEstudiante();
     $scope.identificacion_estudiante = byaSite._getIdentificacionEstudiante();
+
+    $scope.redireccionar = function () {
+        _redireccionar();
+    }
+
+    _init();
+
+    function _init() {
+        $scope.redireccionar();
+    };
+    function _redireccionar() {
+        if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
+            $state.go('login');
+        }
+    };
 }]);
 
-app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuentaServices', function($scope, $rootScope, $ionicModal, estadoCuentaServices) {
+app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuentaServices', '$state', function($scope, $rootScope, $ionicModal, estadoCuentaServices, $state) {
     $scope.username = byaSite._getUsername();
     $scope.nombre_estudiante = byaSite._getNombreEstudiante();
     $scope.identificacion_estudiante = byaSite._getIdentificacionEstudiante();
     $scope.estado_actual;
     $scope.estadoCuenta = [];
-    $scope.informacionGeneral = {};
-    //$scope.informacionGeneral =
-    //{
-      //      "causado": "2,786,600",
-        //    "interes": "40,000",
-          //  "pagado": "2,346,600",
-            //"total": "480,000"
-    //};
-
-    //$scope.estadoCuenta =
-        [
-            {
-                "concepto": "Matricula",
-                "periodo": 2,
-                "causado": "286,600",
-                "interes": 0,
-                "pagado": "286,600",
-                "fecha_pago": "12/09/2014",
-                "saldo": 0
-            },
-            {
-                "concepto": "Proyectos Pedagogicos",
-                "periodo": 2,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "12/09/2014",
-                "saldo": 0
-            },
-            {
-                "concepto": "Sistematizacion",
-                "periodo": 2,
-                "causado": "60,00",
-                "interes": 0,
-                "pagado": "60,000",
-                "fecha_pago": "12/09/2014",
-                "saldo": 0
-            },
-            {
-                "concepto": "Seguro Estudiantil",
-                "periodo": 2,
-                "causado": "20,000",
-                "interes": 0,
-                "pagado": "20,000",
-                "fecha_pago": "12/09/2014",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 2,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "02/03/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 3,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "03/02/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 4,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "04/13/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 5,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "05/05/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 6,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "06/03/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 7,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "07/03/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 8,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "07/30/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 9,
-                "causado": "220,000",
-                "interes": 0,
-                "pagado": "220,000",
-                "fecha_pago": "09/02/2015",
-                "saldo": 0
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 10,
-                "causado": "220,000",
-                "interes": "20,000",
-                "pagado": 0,
-                "fecha_pago": "Fecha Pendiente",
-                "saldo": "240,000"
-            },
-            {
-                "concepto": "Pension",
-                "periodo": 2,
-                "causado": "220,000",
-                "interes": "20,000",
-                "pagado": 0,
-                "fecha_pago": "Fecha Pendiente",
-                "saldo": "240,000"
-            },
-        ];
 
     $scope.verEstadoCuenta = function(estado)
     {
         $scope.estado_actual = estado;
         $scope.modal.show();
+    }
+
+    $scope.irEstadoCuentaDeVigencia = function(itemEstado){
+        $rootScope.estadoCuentaVigenciaActual = []
+        $rootScope.estadoCuentaVigenciaActual = itemEstado;
+        $state.go("cuenta");
+    };
+
+    $scope.redireccionar = function () {
+        _redireccionar();
     }
 
     _init();
@@ -399,6 +322,7 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
     {
         _crearModal();
         _getEstadoCuenta();
+        $scope.redireccionar();
     }
 
     function _crearModal() {
@@ -416,15 +340,17 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
             function(pl){
                 var respuesta = pl.data;
                 $scope.estadoCuenta = [];
-                $scope.informacionGeneral = {};
                 $scope.estadoCuenta = respuesta;
-                //console.log(JSON.stringify($scope.estadoCuenta));
-                //alert(JSON.stringify($scope.estadoCuenta[0].l_items));
-                //alert($scope.estadoCuenta.length);
             },
             function (errorPl) {
                 console.log(JSON.stringify(errorPl));
             }
         );
+    };
+
+    function _redireccionar() {
+        if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
+            $state.go('login');
+        }
     };
 }]);

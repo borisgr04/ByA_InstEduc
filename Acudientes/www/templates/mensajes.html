@@ -1,4 +1,4 @@
-<ion-header-bar class="bar info">
+<ion-header-bar class="bar info" ng-load="redireccionar()">
     <div class="buttons">
         <button style="color:#fff;" ui-sref="home" class="button button-icon ion-chevron-left">Atrás
         </button>
@@ -24,7 +24,7 @@
     </div>
     <div class="row" style="position: relative;">
         <div class="col col-50">
-            <label style="font-size: 14px; margin-left: 4px;"><input type="checkbox" ng-model="check_mensajes" ng-change="checkearMensajes()"/>     Seleccionar Todos</label>
+            <label style="font-size: 14px; margin-left: 4px;"><input type="checkbox" ng-model="check_mensajes" ng-click="checkear_Mensajes()"/>     Seleccionar Todos</label>
         </div>
 
         <div class="col col-50">

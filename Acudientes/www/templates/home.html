@@ -1,7 +1,7 @@
-<ion-header-bar class="bar info">
+<ion-header-bar class="bar info" ng-load="redireccionar()">
     <button style="color:#fff; font-size: 14px;" class="button button-icon ion-person">{{username}}</button>
     <h1 class="title" style="color:#fff;">C. Calleja Real</h1>
-    <button style="color:#fff; font-size: 14px;" ui-sref="login" class="button button-icon">Salir</button>
+    <button style="color:#fff; font-size: 14px;" ng-click="logout()" class="button button-icon">Salir</button>
 </ion-header-bar>
 
 <ion-content>
