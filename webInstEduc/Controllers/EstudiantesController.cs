@@ -77,6 +77,12 @@ namespace Skeleton.WebAPI.Controllers
             mEstudiantes o = new mEstudiantes();
             return o.GetXGrado(vigencia, id_grado, id_curso);
         }
+        [Route("EnviarMensaje")]
+        public List<estudiantesDto> GetEstudiantesParaEnviarMensajes()
+        {
+            mEstudiantes o = new mEstudiantes();
+            return o.GetsEstudiantesParaEnviarMensajes();
+        }
 
         private string GetUser()
         {

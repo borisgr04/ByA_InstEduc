@@ -31,6 +31,10 @@ app.service("estudiantesService", function ($http) {
         var req = $http.get('/api/Estudiantes/Id/' + id);
         return req;
     };
+    this.GetEstudiantes = function () {
+        var req = $http.get('/api/Estudiantes/EnviarMensaje/');
+        return req;
+    };
     this.Insert = function (estudiante) {
         var req = $http.post('/api/Estudiantes',estudiante);
         return req;

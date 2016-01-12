@@ -29,6 +29,8 @@ namespace Entidades.Vistas
         public string nombre_completo { get; set; }
         public string nombre_completo_padre { get; set; }
         public string nombre_completo_madre { get; set; }
+        public string nombre_completo_acudiente { get; set; }
+        public double? saldo { get; set;}
         
         public tercerosDto terceros { get; set; }
         public tercerosDto terceros1 { get; set; }

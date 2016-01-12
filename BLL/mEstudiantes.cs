@@ -7,6 +7,7 @@ using DAL;
 using ByA;
 using AutoMapper;
 using Entidades.Consultas;
+using BLL.DatosBasicos;
 
 namespace BLL
 {
@@ -116,6 +117,51 @@ namespace BLL
                 }
             }
         }
+
+        public List<estudiantesDto> GetsEstudiantesParaEnviarMensajes()
+        {
+            using(ctx = new ieEntities())
+            {
+                DateTime FechaCausacion = mCausacion.FechaCausacion();
+                int VigPerAct = int.Parse(FechaCausacion.Year.ToString() + FechaCausacion.Month.ToString().PadLeft(2, '0'));
+                List<estudiantesDto> ListEstudiantes = ctx.estudiantes.Select(t => new estudiantesDto()
+                    {
+                        id = t.id,
+                        saldo = t.carterap.Where(p => p.estado != "AN" && (p.vigencia * 100 + p.periodo) <= VigPerAct).Sum(t2 => t2.valor - t2.pagado),
+                        identificacion = t.identificacion,
+                        nombre_completo = t.terceros.apellido + " " + t.terceros.nombre,
+                        nombre_completo_acudiente = t.terceros3.apellido + " " + t.terceros3.nombre,
+                        id_acudiente = t.terceros3.id,
+                        nombre_grado = t.id_ultima_matricula != null ? t.matriculas.Where(u=> u.id == t.id_ultima_matricula).FirstOrDefault().cursos.grados.nombre : "",
+                        nombre_curso = t.id_ultima_matricula != null ? t.matriculas.Where(u => u.id == t.id_ultima_matricula).FirstOrDefault().cursos.nombre : ""
+                    }).ToList();
+                return ListEstudiantes;
+            }
+        }
+
+        /*public cEstudiantesOrden GetsEstudiantesParaEnviarMensajes(int orden)
+        {
+            cEstudiantesOrden objEstudiantes = this.GetsOrden(orden);
+            mEstadoCuenta cuenta = new mEstadoCuenta();
+            /*DateTime FechaCausacion = mCausacion.FechaCausacion();
+            DateTime FechaActual = new DateTime(2015, 11, 27);
+            TimeSpan ts = FechaCausacion - FechaActual;
+            int DiferenciaEnDias = ts.Days;
+            foreach(estudiantesDto EstDto in objEstudiantes.lEstudiantes)
+            {
+                List<cEstadoCuenta> lCuenta = cuenta.GetEstadoCuentaResumido(EstDto.identificacion);
+                foreach (cEstadoCuenta cCuenta in lCuenta)
+                {
+                    EstDto.saldo = EstDto.saldo + cCuenta.saldo_vigencia;
+                }
+                /*if ((EstDto.saldo == 0) && (DiferenciaEnDias <= 5 && DiferenciaEnDias >= 0)) EstDto.estado = "FECHA PROXIMA DE PAGO";
+                if ((EstDto.saldo != 0) && (DiferenciaEnDias <= 5 && DiferenciaEnDias >= 0)) EstDto.estado = "MOROSO CON FECHA PROXIMA DE PAGO";
+                if ((EstDto.saldo != 0) && (DiferenciaEnDias > 5)) EstDto.estado = "MOROSO";
+                if ((EstDto.saldo == 0) && (DiferenciaEnDias > 5)) EstDto.estado = "PAZ Y SALVO";
+            }
+            return objEstudiantes;
+        }*/
+        
         public int GetGrupoPago(string id_estudiante)
         {
             mCausacion.Causar(id_estudiante);

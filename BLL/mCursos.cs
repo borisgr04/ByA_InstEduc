@@ -17,6 +17,17 @@ namespace BLL
             Mapper.CreateMap<cursosDto, cursos>();
             Mapper.CreateMap<cursos, cursosDto>();
         }
+
+        public List<cursosDto> GetCursos()
+        {
+            using (ctx = new ieEntities())
+            {
+                List<cursosDto> lr = new List<cursosDto>();
+                List<cursos> l = ctx.cursos.ToList();
+                Mapper.Map(l, lr);
+                return lr;
+            }
+        }
         public List<cursosDto> GetCursosGrado(int id_grado)
         {
             using (ctx = new ieEntities())

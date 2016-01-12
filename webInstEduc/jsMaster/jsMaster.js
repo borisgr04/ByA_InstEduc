@@ -14,7 +14,8 @@ var masterP = (function ($) {
        { codigo: "PAGOS", nombre: "Pagos", icono: "icon-usd" },       
        { codigo: "CONSU", nombre: "Consultas", icono: "icon-file-text-alt" },
        { codigo: "DATOB", nombre: "Datos Basicos", icono: "icon-book" },
-       { codigo: "SEGUD", nombre: "Seguridad", icono: "icon-unlock-alt" }       
+       { codigo: "SEGUD", nombre: "Seguridad", icono: "icon-unlock-alt" },
+       { codigo: "MSJE", nombre: "Mensajes", icono: "icon-book" },
     ];
     var _addHandlers = function () {
         $(".classVigencias").click(function () {

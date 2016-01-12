@@ -27,5 +27,12 @@ namespace Skeleton.WebAPI.Controllers
             mCursos o = new mCursos();
             return o.InsertsOrUpdates(lReg);
         }
+
+        [Route("")]
+        public List<cursosDto> GetCursos()
+        {
+            mCursos o = new mCursos();
+            return o.GetCursos();
+        }
     }
 }

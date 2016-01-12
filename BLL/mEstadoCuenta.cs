@@ -16,7 +16,7 @@ namespace BLL
         public List<cEstadoCuenta> GetEstadoCuentaResumido(string id_estudiante)
         {
             List<cEstadoCuenta> lEstadoCuenta = new List<cEstadoCuenta>();
-            DateTime FechaCausacion = mCausacion.FechaCausacion();            
+            DateTime FechaCausacion = mCausacion.FechaCausacion();        
             int VigPerAct = int.Parse(FechaCausacion.Year.ToString() + FechaCausacion.Month.ToString().PadLeft(2, '0'));
             mVigencias objVigencias = new mVigencias();
             List<vigenciasDto> lVigencias = objVigencias.GetsActivas();

@@ -15,6 +15,8 @@ namespace Entidades.Vistas
         public int id_matricula { get; set; }
         public string id_estudiante { get; set; }
         public double pagado { get; set; }
+
+        public double saldo { get; set; }
         public int id_grupo { get; set; }
         public int id_est { get; set; }
         public string estado { get; set; }

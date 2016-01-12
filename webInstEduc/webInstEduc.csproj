@@ -1452,6 +1452,8 @@
     <Content Include="DatosBasicos\FechaCausacion\js\cFechaCausacion.js" />
     <Content Include="DatosBasicos\Grados\Grados.aspx" />
     <Content Include="DatosBasicos\Grados\js\cGrados.js" />
+    <Content Include="Mensajes\Mensajes\js\cMensajes.js" />
+    <Content Include="Mensajes\Mensajes\Mensajes.aspx" />
     <Content Include="DatosBasicos\Tarifas\js\cTarifas.js" />
     <Content Include="DatosBasicos\Tarifas\Tarifas.aspx" />
     <Content Include="DatosBasicos\Periodos\js\cPeriodos.js" />
@@ -1940,6 +1942,9 @@
     <Content Include="Inicio\Acudientes\Web.config" />
     <Content Include="Inicio\Administrativo\Web.config" />
     <Content Include="Matriculas\Gestion\Web.config" />
+    <Content Include="Mensajes\Mensajes\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -2204,6 +2209,13 @@
     </Compile>
     <Compile Include="DatosBasicos\Grados\Grados.aspx.designer.cs">
       <DependentUpon>Grados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajes\Mensajes\Mensajes.aspx.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mensajes\Mensajes\Mensajes.aspx.designer.cs">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="DatosBasicos\Tarifas\Tarifas.aspx.cs">
       <DependentUpon>Tarifas.aspx</DependentUpon>

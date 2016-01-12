@@ -52,6 +52,14 @@ namespace BLL
                 return lrCartera;
             }
         }
+        /*public double SaldoEstudiantesSinIntereses(string id_estudiante, int vigencia)
+        {
+            using(ctx = new ieEntities())
+            {
+                double saldoEstudiante = ctx.carterap.Where(t => t.id_estudiante == id_estudiante).GroupBy(t=> t.vigencia).Sum(t=>t.Sum(t1=>t1.valor - t1.pagado));
+                return saldoEstudiante;
+            }
+        }*/
         public List<tarifas> TraerTarifas(int grado, int vigencia)
         {
             using (ctx = new ieEntities())
