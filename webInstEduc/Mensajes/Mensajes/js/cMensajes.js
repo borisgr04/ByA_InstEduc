@@ -67,12 +67,9 @@
             }
             $scope.estudianteDto.splice(index, 1);
         }
-        console.log($scope.estudianteDto);
     };
     $scope.checkear_todosEstudiantes = function () {
-        //alert($scope.check_todos_estudiantes);
         if ($scope.check_todos_estudiantes == true) {
-            //console.log($rootScope.Mensajes);
             $.each($scope.estudiantes, function (index, ite_estudiantes) {
                 ite_estudiantes.activo = true;
                 $scope.estudianteDto = [];
@@ -80,14 +77,12 @@
                     $scope.estudianteDto.push($scope.listaEstudiantes[i]);
                 }
             });
-            console.log($scope.estudianteDto);
         }
         if ($scope.check_todos_estudiantes == false) {
             $.each($scope.estudiantes, function (index, ite_estudiantes) {
                 ite_estudiantes.activo = false;
             });
             $scope.estudianteDto = [];
-            console.log($scope.estudianteDto);
         }
     };
 
@@ -169,7 +164,6 @@
     };
 
     $scope.abrirModal = function () {
-        alert($scope.estudianteDto.length);
         $scope.asunto = $scope.tipoAlerta;
         $scope.tipoMsje = $scope.tipoMensaje[0];
         _mensajesAcudientes($scope.asunto.id);
@@ -201,7 +195,6 @@
             var respuesta = pl.data;
             $scope.estudiantes = respuesta;
             $scope.listaEstudiantes = $scope.estudiantes;
-            console.log($scope.listaEstudiantes);
         }, function (errorPl) {
             console.log(JSON.stringify(errorPl));
         });
@@ -268,16 +261,17 @@
         if (tipoDeMensaje == 2) {
             for (i in $scope.estudianteDto) {
                 $scope.estudianteDto[i].mensaje = $scope.recordatorioDePago;
+                $scope.estudianteDto[i].asunto = $scope.tipoAlerta.nombre;
+                $scope.estudianteDto[i].tipo_mensaje = $scope.tipoMsje.nombre;
             }
         }
-        console.log($scope.estudianteDto);
     };
 
     function _registrarMensajes() {
         var promisePost = mensajesService.PostMensajes($scope.estudianteDto, byaSite.getUsuario());
         promisePost.then(
             function(pl){
-                alert(JSON.stringify(pl.data));
+                alert(pl.data.Mensaje);
             },
             function(errorPl){
                 console.log(JSON.stringify(errorPl));
