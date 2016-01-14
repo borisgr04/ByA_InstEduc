@@ -131,18 +131,18 @@ namespace BLL
             }
         }
 
-        public bInformacionAcudienteMensajes GetInformacionAcudienteMensajes(string username)
-        {
-            using(ctx = new ieEntities())
-            {
-                bInformacionAcudienteMensajes r = new bInformacionAcudienteMensajes();                
-                mMensajesAcudiente msjeAcudiente = new mMensajesAcudiente();
-                r.acudiente = this.GetIdentificacion(username);
-                r.estudiantes = this.GetEstudiantesAcudientes(username);
-                r.mensajes =  msjeAcudiente.GetMensajes(r.acudiente.id);
-                return r;
-            }
-        }
+        //public bInformacionAcudienteMensajes GetInformacionAcudienteMensajes(string username)
+        //{
+        //    using(ctx = new ieEntities())
+        //    {
+        //        bInformacionAcudienteMensajes r = new bInformacionAcudienteMensajes();                
+        //        mMensajesAcudiente msjeAcudiente = new mMensajesAcudiente();
+        //        r.acudiente = this.GetIdentificacion(username);
+        //        r.estudiantes = this.GetEstudiantesAcudientes(username);
+        //        r.mensajes =  msjeAcudiente.GetMensajes(r.acudiente.id);
+        //        return r;
+        //    }
+        //}
         public tercerosDto GetIdentificacion(string Id)
         {
             using (ctx = new ieEntities())

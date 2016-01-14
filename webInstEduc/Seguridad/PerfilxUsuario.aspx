@@ -45,7 +45,9 @@
                 <optgroup label="Acudientes">
                     <option value="ACUDI">Acudientes</option>
                 </optgroup>
-
+                <optgroup label="Mensajes">
+                    <option value="MSJE">Mensajes</option>
+                </optgroup>
 
             </select>
         </div>

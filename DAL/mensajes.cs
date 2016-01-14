@@ -14,11 +14,6 @@ namespace DAL
     
     public partial class mensajes
     {
-        public mensajes()
-        {
-            this.mensajes_acudientes = new HashSet<mensajes_acudientes>();
-        }
-    
         public int id { get; set; }
         public string asunto { get; set; }
         public string mensaje { get; set; }
@@ -26,8 +21,9 @@ namespace DAL
         public string tipo { get; set; }
         public int id_remitente { get; set; }
         public string estado { get; set; }
+        public Nullable<int> id_destinatario { get; set; }
     
-        public virtual ICollection<mensajes_acudientes> mensajes_acudientes { get; set; }
         public virtual terceros terceros { get; set; }
+        public virtual terceros terceros1 { get; set; }
     }
 }

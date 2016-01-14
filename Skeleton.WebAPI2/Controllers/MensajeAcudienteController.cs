@@ -17,19 +17,19 @@ namespace Skeleton.WebAPI.Controllers
     [RoutePrefix("api/MensajeAcudiente")]
     public class MensajeAcudienteController : ApiController
     {
-        [Route("{id_mensaje_acudiente}")]
-        public ByARpt GetCambiarEstado(int id_mensaje_acudiente)
-        {
-            mMensajesAcudiente msje = new mMensajesAcudiente();
-            return msje.cambiarEstado(id_mensaje_acudiente);
-        }
+        //[Route("{id_mensaje_acudiente}")]
+        //public ByARpt GetCambiarEstado(int id_mensaje_acudiente)
+        //{
+        //    mMensajesAcudiente msje = new mMensajesAcudiente();
+        //    return msje.cambiarEstado(id_mensaje_acudiente);
+        //}
 
-        [Route("EliminarMensajes")]
-        public ByARpt PostCambiarMensajeInactivo(List<mensajesDto> ListId)
-        {
-            mMensajesAcudiente msje = new mMensajesAcudiente();
-            return msje.cambiarMensajeInactivo(ListId);
-        }
+        //[Route("EliminarMensajes")]
+        //public ByARpt PostCambiarMensajeInactivo(List<mensajesDto> ListId)
+        //{
+        //    mMensajesAcudiente msje = new mMensajesAcudiente();
+        //    return msje.cambiarMensajeInactivo(ListId);
+        //}
     }
 
 

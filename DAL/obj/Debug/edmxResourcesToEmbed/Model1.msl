@@ -4,394 +4,380 @@
     <EntitySetMapping Name="carterap">
       <EntityTypeMapping TypeName="bdieModel.carterap">
         <MappingFragment StoreEntitySet="carterap">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
-          <ScalarProperty Name="periodo" ColumnName="periodo" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
-          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
-          <ScalarProperty Name="pagado" ColumnName="pagado" />
-          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
-          <ScalarProperty Name="id_est" ColumnName="id_est" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="pago_genero_intereses" ColumnName="pago_genero_intereses" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="pago_genero_intereses" ColumnName="pago_genero_intereses" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_est" ColumnName="id_est" />
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+          <ScalarProperty Name="pagado" ColumnName="pagado" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="conceptos">
       <EntityTypeMapping TypeName="bdieModel.conceptos">
         <MappingFragment StoreEntitySet="conceptos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="cod_contable" ColumnName="cod_contable" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="cod_contable" ColumnName="cod_contable" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="config_grupos_pagos">
       <EntityTypeMapping TypeName="bdieModel.config_grupos_pagos">
         <MappingFragment StoreEntitySet="config_grupos_pagos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
-          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="intereses" ColumnName="intereses" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="intereses" ColumnName="intereses" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cursos">
       <EntityTypeMapping TypeName="bdieModel.cursos">
         <MappingFragment StoreEntitySet="cursos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="id_grado" ColumnName="id_grado" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="id_grado" ColumnName="id_grado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="detalles_pago">
       <EntityTypeMapping TypeName="bdieModel.detalles_pago">
         <MappingFragment StoreEntitySet="detalles_pago">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_pago" ColumnName="id_pago" />
-          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
-          <ScalarProperty Name="periodo" ColumnName="periodo" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
-          <ScalarProperty Name="id_cartera" ColumnName="id_cartera" />
           <ScalarProperty Name="nombre_concepto" ColumnName="nombre_concepto" />
+          <ScalarProperty Name="id_cartera" ColumnName="id_cartera" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
+          <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="detalles_tipos_tercero">
       <EntityTypeMapping TypeName="bdieModel.detalles_tipos_tercero">
         <MappingFragment StoreEntitySet="detalles_tipos_tercero">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
-          <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="nombre_tipo" ColumnName="nombre_tipo" />
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="documentos">
       <EntityTypeMapping TypeName="bdieModel.documentos">
         <MappingFragment StoreEntitySet="documentos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="entidad">
       <EntityTypeMapping TypeName="bdieModel.entidad">
         <MappingFragment StoreEntitySet="entidad">
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="direccion" ColumnName="direccion" />
-          <ScalarProperty Name="telefono" ColumnName="telefono" />
-          <ScalarProperty Name="logo" ColumnName="logo" />
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="estudiantes">
       <EntityTypeMapping TypeName="bdieModel.estudiantes">
         <MappingFragment StoreEntitySet="estudiantes">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_ultima_matricula" ColumnName="id_ultima_matricula" />
-          <ScalarProperty Name="id_ultimo_grado" ColumnName="id_ultimo_grado" />
-          <ScalarProperty Name="lugar_nacimiento" ColumnName="lugar_nacimiento" />
-          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
-          <ScalarProperty Name="colegio_procedencia" ColumnName="colegio_procedencia" />
-          <ScalarProperty Name="estado_civil_padres" ColumnName="estado_civil_padres" />
-          <ScalarProperty Name="parentesco_acudiente" ColumnName="parentesco_acudiente" />
-          <ScalarProperty Name="id_acudiente" ColumnName="id_acudiente" />
-          <ScalarProperty Name="id_tercero_madre" ColumnName="id_tercero_madre" />
-          <ScalarProperty Name="id_tercero_padre" ColumnName="id_tercero_padre" />
-          <ScalarProperty Name="id_tercero_estudiante" ColumnName="id_tercero_estudiante" />
-          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
-          <ScalarProperty Name="vive_con" ColumnName="vive_con" />
-          <ScalarProperty Name="codigo" ColumnName="codigo" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="fc_menu">
-      <EntityTypeMapping TypeName="bdieModel.fc_menu">
-        <MappingFragment StoreEntitySet="fc_menu">
-          <ScalarProperty Name="fc_menuid" ColumnName="fc_menuid" />
-          <ScalarProperty Name="fc_titulo" ColumnName="fc_titulo" />
-          <ScalarProperty Name="fc_descripcion" ColumnName="fc_descripcion" />
-          <ScalarProperty Name="fc_padreid" ColumnName="fc_padreid" />
-          <ScalarProperty Name="fc_posicion" ColumnName="fc_posicion" />
-          <ScalarProperty Name="fc_icono" ColumnName="fc_icono" />
-          <ScalarProperty Name="fc_habilitado" ColumnName="fc_habilitado" />
-          <ScalarProperty Name="fc_url" ColumnName="fc_url" />
-          <ScalarProperty Name="fc_modulo" ColumnName="fc_modulo" />
-          <ScalarProperty Name="fc_target" ColumnName="fc_target" />
-          <ScalarProperty Name="fc_ppal" ColumnName="fc_ppal" />
-          <ScalarProperty Name="fc_roles" ColumnName="fc_roles" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="vive_con" ColumnName="vive_con" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="id_tercero_estudiante" ColumnName="id_tercero_estudiante" />
+          <ScalarProperty Name="id_tercero_padre" ColumnName="id_tercero_padre" />
+          <ScalarProperty Name="id_tercero_madre" ColumnName="id_tercero_madre" />
+          <ScalarProperty Name="id_acudiente" ColumnName="id_acudiente" />
+          <ScalarProperty Name="parentesco_acudiente" ColumnName="parentesco_acudiente" />
+          <ScalarProperty Name="estado_civil_padres" ColumnName="estado_civil_padres" />
+          <ScalarProperty Name="colegio_procedencia" ColumnName="colegio_procedencia" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="lugar_nacimiento" ColumnName="lugar_nacimiento" />
+          <ScalarProperty Name="id_ultimo_grado" ColumnName="id_ultimo_grado" />
+          <ScalarProperty Name="id_ultima_matricula" ColumnName="id_ultima_matricula" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="fechas_calculo_intereses">
       <EntityTypeMapping TypeName="bdieModel.fechas_calculo_intereses">
         <MappingFragment StoreEntitySet="fechas_calculo_intereses">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="id_cartera" ColumnName="id_cartera" />
           <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_cartera" ColumnName="id_cartera" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="formas_pago">
       <EntityTypeMapping TypeName="bdieModel.formas_pago">
         <MappingFragment StoreEntitySet="formas_pago">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="grados">
       <EntityTypeMapping TypeName="bdieModel.grados">
         <MappingFragment StoreEntitySet="grados">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="grupos_pagos">
       <EntityTypeMapping TypeName="bdieModel.grupos_pagos">
         <MappingFragment StoreEntitySet="grupos_pagos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="prioridad" ColumnName="prioridad" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="intereses_manuales">
       <EntityTypeMapping TypeName="bdieModel.intereses_manuales">
         <MappingFragment StoreEntitySet="intereses_manuales">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="en_mes" ColumnName="en_mes" />
-          <ScalarProperty Name="inicio" ColumnName="inicio" />
-          <ScalarProperty Name="fin" ColumnName="fin" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="fin" ColumnName="fin" />
+          <ScalarProperty Name="inicio" ColumnName="inicio" />
+          <ScalarProperty Name="en_mes" ColumnName="en_mes" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="matriculas">
       <EntityTypeMapping TypeName="bdieModel.matriculas">
         <MappingFragment StoreEntitySet="matriculas">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
-          <ScalarProperty Name="id_grado" ColumnName="id_grado" />
-          <ScalarProperty Name="id_est" ColumnName="id_est" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="folio" ColumnName="folio" />
-          <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="id_matricula" ColumnName="id_matricula" />
+          <ScalarProperty Name="folio" ColumnName="folio" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_est" ColumnName="id_est" />
+          <ScalarProperty Name="id_grado" ColumnName="id_grado" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="mensajes_acudientes">
-      <EntityTypeMapping TypeName="bdieModel.mensajes_acudientes">
-        <MappingFragment StoreEntitySet="mensajes_acudientes">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_mensaje" ColumnName="id_mensaje" />
-          <ScalarProperty Name="id_acudiente" ColumnName="id_acudiente" />
+    <EntitySetMapping Name="mensajes">
+      <EntityTypeMapping TypeName="bdieModel.mensajes">
+        <MappingFragment StoreEntitySet="mensajes">
+          <ScalarProperty Name="id_destinatario" ColumnName="id_destinatario" />
           <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_remitente" ColumnName="id_remitente" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="asunto" ColumnName="asunto" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="movimientos">
       <EntityTypeMapping TypeName="bdieModel.movimientos">
         <MappingFragment StoreEntitySet="movimientos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="periodo" ColumnName="periodo" />
-          <ScalarProperty Name="id_cartera" ColumnName="id_cartera" />
-          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
-          <ScalarProperty Name="valor_debito" ColumnName="valor_debito" />
-          <ScalarProperty Name="valor_credito" ColumnName="valor_credito" />
-          <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="fecha_novedad" ColumnName="fecha_novedad" />
-          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
-          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
-          <ScalarProperty Name="numero_documento" ColumnName="numero_documento" />
           <ScalarProperty Name="id_est" ColumnName="id_est" />
+          <ScalarProperty Name="numero_documento" ColumnName="numero_documento" />
+          <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="fecha_novedad" ColumnName="fecha_novedad" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha_movimiento" ColumnName="fecha_movimiento" />
+          <ScalarProperty Name="valor_credito" ColumnName="valor_credito" />
+          <ScalarProperty Name="valor_debito" ColumnName="valor_debito" />
+          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
+          <ScalarProperty Name="id_cartera" ColumnName="id_cartera" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="pagos">
       <EntityTypeMapping TypeName="bdieModel.pagos">
         <MappingFragment StoreEntitySet="pagos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
-          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
-          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
-          <ScalarProperty Name="id_est" ColumnName="id_est" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
-          <ScalarProperty Name="observacion" ColumnName="observacion" />
-          <ScalarProperty Name="fecha_max_pago" ColumnName="fecha_max_pago" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="fecha_max_pago" ColumnName="fecha_max_pago" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="id_est" ColumnName="id_est" />
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="parametros">
       <EntityTypeMapping TypeName="bdieModel.parametros">
         <MappingFragment StoreEntitySet="parametros">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
           <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="periodos">
       <EntityTypeMapping TypeName="bdieModel.periodos">
         <MappingFragment StoreEntitySet="periodos">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="periodo" ColumnName="periodo" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="vence_dia" ColumnName="vence_dia" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="vence_dia" ColumnName="vence_dia" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="saldos_a_favor">
       <EntityTypeMapping TypeName="bdieModel.saldos_a_favor">
         <MappingFragment StoreEntitySet="saldos_a_favor">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="id_est" ColumnName="id_est" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="id_est" ColumnName="id_est" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tarifas">
       <EntityTypeMapping TypeName="bdieModel.tarifas">
         <MappingFragment StoreEntitySet="tarifas">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="id_grado" ColumnName="id_grado" />
-          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="periodo_desde" ColumnName="periodo_desde" />
-          <ScalarProperty Name="periodo_hasta" ColumnName="periodo_hasta" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="periodo_hasta" ColumnName="periodo_hasta" />
+          <ScalarProperty Name="periodo_desde" ColumnName="periodo_desde" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
+          <ScalarProperty Name="id_grado" ColumnName="id_grado" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tasas">
       <EntityTypeMapping TypeName="bdieModel.tasas">
         <MappingFragment StoreEntitySet="tasas">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
-          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
-          <ScalarProperty Name="tasa" ColumnName="tasa" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="tasa" ColumnName="tasa" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="terceros">
       <EntityTypeMapping TypeName="bdieModel.terceros">
         <MappingFragment StoreEntitySet="terceros">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="apellido" ColumnName="apellido" />
-          <ScalarProperty Name="RH" ColumnName="RH" />
-          <ScalarProperty Name="direccion" ColumnName="direccion" />
-          <ScalarProperty Name="telefono" ColumnName="telefono" />
-          <ScalarProperty Name="celular" ColumnName="celular" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="tipo_identificacion" ColumnName="tipo_identificacion" />
-          <ScalarProperty Name="ocupacion" ColumnName="ocupacion" />
-          <ScalarProperty Name="direccion_trabajo" ColumnName="direccion_trabajo" />
           <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="direccion_trabajo" ColumnName="direccion_trabajo" />
+          <ScalarProperty Name="ocupacion" ColumnName="ocupacion" />
+          <ScalarProperty Name="tipo_identificacion" ColumnName="tipo_identificacion" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="RH" ColumnName="RH" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tipos_documentos">
       <EntityTypeMapping TypeName="bdieModel.tipos_documentos">
         <MappingFragment StoreEntitySet="tipos_documentos">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -405,25 +391,30 @@
     <EntitySetMapping Name="vigencias">
       <EntityTypeMapping TypeName="bdieModel.vigencias">
         <MappingFragment StoreEntitySet="vigencias">
-          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
-          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
-          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
           <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mod" ColumnName="fec_mod" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="mensajes">
-      <EntityTypeMapping TypeName="bdieModel.mensajes">
-        <MappingFragment StoreEntitySet="mensajes">
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="id_remitente" ColumnName="id_remitente" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
-          <ScalarProperty Name="asunto" ColumnName="asunto" />
-          <ScalarProperty Name="id" ColumnName="id" />
+    <EntitySetMapping Name="fc_menu">
+      <EntityTypeMapping TypeName="bdieModel.fc_menu">
+        <MappingFragment StoreEntitySet="fc_menu">
+          <ScalarProperty Name="fc_roles" ColumnName="fc_roles" />
+          <ScalarProperty Name="fc_ppal" ColumnName="fc_ppal" />
+          <ScalarProperty Name="fc_target" ColumnName="fc_target" />
+          <ScalarProperty Name="fc_modulo" ColumnName="fc_modulo" />
+          <ScalarProperty Name="fc_url" ColumnName="fc_url" />
+          <ScalarProperty Name="fc_habilitado" ColumnName="fc_habilitado" />
+          <ScalarProperty Name="fc_icono" ColumnName="fc_icono" />
+          <ScalarProperty Name="fc_posicion" ColumnName="fc_posicion" />
+          <ScalarProperty Name="fc_padreid" ColumnName="fc_padreid" />
+          <ScalarProperty Name="fc_descripcion" ColumnName="fc_descripcion" />
+          <ScalarProperty Name="fc_titulo" ColumnName="fc_titulo" />
+          <ScalarProperty Name="fc_menuid" ColumnName="fc_menuid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

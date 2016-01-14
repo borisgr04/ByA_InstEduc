@@ -11,7 +11,6 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class carterap
     {
@@ -47,7 +46,5 @@ namespace DAL
         public virtual ICollection<detalles_pago> detalles_pago { get; set; }
         public virtual ICollection<fechas_calculo_intereses> fechas_calculo_intereses { get; set; }
         public virtual ICollection<movimientos> movimientos { get; set; }
-        [NotMapped]
-        public double saldo { get { return this.valor-this.pagado;}}
     }
 }

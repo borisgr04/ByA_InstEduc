@@ -13,14 +13,7 @@
     <script src="/Angular/ng-table.js"></script>
     <script src="js/cMensajes.js"></script>
     <div class="container" ng-app="Model">
-        <div ng-controller="cEstudiantes" ng-cloak>
-            <div class="alert alert-info alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong><h2>Información</h2></strong>
-                <p>Para cargar los datos en la tabla seleccione que estudiantes quiere ver, y luego pulse Filtrar</p>
-            </div>
+        <div ng-controller="cEstudiantes" ng-cloak>            
             <div class="loading-spiner-holder" data-loading >
                 <div class="loading-spiner">
                     <div id="floatingCirclesG">
@@ -86,7 +79,7 @@
                     </div>
 
                     <div class="col-xs-2 form-group">
-                        <button class="btn btn-info form-control">
+                        <button class="btn btn-info form-control" ng-click="abrirModal()" ng-disabled="estudianteDto.length == 0">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             Redactar Mensaje
                         </button>
@@ -122,23 +115,47 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!--<table ng-table="tableEstudiantes" class="table table-bordered table-hover table-striped tablesorter">
-                        <tr ng-repeat="estudiante in estudiantes | filter:filtro"">
-                                <td style="text-align:center;"><label><input type="checkbox" ng-model="estudiante.check"></input></label></td>
-                                <td class="text-right" style="text-align: right;" header-class="'text-right'" data-title="'Identificación'" filter="{ 'identificacion': 'text' }" sortable="'identificacion'"><strong>{{estudiante.identificacion | currency :"":0}}</strong></td>
-                                <td data-title="'Estudiante'" filter="{ 'nombre_completo': 'text' }" sortable="'nombre_completo'">{{estudiante.nombre_completo}}</td>
-                                <td data-title="'Acudiente'">{{estudiante.terceros2.apellido}} {{estudiante.terceros2.nombre}}</td>
-                                <td data-title="'Grado'" filter="{ 'nombre_grado': 'text' }" sortable="'nombre_grado'">{{estudiante.nombre_grado}}</td>
-                                <td data-title="'Curso'" filter="{ 'nombre_curso': 'text' }" sortable="'nombre_curso'">{{estudiante.nombre_curso}}</td>
-                        </tr>
-                        <tr ng-show="estudiantes.length == 0">
-                            <td colspan="6"><strong>No se ha registrado ningún estudiante</strong></td>
-                        </tr>
-                    </table>-->
                 </div>
             </div>
         </div>
     </div>
-</div>
+            <!--Modal Para el envio de mensajes-->
+        <div class="modal fade bs-example-modal-lg" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog" role="document" style="width: 800px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title text-center" id="myLargeModalLabel">Envíar Mensaje</h4>
+                    </div>                
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label>Asunto</label>
+                                <input type="text" class="form-control" ng-model="asunto.nombre" disabled="disabled"/>
+                            </div>         
+                            <div class="col-xs-6">
+                                <label>Tipo mensaje</label>
+                                <select class="form-control" ng-model="tipoMsje" disabled="disabled" ng-options="tipo as tipo.nombre for tipo in tipoMensaje track by tipo.id"></select>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <label>Mensaje</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <textarea class="form-control" disabled="disabled" rows="4">{{ContenidoMensaje}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" ng-click="registrarMensajes()">Enviar mensajes</button>
+                    </div>
+                </div>
+            </div>
         </div>
+</div>
+    </div>
 </asp:Content>

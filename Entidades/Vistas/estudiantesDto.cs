@@ -31,6 +31,9 @@ namespace Entidades.Vistas
         public string nombre_completo_madre { get; set; }
         public string nombre_completo_acudiente { get; set; }
         public double? saldo { get; set;}
+        public string mensaje { get; set; }
+        public string asunto { get; set; }
+        public string tipo_mensaje { get; set; }
         
         public tercerosDto terceros { get; set; }
         public tercerosDto terceros1 { get; set; }

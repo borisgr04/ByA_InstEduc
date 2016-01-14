@@ -164,3 +164,7 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\AutoMapper.xml
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\obj\Debug\webInstEduc.csprojResolveAssemblyReference.cache
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\obj\Debug\AspIdentity.dll
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\obj\Debug\AspIdentity.pdb
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.SystemWeb.xml

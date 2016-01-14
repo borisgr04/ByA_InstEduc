@@ -407,3 +407,9 @@ app.service("conceptoacarteraService", function ($http) {
         return req;
     };
 });
+app.service("mensajesService", function ($http) {
+    this.PostMensajes = function (estudiantesDto, identificacion) {
+        var req = $http.post('/api/Mensajes/' + identificacion, estudiantesDto);
+        return req;
+    };
+});

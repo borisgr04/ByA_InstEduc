@@ -242,15 +242,7 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     <Property Name="tipo" Type="nvarchar" MaxLength="50" />
     <Property Name="id_remitente" Type="int" Nullable="false" />
     <Property Name="estado" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="mensajes_acudientes">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="id_mensaje" Type="int" Nullable="false" />
-    <Property Name="id_acudiente" Type="int" Nullable="false" />
-    <Property Name="estado" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_destinatario" Type="int" />
   </EntityType>
   <EntityType Name="movimientos">
     <Key>
@@ -401,6 +393,18 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     <Property Name="usu_reg" Type="nvarchar" MaxLength="50" />
     <Property Name="usu_mod" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK__mensajes__id_des__01142BA1">
+    <End Role="terceros" Type="Self.terceros" Multiplicity="0..1" />
+    <End Role="mensajes" Type="Self.mensajes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="mensajes">
+        <PropertyRef Name="id_destinatario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_carterap_conceptos">
     <End Role="conceptos" Type="Self.conceptos" Multiplicity="1" />
     <End Role="carterap" Type="Self.carterap" Multiplicity="*" />
@@ -701,30 +705,6 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_mensajes_acudientes_mensajes">
-    <End Role="mensajes" Type="Self.mensajes" Multiplicity="1" />
-    <End Role="mensajes_acudientes" Type="Self.mensajes_acudientes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="mensajes">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="mensajes_acudientes">
-        <PropertyRef Name="id_mensaje" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_mensajes_acudientes_terceros">
-    <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
-    <End Role="mensajes_acudientes" Type="Self.mensajes_acudientes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="terceros">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="mensajes_acudientes">
-        <PropertyRef Name="id_acudiente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_mensajes_terceros">
     <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
     <End Role="mensajes" Type="Self.mensajes" Multiplicity="*" />
@@ -910,7 +890,6 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     <EntitySet Name="intereses_manuales" EntityType="Self.intereses_manuales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="matriculas" EntityType="Self.matriculas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="mensajes" EntityType="Self.mensajes" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="mensajes_acudientes" EntityType="Self.mensajes_acudientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="movimientos" EntityType="Self.movimientos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="pagos" EntityType="Self.pagos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="parametros" EntityType="Self.parametros" Schema="dbo" store:Type="Tables" />
@@ -938,6 +917,10 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     [fc_menu].[fc_roles] AS [fc_roles]
     FROM [dbo].[fc_menu] AS [fc_menu]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK__mensajes__id_des__01142BA1" Association="Self.FK__mensajes__id_des__01142BA1">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="mensajes" EntitySet="mensajes" />
+    </AssociationSet>
     <AssociationSet Name="FK_carterap_conceptos" Association="Self.FK_carterap_conceptos">
       <End Role="conceptos" EntitySet="conceptos" />
       <End Role="carterap" EntitySet="carterap" />
@@ -1037,14 +1020,6 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     <AssociationSet Name="FK_matriculas_vigencias" Association="Self.FK_matriculas_vigencias">
       <End Role="vigencias" EntitySet="vigencias" />
       <End Role="matriculas" EntitySet="matriculas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_mensajes_acudientes_mensajes" Association="Self.FK_mensajes_acudientes_mensajes">
-      <End Role="mensajes" EntitySet="mensajes" />
-      <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_mensajes_acudientes_terceros" Association="Self.FK_mensajes_acudientes_terceros">
-      <End Role="terceros" EntitySet="terceros" />
-      <End Role="mensajes_acudientes" EntitySet="mensajes_acudientes" />
     </AssociationSet>
     <AssociationSet Name="FK_mensajes_terceros" Association="Self.FK_mensajes_terceros">
       <End Role="terceros" EntitySet="terceros" />

@@ -1,4 +1,4 @@
-﻿app.controller('cEstudiantes', ["$scope", "entidadService", "gradosService", "estudiantesService", "cursosService", "matriculasService", "carteraService", "pagosService", "periodosService", "grupospagosService", "ngTableParams", "$filter", function ($scope, entidadService, gradosService, estudiantesService, cursosService, matriculasService, carteraService, pagosService, periodosService, grupospagosService, ngTableParams, $filter) {
+﻿app.controller('cEstudiantes', ["$scope", "entidadService", "gradosService", "estudiantesService", "cursosService", "matriculasService", "carteraService", "pagosService", "periodosService", "grupospagosService", "ngTableParams", "$filter", "mensajesService", function ($scope, entidadService, gradosService, estudiantesService, cursosService, matriculasService, carteraService, pagosService, periodosService, grupospagosService, ngTableParams, $filter, mensajesService) {
     $scope.orden = 0;
     $scope.filtro = "";
     $scope.estudiantes = [];
@@ -8,11 +8,21 @@
     $scope.cursos = [];
     $scope.ListCursos = [];
     $scope.estudianteDto = [];
-    $scope.tipoAcudiente = [
+    $scope.mensajeMoroso = "Estimado Acudiente, le recordamos que tiene una deuda de xxxxx más intereses. Por favor coloquese al día lo más pronto posible";
+    $scope.recordatorioDePago = "Estimado Acudiente, le recordamos que si cancela el valor de la pensión entre los días del 1 al 15 no se adicionaran intereses";
+    $scope.ContenidoMensaje;
+    $scope.asunto = {};
+    $scope.tipoMensaje = [
         {
-            id: 0,
-            nombre: ""
+            id: 1,
+            nombre: "Urgente"
         },
+        {
+            id: 2,
+            nombre: "Informativo"
+        }
+    ]
+    $scope.tipoAcudiente = [
         {
             id: 1,
             nombre: "MOROSOS"
@@ -66,8 +76,8 @@
             $.each($scope.estudiantes, function (index, ite_estudiantes) {
                 ite_estudiantes.activo = true;
                 $scope.estudianteDto = [];
-                for (i in $scope.estudiantes) {
-                    $scope.estudianteDto.push($scope.estudiantes[i]);
+                for (i in $scope.listaEstudiantes) {
+                    $scope.estudianteDto.push($scope.listaEstudiantes[i]);
                 }
             });
             console.log($scope.estudianteDto);
@@ -87,40 +97,99 @@
     };
 
     $scope.filtrar = function () {
+        $scope.check_todos_estudiantes = false;
+        $scope.checkear_todosEstudiantes();
         $scope.listaEstudiantes = [];
-        if ($scope.gradoSeleccionado.id == -1) {
-            if ($scope.cursoSeleccionado.id == -1) {
-                $scope.listaEstudiantes = $scope.estudiantes;
+        if ($scope.gradoSeleccionado.id == -1) { //$scope.gradoSeleccionado = TODOS
+            if ($scope.cursoSeleccionado.id == -1) { //$scope.cursoSeleccionado = TODOS
+                if ($scope.tipoAlerta.id == 1) { //$scope.tipoAlerta = MOROSOS
+                    for(i in $scope.estudiantes)
+                    {
+                        if($scope.estudiantes[i].saldo > 0)
+                        {
+                            $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                        }
+                    }
+                }
+                if ($scope.tipoAlerta.id == 2){ //$scope.tipoAlerta = RECORDATORIO DE PAGO, EN ESTE CASO SERÍAN TODOS LOS ESTUDIANTES
+                    $scope.listaEstudiantes = $scope.estudiantes;
+                }
             }
             else {
-                for (i in $scope.estudiantes) {
-                    if ($scope.cursoSeleccionado.nombre == $scope.estudiantes[i].nombre_curso) {
-                        $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                if ($scope.tipoAlerta.id == 1) { //$scope.tipoAlerta = MOROSOS
+                    for (i in $scope.estudiantes) {
+                        if ($scope.cursoSeleccionado.nombre == $scope.estudiantes[i].nombre_curso && $scope.estudiantes[i].saldo > 0) {
+                            $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                        }
+                    }
+                }
+                if ($scope.tipoAlerta.id == 2) { //$scope.tipoAlerta = RECORDATORIO DE PAGO, EN ESTE CASO SERÍAN TODOS LOS ESTUDIANTES
+                    for (i in $scope.estudiantes) {
+                        if ($scope.cursoSeleccionado.nombre == $scope.estudiantes[i].nombre_curso) {
+                            $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                        }
                     }
                 }
             }
         }
         else {
-            if ($scope.cursoSeleccionado.id == -1) {
-                for (i in $scope.estudiantes) {
-                    if ($scope.gradoSeleccionado.nombre == $scope.estudiantes[i].nombre_grado) {
-                        $scope.listaEstudiantes.push($scope.estudiantes[i]);
+            if ($scope.cursoSeleccionado.id == -1) { //$scope.cursoSeleccionado = TODOS
+                if ($scope.tipoAlerta.id == 1){
+                    for (i in $scope.estudiantes) {
+                        if ($scope.gradoSeleccionado.nombre == $scope.estudiantes[i].nombre_grado && $scope.estudiantes[i].saldo > 0) {
+                            $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                        }
+                    }
+                }
+                if ($scope.tipoAlerta.id == 2) {
+                    for (i in $scope.estudiantes) {
+                        if ($scope.gradoSeleccionado.nombre == $scope.estudiantes[i].nombre_grado) {
+                            $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                        }
                     }
                 }
             }
             else {
-                for (i in $scope.estudiantes) {
-                    if ($scope.gradoSeleccionado.nombre == $scope.estudiantes[i].nombre_grado && $scope.cursoSeleccionado.nombre == $scope.estudiantes[i].nombre_curso) {
-                        $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                if ($scope.tipoAlerta.id == 1){
+                    for (i in $scope.estudiantes) {
+                        if ($scope.gradoSeleccionado.nombre == $scope.estudiantes[i].nombre_grado && $scope.cursoSeleccionado.nombre == $scope.estudiantes[i].nombre_curso && $scope.estudiantes[i].saldo > 0) {
+                            $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                        }
+                    }
+                }
+                if($scope.tipoAlerta.id == 2){
+                    for (i in $scope.estudiantes) {
+                        if ($scope.gradoSeleccionado.nombre == $scope.estudiantes[i].nombre_grado && $scope.cursoSeleccionado.nombre == $scope.estudiantes[i].nombre_curso) {
+                            $scope.listaEstudiantes.push($scope.estudiantes[i]);
+                        }
                     }
                 }
             }
         }
     };
 
+    $scope.abrirModal = function () {
+        alert($scope.estudianteDto.length);
+        $scope.asunto = $scope.tipoAlerta;
+        $scope.tipoMsje = $scope.tipoMensaje[0];
+        _mensajesAcudientes($scope.asunto.id);
+        if ($scope.asunto.id == 1)
+        {
+            $scope.ContenidoMensaje = $scope.mensajeMoroso;
+        }
+        if ($scope.asunto.id == 2)
+        {
+            $scope.ContenidoMensaje = $scope.recordatorioDePago;
+        }
+        $("#modalMensaje").modal("show");
+    };
+
+    $scope.registrarMensajes = function () {
+        _registrarMensajes();
+    };
+
     _init();
     function _init() {
-        //_crearTablaEstudiantes();
         byaSite.SetModuloP({ TituloForm: "Enviar Mensajes", Modulo: "Mensajes", urlToPanelModulo: "Estudiantes.aspx", Cod_Mod: "MSJE", Rol: "MSJEMensajes" });
         _traerEstudiante();
         _traerCursos();
@@ -187,4 +256,31 @@
             }
         });
     };
+
+    function _mensajesAcudientes(tipoDeMensaje) {
+        if (tipoDeMensaje == 1) {
+            for (i in $scope.estudianteDto) {
+                $scope.estudianteDto[i].mensaje = "Estimado Acudiente " + $scope.estudianteDto[i].nombre_completo_acudiente + ", le recordamos que tiene una deuda de $" + $scope.estudianteDto[i].saldo + " más intereses. Por favor coloquese al día lo más pronto posible";
+                $scope.estudianteDto[i].asunto = $scope.tipoAlerta.nombre;
+                $scope.estudianteDto[i].tipo_mensaje = $scope.tipoMsje.nombre;
+            }
+        }
+        if (tipoDeMensaje == 2) {
+            for (i in $scope.estudianteDto) {
+                $scope.estudianteDto[i].mensaje = $scope.recordatorioDePago;
+            }
+        }
+        console.log($scope.estudianteDto);
+    };
+
+    function _registrarMensajes() {
+        var promisePost = mensajesService.PostMensajes($scope.estudianteDto, byaSite.getUsuario());
+        promisePost.then(
+            function(pl){
+                alert(JSON.stringify(pl.data));
+            },
+            function(errorPl){
+                console.log(JSON.stringify(errorPl));
+            });
+    }
 }]);
