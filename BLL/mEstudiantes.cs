@@ -132,6 +132,7 @@ namespace BLL
                         nombre_completo = t.terceros.apellido + " " + t.terceros.nombre,
                         nombre_completo_acudiente = t.terceros3.apellido + " " + t.terceros3.nombre,
                         id_acudiente = t.terceros3.id,
+                        identificacion_acudiente = t.terceros3.identificacion,
                         nombre_grado = t.id_ultima_matricula != null ? t.matriculas.Where(u=> u.id == t.id_ultima_matricula).FirstOrDefault().cursos.grados.nombre : "",
                         nombre_curso = t.id_ultima_matricula != null ? t.matriculas.Where(u => u.id == t.id_ultima_matricula).FirstOrDefault().cursos.nombre : ""
                     }).ToList();

@@ -251,30 +251,58 @@
     };
 
     function _mensajesAcudientes(tipoDeMensaje) {
+        var cont = 0;
+        console.log($scope.estudianteDto);
         if (tipoDeMensaje == 1) {
             for (i in $scope.estudianteDto) {
                 $scope.estudianteDto[i].mensaje = "Estimado Acudiente " + $scope.estudianteDto[i].nombre_completo_acudiente + ", le recordamos que tiene una deuda de $" + $scope.estudianteDto[i].saldo + " más intereses. Por favor coloquese al día lo más pronto posible";
                 $scope.estudianteDto[i].asunto = $scope.tipoAlerta.nombre;
                 $scope.estudianteDto[i].tipo_mensaje = $scope.tipoMsje.nombre;
+                cont++;
+                alert(cont);
             }
         }
         if (tipoDeMensaje == 2) {
-            for (i in $scope.estudianteDto) {
-                $scope.estudianteDto[i].mensaje = $scope.recordatorioDePago;
-                $scope.estudianteDto[i].asunto = $scope.tipoAlerta.nombre;
-                $scope.estudianteDto[i].tipo_mensaje = $scope.tipoMsje.nombre;
+            for (j in $scope.estudianteDto) {
+                $scope.estudianteDto[j].mensaje = $scope.recordatorioDePago;
+                $scope.estudianteDto[j].asunto = $scope.tipoAlerta.nombre;
+                $scope.estudianteDto[j].tipo_mensaje = $scope.tipoMsje.nombre;
+                cont++;
+                alert(cont);
             }
         }
     };
 
     function _registrarMensajes() {
         var promisePost = mensajesService.PostMensajes($scope.estudianteDto, byaSite.getUsuario());
+        console.log($scope.estudianteDto);
         promisePost.then(
             function(pl){
                 alert(pl.data.Mensaje);
+                console.log($scope.estudianteDto);
+                _enviarMensajes();
             },
             function(errorPl){
                 console.log(JSON.stringify(errorPl));
             });
+    }
+
+    function _enviarMensajes() {
+        var chat = $.connection.chatHub;
+        console.log(chat);
+        $.connection.hub.start().done(function () {
+            chat.server.registerConId(byaSite.getUsuario());
+            for (i in $scope.estudianteDto)
+            {
+                chat.server.registerConId($scope.estudianteDto[i].identificacion_acudiente);
+            }
+            for(j in $scope.estudianteDto)
+            {
+                alert(j);
+                chat.server.send(byaSite.getUsuario(), $scope.estudianteDto[j].mensaje, $scope.estudianteDto[j].identificacion_acudiente);
+            }
+            // Call the Send method on the hub.
+            //console.log(chat.server.numId());
+        });
     }
 }]);

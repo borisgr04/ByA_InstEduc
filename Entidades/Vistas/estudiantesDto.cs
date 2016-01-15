@@ -16,6 +16,7 @@ namespace Entidades.Vistas
         public string estado_civil_padres { get; set; }
         public string parentesco_acudiente { get; set; }
         public int id_acudiente { get; set; }
+        public string identificacion_acudiente { get; set; }
         public Nullable<int> id_tercero_madre { get; set; }
         public Nullable<int> id_tercero_padre { get; set; }
         public int id_tercero_estudiante { get; set; }

@@ -17,11 +17,11 @@ namespace Skeleton.WebAPI.Controllers
     [RoutePrefix("api/terceros")]
     public class TercerosController : ApiController
     {
-        //[Route("InformacionAcudientesMensajes/username/{username}")]
-        //public bInformacionAcudienteMensajes GetInformacionAcudienteMensajes(string username)
-        //{
-        //    mTerceros m = new mTerceros();
-        //    return m.GetInformacionAcudienteMensajes(username);
-        //}
+        [Route("InformacionAcudientesMensajes/username/{username}")]
+        public bInformacionAcudienteMensajes GetInformacionAcudienteMensajes(string username)
+        {
+            mTerceros m = new mTerceros();
+            return m.GetInformacionAcudienteMensajes(username);
+        }
     }
 }

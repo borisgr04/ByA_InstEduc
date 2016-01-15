@@ -94,3 +94,16 @@ D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\Dev\InstEduc\BLL\bin\Debug\BLL.Security.pdb
 D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.Security.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Newtonsoft.Json.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Owin.dll
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.Security.xml
+D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Newtonsoft.Json.xml

@@ -14,7 +14,7 @@ namespace Entidades.Vistas
         public Nullable<System.DateTime> fecha { get; set; }
         public string tipo { get; set; }
         public int id_remitente { get; set; }
-        public string estado_mensaje_acudiente { get; set; }
-        public int id_mensaje_acudiente { get; set; }
+        public string estado { get; set; }
+        public int id_destinatario { get; set; }
     }
 }

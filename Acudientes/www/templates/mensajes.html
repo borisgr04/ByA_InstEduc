@@ -16,9 +16,9 @@
         <div class="row text-left"  ng-repeat = "mensaje in Mensajes">
                 <label style="margin-top: 16px;"><input type="checkbox" ng-model="mensaje.activo" ng-change="checkearMensaje(mensaje, $index)"/></label>
                 <a ng-click="abrirMensaje(mensaje, $index)" class="item item-icon-left" href="#" style="width: 100%">
-                    <i class="{{iconoMensaje(mensaje.estado_mensaje_acudiente)}}" style="color: {{ColorMensaje(mensaje.tipo)}}"></i>
+                    <i class="{{iconoMensaje(mensaje.estado)}}" style="color: {{ColorMensaje(mensaje.tipo)}}"></i>
                     <label style="float: left; font-size: 14px;">{{mensaje.asunto}}</label>
-                    <label style="color: #b2b2b2; float: right">({{mensaje.estado_mensaje_acudiente}})</label>
+                    <label style="color: #b2b2b2; float: right">({{mensaje.estado}})</label>
                 </a>
         </div>
     </div>

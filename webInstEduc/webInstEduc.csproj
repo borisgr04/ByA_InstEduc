@@ -1918,6 +1918,7 @@
     <Content Include="Matriculas\Matricular\Matricular.aspx" />
     <Content Include="Matriculas\Retirar\js\cRetirar.js" />
     <Content Include="Matriculas\Retirar\Retirar.aspx" />
+    <Content Include="pruebaAcudiente.html" />
     <Content Include="PruebaImg.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.js" />

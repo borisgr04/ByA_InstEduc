@@ -63,6 +63,7 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
                 $scope.Acudiente = respuesta.acudiente;
                 $scope.Estudiantes = respuesta.estudiantes;
                 $rootScope.Mensajes = respuesta.mensajes;
+                console.log($rootScope.Mensajes);
                 _contarMensajes();
             },
             function (errorPl) {
@@ -75,7 +76,7 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
         $rootScope.contador = 0;
         for(i in $rootScope.Mensajes)
         {
-            if($rootScope.Mensajes[i].estado_mensaje_acudiente == "Sin Revisar"){
+            if($rootScope.Mensajes[i].estado == "Sin Revisar"){
                 $rootScope.contador++;
             }
         }
@@ -104,15 +105,16 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
     $scope.abrirMensaje = function(mensaje, index) {
         $scope.modal.show();
         $scope.mensajeActual = $rootScope.Mensajes[index];
-        if($rootScope.Mensajes[index].estado_mensaje_acudiente == "Sin Revisar")
+        if($rootScope.Mensajes[index].estado == "Sin Revisar")
         {
             $scope.cambiarEstado(index);
-            mensaje.estado_mensaje_acudiente = "Revisado";
+            mensaje.estado = "Revisado";
         }
     };
 
     $scope.cambiarEstado = function (index) {
         _getCambiarEstado(index);
+        $rootScope.contador--;
     };
 
     $scope.checkear_Mensajes = function(){
@@ -216,7 +218,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         $rootScope.contador = 0;
         for(i in $rootScope.Mensajes)
         {
-            if($rootScope.Mensajes[i].estado_mensaje_acudiente == "Sin Revisar"){
+            if($rootScope.Mensajes[i].estado == "Sin Revisar"){
                 $rootScope.contador++;
             }
         }
@@ -224,13 +226,13 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
 
     function _getCambiarEstado(index)
     {
-        var promiseGet = mensajesServices.getCambiarEstado($rootScope.Mensajes[index].id_mensaje_acudiente);
+        var promiseGet = mensajesServices.getCambiarEstado($rootScope.Mensajes[index].id_destinatario, $rootScope.Mensajes[index].id);
         promiseGet.then(
             function(pl){
                 var respuesta = pl.data;
                 if(respuesta.error == false)
                 {
-                    $rootScope.Mensajes[index].estado_mensaje_acudiente = "Revisado";
+                    $rootScope.Mensajes[index].estado = "Revisado";
                     _contarMensajes();
                 }
             },

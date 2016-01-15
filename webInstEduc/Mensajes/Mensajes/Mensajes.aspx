@@ -12,6 +12,9 @@
     <script src="/mAngular/angularService.js"></script>
     <script src="/Angular/ng-table.js"></script>
     <script src="js/cMensajes.js"></script>
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/jquery.signalR-2.0.0.js"></script>
+    <script src="../../signalr/hubs"></script>
     <div class="container" ng-app="Model">
         <div ng-controller="cEstudiantes" ng-cloak>            
             <div class="loading-spiner-holder" data-loading >

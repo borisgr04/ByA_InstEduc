@@ -34,11 +34,11 @@ app.service('homeServices', ['$http', function($http){
 }]);
 
 app.service('mensajesServices', ['$http', function($http){
-    var url = byaSite._getUrl() + "MensajeAcudiente";
-    this.getCambiarEstado = function(id_mensaje_acudiente){
+    var url = byaSite._getUrl() + "Mensajes/";
+    this.getCambiarEstado = function(id_acudiente, id_mensaje){
         var pet = {
-            method: 'GET',
-            url: url + "/" + id_mensaje_acudiente,
+            method: 'POST',
+            url: url + "idAcudiente/" + id_acudiente + "/idMensaje/" + id_mensaje,
             headers: {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + byaSite._getToken(),

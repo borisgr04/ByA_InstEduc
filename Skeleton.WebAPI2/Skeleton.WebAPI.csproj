@@ -195,6 +195,7 @@
     <Compile Include="Controllers\CursosController.cs" />
     <Compile Include="Controllers\EstadoCuentaResumenController.cs" />
     <Compile Include="Controllers\MensajeAcudienteController.cs" />
+    <Compile Include="Controllers\MensajesController.cs" />
     <Compile Include="Controllers\TercerosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

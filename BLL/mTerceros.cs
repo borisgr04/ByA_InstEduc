@@ -131,18 +131,29 @@ namespace BLL
             }
         }
 
-        //public bInformacionAcudienteMensajes GetInformacionAcudienteMensajes(string username)
-        //{
-        //    using(ctx = new ieEntities())
-        //    {
-        //        bInformacionAcudienteMensajes r = new bInformacionAcudienteMensajes();                
-        //        mMensajesAcudiente msjeAcudiente = new mMensajesAcudiente();
-        //        r.acudiente = this.GetIdentificacion(username);
-        //        r.estudiantes = this.GetEstudiantesAcudientes(username);
-        //        r.mensajes =  msjeAcudiente.GetMensajes(r.acudiente.id);
-        //        return r;
-        //    }
-        //}
+        public tercerosDto idTercero(string identificacion)
+        {
+            using (ctx = new ieEntities())
+            {
+                tercerosDto terceDto = new tercerosDto();
+                terceros terce = ctx.terceros.Where(t => t.identificacion == identificacion).FirstOrDefault();
+                Mapper.Map(terce, terceDto);
+                return terceDto;
+            }
+        }
+
+        public bInformacionAcudienteMensajes GetInformacionAcudienteMensajes(string username)
+        {
+            using(ctx = new ieEntities())
+            {
+                bInformacionAcudienteMensajes r = new bInformacionAcudienteMensajes();                
+                mMensajes msjeAcudiente = new mMensajes();
+                r.acudiente = this.GetIdentificacion(username);
+                r.estudiantes = this.GetEstudiantesAcudientes(username);
+                r.mensajes = msjeAcudiente.GetMensajes(r.acudiente.id);
+                return r;
+            }
+        }
         public tercerosDto GetIdentificacion(string Id)
         {
             using (ctx = new ieEntities())
