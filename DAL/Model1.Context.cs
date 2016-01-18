@@ -53,5 +53,6 @@ namespace DAL
         public DbSet<tipos_terceros> tipos_terceros { get; set; }
         public DbSet<vigencias> vigencias { get; set; }
         public DbSet<fc_menu> fc_menu { get; set; }
+        public DbSet<tokens_notificaciones> tokens_notificaciones { get; set; }
     }
 }

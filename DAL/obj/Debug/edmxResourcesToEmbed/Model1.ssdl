@@ -382,6 +382,14 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     </Key>
     <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="tokens_notificaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id_tercero" Type="int" Nullable="false" />
+    <Property Name="token" Type="nvarchar" MaxLength="1" Nullable="false" />
+  </EntityType>
   <EntityType Name="vigencias">
     <Key>
       <PropertyRef Name="vigencia" />
@@ -402,6 +410,18 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
       </Principal>
       <Dependent Role="mensajes">
         <PropertyRef Name="id_destinatario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tokens_no__id_te__160F4887">
+    <End Role="terceros" Type="Self.terceros" Multiplicity="1" />
+    <End Role="tokens_notificaciones" Type="Self.tokens_notificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tokens_notificaciones">
+        <PropertyRef Name="id_tercero" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -900,6 +920,7 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     <EntitySet Name="terceros" EntityType="Self.terceros" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipos_documentos" EntityType="Self.tipos_documentos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tipos_terceros" EntityType="Self.tipos_terceros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tokens_notificaciones" EntityType="Self.tokens_notificaciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="vigencias" EntityType="Self.vigencias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="fc_menu" EntityType="Self.fc_menu" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -920,6 +941,10 @@ advertencia 6002: La tabla o vista 'bdie.dbo.fc_menu' no tiene definida ninguna 
     <AssociationSet Name="FK__mensajes__id_des__01142BA1" Association="Self.FK__mensajes__id_des__01142BA1">
       <End Role="terceros" EntitySet="terceros" />
       <End Role="mensajes" EntitySet="mensajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tokens_no__id_te__160F4887" Association="Self.FK__tokens_no__id_te__160F4887">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="tokens_notificaciones" EntitySet="tokens_notificaciones" />
     </AssociationSet>
     <AssociationSet Name="FK_carterap_conceptos" Association="Self.FK_carterap_conceptos">
       <End Role="conceptos" EntitySet="conceptos" />

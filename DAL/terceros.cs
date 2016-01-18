@@ -23,6 +23,7 @@ namespace DAL
             this.estudiantes3 = new HashSet<estudiantes>();
             this.mensajes = new HashSet<mensajes>();
             this.mensajes1 = new HashSet<mensajes>();
+            this.tokens_notificaciones = new HashSet<tokens_notificaciones>();
         }
     
         public int id { get; set; }
@@ -46,5 +47,6 @@ namespace DAL
         public virtual ICollection<estudiantes> estudiantes3 { get; set; }
         public virtual ICollection<mensajes> mensajes { get; set; }
         public virtual ICollection<mensajes> mensajes1 { get; set; }
+        public virtual ICollection<tokens_notificaciones> tokens_notificaciones { get; set; }
     }
 }

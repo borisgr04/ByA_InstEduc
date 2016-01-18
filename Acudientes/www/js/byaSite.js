@@ -26,5 +26,11 @@ var byaSite = {
     },
     _getIdentificacionEstudiante: function(){
         return localStorage.getItem("identificacion_estudiante");
+    },
+    _setSaldoEstudiante: function(saldo){
+        localStorage.setItem('saldo_estudiante', saldo);
+    },
+    _getSaldoEstudiante: function () {
+        return localStorage.getItem('saldo_estudiante');
     }
 };

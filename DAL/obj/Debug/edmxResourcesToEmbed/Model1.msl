@@ -418,5 +418,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tokens_notificaciones">
+      <EntityTypeMapping TypeName="bdieModel.tokens_notificaciones">
+        <MappingFragment StoreEntitySet="tokens_notificaciones">
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="id_tercero" ColumnName="id_tercero" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

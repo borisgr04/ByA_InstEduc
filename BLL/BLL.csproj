@@ -112,6 +112,7 @@
     <Compile Include="mIntereses.cs" />
     <Compile Include="mInteresesManuales.cs" />
     <Compile Include="mMensajes.cs" />
+    <Compile Include="mNotificaciones.cs" />
     <Compile Include="mTiposDocumentos.cs" />
     <Compile Include="mTerceros.cs" />
     <Compile Include="mCartera.cs" />

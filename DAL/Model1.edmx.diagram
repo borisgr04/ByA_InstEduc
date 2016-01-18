@@ -73,6 +73,8 @@
         <AssociationConnector Association="bdieModel.FK_parametros_vigencias" />
         <AssociationConnector Association="bdieModel.FK_periodos_vigencias" />
         <AssociationConnector Association="bdieModel.FK_tarifas_vigencias" />
+        <EntityTypeShape EntityType="bdieModel.tokens_notificaciones" Width="1.5" PointX="4.5" PointY="50.625" />
+        <AssociationConnector Association="bdieModel.FK__tokens_no__id_te__160F4887" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

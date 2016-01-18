@@ -29,10 +29,16 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
     $scope.username = byaSite._getUsername();
     $scope.Acudiente = {};
     $scope.Estudiantes = [];
+    $scope.loading = true;
+    $scope.ColorSaldo = function(value){
+        if(value == 0) return "#5cb85c;";
+        if(value > 0) return "#d9534f";
+    };
 
     $scope._irMenuEstudiante = function(estudiante){
         byaSite._setNombreEstudiante(estudiante.nombre_completo);
         byaSite._setIdentificacionEstudiante(estudiante.identificacion);
+        byaSite._setSaldoEstudiante(estudiante.saldo);
         $state.go("estudiante");
     };
 
@@ -62,9 +68,11 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
                 var respuesta = pl.data;
                 $scope.Acudiente = respuesta.acudiente;
                 $scope.Estudiantes = respuesta.estudiantes;
+                console.log($scope.Estudiantes);
                 $rootScope.Mensajes = respuesta.mensajes;
                 console.log($rootScope.Mensajes);
                 _contarMensajes();
+                $scope.loading = false;
             },
             function (errorPl) {
                 console.log(JSON.stringify(errorPl));
@@ -98,9 +106,14 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         if(value == "Informativo") return "#5bc0de;";
         if(value == "Urgente") return "#d9534f";
     };
+    $scope.MensajeLeido = function(estado) {
+        if(estado == "Sin Revisar") return "bold";
+        if(estado == "Revisado") return "normal";
+    };
     $scope.iconoMensaje = function(estado){
-        if(estado == "Sin Revisar") return "icon ion-email-unread";
+        if(estado == "Sin Revisar") return "icon ion-android-mail";
         if(estado == "Revisado") return "icon ion-android-mail";
+        //ion-email-unread
     };
     $scope.abrirMensaje = function(mensaje, index) {
         $scope.modal.show();
@@ -159,7 +172,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
             {
                 $scope.mensajeDto = [];
             }
-            $scope.mensajeDto.splice(index, 1);
+            $scope.mensajeDto.splice($scope.mensajeDto.indexOf(msje), 1);
         }
         console.log($scope.mensajeDto);
     };
@@ -264,6 +277,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
                 }
             }
         }
+        _contarMensajes();
         $scope.mensajeDto = [];
     }
 
@@ -278,11 +292,15 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($sc
     $scope.username = byaSite._getUsername();
     $scope.nombre_estudiante = byaSite._getNombreEstudiante();
     $scope.identificacion_estudiante = byaSite._getIdentificacionEstudiante();
+    $scope.saldo_estudiante = byaSite._getSaldoEstudiante();
 
     $scope.redireccionar = function () {
         _redireccionar();
-    }
-
+    };
+    $scope.ColorSaldo = function(value){
+        if(value == 0) return "#5cb85c;";
+        if(value > 0) return "#d9534f";
+    };
     _init();
 
     function _init() {
@@ -302,6 +320,11 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
     $scope.estado_actual;
     $scope.estadoCuenta = [];
 
+    $scope.ColorSaldo = function(value){
+        if(value == 0) return "#5cb85c;";
+        if(value > 0) return "#d9534f";
+    };
+
     $scope.verEstadoCuenta = function(estado)
     {
         $scope.estado_actual = estado;
@@ -309,7 +332,7 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
     }
 
     $scope.irEstadoCuentaDeVigencia = function(itemEstado){
-        $rootScope.estadoCuentaVigenciaActual = []
+        $rootScope.estadoCuentaVigenciaActual = [];
         $rootScope.estadoCuentaVigenciaActual = itemEstado;
         $state.go("cuenta");
     };
@@ -343,6 +366,7 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
                 var respuesta = pl.data;
                 $scope.estadoCuenta = [];
                 $scope.estadoCuenta = respuesta;
+                _cambiarFechaNull();
             },
             function (errorPl) {
                 console.log(JSON.stringify(errorPl));
@@ -353,6 +377,16 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
             $state.go('login');
+        }
+    };
+
+    function _cambiarFechaNull() {
+        for(i in $scope.estadoCuenta)
+        {
+            for(j in $scope.estadoCuenta[i].l_items)
+            {
+                if($scope.estadoCuenta[i].l_items[j].fecha_pago == null) $scope.estadoCuenta[i].l_items[j].fecha_pago = "Fecha de pago pendiente";
+            }
         }
     };
 }]);

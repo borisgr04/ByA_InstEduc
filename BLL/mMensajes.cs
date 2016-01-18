@@ -26,7 +26,7 @@ namespace BLL
             using(ctx = new ieEntities())
             {
                 List<mensajesDto> ListMsjeDto = new List<mensajesDto>();
-                List<mensajes> ListMsje = ctx.mensajes.Where(t => t.id_destinatario == id_acudiente).ToList();
+                List<mensajes> ListMsje = ctx.mensajes.Where(t => t.id_destinatario == id_acudiente && t.estado != "IN").ToList();
                 Mapper.Map(ListMsje, ListMsjeDto);
                 return ListMsjeDto;
             }
@@ -45,7 +45,13 @@ namespace BLL
             cmdInsert o = new cmdInsert();
             o.ListEstDto = ListEstudiantesDto;
             o.identificacion_remitente = identificacion;
-            return o.Enviar();
+            ByARpt res = o.Enviar();
+
+            if (res.Error == false)
+            {
+
+            }
+            return res;
         }
 
         public ByARpt PostCambiarEstadoInactivo(List<mensajesDto> listMsgDto)

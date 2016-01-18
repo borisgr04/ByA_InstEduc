@@ -23,5 +23,12 @@ namespace Skeleton.WebAPI.Controllers
             mTerceros m = new mTerceros();
             return m.GetInformacionAcudienteMensajes(username);
         }
+
+        [Route("TokenNotificacion")]
+        public ByARpt PostTokenNotificacion(bObjetoNotificaciones ObjNotificaciones)
+        {
+            mNotificaciones o = new mNotificaciones();
+            return o.PostTokenNotificaciones(ObjNotificaciones);
+        }
     }
 }

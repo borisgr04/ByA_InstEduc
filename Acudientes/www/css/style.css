@@ -21,3 +21,32 @@
     font-size: 16px;
     padding-left: 54px;
 }
+
+.itemListMsje
+{
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 6px;
+    font-size: 16px;
+    padding-left: 68px;
+}
+
+.itemListEstudiante
+{
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 16px;
+    font-size: 16px;
+    padding-left: 54px;
+}
+
+.minuscula
+{
+    text-transform: capitalize;
+}

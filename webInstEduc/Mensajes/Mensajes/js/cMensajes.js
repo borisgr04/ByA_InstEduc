@@ -25,11 +25,11 @@
     $scope.tipoAcudiente = [
         {
             id: 1,
-            nombre: "MOROSOS"
+            nombre: "Morosos"
         },
         {
             id: 2,
-            nombre: "RECORDATORIO DE PAGO"
+            nombre: "Recordatorio de Pago"
         }
     ];
     $scope.tipoAlerta = $scope.tipoAcudiente[0];
@@ -47,7 +47,7 @@
         _traerEstudiante();
     };
     $scope.cargarCurso = function () {
-        var todosCursos = { id: -1, nombre: "TODOS", id_grado: -1 };
+        var todosCursos = { id: -1, nombre: "Todos", id_grado: -1 };
         $scope.ListCursos = [];
         $scope.ListCursos.unshift(todosCursos);
         $scope.cursoSeleccionado = $scope.ListCursos[0];
@@ -65,8 +65,9 @@
             if ($scope.estudianteDto.length == 1) {
                 $scope.estudianteDto = [];
             }
-            $scope.estudianteDto.splice(index, 1);
+            $scope.estudianteDto.splice($scope.estudianteDto.indexOf(estudiante), 1);
         }
+        console.log($scope.estudianteDto);
     };
     $scope.checkear_todosEstudiantes = function () {
         if ($scope.check_todos_estudiantes == true) {
@@ -204,7 +205,7 @@
         promiseGet.then(
             function (pl) {
                 var respuesta = pl.data;
-                var todos = { id: -1, nombre: "TODOS" };
+                var todos = { id: -1, nombre: "Todos" };
                 $scope.grados = [];
                 $scope.grados = respuesta;
                 $scope.grados.unshift(todos);

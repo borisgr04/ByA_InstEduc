@@ -189,6 +189,11 @@
       <End Role="vigencias" EntitySet="vigencias" />
       <End Role="tarifas" EntitySet="tarifas" />
     </AssociationSet>
+    <EntitySet Name="tokens_notificaciones" EntityType="bdieModel.tokens_notificaciones" />
+    <AssociationSet Name="FK__tokens_no__id_te__160F4887" Association="bdieModel.FK__tokens_no__id_te__160F4887">
+      <End Role="terceros" EntitySet="terceros" />
+      <End Role="tokens_notificaciones" EntitySet="tokens_notificaciones" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="carterap">
     <Key>
@@ -605,6 +610,7 @@
     <NavigationProperty Name="estudiantes3" Relationship="bdieModel.FK_estudiantes_terceros3" FromRole="terceros" ToRole="estudiantes" />
     <NavigationProperty Name="mensajes" Relationship="bdieModel.FK__mensajes__id_des__01142BA1" FromRole="terceros" ToRole="mensajes" />
     <NavigationProperty Name="mensajes1" Relationship="bdieModel.FK_mensajes_terceros" FromRole="terceros" ToRole="mensajes" />
+    <NavigationProperty Name="tokens_notificaciones" Relationship="bdieModel.FK__tokens_no__id_te__160F4887" FromRole="terceros" ToRole="tokens_notificaciones" />
   </EntityType>
   <EntityType Name="tipos_documentos">
     <Key>
@@ -1138,6 +1144,27 @@
       </Principal>
       <Dependent Role="tarifas">
         <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tokens_notificaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id_tercero" Type="Int32" Nullable="false" />
+    <Property Name="token" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="terceros" Relationship="bdieModel.FK__tokens_no__id_te__160F4887" FromRole="tokens_notificaciones" ToRole="terceros" />
+  </EntityType>
+  <Association Name="FK__tokens_no__id_te__160F4887">
+    <End Type="bdieModel.terceros" Role="terceros" Multiplicity="1" />
+    <End Type="bdieModel.tokens_notificaciones" Role="tokens_notificaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="terceros">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tokens_notificaciones">
+        <PropertyRef Name="id_tercero" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

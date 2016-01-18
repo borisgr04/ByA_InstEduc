@@ -146,11 +146,17 @@ namespace BLL
         {
             using(ctx = new ieEntities())
             {
-                bInformacionAcudienteMensajes r = new bInformacionAcudienteMensajes();                
+                bInformacionAcudienteMensajes r = new bInformacionAcudienteMensajes();
+                mEstadoCuenta mCuenta = new mEstadoCuenta();
                 mMensajes msjeAcudiente = new mMensajes();
                 r.acudiente = this.GetIdentificacion(username);
                 r.estudiantes = this.GetEstudiantesAcudientes(username);
                 r.mensajes = msjeAcudiente.GetMensajes(r.acudiente.id);
+                foreach (estudiantesDto estuDto in r.estudiantes)
+                {
+                    List<cEstadoCuenta> ListCuenta = mCuenta.GetEstadoCuentaResumido(estuDto.terceros.identificacion);
+                    estuDto.saldo = ListCuenta.Sum(t => t.saldo_vigencia);
+                }
                 return r;
             }
         }
