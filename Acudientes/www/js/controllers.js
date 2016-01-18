@@ -68,7 +68,7 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
                 var respuesta = pl.data;
                 $scope.Acudiente = respuesta.acudiente;
                 $scope.Estudiantes = respuesta.estudiantes;
-                console.log($scope.Estudiantes);
+                //console.log($scope.Estudiantes);
                 $rootScope.Mensajes = respuesta.mensajes;
                 console.log($rootScope.Mensajes);
                 _contarMensajes();
@@ -209,7 +209,14 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
 
     $scope.redireccionar = function () {
         _redireccionar();
-    }
+    };
+
+    $scope.logout = function() {
+        localStorage.clear();
+        $rootScope.Mensajes = [];
+        $rootScope.estadoCuentaVigenciaActual = [];
+        $state.go('login');
+    };
 
     _init();
     function _init()
@@ -301,6 +308,12 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($sc
         if(value == 0) return "#5cb85c;";
         if(value > 0) return "#d9534f";
     };
+    $scope.logout = function() {
+        localStorage.clear();
+        $rootScope.Mensajes = [];
+        $rootScope.estadoCuentaVigenciaActual = [];
+        $state.go('login');
+    };
     _init();
 
     function _init() {
@@ -339,7 +352,13 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
 
     $scope.redireccionar = function () {
         _redireccionar();
-    }
+    };
+    $scope.logout = function() {
+        localStorage.clear();
+        $rootScope.Mensajes = [];
+        $rootScope.estadoCuentaVigenciaActual = [];
+        $state.go('login');
+    };
 
     _init();
 

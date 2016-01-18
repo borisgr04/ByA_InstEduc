@@ -1465,6 +1465,8 @@
     <Content Include="DatosBasicos\Grados\Grados.aspx" />
     <Content Include="DatosBasicos\Grados\js\cGrados.js" />
     <Content Include="Default.html" />
+    <Content Include="Mensajes\EnvioMensajes\EnvioMensajes.aspx" />
+    <Content Include="Mensajes\EnvioMensajes\js\cEnvioMensajes.js" />
     <Content Include="Mensajes\Mensajes\js\cMensajes.js" />
     <Content Include="Mensajes\Mensajes\Mensajes.aspx" />
     <Content Include="DatosBasicos\Tarifas\js\cTarifas.js" />
@@ -1918,6 +1920,8 @@
     <Content Include="Matriculas\Matricular\Matricular.aspx" />
     <Content Include="Matriculas\Retirar\js\cRetirar.js" />
     <Content Include="Matriculas\Retirar\Retirar.aspx" />
+    <Content Include="NotaCredito\NotaCredito\js\cNotaCredito.js" />
+    <Content Include="NotaCredito\NotaCredito\NotaCredito.aspx" />
     <Content Include="pruebaAcudiente.html" />
     <Content Include="PruebaImg.aspx" />
     <Content Include="Register.aspx" />
@@ -1959,6 +1963,10 @@
     <Content Include="Mensajes\Mensajes\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Mensajes\EnvioMensajes\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="NotaCredito\NotaCredito\Web.config" />
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -2230,6 +2238,13 @@
     <Compile Include="DatosBasicos\Grados\Grados.aspx.designer.cs">
       <DependentUpon>Grados.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mensajes\EnvioMensajes\EnvioMensajes.aspx.cs">
+      <DependentUpon>EnvioMensajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mensajes\EnvioMensajes\EnvioMensajes.aspx.designer.cs">
+      <DependentUpon>EnvioMensajes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mensajes\Mensajes\Mensajes.aspx.cs">
       <DependentUpon>Mensajes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2421,6 +2436,13 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="NotaCredito\NotaCredito\NotaCredito.aspx.cs">
+      <DependentUpon>NotaCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotaCredito\NotaCredito\NotaCredito.aspx.designer.cs">
+      <DependentUpon>NotaCredito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="PruebaImg.aspx.cs">

@@ -83,8 +83,7 @@
 
                     <div class="col-xs-2 form-group">
                         <button class="btn btn-info form-control" ng-click="abrirModal()" ng-disabled="estudianteDto.length == 0">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                            Redactar Mensaje
+                            Enviar Mensajes
                         </button>
                     </div>
 

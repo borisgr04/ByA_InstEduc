@@ -1,9 +1,9 @@
 <ion-header-bar class="bar info" ng-load="redireccionar()">
     <div class="buttons">
-        <button style="color:#fff;" ui-sref="home" class="button button-icon ion-chevron-left">Atrás
-        </button>
+        <button style="color:#fff;" ui-sref="home" class="button button-icon ion-chevron-left">Atrás</button>
     </div>
     <h1 class="title" style="color:#fff;">Mensajes</h1>
+    <button style="color:#fff; font-size: 14px;" ng-click="logout()" class="button button-icon">Salir</button>
 </ion-header-bar>
 
 <ion-content>
@@ -21,7 +21,7 @@
                     <i ng-show="mensaje.estado == 'Sin Revisar'" class="{{iconoMensaje(mensaje.estado)}}" style="color: {{ColorMensaje(mensaje.tipo)}};"></i>
                     <i ng-show="mensaje.estado == 'Revisado'" style="color: {{ColorMensaje(mensaje.tipo)}};" class="material-icons icon">drafts</i>
                     <label style="float: left; font-size: 14px; color: #666; font-weight: {{MensajeLeido(mensaje.estado)}};">{{mensaje.asunto}}</label>
-                    <label style="color: #b2b2b2; float: right">({{mensaje.estado}})</label>
+                    <label style="color: #b2b2b2; float: right;">({{mensaje.estado}})</label>
                 </a>
         </div>
     </div>

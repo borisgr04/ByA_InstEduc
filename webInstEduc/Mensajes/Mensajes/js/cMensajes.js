@@ -67,7 +67,6 @@
             }
             $scope.estudianteDto.splice($scope.estudianteDto.indexOf(estudiante), 1);
         }
-        console.log($scope.estudianteDto);
     };
     $scope.checkear_todosEstudiantes = function () {
         if ($scope.check_todos_estudiantes == true) {
@@ -185,7 +184,7 @@
 
     _init();
     function _init() {
-        byaSite.SetModuloP({ TituloForm: "Enviar Mensajes", Modulo: "Mensajes", urlToPanelModulo: "Estudiantes.aspx", Cod_Mod: "MSJE", Rol: "MSJEMensajes" });
+        byaSite.SetModuloP({ TituloForm: "Enviar Mensajes de Alerta", Modulo: "Mensajes", urlToPanelModulo: "Estudiantes.aspx", Cod_Mod: "MSJE", Rol: "MSJEMensajes" });
         _traerEstudiante();
         _traerCursos();
         _traerGrados();
@@ -252,15 +251,11 @@
     };
 
     function _mensajesAcudientes(tipoDeMensaje) {
-        var cont = 0;
-        console.log($scope.estudianteDto);
         if (tipoDeMensaje == 1) {
             for (i in $scope.estudianteDto) {
                 $scope.estudianteDto[i].mensaje = "Estimado Acudiente " + $scope.estudianteDto[i].nombre_completo_acudiente + ", le recordamos que tiene una deuda de $" + $scope.estudianteDto[i].saldo + " más intereses. Por favor coloquese al día lo más pronto posible";
                 $scope.estudianteDto[i].asunto = $scope.tipoAlerta.nombre;
                 $scope.estudianteDto[i].tipo_mensaje = $scope.tipoMsje.nombre;
-                cont++;
-                alert(cont);
             }
         }
         if (tipoDeMensaje == 2) {
@@ -268,27 +263,23 @@
                 $scope.estudianteDto[j].mensaje = $scope.recordatorioDePago;
                 $scope.estudianteDto[j].asunto = $scope.tipoAlerta.nombre;
                 $scope.estudianteDto[j].tipo_mensaje = $scope.tipoMsje.nombre;
-                cont++;
-                alert(cont);
             }
         }
     };
 
     function _registrarMensajes() {
         var promisePost = mensajesService.PostMensajes($scope.estudianteDto, byaSite.getUsuario());
-        console.log($scope.estudianteDto);
         promisePost.then(
             function(pl){
                 alert(pl.data.Mensaje);
-                console.log($scope.estudianteDto);
-                _enviarMensajes();
+                //_enviarMensajes();
             },
             function(errorPl){
                 console.log(JSON.stringify(errorPl));
             });
     }
 
-    function _enviarMensajes() {
+    /*function _enviarMensajes() {
         var chat = $.connection.chatHub;
         console.log(chat);
         $.connection.hub.start().done(function () {
@@ -305,5 +296,5 @@
             // Call the Send method on the hub.
             //console.log(chat.server.numId());
         });
-    }
+    }*/
 }]);
