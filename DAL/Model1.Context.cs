@@ -34,6 +34,7 @@ namespace DAL
         public DbSet<documentos> documentos { get; set; }
         public DbSet<entidad> entidad { get; set; }
         public DbSet<estudiantes> estudiantes { get; set; }
+        public DbSet<fc_menu> fc_menu { get; set; }
         public DbSet<fechas_calculo_intereses> fechas_calculo_intereses { get; set; }
         public DbSet<formas_pago> formas_pago { get; set; }
         public DbSet<grados> grados { get; set; }
@@ -52,7 +53,6 @@ namespace DAL
         public DbSet<tipos_documentos> tipos_documentos { get; set; }
         public DbSet<tipos_terceros> tipos_terceros { get; set; }
         public DbSet<vigencias> vigencias { get; set; }
-        public DbSet<fc_menu> fc_menu { get; set; }
         public DbSet<tokens_notificaciones> tokens_notificaciones { get; set; }
     }
 }

@@ -79,3 +79,5 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL.Security\bin\Debug\Microsoft.AspNe
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL.Security\obj\Debug\BLL.Security.csprojResolveAssemblyReference.cache
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL.Security\obj\Debug\BLL.Security.dll
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL.Security\obj\Debug\BLL.Security.pdb
+D:\Dev\InstEduc\BLL.Security\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\BLL.Security\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740_log.ldf

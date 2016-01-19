@@ -120,3 +120,5 @@ D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.xml
 D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.Security.xml
 D:\Dev\InstEduc\BLL\bin\Debug\Newtonsoft.Json.xml
+D:\Dev\InstEduc\BLL\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\BLL\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740_log.ldf

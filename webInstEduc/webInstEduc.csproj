@@ -1959,8 +1959,12 @@
     <Content Include="Images\Libro1.xlsx" />
     <Content Include="Consultas\EstudiantesGrados\Web.config" />
     <Content Include="DatosBasicos\FechaCausacion\Web.config" />
-    <Content Include="Inicio\Acudientes\Web.config" />
-    <Content Include="Inicio\Administrativo\Web.config" />
+    <Content Include="Inicio\Acudientes\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Inicio\Administrativo\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Matriculas\Gestion\Web.config" />
     <Content Include="Mensajes\Mensajes\Web.config">
       <SubType>Designer</SubType>

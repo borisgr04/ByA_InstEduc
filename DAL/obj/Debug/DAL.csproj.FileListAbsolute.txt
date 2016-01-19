@@ -28,3 +28,5 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\bin\Debug\EntityFramework.SqlServe
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\obj\Debug\DAL.dll
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\DAL\obj\Debug\DAL.pdb
+D:\Dev\InstEduc\DAL\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\DAL\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740_log.ldf

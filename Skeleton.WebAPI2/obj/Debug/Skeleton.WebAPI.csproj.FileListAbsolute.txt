@@ -566,3 +566,5 @@ D:\Dev\InstEduc\Skeleton.WebAPI2\bin\AutoMapper.xml
 D:\Dev\InstEduc\Skeleton.WebAPI2\obj\Debug\Skeleton.WebAPI.csprojResolveAssemblyReference.cache
 D:\Dev\InstEduc\Skeleton.WebAPI2\obj\Debug\Skeleton.WebAPI.dll
 D:\Dev\InstEduc\Skeleton.WebAPI2\obj\Debug\Skeleton.WebAPI.pdb
+D:\Dev\InstEduc\Skeleton.WebAPI2\bin\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\Skeleton.WebAPI2\bin\aspnet-Skeleton.WebAPI-20140112045740_log.ldf

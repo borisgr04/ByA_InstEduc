@@ -180,3 +180,5 @@ D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Core.xml
 D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Owin.xml
 D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 D:\Dev\InstEduc\webInstEduc\bin\Microsoft.Owin.Cors.xml
+D:\Dev\InstEduc\webInstEduc\bin\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\webInstEduc\bin\aspnet-Skeleton.WebAPI-20140112045740_log.ldf

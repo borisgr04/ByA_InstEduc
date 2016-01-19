@@ -76,3 +76,5 @@ D:\Dev\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 D:\Dev\InstEduc\TestConsole\bin\Debug\BLL.Security.pdb
 D:\Dev\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\Dev\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Dev\InstEduc\TestConsole\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\TestConsole\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740_log.ldf
