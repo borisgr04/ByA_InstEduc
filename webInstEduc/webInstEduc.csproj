@@ -1465,6 +1465,8 @@
     <Content Include="DatosBasicos\Grados\Grados.aspx" />
     <Content Include="DatosBasicos\Grados\js\cGrados.js" />
     <Content Include="Default.html" />
+    <Content Include="Liquidaciones\NotaCredito\js\cNotaCredito.js" />
+    <Content Include="Liquidaciones\NotaCredito\NotaCredito.aspx" />
     <Content Include="Mensajes\EnvioMensajes\EnvioMensajes.aspx" />
     <Content Include="Mensajes\EnvioMensajes\js\cEnvioMensajes.js" />
     <Content Include="Mensajes\Mensajes\js\cMensajes.js" />
@@ -1967,6 +1969,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="NotaCredito\NotaCredito\Web.config" />
+    <Content Include="Liquidaciones\NotaCredito\Web.config" />
     <None Include="Properties\PublishProfiles\carlos.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
@@ -2237,6 +2240,13 @@
     </Compile>
     <Compile Include="DatosBasicos\Grados\Grados.aspx.designer.cs">
       <DependentUpon>Grados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Liquidaciones\NotaCredito\NotaCredito.aspx.cs">
+      <DependentUpon>NotaCredito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Liquidaciones\NotaCredito\NotaCredito.aspx.designer.cs">
+      <DependentUpon>NotaCredito.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mensajes\EnvioMensajes\EnvioMensajes.aspx.cs">
       <DependentUpon>EnvioMensajes.aspx</DependentUpon>

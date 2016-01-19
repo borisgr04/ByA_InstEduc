@@ -1,7 +1,9 @@
 app.controller('LoginCtrl', ['loginServices', '$scope', '$ionicPopup', '$state', function(loginServices, $scope, $ionicPopup, $state){
     $scope.username;
     $scope.password;
-    $scope.login = function(){
+    $scope.login = function(username, password){
+        $scope.username = username;
+        $scope.password = password;
         var promisePost = loginServices.Login($scope.username, $scope.password);
         promisePost.then(
             function (pl) {
@@ -46,7 +48,7 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
         localStorage.clear();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
-        $state.go('login');
+        _redireccionar();
     };
 
     $scope.redireccionar = function () {
@@ -92,7 +94,7 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
 
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            $state.go('login');
+            location.href = "http://localhost:8100/#login";
         }
     };
 }]);
@@ -112,7 +114,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
     };
     $scope.iconoMensaje = function(estado){
         if(estado == "Sin Revisar") return "icon ion-android-mail";
-        if(estado == "Revisado") return "icon ion-android-mail";
+        if(estado == "Revisado") return "icon ion-android-drafts";
         //ion-email-unread
     };
     $scope.abrirMensaje = function(mensaje, index) {
@@ -177,8 +179,12 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         console.log($scope.mensajeDto);
     };
 
+    $scope.showConfirm = function(){
+        showConfirm('Advertencia!', '¿Desea eliminar los mensajes seleccionados?');
+    };
+
     $scope.EliminarMensajes = function() {
-        alert($scope.mensajeDto.length);
+        //alert($scope.mensajeDto.length);
         if($scope.mensajeDto.length > 0)
         {
             var promisePost = mensajesServices.PostCambiarMensajeInactivo($scope.mensajeDto);
@@ -215,7 +221,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         localStorage.clear();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
-        $state.go('login');
+        _redireccionar();
     };
 
     _init();
@@ -272,6 +278,20 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         });
     };
 
+    function showConfirm(title, data) {
+        var confirmPopup = $ionicPopup.confirm({
+            title: title,
+            template: data
+        });
+
+        confirmPopup.then(function(res) {
+            if(res) {
+                $scope.EliminarMensajes();
+            } else {
+            }
+        });
+    };
+
     function _EliminarItemMensajes()
     {
         for(i in $scope.mensajeDto)
@@ -290,7 +310,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
 
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            $state.go('login');
+            location.href = "http://localhost:8100/#login";
         }
     };
 }]);
@@ -312,7 +332,7 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($sc
         localStorage.clear();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
-        $state.go('login');
+        _redireccionar();
     };
     _init();
 
@@ -321,7 +341,7 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($sc
     };
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            $state.go('login');
+            location.href = "http://localhost:8100/#login";
         }
     };
 }]);
@@ -357,7 +377,7 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
         localStorage.clear();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
-        $state.go('login');
+        _redireccionar();
     };
 
     _init();
@@ -395,7 +415,7 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
 
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            $state.go('login');
+            location.href = "http://localhost:8100/#login";
         }
     };
 

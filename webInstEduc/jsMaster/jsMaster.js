@@ -16,7 +16,6 @@ var masterP = (function ($) {
        { codigo: "DATOB", nombre: "Datos Basicos", icono: "icon-book" },
        { codigo: "SEGUD", nombre: "Seguridad", icono: "icon-unlock-alt" },
        { codigo: "MSJE", nombre: "Mensajes", icono: "icon-book" },
-       { codigo: "NOTA", nombre: "Nota Crédito", icono: "icon-usd"},
     ];
     var _addHandlers = function () {
         $(".classVigencias").click(function () {
