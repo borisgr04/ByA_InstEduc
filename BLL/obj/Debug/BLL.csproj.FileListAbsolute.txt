@@ -107,3 +107,16 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.xml
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Microsoft.Owin.Security.xml
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\BLL\bin\Debug\Newtonsoft.Json.xml
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.Security.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Newtonsoft.Json.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Owin.dll
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.xml
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Dev\InstEduc\BLL\bin\Debug\Microsoft.Owin.Security.xml
+D:\Dev\InstEduc\BLL\bin\Debug\Newtonsoft.Json.xml
