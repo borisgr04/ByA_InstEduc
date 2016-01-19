@@ -9,7 +9,7 @@ app.controller('LoginCtrl', ['loginServices', '$scope', '$ionicPopup', '$state',
             function (pl) {
                 byaSite._setToken(pl.data.access_token);
                 byaSite._setUsername($scope.username);
-                $state.go("home");
+                window.location.href = "#/home";
             },
             function (errorPl){
                 showAlert("Error", "Verifique Username/Password");
@@ -28,7 +28,7 @@ app.controller('LoginCtrl', ['loginServices', '$scope', '$ionicPopup', '$state',
     };
 }]);
 app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope', '$state', function($scope, homeServices, $ionicPopup, $rootScope, $state){
-    $scope.username = byaSite._getUsername();
+    $scope.username = {};
     $scope.Acudiente = {};
     $scope.Estudiantes = [];
     $scope.loading = true;
@@ -53,11 +53,12 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
 
     $scope.redireccionar = function () {
         _redireccionar();
-    }
-
-    _init();
-    function _init()
-    {
+    };
+    $scope.$on('$ionicView.enter', function () {
+        $scope.username = byaSite._getUsername();
+        _init();
+    });
+    function _init() {
         _getInformacionAcudienteMensajes();
         $scope.redireccionar();
     };
@@ -94,7 +95,7 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
 
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            location.href = "http://localhost:8100/#login";
+            location.href = "#/login";
         }
     };
 }]);
@@ -224,7 +225,9 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         _redireccionar();
     };
 
-    _init();
+    $scope.$on('$ionicView.enter', function () {
+        _init();
+    });
     function _init()
     {
         _crearModal();
@@ -310,7 +313,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
 
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            location.href = "http://localhost:8100/#login";
+            location.href = "#/login";
         }
     };
 }]);
@@ -334,14 +337,16 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($sc
         $rootScope.estadoCuentaVigenciaActual = [];
         _redireccionar();
     };
-    _init();
+    $scope.$on('$ionicView.enter', function () {
+        _init();
+    });
 
     function _init() {
         $scope.redireccionar();
     };
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            location.href = "http://localhost:8100/#login";
+            location.href = "#/login";
         }
     };
 }]);
@@ -380,7 +385,9 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
         _redireccionar();
     };
 
-    _init();
+    $scope.$on('$ionicView.enter', function () {
+        _init();
+    });
 
     function _init()
     {
@@ -415,7 +422,7 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
 
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
-            location.href = "http://localhost:8100/#login";
+            location.href = "#/login";
         }
     };
 

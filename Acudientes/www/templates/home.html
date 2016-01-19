@@ -10,81 +10,74 @@
         <ion-spinner class="spinner spinner-android" ng-show="loading"></ion-spinner>
     </center>
 
-<div class="container">
+    <div class="container">
+        <div class="card text-center">
+            <div class="item item-text-wrap" style="text-align:justify">
+                <h2 style="font-weight: bold; color: #3e97cf">Mi Información</h2>
+            </div>
+            <div class="row text-left" style="margin:0px 10px 0px 10px;">
+                <div class="col">
+                    <label style="font-weight: bold">
+                        Nombre:
+                    </label>
+                    <label class="etiqueta" style="margin-left: 15px; text-transform: capitalize">{{Acudiente.nombre}}</label>
+                </div>
+
+                <!--<div class="col text-left">
+                    <label></label>
+                </div>-->
+            </div>
+
+            <div class="row text-left" style="margin:0px 10px 0px 10px;">
+                <div class="col">
+                    <label style="font-weight: bold">
+                        Cedula:
+                    </label>
+                    <label class="etiqueta" style="margin-left: 25px;">{{Acudiente.identificacion | number}}</label>
+                </div>
+                <!--<div class="col col-offset-10">
+                    <label>{{Acudiente.identificacion}}</label>
+                </div>-->
+            </div>
+
+            <div class="row text-left" style="margin:0px 10px 0px 10px;">
+                <div class="col">
+                    <label style="font-weight: bold">
+                        Email:
+                    </label>
+                    <label class="etiqueta" style="margin-left: 32px">{{Acudiente.email}}</label>
+                </div>
+                <!--<div class="col col-offset-10">
+                    <label>{{Acudiente.email}}</label>
+                </div>-->
+            </div>
+        </div>
+
+    </div>
+
     <div class="card text-center">
         <div class="item item-text-wrap" style="text-align:justify">
-            <h2 style="font-weight: bold; color: #3e97cf">Mi Información</h2>
-        </div>
-        <div class="row text-left" style="margin:0px 10px 0px 10px;">
-            <div class="col">
-                <label style="font-weight: bold">
-                    Nombre:
-                </label>
-                <label class="etiqueta" style="margin-left: 15px; text-transform: capitalize">{{Acudiente.nombre}}</label>
-            </div>
-
-            <!--<div class="col text-left">
-                <label></label>
-            </div>-->
+            <h2 style="font-weight: bold; color: #3e97cf">Mis Estudiantes</h2>
         </div>
 
-        <div class="row text-left" style="margin:0px 10px 0px 10px;">
-            <div class="col">
-                <label style="font-weight: bold">
-                    Cedula:
-                </label>
-                <label class="etiqueta" style="margin-left: 25px;">{{Acudiente.identificacion | number}}</label>
-            </div>
-            <!--<div class="col col-offset-10">
-                <label>{{Acudiente.identificacion}}</label>
-            </div>-->
-        </div>
-
-        <div class="row text-left" style="margin:0px 10px 0px 10px;">
-            <div class="col">
-                <label style="font-weight: bold">
-                    Email:
-                </label>
-                <label class="etiqueta" style="margin-left: 32px">{{Acudiente.email}}</label>
-            </div>
-            <!--<div class="col col-offset-10">
-                <label>{{Acudiente.email}}</label>
-            </div>-->
+        <div class="row text-left"  ng-repeat = "estudiante in Estudiantes">
+            <a class="itemListEstudiante item-icon-left" ng-click="_irMenuEstudiante(estudiante)" style="width: 100%">
+                <i class="icon ion-university" style="color: #000;"></i>
+                <!--<p>{{estudiante.nombre_completo}}</p>
+                <p>{{estudiante.identificacion}}</p>-->
+                <label style="color: #666; font-size: 14px; font-weight: bold; text-transform: capitalize;">{{estudiante.nombre_completo}}</label>
+                <label style="color: #666; font-size: 14px; float: right;">Saldo</label><br>
+                <label style="color: #666; font-size: 14px;">{{estudiante.identificacion | number}}</label>
+                <label style="color: {{ColorSaldo(estudiante.saldo)}}; font-size: 14px; float: right; font-weight: bold;">${{estudiante.saldo | number}}</label>
+            </a>
         </div>
     </div>
-
-</div>
-
-<div class="card text-center">
-    <div class="item item-text-wrap" style="text-align:justify">
-        <h2 style="font-weight: bold; color: #3e97cf">Mis Estudiantes</h2>
-    </div>
-
-    <div class="row text-left"  ng-repeat = "estudiante in Estudiantes">
-        <a class="itemListEstudiante item-icon-left" ng-click="_irMenuEstudiante(estudiante)" style="width: 100%">
-            <i class="icon ion-university" style="color: #000;"></i>
-            <!--<p>{{estudiante.nombre_completo}}</p>
-            <p>{{estudiante.identificacion}}</p>-->
-            <label style="color: #666; font-size: 14px; font-weight: bold; text-transform: capitalize;">{{estudiante.nombre_completo}}</label>
-            <label style="color: #666; font-size: 14px; float: right;">Saldo</label><br>
-            <label style="color: #666; font-size: 14px;">{{estudiante.identificacion | number}}</label>
-            <label style="color: {{ColorSaldo(estudiante.saldo)}}; font-size: 14px; float: right; font-weight: bold;">${{estudiante.saldo | number}}</label>
+    <ion-footer-bar class="bar bar-footer info" style="position: fixed;">
+        <a ui-sref="mensajes" class="title" style="color:#fff; width: 100%; text-decoration: none; font-size: 18px;">
+            <i class="icon ion-email-unread" style="font-size: 20px;"></i>
+            Mensajes
+            <span class="badge badge-assertive">{{contador}}</span>
         </a>
-    </div>
-</div>
+    </ion-footer-bar>
 
 </ion-content>
-
-<ion-footer-bar class="bar bar-footer info">
-    <!--<a class="item item-icon-left" href="#">
-        <i class="icon ion-email"></i>
-        Me
-        <span class="badge badge-assertive text-right">{{mensajes}}</span>
-    </a>-->
-    <a ui-sref="mensajes" class="title" style="color:#fff; width: 100%; text-decoration: none; font-size: 18px;">
-        <i class="icon ion-email-unread" style="font-size: 20px;"></i>
-        Mensajes
-        <span class="badge badge-assertive">{{contador}}</span>
-    </a>
-
-</ion-footer-bar>

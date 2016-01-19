@@ -24,16 +24,14 @@
                 </a>
         </div>
     </div>
-    <div class="row" style="position: relative;">
-        <div class="col col-50">
-            <label style="font-size: 14px; margin-left: 4px;"><input type="checkbox" ng-model="check_mensajes" ng-click="checkear_Mensajes()"/>     Seleccionar Todos</label>
-        </div>
-
-        <div class="col col-50">
-            <a class="item-icon-right" ng-click="showConfirm()" style="text-decoration: none; font-size: 20px;">
-                <i class="icon ion-trash-b" style="font-size: 22px; color: #d9534f;"></i>
-            </a>
-        </div>
-    </div>
+    <br><br>
+    <ion-footer-bar class="bar bar-footer info" style="position: fixed;">
+        <label style="font-size: 16px; margin-left: 4px; color:#fff; margin-top: 5px; font-weight: bold;">
+            <input type="checkbox" ng-model="check_mensajes" ng-click="checkear_Mensajes()"/>     Seleccionar Todos
+        </label>
+        <a class="item-icon-right" ng-click="showConfirm()" style="text-decoration: none; font-size: 20px;">
+            <i class="icon ion-trash-b" style="font-size: 22px; color: #fff;"></i>
+        </a>
+    </ion-footer-bar>
 
 </ion-content>
