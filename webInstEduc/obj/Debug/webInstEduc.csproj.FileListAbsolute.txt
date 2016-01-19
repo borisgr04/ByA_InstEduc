@@ -172,3 +172,11 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.AspNet.Signa
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.Owin.Cors.dll
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Owin.xml
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\webInstEduc\bin\Microsoft.Owin.Cors.xml
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Owin.dll
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.Owin.Cors.dll
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.Owin.xml
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Dev\InstEduc\webInstEduc\bin\Microsoft.Owin.Cors.xml
