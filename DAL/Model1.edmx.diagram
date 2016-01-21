@@ -73,8 +73,8 @@
         <AssociationConnector Association="bdieModel.FK_parametros_vigencias" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_periodos_vigencias" ManuallyRouted="false" />
         <AssociationConnector Association="bdieModel.FK_tarifas_vigencias" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="bdieModel.tokens_notificaciones" Width="1.5" PointX="7.0116742192821926" PointY="18.527775028034942" />
-        <AssociationConnector Association="bdieModel.FK__tokens_no__id_te__114A936A" />
+        <EntityTypeShape EntityType="bdieModel.tokens_notificaciones" Width="1.5" PointX="10.34413383824012" PointY="0.70359133216719671" />
+        <AssociationConnector Association="bdieModel.FK__tokens_no__id_te__160F4887" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

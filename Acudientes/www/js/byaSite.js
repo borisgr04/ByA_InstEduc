@@ -12,8 +12,11 @@ var byaSite = {
     _getUsername: function(){
         return localStorage.getItem("username");
     },
+    _removeUsername: function () {
+        return localStorage.removeItem("username");
+    },
     _getUrl: function() {
-        return "http://localhost:49811/api/";
+        return "http://192.168.1.5:8997/api/";
     },
     _setNombreEstudiante: function(nombre_estudiante) {
         localStorage.setItem("nombre_estudiante", nombre_estudiante);

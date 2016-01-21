@@ -5,10 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('app', ['ionic'])
 
-.run(function($ionicPlatform, $rootScope) {
-      $rootScope.Mensajes = [];
-      $rootScope.contador;
-      $rootScope.estadoCuentaVigenciaActual = [];
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -23,11 +20,39 @@ var app = angular.module('app', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+
+    var push = new Ionic.Push({
+    });
+
+    push.register(function (token) {
+        var GCM = token.token;
+        localStorage.setItem("GCM", GCM);
+    });
+
+      // kick off the platform web client
+    Ionic.io();
+
+      // this will give you a fresh user or the previously saved 'current user'
+    var user = Ionic.User.current();
+
+      // if the user doesn't have an id, you'll need to give it one.
+    if (!user.id) {
+        user.id = Ionic.User.anonymousId();
+        // user.id = 'your-custom-user-id';
+    }
+
+      //persist the user
+    user.save();
+
   });
 })
 
 
-.config(function($stateProvider, $urlRouterProvider){
+
+
+
+.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
     .state('login', {
       url: '/login',
@@ -64,5 +89,9 @@ var app = angular.module('app', ['ionic'])
         templateUrl: 'templates/estadoDeCuenta.html',
         controller: 'CuentaCtrl'
       });
-    $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/login');
+
+
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });

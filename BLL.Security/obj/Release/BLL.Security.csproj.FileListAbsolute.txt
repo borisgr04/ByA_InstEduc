@@ -52,3 +52,5 @@ D:\Dev\InstEduc\BLL.Security\bin\Release\Microsoft.AspNet.Identity.EntityFramewo
 D:\Dev\InstEduc\BLL.Security\obj\Release\BLL.Security.csprojResolveAssemblyReference.cache
 D:\Dev\InstEduc\BLL.Security\obj\Release\BLL.Security.dll
 D:\Dev\InstEduc\BLL.Security\obj\Release\BLL.Security.pdb
+D:\Dev\InstEduc\BLL.Security\bin\Release\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\BLL.Security\bin\Release\aspnet-Skeleton.WebAPI-20140112045740_log.ldf

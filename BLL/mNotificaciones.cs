@@ -13,33 +13,6 @@ namespace BLL
     public class mNotificaciones
     {
         ieEntities ctx;   
-        public ByARpt EnviarNotificaciones(List<estudiantesDto> lEstudiantes)
-        {
-            // recorrer ls lista
-            /* por cada mensaje buscar el token del acudiente (crear tabla)
-             * enviar la notificacion y ya!
-             */
-            ByARpt r = new ByARpt();
-            try
-            {
-                foreach (estudiantesDto estuDto in lEstudiantes)
-                {
-                    tokens_notificaciones token = ctx.tokens_notificaciones.Where(t => t.id_tercero == estuDto.id).FirstOrDefault();
-                    if (token != null)
-                    {
-                        //enviar notificacion
-                    }
-                }
-                r.Error = false;
-                r.Mensaje = "Alertas enviadas exitosamente!";
-            }
-            catch
-            {
-                r.Error = true;
-                r.Mensaje = "Error al enviar las Alertas";
-            }
-            return r;
-        }
         public ByARpt PostTokenNotificaciones(bObjetoNotificaciones objNotificaciones)
         {
             cmdInsert o = new cmdInsert();
@@ -61,14 +34,14 @@ namespace BLL
                 acudiente = ctx.terceros.Where(t => t.identificacion == objNoti.identificacion_acudiente).FirstOrDefault();
                 if(acudiente != null)
                 {
-                    if (objNoti.token_notificacion != null || objNoti.token_notificacion != "")
+                    if (objNoti.token_notificacion != null && objNoti.token_notificacion != "")
                     {
                         return true;
                     }
                     else
                     {
                         byaRpt.Error = true;
-                        byaRpt.Mensaje = "El token está vacío";
+                        byaRpt.Mensaje = "No hay token";
                         return false;
                     }
                 }
@@ -82,24 +55,27 @@ namespace BLL
 
             protected internal override void Antes()
             {
-                int id = calcularConsecutivo();
-                tokens_notificaciones token_noti = new tokens_notificaciones();
-                token_noti.id = id;
-                token_noti.id_tercero = acudiente.id;
-                token_noti.token = objNoti.token_notificacion;
-                ctx.tokens_notificaciones.Add(token_noti);
+                tokens_notificaciones tokenAcu = ctx.tokens_notificaciones.Where(t => t.id_tercero == acudiente.id).FirstOrDefault();
+                if (tokenAcu == null)
+                {
+                    int id = calcularConsecutivo();
+                    tokens_notificaciones token_noti = new tokens_notificaciones();
+                    token_noti.id = id;
+                    token_noti.id_tercero = acudiente.id;
+                    token_noti.token = objNoti.token_notificacion;
+                    ctx.tokens_notificaciones.Add(token_noti);
+                }
+                else
+                {
+                    tokenAcu.token = objNoti.token_notificacion;
+                }
             }
 
             private int calcularConsecutivo()
             {
-                int id;
                 tokens_notificaciones token = ctx.tokens_notificaciones.OrderByDescending(t => t.id).FirstOrDefault();
-                if (token == null)
-                {
-                    id = 0;
-                    return id;
-                }
-                return id = token.id;
+                if (token == null) return 1;
+                return token.id + 1;
             }
         }
         class cmdDelete : absTemplate

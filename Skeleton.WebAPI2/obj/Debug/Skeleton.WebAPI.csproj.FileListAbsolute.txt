@@ -484,7 +484,6 @@ D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Skeleton.WebAPI2\bin\System.Web.Http.O
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Skeleton.WebAPI2\bin\DAL.pdb
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Skeleton.WebAPI2\bin\AutoMapper.pdb
 D:\AdrianVergara\ASP.NET\Colegio\InstEduc\Skeleton.WebAPI2\bin\AutoMapper.xml
-D:\Dev\InstEduc\Skeleton.WebAPI2\bin\AutoMapper.Net4.dll
 D:\Dev\InstEduc\Skeleton.WebAPI2\bin\Skeleton.WebAPI.dll
 D:\Dev\InstEduc\Skeleton.WebAPI2\bin\Skeleton.WebAPI.pdb
 D:\Dev\InstEduc\Skeleton.WebAPI2\bin\Antlr3.Runtime.dll
@@ -566,5 +565,5 @@ D:\Dev\InstEduc\Skeleton.WebAPI2\bin\AutoMapper.xml
 D:\Dev\InstEduc\Skeleton.WebAPI2\obj\Debug\Skeleton.WebAPI.csprojResolveAssemblyReference.cache
 D:\Dev\InstEduc\Skeleton.WebAPI2\obj\Debug\Skeleton.WebAPI.dll
 D:\Dev\InstEduc\Skeleton.WebAPI2\obj\Debug\Skeleton.WebAPI.pdb
-D:\Dev\InstEduc\Skeleton.WebAPI2\bin\aspnet-Skeleton.WebAPI-20140112045740.mdf
-D:\Dev\InstEduc\Skeleton.WebAPI2\bin\aspnet-Skeleton.WebAPI-20140112045740_log.ldf
+D:\Dev\InstEduc\Skeleton.WebAPI2\bin\RestSharp.dll
+D:\Dev\InstEduc\Skeleton.WebAPI2\bin\RestSharp.xml

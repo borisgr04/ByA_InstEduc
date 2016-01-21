@@ -78,3 +78,5 @@ D:\Dev\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.
 D:\Dev\InstEduc\TestConsole\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\Dev\InstEduc\TestConsole\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740.mdf
 D:\Dev\InstEduc\TestConsole\bin\Debug\aspnet-Skeleton.WebAPI-20140112045740_log.ldf
+D:\Dev\InstEduc\TestConsole\bin\Debug\RestSharp.dll
+D:\Dev\InstEduc\TestConsole\bin\Debug\RestSharp.xml

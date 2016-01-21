@@ -9,6 +9,7 @@ using DAL;
 using ByA;
 using AutoMapper;
 using BLL.Security;
+using RestSharp;
 
 namespace BLL
 {
@@ -26,7 +27,7 @@ namespace BLL
             using(ctx = new ieEntities())
             {
                 List<mensajesDto> ListMsjeDto = new List<mensajesDto>();
-                List<mensajes> ListMsje = ctx.mensajes.Where(t => t.id_destinatario == id_acudiente && t.estado != "IN").ToList();
+                List<mensajes> ListMsje = ctx.mensajes.Where(t => t.id_destinatario == id_acudiente && t.estado != "IN").OrderByDescending(t=> t.fecha).ToList();
                 Mapper.Map(ListMsje, ListMsjeDto);
                 return ListMsjeDto;
             }
@@ -45,13 +46,7 @@ namespace BLL
             cmdInsert o = new cmdInsert();
             o.ListEstDto = ListEstudiantesDto;
             o.identificacion_remitente = identificacion;
-            ByARpt res = o.Enviar();
-
-            if (res.Error == false)
-            {
-
-            }
-            return res;
+            return o.Enviar();
         }
 
         public ByARpt PostCambiarEstadoInactivo(List<mensajesDto> listMsgDto)
@@ -157,6 +152,7 @@ namespace BLL
             }
             protected internal override void Antes()
             {
+                List<string> lTokens = new List<string>();
                 int id = calcularConsecutivo();
                 foreach(estudiantesDto estuDto in ListEstDto)
                 {
@@ -171,9 +167,63 @@ namespace BLL
                     msje.id_destinatario = estuDto.id_acudiente;
                     msje.fecha = DateTime.Now;
                     ctx.mensajes.Add(msje);
-                }
-            }
 
+                   
+                    tokens_notificaciones token = ctx.tokens_notificaciones.Where(t => t.id_tercero == estuDto.id_acudiente).FirstOrDefault();
+                    if (token != null && token.token != null && token.token != "")
+                    {
+                        lTokens.Add(token.token);
+                    }
+                }
+                EnviarNotificaciones(lTokens);
+            }
+            private void EnviarNotificaciones(List<string> ltokens)
+            {
+                string url = "https://push.ionic.io/api/v1/push";
+
+                var client = new RestClient(url);
+                var request = new RestRequest("", Method.POST);
+
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("X-Ionic-Application-Id", "569d145a"); // Numero del proyecto Ionic
+                request.AddHeader("Authorization", "NzVhZWIwNjlmNjMwZDAwZTk3ZDdlZjA3MGIzZTc2ODFlMjI3NDVlMTM4YTYxMDFj"); // Clave privada en Base4
+
+                objRequestPushApi obj = new objRequestPushApi()
+                {
+                    tokens = ltokens,
+                    notification = new obj_notification
+                    {
+                        alert = "Tiene nuevos mensajes por leer!!",
+                        ios = new obj_ios()
+                        {
+                            badge = "1",
+                            sound = "ping.aiff",
+                            expiry = "1423238641",
+                            priority = "10",
+                            contentAvailable = "1",
+                            payload = new obj_payload
+                            {
+                                key1 = "value",
+                                key2 = "value"
+                            }
+                        },
+                        android = new obj_android
+                        {
+                            collapseKey = "foo",
+                            delayWhileIdle = "true",
+                            timeToLive = "300",
+                            payload = new obj_payload
+                            {
+                                key1 = "value",
+                                key2 = "value"
+                            }
+                        }
+                    }
+                };
+                request.AddJsonBody(obj);
+
+                respuestaApiRest queryResult = client.Execute<respuestaApiRest>(request).Data;
+            }
             private int calcularConsecutivo()
             {
                 int id;

@@ -5,14 +5,11 @@
     <h1 class="title" style="color:#fff;">Mensajes</h1>
     <button style="color:#fff; font-size: 14px;" ng-click="logout()" class="button button-icon">Salir</button>
 </ion-header-bar>
-
 <ion-content>
-
-    <div class="card text-center">
+    <div class="card text-center">        
         <div class="item item-text-wrap" style="text-align:justify">
             <h2 style="font-weight: bold; color: #3e97cf">Tiene {{contador}} mensajes sin leer</h2>
         </div>
-
         <div class="row text-left"  ng-repeat = "mensaje in Mensajes">
                 <label style="margin-top: 16px;">
                     <input type="checkbox" ng-model="mensaje.activo" ng-change="checkearMensaje(mensaje, $index)"/>
@@ -24,7 +21,6 @@
                 </a>
         </div>
     </div>
-    <br><br>
     <ion-footer-bar class="bar bar-footer info" style="position: fixed;">
         <label style="font-size: 16px; margin-left: 4px; color:#fff; margin-top: 5px; font-weight: bold;">
             <input type="checkbox" ng-model="check_mensajes" ng-click="checkear_Mensajes()"/>     Seleccionar Todos
@@ -33,5 +29,4 @@
             <i class="icon ion-trash-b" style="font-size: 22px; color: #fff;"></i>
         </a>
     </ion-footer-bar>
-
 </ion-content>

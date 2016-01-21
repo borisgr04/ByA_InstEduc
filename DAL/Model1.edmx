@@ -54,7 +54,7 @@
             <End Role="terceros" EntitySet="terceros" />
             <End Role="mensajes" EntitySet="mensajes" />
           </AssociationSet>
-          <AssociationSet Name="FK__tokens_no__id_te__114A936A" Association="bdieModel.Store.FK__tokens_no__id_te__114A936A">
+          <AssociationSet Name="FK__tokens_no__id_te__160F4887" Association="bdieModel.Store.FK__tokens_no__id_te__160F4887">
             <End Role="terceros" EntitySet="terceros" />
             <End Role="tokens_notificaciones" EntitySet="tokens_notificaciones" />
           </AssociationSet>
@@ -604,7 +604,7 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="id_tercero" Type="int" Nullable="false" />
-          <Property Name="token" Type="nvarchar" Nullable="false" MaxLength="1" />
+          <Property Name="token" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="vigencias">
           <Key>
@@ -629,7 +629,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tokens_no__id_te__114A936A">
+        <Association Name="FK__tokens_no__id_te__160F4887">
           <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="1" />
           <End Role="tokens_notificaciones" Type="bdieModel.Store.tokens_notificaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1303,7 +1303,7 @@
             <End Role="tarifas" EntitySet="tarifas" />
           </AssociationSet>
           <EntitySet Name="tokens_notificaciones" EntityType="bdieModel.tokens_notificaciones" />
-          <AssociationSet Name="FK__tokens_no__id_te__114A936A" Association="bdieModel.FK__tokens_no__id_te__114A936A">
+          <AssociationSet Name="FK__tokens_no__id_te__160F4887" Association="bdieModel.FK__tokens_no__id_te__160F4887">
             <End Role="terceros" EntitySet="terceros" />
             <End Role="tokens_notificaciones" EntitySet="tokens_notificaciones" />
           </AssociationSet>
@@ -1742,7 +1742,7 @@
           <NavigationProperty Name="estudiantes3" Relationship="bdieModel.FK_estudiantes_terceros3" FromRole="terceros" ToRole="estudiantes" />
           <NavigationProperty Name="mensajes" Relationship="bdieModel.FK__mensajes__id_des__0C85DE4D" FromRole="terceros" ToRole="mensajes" />
           <NavigationProperty Name="mensajes1" Relationship="bdieModel.FK_mensajes_terceros" FromRole="terceros" ToRole="mensajes" />
-          <NavigationProperty Name="tokens_notificaciones" Relationship="bdieModel.FK__tokens_no__id_te__114A936A" FromRole="terceros" ToRole="tokens_notificaciones" />
+          <NavigationProperty Name="tokens_notificaciones" Relationship="bdieModel.FK__tokens_no__id_te__160F4887" FromRole="terceros" ToRole="tokens_notificaciones" />
         </EntityType>
         <EntityType Name="tipos_documentos">
           <Key>
@@ -2266,10 +2266,10 @@
           </Key>
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="Int32" Name="id_tercero" Nullable="false" />
-          <Property Type="String" Name="token" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="terceros" Relationship="bdieModel.FK__tokens_no__id_te__114A936A" FromRole="tokens_notificaciones" ToRole="terceros" />
+          <Property Type="String" Name="token" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="terceros" Relationship="bdieModel.FK__tokens_no__id_te__160F4887" FromRole="tokens_notificaciones" ToRole="terceros" />
         </EntityType>
-        <Association Name="FK__tokens_no__id_te__114A936A">
+        <Association Name="FK__tokens_no__id_te__160F4887">
           <End Type="bdieModel.terceros" Role="terceros" Multiplicity="1" />
           <End Type="bdieModel.tokens_notificaciones" Role="tokens_notificaciones" Multiplicity="*" />
           <ReferentialConstraint>

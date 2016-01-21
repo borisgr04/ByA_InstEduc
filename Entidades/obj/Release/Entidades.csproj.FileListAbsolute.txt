@@ -20,3 +20,5 @@ D:\Dev\InstEduc\Entidades\bin\Release\EntityFramework.xml
 D:\Dev\InstEduc\Entidades\obj\Release\Entidades.csprojResolveAssemblyReference.cache
 D:\Dev\InstEduc\Entidades\obj\Release\Entidades.dll
 D:\Dev\InstEduc\Entidades\obj\Release\Entidades.pdb
+D:\Dev\InstEduc\Entidades\bin\Release\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\Entidades\bin\Release\aspnet-Skeleton.WebAPI-20140112045740_log.ldf

@@ -49,7 +49,7 @@
       <End Role="terceros" EntitySet="terceros" />
       <End Role="mensajes" EntitySet="mensajes" />
     </AssociationSet>
-    <AssociationSet Name="FK__tokens_no__id_te__114A936A" Association="bdieModel.Store.FK__tokens_no__id_te__114A936A">
+    <AssociationSet Name="FK__tokens_no__id_te__160F4887" Association="bdieModel.Store.FK__tokens_no__id_te__160F4887">
       <End Role="terceros" EntitySet="terceros" />
       <End Role="tokens_notificaciones" EntitySet="tokens_notificaciones" />
     </AssociationSet>
@@ -599,7 +599,7 @@
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="id_tercero" Type="int" Nullable="false" />
-    <Property Name="token" Type="nvarchar" Nullable="false" MaxLength="1" />
+    <Property Name="token" Type="nvarchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="vigencias">
     <Key>
@@ -624,7 +624,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tokens_no__id_te__114A936A">
+  <Association Name="FK__tokens_no__id_te__160F4887">
     <End Role="terceros" Type="bdieModel.Store.terceros" Multiplicity="1" />
     <End Role="tokens_notificaciones" Type="bdieModel.Store.tokens_notificaciones" Multiplicity="*" />
     <ReferentialConstraint>

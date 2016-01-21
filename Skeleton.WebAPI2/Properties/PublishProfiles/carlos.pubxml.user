@@ -8,149 +8,176 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Sitios\apiPortalEmpleo</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Sitios\ApiColegio</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/aspnet-Skeleton.WebAPI-20140112045740.mdf">
-      <publishTime>01/25/2015 19:30:27</publishTime>
+      <publishTime>01/21/2016 08:41:59</publishTime>
     </File>
     <File Include="App_Data/aspnet-Skeleton.WebAPI-20140112045740_log.ldf">
-      <publishTime>01/25/2015 19:30:27</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>01/25/2015 19:36:16</publishTime>
+      <publishTime>12/28/2015 21:54:26</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>12/28/2015 21:54:26</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
-      <publishTime>01/25/2015 19:40:28</publishTime>
+      <publishTime>07/27/2015 11:08:57</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.pdb">
+      <publishTime>07/27/2015 11:08:58</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>01/29/2015 16:08:09</publishTime>
+      <publishTime>01/21/2016 10:20:36</publishTime>
+    </File>
+    <File Include="bin/BLL.pdb">
+      <publishTime>01/21/2016 10:20:35</publishTime>
     </File>
     <File Include="bin/BLL.Security.dll">
-      <publishTime>01/29/2015 16:08:07</publishTime>
+      <publishTime>01/21/2016 10:10:42</publishTime>
+    </File>
+    <File Include="bin/BLL.Security.pdb">
+      <publishTime>01/21/2016 10:10:42</publishTime>
     </File>
     <File Include="bin/ByA.dll">
-      <publishTime>01/29/2015 16:08:05</publishTime>
+      <publishTime>05/09/2015 15:19:10</publishTime>
+    </File>
+    <File Include="bin/ByA.pdb">
+      <publishTime>05/09/2015 15:19:10</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>01/29/2015 16:08:06</publishTime>
+      <publishTime>01/21/2016 10:10:41</publishTime>
+    </File>
+    <File Include="bin/DAL.pdb">
+      <publishTime>01/21/2016 10:10:41</publishTime>
     </File>
     <File Include="bin/Entidades.dll">
-      <publishTime>01/29/2015 16:08:04</publishTime>
+      <publishTime>01/21/2016 10:10:41</publishTime>
+    </File>
+    <File Include="bin/Entidades.pdb">
+      <publishTime>01/21/2016 10:10:41</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>01/25/2015 19:38:58</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>01/25/2015 19:38:58</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>01/25/2015 19:36:10</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
-      <publishTime>01/25/2015 19:36:46</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
-      <publishTime>01/25/2015 19:35:39</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.dll">
-      <publishTime>01/25/2015 19:36:14</publishTime>
+      <publishTime>01/20/2016 10:47:32</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
-      <publishTime>01/25/2015 19:39:32</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
-      <publishTime>01/25/2015 19:36:17</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.dll">
-      <publishTime>01/25/2015 19:31:25</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
-      <publishTime>01/25/2015 19:36:26</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Google.dll">
-      <publishTime>01/25/2015 19:40:08</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
-      <publishTime>01/25/2015 19:35:58</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
-      <publishTime>01/25/2015 19:40:09</publishTime>
+      <publishTime>12/28/2015 21:54:28</publishTime>
     </File>
     <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
-      <publishTime>01/25/2015 19:39:58</publishTime>
+      <publishTime>12/28/2015 21:54:28</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>01/25/2015 19:37:51</publishTime>
+      <publishTime>12/28/2015 21:54:28</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
-      <publishTime>01/25/2015 19:37:35</publishTime>
+      <publishTime>07/27/2015 11:09:32</publishTime>
     </File>
     <File Include="bin/mysql.data.entity.EF6.dll">
-      <publishTime>01/25/2015 19:39:35</publishTime>
+      <publishTime>12/28/2015 21:54:28</publishTime>
     </File>
     <File Include="bin/MySql.Web.dll">
-      <publishTime>01/25/2015 19:33:48</publishTime>
+      <publishTime>07/27/2015 11:09:35</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>01/25/2015 19:37:08</publishTime>
+      <publishTime>01/20/2016 10:35:46</publishTime>
     </File>
     <File Include="bin/Owin.dll">
-      <publishTime>01/25/2015 19:36:10</publishTime>
+      <publishTime>07/27/2015 11:09:37</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>01/21/2016 09:23:58</publishTime>
     </File>
     <File Include="bin/Skeleton.WebAPI.dll">
-      <publishTime>02/03/2015 11:54:10</publishTime>
+      <publishTime>01/21/2016 10:20:39</publishTime>
+    </File>
+    <File Include="bin/Skeleton.WebAPI.pdb">
+      <publishTime>01/21/2016 10:20:39</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>01/25/2015 19:36:20</publishTime>
+      <publishTime>01/20/2016 10:35:47</publishTime>
     </File>
     <File Include="bin/System.Web.Cors.dll">
-      <publishTime>01/25/2015 19:39:30</publishTime>
+      <publishTime>01/20/2016 10:47:32</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>01/25/2015 19:37:28</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Cors.dll">
-      <publishTime>01/25/2015 19:40:10</publishTime>
+      <publishTime>01/20/2016 10:47:32</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/25/2015 19:40:05</publishTime>
+      <publishTime>01/20/2016 10:35:47</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Owin.dll">
-      <publishTime>01/25/2015 19:39:43</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
-      <publishTime>01/25/2015 19:39:38</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>01/25/2015 19:39:57</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>01/25/2015 19:40:08</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>01/25/2015 19:37:32</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>01/25/2015 19:37:28</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>01/25/2015 19:37:28</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>01/25/2015 19:37:28</publishTime>
+      <publishTime>12/28/2015 21:54:27</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>01/25/2015 19:36:04</publishTime>
+      <publishTime>12/28/2015 21:54:28</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>01/25/2015 19:29:29</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/25/2015 19:29:29</publishTime>
+      <publishTime>01/21/2016 08:42:03</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/29/2015 16:08:12</publishTime>
+      <publishTime>01/21/2016 09:38:38</publishTime>
     </File>
     <File Include="wsFotos.ashx">
       <publishTime>01/25/2015 19:30:23</publishTime>

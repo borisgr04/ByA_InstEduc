@@ -1,22 +1,52 @@
-app.controller('LoginCtrl', ['loginServices', '$scope', '$ionicPopup', '$state', function(loginServices, $scope, $ionicPopup, $state){
+app.controller('LoginCtrl', ['loginServices', '$scope', '$ionicPopup', '$state', 'notificacionesServices', function (loginServices, $scope, $ionicPopup, $state, notificacionesServices) {
     $scope.username;
     $scope.password;
+    $scope.loading = false;
     $scope.login = function(username, password){
         $scope.username = username;
         $scope.password = password;
+        $scope.loading = true;
         var promisePost = loginServices.Login($scope.username, $scope.password);
         promisePost.then(
             function (pl) {
+                $scope.loading = false;
                 byaSite._setToken(pl.data.access_token);
                 byaSite._setUsername($scope.username);
-                window.location.href = "#/home";
+                guardarTokenGCM($scope.username);
             },
-            function (errorPl){
+            function (errorPl) {
+                $scope.loading = false;
                 showAlert("Error", "Verifique Username/Password");
             }
         );
     };
+    $scope.$on('$ionicView.enter', function () {
+        _init();
+    });
 
+    function _init() {
+        var user = byaSite._getUsername();
+        if (user != null && user != "") {
+            window.location.href = "#/home";
+        }
+    };
+    function guardarTokenGCM(identificacion) {
+        var token = localStorage.getItem("GCM");
+        var obj = {
+            identificacion_acudiente: byaSite._getUsername(),
+            token_notificacion: token
+        };
+        $scope.loading = true;
+        var promisePost = notificacionesServices.PostIdentificacion(obj);
+        promisePost.then(function (pl) {
+            $scope.loading = false;
+            $scope.password = "";
+            window.location.href = "#/home";
+        }, function (pl) {
+            $scope.loading = false;
+            window.location.href = "#/home";
+        });
+    };
     function showAlert(title, data) {
         var alertPopup = $ionicPopup.alert({
             title: title,
@@ -36,21 +66,18 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
         if(value == 0) return "#5cb85c;";
         if(value > 0) return "#d9534f";
     };
-
     $scope._irMenuEstudiante = function(estudiante){
         byaSite._setNombreEstudiante(estudiante.nombre_completo);
         byaSite._setIdentificacionEstudiante(estudiante.identificacion);
         byaSite._setSaldoEstudiante(estudiante.saldo);
         $state.go("estudiante");
     };
-
     $scope.logout = function() {
-        localStorage.clear();
+        byaSite._removeUsername();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
         _redireccionar();
     };
-
     $scope.redireccionar = function () {
         _redireccionar();
     };
@@ -58,20 +85,19 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
         $scope.username = byaSite._getUsername();
         _init();
     });
+
     function _init() {
         _getInformacionAcudienteMensajes();
         $scope.redireccionar();
     };
-
     function _getInformacionAcudienteMensajes()
     {
         var promiseGet = homeServices.getInformacionAcudienteMensajes($scope.username);
         promiseGet.then(
-            function(pl){
+            function (pl) {
                 var respuesta = pl.data;
                 $scope.Acudiente = respuesta.acudiente;
                 $scope.Estudiantes = respuesta.estudiantes;
-                //console.log($scope.Estudiantes);
                 $rootScope.Mensajes = respuesta.mensajes;
                 console.log($rootScope.Mensajes);
                 _contarMensajes();
@@ -82,7 +108,6 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
             }
         );
     };
-
     function _contarMensajes(){
         $rootScope.contador = 0;
         for(i in $rootScope.Mensajes)
@@ -92,14 +117,12 @@ app.controller('HomeCtrl', ['$scope', 'homeServices', '$ionicPopup', '$rootScope
             }
         }
     };
-
     function _redireccionar() {
         if(byaSite._getUsername() == "" || byaSite._getUsername == undefined || byaSite._getUsername() == null || byaSite._getToken() == "" || byaSite._getToken() == undefined || byaSite._getToken() == null){
             location.href = "#/login";
         }
     };
 }]);
-
 app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajesServices', '$ionicPopup', '$state', function($scope, $rootScope, $ionicModal, mensajesServices, $ionicPopup, $state){
 
     $scope.mensajeActual;
@@ -181,7 +204,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
     };
 
     $scope.showConfirm = function(){
-        showConfirm('Advertencia!', '¿Desea eliminar los mensajes seleccionados?');
+        showConfirm('Advertencia!', 'Desea eliminar los mensajes seleccionados?');
     };
 
     $scope.EliminarMensajes = function() {
@@ -219,7 +242,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
     };
 
     $scope.logout = function() {
-        localStorage.clear();
+        byaSite._removeUsername();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
         _redireccionar();
@@ -297,6 +320,7 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
 
     function _EliminarItemMensajes()
     {
+
         for(i in $scope.mensajeDto)
         {
             for(j in $rootScope.Mensajes)
@@ -317,7 +341,6 @@ app.controller('MensajesCtrl', ['$scope', '$rootScope', '$ionicModal', 'mensajes
         }
     };
 }]);
-
 app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
     $scope.username = byaSite._getUsername();
     $scope.nombre_estudiante = byaSite._getNombreEstudiante();
@@ -332,7 +355,7 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($sc
         if(value > 0) return "#d9534f";
     };
     $scope.logout = function() {
-        localStorage.clear();
+        byaSite._removeUsername();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
         _redireccionar();
@@ -350,7 +373,6 @@ app.controller('EstudianteCtrl', ['$scope', '$rootScope', '$state', function($sc
         }
     };
 }]);
-
 app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuentaServices', '$state', function($scope, $rootScope, $ionicModal, estadoCuentaServices, $state) {
     $scope.username = byaSite._getUsername();
     $scope.nombre_estudiante = byaSite._getNombreEstudiante();
@@ -379,7 +401,7 @@ app.controller('CuentaCtrl', ['$scope', '$rootScope', '$ionicModal', 'estadoCuen
         _redireccionar();
     };
     $scope.logout = function() {
-        localStorage.clear();
+        byaSite._removeUsername();
         $rootScope.Mensajes = [];
         $rootScope.estadoCuentaVigenciaActual = [];
         _redireccionar();

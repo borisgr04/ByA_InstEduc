@@ -1,5 +1,5 @@
 app.service('loginServices', ['$http', function($http){
-    var url = "http://localhost:49811/";
+    var url = "http://192.168.1.5:8997/";
     this.Login = function(username, password){
         var dat = 'grant_type=password&username=' + username + '&password=' + password;
         var pet = {
@@ -21,7 +21,7 @@ app.service('homeServices', ['$http', function($http){
     this.getInformacionAcudienteMensajes = function(username){
         var pet = {
             method: 'GET',
-            url: 'http://localhost:49811/api/terceros/InformacionAcudientesMensajes/username/' + username,
+            url: byaSite._getUrl() + 'terceros/InformacionAcudientesMensajes/username/' + username,
             headers: {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + byaSite._getToken(),
@@ -76,6 +76,24 @@ app.service('estadoCuentaServices', ['$http', function($http){
                 'Authorization': 'Bearer ' + byaSite._getToken(),
                 'Content-Type': 'application/json'
             }
+        };
+        var req = $http(pet);
+        return req;
+    };
+}]);
+
+app.service('notificacionesServices', ['$http', function ($http) {
+    var url = byaSite._getUrl() + "Notificaciones";
+    this.PostIdentificacion = function (obj) {
+        var pet = {
+            method: 'POST',
+            url: url + '',
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + byaSite._getToken(),
+            },
+            data: obj
         };
         var req = $http(pet);
         return req;

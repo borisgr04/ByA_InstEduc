@@ -18,3 +18,5 @@ D:\Dev\InstEduc\DAL\bin\Release\EntityFramework.SqlServer.xml
 D:\Dev\InstEduc\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
 D:\Dev\InstEduc\DAL\obj\Release\DAL.dll
 D:\Dev\InstEduc\DAL\obj\Release\DAL.pdb
+D:\Dev\InstEduc\DAL\bin\Release\aspnet-Skeleton.WebAPI-20140112045740.mdf
+D:\Dev\InstEduc\DAL\bin\Release\aspnet-Skeleton.WebAPI-20140112045740_log.ldf
