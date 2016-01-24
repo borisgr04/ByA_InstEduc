@@ -427,5 +427,37 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="detalles_nota_credito">
+      <EntityTypeMapping TypeName="bdieModel.detalles_nota_credito">
+        <MappingFragment StoreEntitySet="detalles_nota_credito">
+          <ScalarProperty Name="nombre_concepto" ColumnName="nombre_concepto" />
+          <ScalarProperty Name="id_cartera" ColumnName="id_cartera" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
+          <ScalarProperty Name="id_nota_credito" ColumnName="id_nota_credito" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notas_credito">
+      <EntityTypeMapping TypeName="bdieModel.notas_credito">
+        <MappingFragment StoreEntitySet="notas_credito">
+          <ScalarProperty Name="usu_mod" ColumnName="usu_mod" />
+          <ScalarProperty Name="usu_reg" ColumnName="usu_reg" />
+          <ScalarProperty Name="fec_mov" ColumnName="fec_mov" />
+          <ScalarProperty Name="fec_reg" ColumnName="fec_reg" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="id_est" ColumnName="id_est" />
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+          <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

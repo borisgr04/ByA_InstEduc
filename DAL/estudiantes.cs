@@ -21,6 +21,7 @@ namespace DAL
             this.movimientos = new HashSet<movimientos>();
             this.pagos = new HashSet<pagos>();
             this.saldos_a_favor = new HashSet<saldos_a_favor>();
+            this.notas_credito = new HashSet<notas_credito>();
         }
     
         public int id { get; set; }
@@ -52,5 +53,6 @@ namespace DAL
         public virtual ICollection<movimientos> movimientos { get; set; }
         public virtual ICollection<pagos> pagos { get; set; }
         public virtual ICollection<saldos_a_favor> saldos_a_favor { get; set; }
+        public virtual ICollection<notas_credito> notas_credito { get; set; }
     }
 }

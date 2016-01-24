@@ -33,6 +33,18 @@ namespace Skeleton.WebAPI.Controllers
             mPagos o = new mPagos();
             return o.GetLiquidacion(id_liquidacion);
         }
+        [Route("NotasCredito/Estudiante/{id_estudiante}")]
+        public List<notas_creditoDto> GetEstudiantes(string id_estudiante)
+        {
+            mPagos o = new mPagos();
+            return o.GetNotasCredito(id_estudiante);
+        }
+        [Route("NotasCredito/Nota/{idNota}")]
+        public notas_creditoDto GetEstudiantes(int idNota)
+        {
+            mPagos o = new mPagos();
+            return o.GetNotaCredito(idNota);
+        }
         [Route("Anular/{id_pago}")]
         public ByARpt PostAnularPago(int id_pago)
         {
@@ -65,6 +77,13 @@ namespace Skeleton.WebAPI.Controllers
             Reg.usu = GetUser();
             mPagos o = new mPagos();
             return o.PagarLiquidacion(Reg);
+        }
+        [Route("NotaCredito")]
+        public ByARpt PostPagarLiquidacion(notas_creditoDto Reg)
+        {
+            Reg.usu = GetUser();
+            mPagos o = new mPagos();
+            return o.InsertNotaCredito(Reg);
         }
         [Route("Estudiante")]
         public List<pagosDto> PostPagosEstudiante(bPagosEstudiante Reg)

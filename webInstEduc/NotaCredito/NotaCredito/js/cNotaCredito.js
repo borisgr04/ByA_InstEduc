@@ -55,12 +55,12 @@ app.controller('cLiquidacion', function ($scope, estudiantesService, pagosServic
         $scope._traerestudiante();
     };
     $scope._irDetalleLiquidacion = function () {
-        byaMsgBox.confirm("Se ha generado la liquidación No. " + $scope.selectLiquidacion + " <br/> ¿Desea imprimir la liquidación que ha realizado?", function (result) {
+        byaMsgBox.confirm("Se ha generado la nota credito No. " + $scope.selectLiquidacion + " <br/> ¿Desea imprimir la nota credito que ha realizado?", function (result) {
             if (result) {
                 varLocal.Set("grupos_pagos", $scope.grupos_pagos);
                 varLocal.Set("det_estudiante", $scope.estudiante);
                 varLocal.Set("id_liquidacion", $scope.selectLiquidacion);
-                window.location.href = "/Liquidaciones/gLiquidaciones/DetalleLiquidacion.aspx";
+                window.location.href = "/NotaCredito/gNotasCredito/DetalleNotaCredito.aspx";
             }
         });
     };
@@ -90,7 +90,7 @@ app.controller('cLiquidacion', function ($scope, estudiantesService, pagosServic
 
     _init();
     function _init() {
-        byaSite.SetModuloP({ TituloForm: "Nota Crédito", Modulo: "Nota Crédito", urlToPanelModulo: "/NotaCredito/NotaCredito/NotaCredito.aspx", Cod_Mod: "NOTA", Rol: "NOTACredi" });
+        byaSite.SetModuloP({ TituloForm: "Nota Crédito", Modulo: "Nota Crédito", urlToPanelModulo: "/NotaCredito/NotaCredito/NotaCredito.aspx", Cod_Mod: "PAGOS", Rol: "PAGOSNotaCredito" });
         _traerGruposPagos();
         FechaActualCausacion();        
     };
@@ -108,19 +108,18 @@ app.controller('cLiquidacion', function ($scope, estudiantesService, pagosServic
         e.id_estudiante = $scope.estudiante.identificacion;
         e.fecha = $("#txtFechaPago").val();
         e.id_grupo = $scope.carteras[0].id_grupo;
-        e.fecha_pago = $("#txtFechaPago").val();
-        e.detalles_pago = $scope.carteras;
+        e.detalles_nota_credito = $scope.carteras;
         e.observacion = $scope.observacion;
         return e;
     };
     function _pagar() {
-        if (confirm("¿Ha comprobado la información y está seguro de realizar este pago?")) {
+        if (confirm("¿Ha comprobado la información y está seguro de realizar esta nota credito?")) {
             $scope.habGuardar = false;
-            var serLiquidar = pagosService.Pagar(_getDatosLiquidacion());
+            var serLiquidar = pagosService.NotaCredito(_getDatosLiquidacion());
             serLiquidar.then(function (pl) {
                 $scope.habGuardar = true;
                 if (pl.data.Error == false) {
-                    $("#LbMsg").msgBox({ titulo: "Liquidaciones", mensaje: pl.data.Mensaje + ", No. pago: " + pl.data.id, tipo: !pl.data.Error });
+                    $("#LbMsg").msgBox({ titulo: "Nota Credito", mensaje: pl.data.Mensaje + ", No. nota credito: " + pl.data.id, tipo: !pl.data.Error });
                     $scope.selectLiquidacion = pl.data.id;
                     $scope._irDetalleLiquidacion();
                 } else {

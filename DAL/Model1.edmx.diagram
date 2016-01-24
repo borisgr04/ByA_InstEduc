@@ -75,6 +75,14 @@
         <AssociationConnector Association="bdieModel.FK_tarifas_vigencias" ManuallyRouted="false" />
         <EntityTypeShape EntityType="bdieModel.tokens_notificaciones" Width="1.5" PointX="10.34413383824012" PointY="0.70359133216719671" />
         <AssociationConnector Association="bdieModel.FK__tokens_no__id_te__160F4887" />
+        <EntityTypeShape EntityType="bdieModel.detalles_nota_credito" Width="1.5" PointX="4.1441034936085828" PointY="28.521695507933245" />
+        <EntityTypeShape EntityType="bdieModel.notas_credito" Width="1.5" PointX="9.3124626750650172" PointY="18.511862435616489" />
+        <AssociationConnector Association="bdieModel.FK_detalles_nota_credito_carterap" />
+        <AssociationConnector Association="bdieModel.FK_detalles_nota_credito_conceptos" />
+        <AssociationConnector Association="bdieModel.FK_detalles_nota_credito_notas_credito" />
+        <AssociationConnector Association="bdieModel.FK_detalles_nota_credito_vigencias" />
+        <AssociationConnector Association="bdieModel.FK_notas_credito_estudiantes" />
+        <AssociationConnector Association="bdieModel.FK_notas_credito_grupos_pagos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

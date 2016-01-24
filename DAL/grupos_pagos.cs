@@ -19,6 +19,7 @@ namespace DAL
             this.carterap = new HashSet<carterap>();
             this.config_grupos_pagos = new HashSet<config_grupos_pagos>();
             this.pagos = new HashSet<pagos>();
+            this.notas_credito = new HashSet<notas_credito>();
         }
     
         public int id { get; set; }
@@ -32,5 +33,6 @@ namespace DAL
         public virtual ICollection<carterap> carterap { get; set; }
         public virtual ICollection<config_grupos_pagos> config_grupos_pagos { get; set; }
         public virtual ICollection<pagos> pagos { get; set; }
+        public virtual ICollection<notas_credito> notas_credito { get; set; }
     }
 }

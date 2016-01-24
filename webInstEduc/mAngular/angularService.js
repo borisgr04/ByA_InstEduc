@@ -200,7 +200,18 @@ app.service("pagosService", function ($http) {
         var req = $http.post('/api/Pagos/Anular/Liquidacion/' + id_pago, null);
         return req;
     };
-   
+    this.NotaCredito = function (objLiquidacion) {
+        var req = $http.post('/api/Pagos/NotaCredito', objLiquidacion);
+        return req;
+    };
+    this.GestNotasCredito = function (idEstudiante) {
+        var req = $http.get("/api/Pagos/NotasCredito/Estudiante/" + idEstudiante);
+        return req;
+    };
+    this.GetNotaCredito = function (idNota) {
+        var req = $http.get("/api/Pagos/NotasCredito/Nota/" + idNota);
+        return req;
+    };
 });
 app.service("periodosService", function ($http) {
     this.GetAll = function () {

@@ -50,6 +50,9 @@ namespace BLL
                     List<detalles_pago> lDetallesPago = db.detalles_pago.Where(t => t.vigencia == vigencia.vigencia && t.pagos.estado == "PA" && t.pagos.id_estudiante == ide_est).ToList();
                     lDetallesPago.ForEach(t => ValorPagado += (int) t.valor);
 
+                    List<detalles_nota_credito> lDetallesNotas = db.detalles_nota_credito.Where(t => t.vigencia == vigencia.vigencia && t.notas_credito.estado == "PA" && t.notas_credito.id_estudiante == ide_est).ToList();
+                    lDetallesNotas.ForEach(t => ValorPagado += (int)t.valor);
+
                     if ((ValorCausado > 0) || (ValorPagado > 0))
                     {
                         vmCarteraxSaldos objRes = new vmCarteraxSaldos();
@@ -88,6 +91,9 @@ namespace BLL
 
                     List<detalles_pago> lDetallesPago = db.detalles_pago.Where(t => t.vigencia == vigencia.vigencia && t.periodo == periodo.periodo && t.pagos.estado == "PA" && t.pagos.id_estudiante == ide_est).ToList();
                     lDetallesPago.ForEach(t => ValorPagado += (int)t.valor);
+
+                    List<detalles_nota_credito> lDetallesNotas = db.detalles_nota_credito.Where(t => t.vigencia == vigencia.vigencia && t.periodo == periodo.periodo && t.notas_credito.estado == "PA" && t.notas_credito.id_estudiante == ide_est).ToList();
+                    lDetallesNotas.ForEach(t => ValorPagado += (int)t.valor);
 
                     if ((ValorCausado > 0) || (ValorPagado > 0))
                     {
@@ -132,6 +138,9 @@ namespace BLL
                     List<detalles_pago> lDet = db.detalles_pago.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.pagos.estado == "PA").ToList();
                     lDet.ForEach(t => ValorPagadoIntereses += (int)t.valor);
 
+                    List<detalles_nota_credito> lDetNota = db.detalles_nota_credito.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.notas_credito.estado == "PA").ToList();
+                    lDetNota.ForEach(t => ValorPagadoIntereses += (int)t.valor);
+
                     vmCarteraxSaldosxConceptos objValorI = new vmCarteraxSaldosxConceptos();
                     objValorI.Item = new conceptosDto();
                     objValorI.Item.id = 6;
@@ -142,6 +151,18 @@ namespace BLL
                 }
                 List<detalles_pago> lPagos = db.detalles_pago.Where(t => t.vigencia == vigencia.vigencia && t.periodo == periodo && t.pagos.estado == "PA" && t.pagos.id_estudiante == ide_est && (t.vigencia * 100 + t.periodo) > VigPerAct).ToList();
                 foreach (detalles_pago item in lPagos)
+                {
+                    vmCarteraxSaldosxConceptos objValor = new vmCarteraxSaldosxConceptos();
+                    objValor.Item = new conceptosDto();
+                    objValor.Item.id = item.id_concepto;
+                    objValor.Item.nombre = item.nombre_concepto;
+                    objValor.Valor = 0;
+                    objValor.Pagado = item.valor;
+                    lst.Add(objValor);
+                }
+
+                List<detalles_nota_credito> lNotas = db.detalles_nota_credito.Where(t => t.vigencia == vigencia.vigencia && t.periodo == periodo && t.notas_credito.estado == "PA" && t.notas_credito.id_estudiante == ide_est && (t.vigencia * 100 + t.periodo) > VigPerAct).ToList();
+                foreach (detalles_nota_credito item in lNotas)
                 {
                     vmCarteraxSaldosxConceptos objValor = new vmCarteraxSaldosxConceptos();
                     objValor.Item = new conceptosDto();
@@ -208,6 +229,9 @@ namespace BLL
             {
                 List<detalles_pago> lDet = db.detalles_pago.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.pagos.estado == "PA").ToList();
                 lDet.ForEach(t => ValorIntereses += (int)t.valor);
+
+                List<detalles_nota_credito> lDetno = db.detalles_nota_credito.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.notas_credito.estado == "PA").ToList();
+                lDetno.ForEach(t => ValorIntereses += (int)t.valor);
             }
             else
             {
@@ -215,6 +239,10 @@ namespace BLL
                 ValorIntereses = CalcularValorInteresesCartera(FechaCausacion, cartera, ValorIntereses);
                 List<detalles_pago> lDet = db.detalles_pago.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.pagos.estado == "PA").ToList();
                 lDet.ForEach(t => ValorAdicional += (int)t.valor);
+
+                List<detalles_nota_credito> lDetno = db.detalles_nota_credito.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.notas_credito.estado == "PA").ToList();
+                lDetno.ForEach(t => ValorAdicional += (int)t.valor);
+
                 ValorIntereses += ValorAdicional;
             }
             return ValorIntereses;

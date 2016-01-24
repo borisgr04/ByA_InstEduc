@@ -46,8 +46,12 @@ namespace BLL
                         int ValorIntereses = 0;
                         int ValorPagadoIntereses = 0;
                         ValorIntereses = PreCalcularInteresesCartera(FechaCausacion, cartera, ValorIntereses);
+
                         List<detalles_pago> lDet = ctx.detalles_pago.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.pagos.estado == "PA").ToList();
                         lDet.ForEach(t => ValorPagadoIntereses += (int)t.valor);
+
+                        List<detalles_nota_credito> lDetNO = ctx.detalles_nota_credito.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.notas_credito.estado == "PA").ToList();
+                        lDetNO.ForEach(t => ValorPagadoIntereses += (int)t.valor);
 
                         item.intereses = ValorIntereses;
                         item.pagado = (int) cartera.pagado + ValorPagadoIntereses;
@@ -109,13 +113,21 @@ namespace BLL
             {
                 List<detalles_pago> lDet = ctx.detalles_pago.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.pagos.estado == "PA").ToList();
                 lDet.ForEach(t => ValorIntereses += (int)t.valor);
+
+                List<detalles_nota_credito> lDetNo = ctx.detalles_nota_credito.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.notas_credito.estado == "PA").ToList();
+                lDetNo.ForEach(t => ValorIntereses += (int)t.valor);
             }
             else
             {
                 int ValorAdicional = 0;
                 ValorIntereses = CalcularValorInteresesCartera(FechaCausacion, cartera, ValorIntereses);
+
                 List<detalles_pago> lDet = ctx.detalles_pago.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.pagos.estado == "PA").ToList();
                 lDet.ForEach(t => ValorAdicional += (int)t.valor);
+
+                List<detalles_nota_credito> lDetNo = ctx.detalles_nota_credito.Where(t => t.id_cartera == cartera.id && t.tipo == "IN" && t.notas_credito.estado == "PA").ToList();
+                lDetNo.ForEach(t => ValorAdicional += (int)t.valor);
+
                 ValorIntereses += ValorAdicional;
             }
             return ValorIntereses;

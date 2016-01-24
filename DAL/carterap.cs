@@ -19,6 +19,7 @@ namespace DAL
             this.detalles_pago = new HashSet<detalles_pago>();
             this.fechas_calculo_intereses = new HashSet<fechas_calculo_intereses>();
             this.movimientos = new HashSet<movimientos>();
+            this.detalles_nota_credito = new HashSet<detalles_nota_credito>();
         }
     
         public int id { get; set; }
@@ -46,5 +47,6 @@ namespace DAL
         public virtual ICollection<detalles_pago> detalles_pago { get; set; }
         public virtual ICollection<fechas_calculo_intereses> fechas_calculo_intereses { get; set; }
         public virtual ICollection<movimientos> movimientos { get; set; }
+        public virtual ICollection<detalles_nota_credito> detalles_nota_credito { get; set; }
     }
 }

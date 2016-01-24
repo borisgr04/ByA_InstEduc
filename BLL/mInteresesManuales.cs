@@ -47,6 +47,12 @@ namespace BLL
                     pagado += (int) item.valor;
                 }
 
+                List<detalles_nota_credito> lDetallesNotas = ctx.detalles_nota_credito.Where(t => t.tipo == "IN" && t.id_cartera == id_cartera && t.notas_credito.estado == "PA").ToList();
+                foreach (detalles_nota_credito item in lDetallesNotas)
+                {
+                    pagado += (int)item.valor;
+                }
+
                 int ValorPorPagar = valorIntereses - pagado;
 
                 return ValorPorPagar;

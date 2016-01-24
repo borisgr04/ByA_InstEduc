@@ -7,6 +7,7 @@ using DAL;
 using ByA;
 using AutoMapper;
 using Entidades.Consultas;
+using BLL.Mappers;
 
 namespace BLL
 {
@@ -21,6 +22,13 @@ namespace BLL
                 .ForMember(dest => dest.nombre_estudiante, opt => opt.MapFrom(src => src.estudiantes.terceros.apellido + " " + src.estudiantes.terceros.nombre))
                 .ForMember(dest => dest.nombre_grupo, opt => opt.MapFrom(src => src.grupos_pagos != null ? src.grupos_pagos.nombre : "Ninguno")); 
             Mapper.CreateMap<pagosDto, pagos>();
+
+            Mapper.CreateMap<detalles_nota_credito, detalles_nota_creditoDto>();
+            Mapper.CreateMap<notas_credito, notas_creditoDto>()
+                .ForMember(dest => dest.detalles_nota_credito, opt => opt.MapFrom(src => src.detalles_nota_credito))
+                .ForMember(dest => dest.nombre_estudiante, opt => opt.MapFrom(src => src.estudiantes.terceros.apellido + " " + src.estudiantes.terceros.nombre))
+                .ForMember(dest => dest.nombre_grupo, opt => opt.MapFrom(src => src.grupos_pagos != null ? src.grupos_pagos.nombre : "Ninguno"));
+            Mapper.CreateMap<notas_creditoDto, notas_credito>();
 
 
         }
@@ -76,6 +84,21 @@ namespace BLL
                 return lr;
             }
         }
+        public List<notas_creditoDto> GetNotasCredito(string id_estudiante)
+        {
+            using (ctx = new ieEntities())
+            {
+                List<notas_creditoDto> lNotasCredito = ctx.notas_credito.Where(t => t.estudiantes.identificacion == id_estudiante && t.estado == "PA").Select(MapNotasCredito.Map()).ToList();
+                return lNotasCredito;
+            }
+        }
+        public notas_creditoDto GetNotaCredito(int idNota)
+        {
+            using (ctx = new ieEntities())
+            {
+                return ctx.notas_credito.Where(t => t.id == idNota).Select(MapNotasCredito.Map()).FirstOrDefault();
+            }
+        }
         public ByARpt AnularPago(int id_pago, string usu)
         {
             cmdAnularPago o = new cmdAnularPago();
@@ -106,6 +129,12 @@ namespace BLL
         public ByARpt PagarLiquidacion(pagosDto Reg)
         {
             cmdInsertPagar o = new cmdInsertPagar();
+            o.oDto = Reg;
+            return o.Enviar();
+        }
+        public ByARpt InsertNotaCredito(notas_creditoDto Reg)
+        {
+            cmdInsertNotaCredito o = new cmdInsertNotaCredito();
             o.oDto = Reg;
             return o.Enviar();
         }
@@ -1033,6 +1062,213 @@ namespace BLL
                 pago.usu_mod = usu;
                 pago.fec_mod = DateTime.Now;
             }
+        }
+        class cmdInsertNotaCredito : absTemplate
+        {
+            public notas_creditoDto oDto { get; set; }
+            private notas_credito Dto { get; set; }
+            private estudiantes estudiante { get; set; }
+            private grupos_pagos grupo_pago { get; set; }
+            private List<detalles_nota_creditoDto> detalles_pago { get; set; }
+            private notas_credito UltLiqui { get; set; }
+            private int ultIdFechaCalculoIntereses { get; set; }
+            #region ImplementaciónMetodosAbstractos
+            protected internal override bool esValido()
+            {
+                estudiante = ctx.estudiantes.Where(t => t.identificacion == oDto.id_estudiante).FirstOrDefault();
+                if (estudiante != null)
+                {
+                    notas_credito pagoMax = ctx.notas_credito.Where(t => t.estado == "PA").OrderByDescending(t => t.id).FirstOrDefault();
+                    if (pagoMax == null) return true;
+                    else
+                    {
+                        if (pagoMax.fecha <= oDto.fecha) return true;
+                        else
+                        {
+                            byaRpt.Error = true;
+                            byaRpt.Mensaje = "No se puede realizar la nota en la fecha indicada, porque hay un pago con una fecha mayor registrada";
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    byaRpt.Error = true;
+                    byaRpt.Mensaje = "La identificación del estudiante no se encuantra registrada";
+                    return false;
+                }
+            }
+            protected internal override void Antes()
+            {
+                int UltId = UltPIdPago();
+
+                UltIdFechaIntereses();
+
+                UltId++;
+                oDto.id = UltId;
+                oDto.estado = "PA";
+                oDto.id_est = estudiante.id;
+
+                detalles_pago = oDto.detalles_nota_credito;
+                oDto.detalles_nota_credito = null;
+
+                Dto = new notas_credito();
+                Mapper.Map(oDto, Dto);
+
+                _cmpReg();
+
+                ctx.notas_credito.Add(Dto);
+
+                InsertDetallesPagos();
+                CambiarFechaCausacion();
+            }
+            private void _cmpReg()
+            {
+                Dto.fec_reg = DateTime.Now;
+                Dto.fec_mov = DateTime.Now;
+                Dto.usu_mod = oDto.usu;
+                Dto.usu_reg = oDto.usu;
+            }
+            private void UltIdFechaIntereses()
+            {
+                ultIdFechaCalculoIntereses = 0;
+                try
+                {
+                    ultIdFechaCalculoIntereses = ctx.fechas_calculo_intereses.Max(t => t.id);
+                }
+                catch { }
+            }
+            private int UltPIdPago()
+            {
+                int UltId = 0;
+                try
+                {
+                    UltId = ctx.notas_credito.Max(t => t.id);
+                }
+                catch { }
+                return UltId;
+            }
+            protected override void Despues()
+            {
+                byaRpt.id = oDto.id.ToString();
+                byaRpt.Mensaje = "Operación realizada satisfactoriamente";
+            }
+            private void InsertDetallesPagos()
+            {
+                int UltId = UltDetallePago();
+                mMovimientos mm = new mMovimientos(this.ctx);
+                var id_mov = mm.GetMaxId();
+
+                foreach (detalles_nota_creditoDto item in detalles_pago)
+                {
+                    UltId++;
+                    InsDetallePago(UltId, item);
+
+
+                    if (item.tipo == "IN")
+                    {
+                        id_mov++;
+                        InsMovimiento(mm, id_mov, item, "DB");
+                    }
+                    id_mov++;
+                    InsMovimiento(mm, id_mov, item);
+
+
+                }
+            }
+            private void InsMovimiento(mMovimientos mm, int id_mov, detalles_nota_creditoDto item, string tipo = "CR")
+            {
+                movimientosDto m = new movimientosDto();
+                m.estado = "AC";
+                m.fecha_movimiento = oDto.fecha;
+                m.fecha_novedad = DateTime.Now;
+                m.fecha_registro = DateTime.Now;
+                m.id_cartera = item.id_cartera;
+                m.id_concepto = item.id_concepto;
+                m.id_estudiante = oDto.id_estudiante;
+                m.numero_documento = oDto.id;
+                m.id_est = oDto.id_est;
+
+                if (tipo == "CR")
+                {
+                    m.tipo_documento = "NOTCR";
+                    m.valor_debito = 0;
+                    m.valor_credito = item.valor;
+                }
+                else
+                {
+                    m.tipo_documento = "NOTCR";
+                    m.valor_debito = item.valor;
+                    m.valor_credito = 0;
+                }
+
+                m.vigencia = item.vigencia;
+                m.id = id_mov;
+                m.periodo = item.periodo;
+                mm.Insert(m);
+            }
+            private void InsDetallePago(int UltId, detalles_nota_creditoDto item)
+            {
+                detalles_nota_credito detalle = new detalles_nota_credito();
+                detalle.id = UltId;
+                detalle.id_nota_credito = oDto.id;
+
+                if (item.tipo != "IN")
+                {
+                    detalle.id_concepto = (int)item.id_concepto;
+                    carterap cartera = ctx.carterap.Where(t => t.id == item.id_cartera).FirstOrDefault();
+                    if (cartera != null) cartera.pagado += item.valor;
+                }
+                else
+                {
+                    // se asigna el codigo de concepto de intereses = 6
+                    detalle.id_concepto = item.id_concepto;
+                    InsertFechaUltimoCalculoInteresesCartera(item);
+                }
+
+                detalle.periodo = item.periodo;
+                detalle.vigencia = item.vigencia;
+                detalle.valor = item.valor;
+                detalle.tipo = item.tipo;
+                detalle.id_cartera = item.id_cartera;
+                detalle.nombre_concepto = item.nombre_concepto;
+
+                ctx.detalles_nota_credito.Add(detalle);
+            }
+            private int UltDetallePago()
+            {
+                int UltId = 0;
+                try
+                {
+                    UltId = ctx.detalles_nota_credito.Max(t => t.id);
+                }
+                catch { }
+
+                return UltId;
+            }
+            private void InsertFechaUltimoCalculoInteresesCartera(detalles_nota_creditoDto detalle)
+            {
+                ultIdFechaCalculoIntereses++;
+
+                fechas_calculo_intereses fecha_intereses = new fechas_calculo_intereses();
+                fecha_intereses.id = ultIdFechaCalculoIntereses;
+                fecha_intereses.id_cartera = detalle.id_cartera;
+                fecha_intereses.fecha = detalle.fecha_calculo_intereses;
+                fecha_intereses.estado = "PA";
+                ctx.fechas_calculo_intereses.Add(fecha_intereses);
+
+            }
+            private void CambiarFechaCausacion()
+            {
+                parametros strFechaCausacion = ctx.parametros.Where(t => t.nombre == "FECCAUSA").FirstOrDefault();
+                int strFechaPago = int.Parse(oDto.fecha.Year.ToString() + oDto.fecha.Month.ToString().PadLeft(2, '0') + oDto.fecha.Day.ToString().PadLeft(2, '0'));
+                int FechaCausacion = int.Parse(strFechaCausacion.valor);
+                if (strFechaPago > FechaCausacion)
+                {
+                    strFechaCausacion.valor = strFechaPago.ToString();
+                }
+            }
+            #endregion
         }
     }
 }

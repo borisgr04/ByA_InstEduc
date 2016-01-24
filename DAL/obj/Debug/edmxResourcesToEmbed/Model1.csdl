@@ -194,6 +194,32 @@
       <End Role="terceros" EntitySet="terceros" />
       <End Role="tokens_notificaciones" EntitySet="tokens_notificaciones" />
     </AssociationSet>
+    <EntitySet Name="detalles_nota_credito" EntityType="bdieModel.detalles_nota_credito" />
+    <EntitySet Name="notas_credito" EntityType="bdieModel.notas_credito" />
+    <AssociationSet Name="FK_detalles_nota_credito_carterap" Association="bdieModel.FK_detalles_nota_credito_carterap">
+      <End Role="carterap" EntitySet="carterap" />
+      <End Role="detalles_nota_credito" EntitySet="detalles_nota_credito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_nota_credito_conceptos" Association="bdieModel.FK_detalles_nota_credito_conceptos">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="detalles_nota_credito" EntitySet="detalles_nota_credito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_nota_credito_notas_credito" Association="bdieModel.FK_detalles_nota_credito_notas_credito">
+      <End Role="notas_credito" EntitySet="notas_credito" />
+      <End Role="detalles_nota_credito" EntitySet="detalles_nota_credito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalles_nota_credito_vigencias" Association="bdieModel.FK_detalles_nota_credito_vigencias">
+      <End Role="vigencias" EntitySet="vigencias" />
+      <End Role="detalles_nota_credito" EntitySet="detalles_nota_credito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notas_credito_estudiantes" Association="bdieModel.FK_notas_credito_estudiantes">
+      <End Role="estudiantes" EntitySet="estudiantes" />
+      <End Role="notas_credito" EntitySet="notas_credito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notas_credito_grupos_pagos" Association="bdieModel.FK_notas_credito_grupos_pagos">
+      <End Role="grupos_pagos" EntitySet="grupos_pagos" />
+      <End Role="notas_credito" EntitySet="notas_credito" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="carterap">
     <Key>
@@ -223,6 +249,7 @@
     <NavigationProperty Name="detalles_pago" Relationship="bdieModel.FK_detalles_pago_carterap" FromRole="carterap" ToRole="detalles_pago" />
     <NavigationProperty Name="fechas_calculo_intereses" Relationship="bdieModel.FK_fechas_calculo_intereses_carterap" FromRole="carterap" ToRole="fechas_calculo_intereses" />
     <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_carterap" FromRole="carterap" ToRole="movimientos" />
+    <NavigationProperty Name="detalles_nota_credito" Relationship="bdieModel.FK_detalles_nota_credito_carterap" FromRole="carterap" ToRole="detalles_nota_credito" />
   </EntityType>
   <EntityType Name="conceptos">
     <Key>
@@ -241,6 +268,7 @@
     <NavigationProperty Name="detalles_pago" Relationship="bdieModel.FK_detalles_pago_conceptos" FromRole="conceptos" ToRole="detalles_pago" />
     <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_conceptos" FromRole="conceptos" ToRole="movimientos" />
     <NavigationProperty Name="tarifas" Relationship="bdieModel.FK_tarifas_conceptos" FromRole="conceptos" ToRole="tarifas" />
+    <NavigationProperty Name="detalles_nota_credito" Relationship="bdieModel.FK_detalles_nota_credito_conceptos" FromRole="conceptos" ToRole="detalles_nota_credito" />
   </EntityType>
   <EntityType Name="config_grupos_pagos">
     <Key>
@@ -365,6 +393,7 @@
     <NavigationProperty Name="movimientos" Relationship="bdieModel.FK_movimientos_estudiantes" FromRole="estudiantes" ToRole="movimientos" />
     <NavigationProperty Name="pagos" Relationship="bdieModel.FK_pagos_estudiantes" FromRole="estudiantes" ToRole="pagos" />
     <NavigationProperty Name="saldos_a_favor" Relationship="bdieModel.FK_saldos_a_favor_estudiantes" FromRole="estudiantes" ToRole="saldos_a_favor" />
+    <NavigationProperty Name="notas_credito" Relationship="bdieModel.FK_notas_credito_estudiantes" FromRole="estudiantes" ToRole="notas_credito" />
   </EntityType>
   <EntityType Name="fc_menu">
     <Key>
@@ -429,6 +458,7 @@
     <NavigationProperty Name="carterap" Relationship="bdieModel.FK_carterap_grupos_pagos" FromRole="grupos_pagos" ToRole="carterap" />
     <NavigationProperty Name="config_grupos_pagos" Relationship="bdieModel.FK_config_grupos_pagos_grupos_pagos" FromRole="grupos_pagos" ToRole="config_grupos_pagos" />
     <NavigationProperty Name="pagos" Relationship="bdieModel.FK_pagos_grupos_pagos" FromRole="grupos_pagos" ToRole="pagos" />
+    <NavigationProperty Name="notas_credito" Relationship="bdieModel.FK_notas_credito_grupos_pagos" FromRole="grupos_pagos" ToRole="notas_credito" />
   </EntityType>
   <EntityType Name="intereses_manuales">
     <Key>
@@ -666,6 +696,7 @@
     <NavigationProperty Name="parametros" Relationship="bdieModel.FK_parametros_vigencias" FromRole="vigencias" ToRole="parametros" />
     <NavigationProperty Name="periodos" Relationship="bdieModel.FK_periodos_vigencias" FromRole="vigencias" ToRole="periodos" />
     <NavigationProperty Name="tarifas" Relationship="bdieModel.FK_tarifas_vigencias" FromRole="vigencias" ToRole="tarifas" />
+    <NavigationProperty Name="detalles_nota_credito" Relationship="bdieModel.FK_detalles_nota_credito_vigencias" FromRole="vigencias" ToRole="detalles_nota_credito" />
   </EntityType>
   <Association Name="FK_carterap_conceptos">
     <End Role="conceptos" Type="bdieModel.conceptos" Multiplicity="1" />
@@ -1165,6 +1196,115 @@
       </Principal>
       <Dependent Role="tokens_notificaciones">
         <PropertyRef Name="id_tercero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="detalles_nota_credito">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="id_nota_credito" Nullable="false" />
+    <Property Type="Int32" Name="id_concepto" />
+    <Property Type="Int32" Name="periodo" Nullable="false" />
+    <Property Type="Int32" Name="vigencia" Nullable="false" />
+    <Property Type="Double" Name="valor" Nullable="false" />
+    <Property Type="String" Name="tipo" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="id_cartera" Nullable="false" />
+    <Property Type="String" Name="nombre_concepto" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="carterap" Relationship="bdieModel.FK_detalles_nota_credito_carterap" FromRole="detalles_nota_credito" ToRole="carterap" />
+    <NavigationProperty Name="conceptos" Relationship="bdieModel.FK_detalles_nota_credito_conceptos" FromRole="detalles_nota_credito" ToRole="conceptos" />
+    <NavigationProperty Name="notas_credito" Relationship="bdieModel.FK_detalles_nota_credito_notas_credito" FromRole="detalles_nota_credito" ToRole="notas_credito" />
+    <NavigationProperty Name="vigencias" Relationship="bdieModel.FK_detalles_nota_credito_vigencias" FromRole="detalles_nota_credito" ToRole="vigencias" />
+  </EntityType>
+  <EntityType Name="notas_credito">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="fecha" Nullable="false" Precision="3" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="id_estudiante" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="id_grupo" Nullable="false" />
+    <Property Type="Int32" Name="id_est" Nullable="false" />
+    <Property Type="String" Name="observacion" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="fec_reg" Precision="3" />
+    <Property Type="DateTime" Name="fec_mov" Precision="3" />
+    <Property Type="String" Name="usu_reg" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="usu_mod" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="detalles_nota_credito" Relationship="bdieModel.FK_detalles_nota_credito_notas_credito" FromRole="notas_credito" ToRole="detalles_nota_credito" />
+    <NavigationProperty Name="estudiantes" Relationship="bdieModel.FK_notas_credito_estudiantes" FromRole="notas_credito" ToRole="estudiantes" />
+    <NavigationProperty Name="grupos_pagos" Relationship="bdieModel.FK_notas_credito_grupos_pagos" FromRole="notas_credito" ToRole="grupos_pagos" />
+  </EntityType>
+  <Association Name="FK_detalles_nota_credito_carterap">
+    <End Type="bdieModel.carterap" Role="carterap" Multiplicity="1" />
+    <End Type="bdieModel.detalles_nota_credito" Role="detalles_nota_credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carterap">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalles_nota_credito">
+        <PropertyRef Name="id_cartera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_nota_credito_conceptos">
+    <End Type="bdieModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+    <End Type="bdieModel.detalles_nota_credito" Role="detalles_nota_credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalles_nota_credito">
+        <PropertyRef Name="id_concepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_nota_credito_notas_credito">
+    <End Type="bdieModel.notas_credito" Role="notas_credito" Multiplicity="1" />
+    <End Type="bdieModel.detalles_nota_credito" Role="detalles_nota_credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="notas_credito">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalles_nota_credito">
+        <PropertyRef Name="id_nota_credito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalles_nota_credito_vigencias">
+    <End Type="bdieModel.vigencias" Role="vigencias" Multiplicity="1" />
+    <End Type="bdieModel.detalles_nota_credito" Role="detalles_nota_credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vigencias">
+        <PropertyRef Name="vigencia" />
+      </Principal>
+      <Dependent Role="detalles_nota_credito">
+        <PropertyRef Name="vigencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notas_credito_estudiantes">
+    <End Type="bdieModel.estudiantes" Role="estudiantes" Multiplicity="1" />
+    <End Type="bdieModel.notas_credito" Role="notas_credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estudiantes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="notas_credito">
+        <PropertyRef Name="id_est" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notas_credito_grupos_pagos">
+    <End Type="bdieModel.grupos_pagos" Role="grupos_pagos" Multiplicity="1" />
+    <End Type="bdieModel.notas_credito" Role="notas_credito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupos_pagos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="notas_credito">
+        <PropertyRef Name="id_grupo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

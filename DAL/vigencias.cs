@@ -25,6 +25,7 @@ namespace DAL
             this.parametros = new HashSet<parametros>();
             this.periodos = new HashSet<periodos>();
             this.tarifas = new HashSet<tarifas>();
+            this.detalles_nota_credito = new HashSet<detalles_nota_credito>();
         }
     
         public int vigencia { get; set; }
@@ -43,5 +44,6 @@ namespace DAL
         public virtual ICollection<parametros> parametros { get; set; }
         public virtual ICollection<periodos> periodos { get; set; }
         public virtual ICollection<tarifas> tarifas { get; set; }
+        public virtual ICollection<detalles_nota_credito> detalles_nota_credito { get; set; }
     }
 }

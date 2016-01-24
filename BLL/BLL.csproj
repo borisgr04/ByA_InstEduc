@@ -108,6 +108,8 @@
     <Compile Include="absTemplate.cs" />
     <Compile Include="DatosBasicos\mConfigGruposPagos.cs" />
     <Compile Include="DatosBasicos\mVigencias.cs" />
+    <Compile Include="Mappers\MapDetallesNotasCredito.cs" />
+    <Compile Include="Mappers\MapNotasCredito.cs" />
     <Compile Include="mCausacion.cs" />
     <Compile Include="mConceptosACartera.cs" />
     <Compile Include="mConsultaCartera.cs" />

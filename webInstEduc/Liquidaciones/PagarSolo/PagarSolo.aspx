@@ -67,7 +67,7 @@
                                     <div class="col-xs-2">
                                         <label>Valor:</label>
                                         <div class="input-group">
-                                            <input type="text" ng-model="valor_a_liquidar" format="number" ng_blur="_GetCarteraCausadaValor()" class="form-control text-right"/>
+                                            <input type="text" ng-model="valor_a_liquidar" format="number" ng-keyup="_GetCarteraCausadaValor()" class="form-control text-right"/>
                                             <div class="input-group-btn ">
                                                 <button type="button" ng-click="_GetCarteraCausadaValor()" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                                                     <span class="icon-search"></span>                        
@@ -124,7 +124,7 @@
                                             <td class="text-right">{{cartera.vigencia}}</td>
                                             <td class="text-right">
                                                 <label ng-show="(cartera.tipo=='CA' && !EditarValorCartera)">{{cartera.valor | currency:"":0}}</label>
-                                                <input ng-show="(cartera.tipo=='IN' || EditarValorCartera)" style="height:20px;" type="text" ng-blur="_SumarValorPagar()" ng-model="cartera.valor" class="form-control text-right transparente" format="number" />
+                                                <input ng-show="(cartera.tipo=='IN' || EditarValorCartera)" style="height:20px;" type="text" ng-keyup="_SumarValorPagar()" ng-model="cartera.valor" class="form-control text-right transparente" format="number" />
                                             </td>
                                             <td class="text-center"><a href="javascript:;" ng-click="_removeItemCartera(cartera)"><span class="glyphicon glyphicon-remove"></span></a></td>
                                         </tr>

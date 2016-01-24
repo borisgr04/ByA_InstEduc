@@ -75,12 +75,14 @@
     <Compile Include="Vistas\ConceptosPeriodosDto.cs" />
     <Compile Include="Vistas\configGruposPagosDto.cs" />
     <Compile Include="Vistas\ConsultaMatriculasDto.cs" />
+    <Compile Include="Vistas\detalles_nota_creditoDto.cs" />
     <Compile Include="Vistas\DiasInteresesDto.cs" />
     <Compile Include="Vistas\estudiantes_gradoDto.cs" />
     <Compile Include="Vistas\fechaCausacionDto.cs" />
     <Compile Include="Vistas\fecha_causacionDto.cs" />
     <Compile Include="Vistas\mensajesAcudientesDto.cs" />
     <Compile Include="Vistas\mensajesDto.cs" />
+    <Compile Include="Vistas\notas_creditoDto.cs" />
     <Compile Include="Vistas\oNuevoConceptoDto.cs" />
     <Compile Include="Vistas\tasasDto.cs" />
     <Compile Include="Vistas\tiposDocumentosDto.cs" />

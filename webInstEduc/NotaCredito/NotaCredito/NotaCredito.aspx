@@ -38,7 +38,7 @@
             <div class="container">
                 <div class="row">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Pagar</div>
+                        <div class="panel-heading">Nota credito</div>
                         <div class="panel-body">
                             <div class="row">
                                 <form name="datosLiquidacion">                                
@@ -61,13 +61,13 @@
                                         </div>                                     
                                     </div>
                                     <div class="col-xs-3">
-                                        <label>Fecha de pago (DD/MM/AAAA):</label>
+                                        <label>Fecha (DD/MM/AAAA):</label>
                                         <input type="datetime-local" ng-model="fecha_pago" id="txtFechaPago" ng-change="_GetCarteraCausada()" class="form-control" />
                                     </div>
                                     <div class="col-xs-2">
                                         <label>Valor:</label>
                                         <div class="input-group">
-                                            <input type="text" ng-model="valor_a_liquidar" format="number" ng_blur="_GetCarteraCausadaValor()" class="form-control text-right"/>
+                                            <input type="text" ng-model="valor_a_liquidar" format="number" ng-keyup="_GetCarteraCausadaValor()" class="form-control text-right"/>
                                             <div class="input-group-btn ">
                                                 <button type="button" ng-click="_GetCarteraCausadaValor()" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                                                     <span class="icon-search"></span>                        
@@ -76,7 +76,7 @@
                                         </div>                                        
                                     </div>
                                     <div class="col-xs-1">
-                                        <button style="margin-top:21px" ng-disabled="valor_a_liquidar==0" ng-hide="!habGuardar" class="btn btn-success btn-xs" ng-click="_pagar()"><span class="glyphicon glyphicon-usd"></span> Pagar</button>
+                                        <button style="margin-top:21px" ng-disabled="valor_a_liquidar==0" ng-hide="!habGuardar" class="btn btn-success btn-xs" ng-click="_pagar()"><span class="glyphicon glyphicon-usd"></span> Realizar</button>
                                     </div>
                                 </form>
                             </div>
@@ -124,7 +124,7 @@
                                             <td class="text-right">{{cartera.vigencia}}</td>
                                             <td class="text-right">
                                                 <label ng-show="(cartera.tipo=='CA' && !EditarValorCartera)">{{cartera.valor | currency:"":0}}</label>
-                                                <input ng-show="(cartera.tipo=='IN' || EditarValorCartera)" style="height:20px;" type="text" ng-blur="_SumarValorPagar()" ng-model="cartera.valor" class="form-control text-right transparente" format="number" />
+                                                <input ng-show="(cartera.tipo=='IN' || EditarValorCartera)" style="height:20px;" type="text" ng-keyup="_SumarValorPagar()" ng-model="cartera.valor" class="form-control text-right transparente" format="number" />
                                             </td>
                                             <td class="text-center"><a href="javascript:;" ng-click="_removeItemCartera(cartera)"><span class="glyphicon glyphicon-remove"></span></a></td>
                                         </tr>
